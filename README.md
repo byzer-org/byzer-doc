@@ -1,2 +1,3 @@
-# byzer-doc
-Documentation of byzer 
+### Byzer
+
+online docs: https://docs.byzer.org/
