@@ -25,7 +25,6 @@
   * [宏语法(命令行)](/kolo-lang/zh-cn/grammar/macro.md)
   * [Include语法](/kolo-lang/zh-cn/grammar/include.md)
   * [分支语句](/kolo-lang/zh-cn/grammar/branch_statement.md)
-  * [QL语法解析接口](/kolo-lang/zh-cn/grammar/analyze.md)
   * [常见宏命令](/kolo-lang/zh-cn/grammar/commands.md)
 
 - 数据处理和分析
@@ -58,7 +57,7 @@
         * [结合Python保存Excel](/kolo-lang/zh-cn/python/write_excel.md)
         * [K8s下的Python资源限制](/kolo-lang/zh-cn/python/k8s_resource.md)
         * [dataMode 详解](/kolo-lang/zh-cn/python/datamode.md)
-        * [Python并行度你所需要知道的](/kolo-lang/zh-cn/python/py_paralell.md)
+        * [Python并行度你所需要知道的](/kolo-lang/zh-cn/python/py_parallel.md)
 
     * UDF 扩展
         * [使用 UDF 扩展 Kolo](/kolo-lang/zh-cn/udf/README.md)
@@ -80,42 +79,38 @@
       * [使用 window/watermark](/kolo-lang/zh-cn/streaming/window_watermark.md)
       * [使用 Kolo 流式更新 MySQL 数据](/kolo-lang/zh-cn/streaming/stream_update_mysql.md)
 
--  机器学习和深度学习
-    * 机器学习
-      * [使用 Kolo 进行机器学习和深度学习](/kolo-lang/zh-cn/ml/README.md)
-      * [特征工程](/kolo-lang/zh-cn/ml/feature/README.md)
-          * [文本向量化](/kolo-lang/zh-cn/ml/feature/nlp/README.md)
-              * [TFIDF](/kolo-lang/zh-cn/ml/feature/nlp/tfidf.md)
-              * [Word2Vec](/kolo-lang/zh-cn/ml/feature/nlp/word2vec.md)
-          * [特征平滑](/kolo-lang/zh-cn/ml/feature/scale.md)
-          * [归一化](/kolo-lang/zh-cn/ml/feature/normalize.md)
-          * [混淆矩阵](/kolo-lang/zh-cn/ml/feature/confusion_matrix.md)
-          * [QQ/电话/邮件抽取](/kolo-lang/zh-cn/ml/feature/extract_example.md)
-          * [离散化](/kolo-lang/zh-cn/ml/feature/discretizer/README.md)
-              * [Bucketizer](/kolo-lang/zh-cn/ml/feature/discretizer/bucketizer.md)
-              * [Quantile](/kolo-lang/zh-cn/ml/feature/discretizer/quantile.md)
-          * [Map转化为向量](/kolo-lang/zh-cn/ml/feature/vecmap.md)
-          * [数据集切分](/kolo-lang/zh-cn/ml/feature/rate_sample.md)
+- 机器学习
+    * [特征工程](/kolo-lang/en-us/ml/feature/README.md)
+        * [文本向量化](/kolo-lang/en-us/ml/feature/nlp/README.md)
+            * [TFIDF](/kolo-lang/en-us/ml/feature/nlp/tfidf.md)
+            * [Word2Vec](/kolo-lang/en-us/ml/feature/nlp/word2vec.md)
+        * [特征平滑](/kolo-lang/en-us/ml/feature/scale.md)
+        * [归一化](/kolo-lang/en-us/ml/feature/normalize.md)
+        * [混淆矩阵](/kolo-lang/en-us/ml/feature/confusion_matrix.md)
+        * [离散化](/kolo-lang/en-us/ml/feature/discretizer/README.md)
+            * [Bucketizer](/kolo-lang/en-us/ml/feature/discretizer/bucketizer.md)
+            * [Quantile](/kolo-lang/en-us/ml/feature/discretizer/quantile.md)
+        * [Map转化为向量](/kolo-lang/en-us/ml/feature/vecmap.md)
+        * [数据集切分](/kolo-lang/en-us/ml/feature/rate_sample.md)
 
-      * [内置算法](/kolo-lang/zh-cn/ml/algs/README.md)
-          * [AutoML](/kolo-lang/zh-cn/ml/algs/auto_ml.md) 
-          * [KMeans](/kolo-lang/zh-cn/ml/algs/kmeans.md)
-          * [NaiveBayes](/kolo-lang/zh-cn/ml/algs/naive_bayes.md)
-          * [ALS](/kolo-lang/zh-cn/ml/algs/als.md)
-          * [RandomForest](/kolo-lang/zh-cn/ml/algs/random_forest.md) 
-          * [LogisticRegression](/kolo-lang/zh-cn/ml/algs/logistic_regression.md)
-          * [LinearRegression](/kolo-lang/zh-cn/ml/algs/linear_regression.md)
-          * [LDA](/kolo-lang/zh-cn/ml/algs/lda.md)
+    * [内置算法](/kolo-lang/en-us/ml/algs/README.md)
+        * [AutoML](/kolo-lang/en-us/ml/algs/auto_ml.md) 
+        * [KMeans](/kolo-lang/en-us/ml/algs/kmeans.md)
+        * [NaiveBayes](/kolo-lang/en-us/ml/algs/naive_bayes.md)
+        * [ALS](/kolo-lang/en-us/ml/algs/als.md)
+        * [RandomForest](/kolo-lang/en-us/ml/algs/random_forest.md) 
+        * [LogisticRegression](/kolo-lang/en-us/ml/algs/logistic_regression.md)
+        * [LinearRegression](/kolo-lang/en-us/ml/algs/linear_regression.md)
+        * [LDA](/kolo-lang/en-us/ml/algs/lda.md)
 
-      * [部署算法 API 服务](/kolo-lang/zh-cn/ml/api_service/README.md)
-          * [设计和原理](/kolo-lang/zh-cn/ml/api_service/design.md)
-          * [部署流程](/kolo-lang/zh-cn/ml/api_service/process.md)
+    * [部署算法 API 服务](/kolo-lang/en-us/ml/api_service/README.md)
+        * [设计和原理](/kolo-lang/en-us/ml/api_service/design.md)
+        * [部署流程](/kolo-lang/en-us/ml/api_service/process.md)
 
-    * 深度学习
-      * [基于Java的深度学习框架集成](/kolo-lang/zh-cn/dl/README.md)
-          * [加载图片数据](/kolo-lang/zh-cn/dl/load_image.md)
-          * [Cifar10示例](/kolo-lang/zh-cn/dl/cifar10.md)
-      
+- 深度学习
+    * [基于Java的深度学习框架集成](/kolo-lang/en-us/dl/README.md)
+        * [加载图片数据](/kolo-lang/en-us/dl/load_image.md)
+        * [Cifar10示例](/kolo-lang/en-us/dl/cifar10.md)
 
 - 插件系统
     * [插件与安装](/kolo-lang/zh-cn/extension/README.md)
@@ -130,11 +125,7 @@
 
 - 安全与权限
     * [接口访问控制](/kolo-lang/zh-cn/security/interface_acl/README.md)
-        * [接口访问 Token 设置](/kolo-lang/zh-cn/security/interface_acl/token_control.md)
-        * [自定义接口访问策略](/kolo-lang/zh-cn/security/interface_acl/custom_control.md)
     * [数据访问权限管理](/kolo-lang/zh-cn/security/data_acl/README.md)
-        * [解析时表权限](/kolo-lang/zh-cn/security/data_acl/compile_time.md)
-        * [运行时表/列权限](/kolo-lang/zh-cn/security/data_acl/runtime.md)
 
 
 - 开发者指南
@@ -164,5 +155,3 @@
       * [MLSQL Stack 2.0.0](/kolo-lang/zh-cn/appendix/release-notes/2.0.0.md)
     * [术语表](/kolo-lang/zh-cn/appendix/terms.md)  
     * [Blog](/kolo-lang/zh-cn/appendix/blog.md)   
-
-
