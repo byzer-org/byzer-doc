@@ -19,11 +19,6 @@
 > Byzer Notebook, an IDE for Kolo-Lang but more than an IDE
 
 
-- **Notebook**
-- **Workflow**
-
-
-
 [GitHub](https://github.com/byzer-org)
 [Byzer Notebook Doc](/byzer-notebook/en-us/)
 [Byzer Notebook 文档](/byzer-notebook/zh-cn/)
