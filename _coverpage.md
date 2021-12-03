@@ -1,4 +1,4 @@
-![logo](_media/icon.svg)
+![logo](_media/Kolo_v1.0.svg)
 
 # Byzer Org - 白泽社区
 
@@ -16,7 +16,7 @@
 
 ## Byzer Notebook
 
-> Byzer Notebook, an IDE for Kolo-Lang
+> Byzer Notebook, an IDE for Kolo-Lang but more than an IDE
 
 
 - **Notebook**

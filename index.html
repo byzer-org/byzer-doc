@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Byzer</title>
-  <link rel="icon" href="_media/favicon.ico" />
+  <link rel="icon" href="_media/Kolo_v1.0.svg" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Everything is a table">
   <meta
@@ -35,6 +35,9 @@
     title="pure"
     disabled
   />
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar-folder.min.css" />
+
     <style>
       nav.app-nav li ul {
         min-width: 100px;
@@ -59,8 +62,9 @@
         loadSidebar: true,
         // loadNavbar: true,
         mergeNavbar: true,
-        maxLevel: 4,
+        // maxLevel: 4,
         subMaxLevel: 2,
+        sidebarDisplayLevel: 1,
         ga: '',
         path: 'auto'
       }
@@ -88,5 +92,6 @@
       })();
     </script>
     <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   </body>
 </html>
