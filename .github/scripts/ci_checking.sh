@@ -12,7 +12,7 @@ if [ "$check_deadlinks" == "true" ]; then
             if [ -d $1"/"$file ]; then
                 check_dead_link $1"/"$file $2
             elif [ "${file: 0-3 :3}" == ".md" ]; then
-                markdown-link-check $1"/"$file -c check_dead_link_conf.json || succ=0
+                markdown-link-check $1"/"$file -c ./.github/scripts/check_dead_link_conf.json || succ=0
             fi
         done
     }
