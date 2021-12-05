@@ -155,3 +155,4 @@
       * [MLSQL Stack 2.0.0](/kolo-lang/zh-cn/appendix/release-notes/2.0.0.md)
     * [术语表](/kolo-lang/zh-cn/appendix/terms.md)  
     * [Blog](/kolo-lang/zh-cn/appendix/blog.md)   
+    * [TestCI](/kolo-lang/zh-cn/appendix/test_ci.md)   
