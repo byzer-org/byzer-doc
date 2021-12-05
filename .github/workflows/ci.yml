@@ -1,0 +1,28 @@
+name: Byzer Doc CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  checking:
+    name: Byzer Doc CI
+    runs-on: ubuntu-latest
+    steps: 
+    # Checkout the repository
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Setup Node
+      uses: actions/setup-node@v2
+        with:
+          node-version: 16
+    
+    - name: Setup Markdown Link Checker
+      run: npm install -g markdown-link-check
+
+    - name: Run Checking Script
+      run: ./.github/scripts/ci_checking.sh
+      shell: bash
