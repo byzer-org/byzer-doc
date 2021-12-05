@@ -22,7 +22,11 @@
 			"pattern": "^http://www.openldap.org/"
 		}
 	],
-	"replacementPatterns": [],
-	"httpHeaders": [],
-	"aliveStatusCodes": [200, 206, 400]
+	"replacementPatterns": [
+		{
+			"pattern": "^/",
+			"replacement": "{{BASEURL}}/"
+		  }
+	],
+	"httpHeaders": []
 }
