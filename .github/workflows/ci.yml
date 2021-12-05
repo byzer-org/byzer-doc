@@ -10,17 +10,23 @@ jobs:
   checking:
     name: Byzer Doc CI
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+
     steps: 
     # Checkout the repository
     - name: Checkout
       uses: actions/checkout@v2
     
-    - name: Setup Node
+    - name: Setup Env
       uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
     
-    - name: Setup Markdown Link Checker
+    - name: Install Dependencies
       run: npm install -g markdown-link-check
 
     - name: Run Checking Script
