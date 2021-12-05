@@ -9,7 +9,7 @@ online docs: https://docs.byzer.org/ powered by [docsify](https://github.com/doc
 - byzer-notebook: content of byzer notebook docs
     - zh-cn
     - en-us
-- kolo-lang: content of kolo-lang
+- kolo-lang: content of kolo-lang docs
     - zh-cn
     - en-us
 - public: content of public blogs and shared slide
