@@ -1,0 +1,28 @@
+{
+	"ignorePatterns": [
+		{
+			"pattern": "^http://host:port"
+		},
+		{
+			"pattern": "^http://host:8079"
+		},
+		{
+			"pattern": "^http://www.apache.org"
+		},
+		{
+			"pattern": "^http://www.apache"
+		},
+		{
+			"pattern": "^https://pypi.org"
+		},
+		{
+			"pattern": "^https://en.wikipedia.org/"
+		},
+		{
+			"pattern": "^http://www.openldap.org/"
+		}
+	],
+	"replacementPatterns": [],
+	"httpHeaders": [],
+	"aliveStatusCodes": [200, 206, 400]
+}
