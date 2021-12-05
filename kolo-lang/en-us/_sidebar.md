@@ -72,7 +72,7 @@
 
     * Streaming Processing
       * [Streaming Process](/kolo-lang/en-us/streaming/README.md)
-      * [Kolo Kafka Tools](/kolo-lang/en-us/streaming/kakfa_tool.md)
+      * [Kolo Kafka Tools](/kolo-lang/en-us/streaming/kafka_tool.md)
       * [Query from Kafka](/kolo-lang/en-us/streaming/query_kafka.md)
       * [Set Callback](/kolo-lang/en-us/streaming/callback.md)
       * [Save Result in Batch Mode](/kolo-lang/en-us/streaming/save_in_batch.md)

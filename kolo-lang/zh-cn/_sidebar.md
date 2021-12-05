@@ -72,7 +72,7 @@
 
     * Kolo 流编程
       * [使用 Kolo 处理流数据](/kolo-lang/zh-cn/streaming/README.md)
-      * [Kolo Kafka Tools](/kolo-lang/zh-cn/streaming/kakfa_tool.md)
+      * [Kolo Kafka Tools](/kolo-lang/zh-cn/streaming/kafka_tool.md)
       * [查询 Kafka 数据](/kolo-lang/zh-cn/streaming/query_kafka.md)
       * [设置流式计算回调](/kolo-lang/zh-cn/streaming/callback.md)
       * [对流的结果以批的形式保存](/kolo-lang/zh-cn/streaming/save_in_batch.md)
