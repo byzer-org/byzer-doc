@@ -1,11 +1,13 @@
 name: Byzer Doc CI
 
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
 
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   checking:
     name: Byzer Doc CI
