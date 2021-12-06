@@ -1,5 +1,8 @@
 ## Byzer Documentation
 
+![CI](https://github.com/byzer-org/byzer-doc/actions/workflows/ci.yml/badge.svg)  [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
 online docs: https://docs.byzer.org/ powered by [docsify](https://github.com/docsifyjs/docsify/)
 
 ## Document Structure
