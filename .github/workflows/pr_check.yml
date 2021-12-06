@@ -1,10 +1,10 @@
-name: Byzer Doc CI
+name: Byzer Doc PR Check
 
 
 on: 
-  schedule:
-   - cron: "0 0 12 * *"
-
+  pull_request:
+    branches:
+      - main
 jobs:
   checking:
     name: Byzer Doc CI
