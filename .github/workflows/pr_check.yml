@@ -7,7 +7,7 @@ on:
       - main
 jobs:
   checking:
-    name: Byzer Doc CI
+    name: PR Check
     runs-on: ubuntu-latest
 
     strategy:
