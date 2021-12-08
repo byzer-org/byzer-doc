@@ -35,6 +35,7 @@ Welcome to **file an ISSUE** or **submit a PR** when:
 **Before you submit a PR, please make sure you have previewed the content in local**
 
 ### How to preview docs in local
+- Please make sure that `node` has been installed in your local machine
 - Just fork byzer-doc to your repository
 - Clone your repo to your local machine
 - Install `docsify` by `npm -i docsify-cli -g`
