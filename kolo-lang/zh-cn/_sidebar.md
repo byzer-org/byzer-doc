@@ -60,15 +60,15 @@
         * [Python并行度你所需要知道的](/kolo-lang/zh-cn/python/py_parallel.md)
 
     * UDF 扩展
-        * [使用 UDF 扩展 Kolo](/kolo-lang/zh-cn/udf/README.md)
+        * [Kolo 的 UDF 功能](/kolo-lang/zh-cn/udf/README.md)
         * [系统内置 UDF](/kolo-lang/zh-cn/udf/built_in_udf/README.md)
           * [http请求](/kolo-lang/zh-cn/udf/built_in_udf/http.md)
-          * [常见函数](/kolo-lang/zh-cn/udf/built_in_udf/vec.md)
-        * [动态扩展 UDF](/kolo-lang/zh-cn/udf/extend_udf.md)
-          * [Python UDF](/kolo-lang/zh-cn/udf/python_udf.md)
-          * [Scala UDF](/kolo-lang/zh-cn/udf/scala_udf.md)
-          * [Scala UDAF](/kolo-lang/zh-cn/udf/scala_udaf.md)
-          * [Java UDF](/kolo-lang/zh-cn/udf/java_udf.md)
+          * [常用函数](/kolo-lang/zh-cn/udf/built_in_udf/vec.md)
+        * [动态扩展 UDF](/kolo-lang/zh-cn/udf/extend_udf/README.md)
+          * [Python UDF](/kolo-lang/zh-cn/udf/extend_udf/python_udf.md)
+          * [Scala UDF](/kolo-lang/zh-cn/udf/extend_udf/scala_udf.md)
+          * [Scala UDAF](/kolo-lang/zh-cn/udf/extend_udf/scala_udaf.md)
+          * [Java UDF](/kolo-lang/zh-cn/udf/extend_udf/java_udf.md)
 
     * Kolo 流编程
       * [使用 Kolo 处理流数据](/kolo-lang/zh-cn/streaming/README.md)
