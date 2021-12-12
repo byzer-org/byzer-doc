@@ -9,9 +9,9 @@
   * [新功能](/kolo-lang/zh-cn/what's_new/new_features.md)
 
 - 安装与配置
-  * [Kolo Engine 安装与配置](/kolo-lang/zh-cn/installation/kolo_engine.md)
-  * [Kolo 桌面版](/kolo-lang/zh-cn/installation/kolo_desktop.md)    
-  * [Kolo 命令行](/kolo-lang/zh-cn/installation/kolo_cli.md)
+  * [Kolo-lang 安装与配置](/kolo-lang/zh-cn/installation/binary-installation.md)
+  * [Kolo 桌面版](/kolo-lang/zh-cn/installation/desktop-installation.md)    
+  * [Kolo 命令行](/kolo-lang/zh-cn/installation/cli-installation.md)
   * [Kolo Sandbox](/kolo-lang/zh-cn/installation/sandbox.md)
 
 - Kolo-Lang 语法手册
