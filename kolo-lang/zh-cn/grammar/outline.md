@@ -273,6 +273,8 @@ select * from newMockTable as output;
 !plugin app add - "mlsql-mllib-3.0";
 ```
 
+插件管理器会自动从 `store.mlsql.tech` 网站下载最新版本的指定插件。
+
 安装完成后，就可以使用一个名称为 `SampleDatasetExt` 的 ET 。
 
 使用该ET可以生成测试数据：
@@ -287,4 +289,18 @@ as mockData;
 ```
 
 该 ET 会产生一个叫 `mockDat` 的表，该表有三个字段 `id，features，label`，条数 100000, 特征长度 100, 分类种类为 2.
+
+## 作用域
+
+Kolo-lang 是解释型语言。 变量，宏函数， UDF 注册，`select` 临时表等等， 都遵循如下规则：
+
+1. 声明后即可使用
+2. 多次声明，后面的会覆盖覆盖前面的
+3. 除了变量，宏函数默认是 request 生命周期， 其他元素比如 UDF 注册， `select` 临时表等都是 session 声明周期。 
+
+> request , 仅在当前执行阶段有效，不能跨 Cell 使用。
+> session , 和用户生命周期绑定，可跨 Cell 使用。 默认 1 小时没有发生任何访问，用户 session 会被释放。
+
+
+
 

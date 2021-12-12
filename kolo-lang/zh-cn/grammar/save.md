@@ -1,6 +1,6 @@
 # 保存数据/save
 
-`save` 句式类似传统 SQL 中的 `insert` 语法。但同 `load` 语法一样，Kolo-lang 是要面向各种数据源的。`insert` 语法无法很好的满足该诉求，
+`save` 句式类似传统 SQL 中的 `insert` 语法。但同 `load` 语法一样，Kolo-lang 是要面向各种数据源的，譬如各种对象存储，亦或是各种类型的库表，不仅仅局限在数仓。`insert` 语法无法很好的满足该诉求，
 同时 `insert` 语法过于繁琐，所以 Kolo-lang 提供了新的 `save` 句式专门应对数据存储。
 
 ## 基本语法
@@ -33,10 +33,10 @@ save overwrite table1 as json.`/tmp/jack` where fileNum="10";
 
 `save` 支持四种存储方式：
 
-1. overwrite
-2. append
-3. ignore
-4. errorIfExists
+1. overwrite  覆盖写
+2. append     追加写
+3. ignore     文件存在跳过不写
+4. errorIfExists 文件存在则报错
 
 ## Save Connect 支持
 `save` 也支持 `connect` 语句的引用。

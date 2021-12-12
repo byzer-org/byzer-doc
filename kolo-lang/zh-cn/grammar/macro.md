@@ -54,7 +54,13 @@ as ${tableName}
 !loadExcel _ -path ./example-data/excel/hello_world.xlsx -tableName helloTable;
 ```
 
+`-path` 后面的参数对应  `loadExcel` 函数体里的 `${path}`, 同理 `tableName`。
+
 注意，为了识别命名参数，宏函数要求第一个参数是 `_` 。
+
+## 作用域
+
+宏函数声明后即可使用。 可以重复声明，后声明的会覆盖前面声明的。
 
 ## 宏函数的限制
 

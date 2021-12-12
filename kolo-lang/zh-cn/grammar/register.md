@@ -4,7 +4,7 @@ Register 句式在 Kolo-lang 中主要可以完成三类工作：
 
 1. 动态注册 Java/Scala 写的 UDF/UDAF 函数
 2. 将内置或者 Python 模型注册成 UDF 函数
-3. 在流式计算中，注册 wartermark/windows
+3. 在流式计算中，注册 wartermark/window
 
 ## 注册 SQL 函数
 

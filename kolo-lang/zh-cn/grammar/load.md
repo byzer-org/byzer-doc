@@ -1,7 +1,6 @@
 # 数据加载/Load
 
-Kolo-lang 认为一切都可以加载为表，可能是某个文件，也可能是一个 Rest 接口，也可能是某数据库，
-或者是数仓或者数据湖。 
+ Kolo-Lang 的设计哲学是 `Everything is a table`，那么就可以在 Kolo-Lang 中抽象各种文件数据源，数据库，数据仓库，数据湖甚至 Rest API 成一个表，然后使用二维表的操作方式来处理它。 这主要通过 `load` 句式来达成。
 
 
 ## 基本使用
@@ -52,7 +51,7 @@ select * from table1 as output;
 
 ## 获取可用数据源
 
-通过如下指令来查看当前支持的数据源：
+通过如下指令来查看当前实例支持的数据源（内置或者通过插件安装的）：
 
 ```sql
 !show datasources;
@@ -97,9 +96,9 @@ load jdbc.`db_1.crawler_table` as output;
 
 ## 直接查询模式(DirectQuery)
 
-有部分数据源支持直接查询模式。
+有部分数据源支持直接查询模式，目前官方内置了 JDBC 数据源的支持。
 
-以 `JDBC` 数据源为例:
+示例：
 
 ```sql
 connect jdbc where
@@ -117,8 +116,7 @@ select * from newtable as output;
 ```
 
 在 JDBC 数据源的 `where/options` 参数里，用户可以配置一个 `directQuery` 参数。
-该参数可以写数据源原生支持的语法。比如对于 MongoDB 可能就是一段 JSON, 而对于
-MySQL 则可能是合乎 MySQL 语法的 SQL。
+该参数可以写数据源原生支持的语法。比如对于 ClickHouse 可能就是一段合乎 ClickHouse 的 SQL, 而对于 MySQL 则可能是合乎 MySQL 语法的 SQL。
 
 Kolo-lang 会将 `directQuery` 的查询下推到底层引擎，并且将执行的结果作为注册成新的表。 
 在上面的例子中，新表名称为 `newtable`。 这个表可以被后续的 Kolo-lang 代码引用。
