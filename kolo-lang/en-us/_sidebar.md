@@ -14,18 +14,18 @@
   * [Kolo CLI](/kolo-lang/en-us/installation/kolo_cli.md)
   * [Kolo Sandbox](/kolo-lang/en-us/installation/sandbox.md)
 
-- Grammar Manual
-  * [Kolo-Lang Grammar](/kolo-lang/en-us/grammar/outline.md)
-  * [Set Statement](/kolo-lang/en-us/grammar/set.md)
-  * [Load Statement](/kolo-lang/en-us/grammar/load.md)
-  * [Select Statement](/kolo-lang/en-us/grammar/select.md)
-  * [Train/Run/Predict Statement](/kolo-lang/en-us/grammar/et_statement.md)
-  * [Register Statement](/kolo-lang/en-us/grammar/register.md)
-  * [Save Statement](/kolo-lang/en-us/grammar/save.md)
-  * [Macro](/kolo-lang/en-us/grammar/macro.md)
-  * [Include Statement](/kolo-lang/en-us/grammar/include.md)
-  * [Branch Statement](/kolo-lang/en-us/grammar/branch_statement.md)
-  * [Common Marco Commands](/kolo-lang/en-us/grammar/commands.md)
+- Kolo-lang Grammar Manual
+  * [Kolo-Lang Guide](/kolo-lang/en-us/grammar/outline.md)  
+  * [Data Load/Load](/kolo-lang/en-us/grammar/load.md)
+  * [Data Transform/Select](/kolo-lang/en-us/grammar/select.md)
+  * [Data Save/Save](/kolo-lang/en-us/grammar/save.md)
+  * [Extension/Train|Run|Predict](/kolo-lang/en-us/grammar/et_statement.md)
+  * [Model,UDF Register/Register](/kolo-lang/en-us/grammar/register.md)  
+  * [Variable/Set](/kolo-lang/en-us/grammar/set.md)
+  * [Macro Function](/kolo-lang/en-us/grammar/macro.md)
+  * [Code Import/Include](/kolo-lang/en-us/grammar/include.md)
+  * [Branch/If|Else](/kolo-lang/en-us/grammar/branch_statement.md)
+  * [Build-in Marco Functions](/kolo-lang/en-us/grammar/commands.md)
 
 - Data Pipeline & Analysis
     - Load Datasource in Kolo

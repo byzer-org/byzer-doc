@@ -15,17 +15,17 @@
   * [Kolo Sandbox](/kolo-lang/zh-cn/installation/sandbox.md)
 
 - Kolo-Lang 语法手册
-  * [Kolo-Lang 语法大纲](/kolo-lang/zh-cn/grammar/outline.md)
-  * [Set语法](/kolo-lang/zh-cn/grammar/set.md)
-  * [Load语法](/kolo-lang/zh-cn/grammar/load.md)
-  * [Select语法](/kolo-lang/zh-cn/grammar/select.md)
-  * [Train/Run/Predict语法](/kolo-lang/zh-cn/grammar/et_statement.md)
-  * [Register语法](/kolo-lang/zh-cn/grammar/register.md)
-  * [Save语法](/kolo-lang/zh-cn/grammar/save.md)
-  * [宏语法(命令行)](/kolo-lang/zh-cn/grammar/macro.md)
-  * [Include语法](/kolo-lang/zh-cn/grammar/include.md)
-  * [分支语句](/kolo-lang/zh-cn/grammar/branch_statement.md)
-  * [常见宏命令](/kolo-lang/zh-cn/grammar/commands.md)
+  * [Kolo-Lang 语言向导](/kolo-lang/zh-cn/grammar/outline.md)
+  * [数据加载/Load](/kolo-lang/zh-cn/grammar/load.md)
+  * [数据转换/Select](/kolo-lang/zh-cn/grammar/select.md)
+  * [保存数据/save](/kolo-lang/zh-cn/grammar/save.md)  
+  * [扩展/Train|Run|Predict](/kolo-lang/zh-cn/grammar/et_statement.md)
+  * [注册函数，模型/Register](/kolo-lang/zh-cn/grammar/register.md)  
+  * [变量/Set](/kolo-lang/zh-cn/grammar/set.md)
+  * [宏函数/Macro Function](/kolo-lang/zh-cn/grammar/macro.md)
+  * [代码引入/Include](/kolo-lang/zh-cn/grammar/include.md)
+  * [分支/If|Else](/kolo-lang/zh-cn/grammar/branch_statement.md)
+  * [内置宏函数/build-in Macro Functions](/kolo-lang/zh-cn/grammar/commands.md)
 
 - 数据处理和分析
     - 在 Kolo 中加载数据源
