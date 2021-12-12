@@ -1,6 +1,6 @@
 ## 变量/Set
 
-Kolo-lang 也支持变量。
+Kolo-lang 支持变量。
 
 ## 基础应用
 
@@ -8,9 +8,11 @@ Kolo-lang 也支持变量。
 set hello="world";
 ```
 
-此时你运行后不会有任何输出结果。因为他仅仅是设置了一个变量。那么怎么使用呢？
+此时用户运行后不会有任何输出结果。
 
-你可以在后续的语法中使用，比如：
+如果希望看到此变量，可以通过 select 语句进行查看。
+
+示例：
 
 ```sql
 
@@ -42,20 +44,22 @@ as `${hello}`;
 select * from world as output;
 ```
 
-我们看到，我们并没有显式的定义world表，但是我们在最后一句依然可以使用，这是因为系统正确的解析了前面的${hello}变量。
+在上面代码中，并没有显式的定义 world 表，但用户依然可以在 select 语句中使用 world 表。
 
-因为表名是被语法解析格式限制的，所以我们需要用``将其括起来，避免语法解析错误。
+> 表名需要使用反引号将其括起来，避免语法解析错误
 
 ### 生命周期
 
-值得一提的是，set语法当前的生命周期是request级别的，也就是每次请求有效。通常在Kolo-lang中，生命周期分成三个部分：
+值得一提的是，set 语法当前的生命周期是 request 级别的，也就是每次请求有效。
+
+通常在 Kolo-lang 中，生命周期分成三个部分：
 
 1. request （当前执行请求有效）
 2. session  （当前会话周期有效）
 3. application （全局应用有效）
 
 
-request级别表示什么含义呢？ 如果你先执行
+request 级别表示什么含义呢？ 如果你先执行
 
 ```sql
 set hello="world";
@@ -90,20 +94,20 @@ java.lang.String.replaceAll(String.java:2223)
 tech.mlsql.dsl.adaptor.SelectAdaptor.analyze(SelectAdaptor.scala:49)
 ```
 
-系统找不到${hello}这个变量,然后原样输出，最后导致语法解析错误。
+系统找不到 ${hello} 这个变量,然后原样输出，最后导致语法解析错误。
 
-如果你希望变量可以跨cell(Notebook中)使用，可以通过如下方式来设置。
+如果你希望变量可以跨 cell ( Notebook中 )使用，可以通过如下方式来设置。
 
-```
+```sql
 set hello="abc" where scope="session";
 ```
 
-变量默认生命周期是request。 也就是当前脚本或者当前cell中有效。 
+变量默认生命周期是 request。 也就是当前脚本或者当前 cell 中有效。 
 
 
 ## 变量类型
 
-Kolo-lang的变量被分为五种类型：
+Kolo-lang 的变量被分为五种类型：
 
 1. text
 2. conf
@@ -111,7 +115,9 @@ Kolo-lang的变量被分为五种类型：
 4. sql
 5. defaultParam
 
-第一种text也就是我们前面已经演示过的：
+第一种text， 前面演示的代码大部分都是这种变量类型。
+
+示例：
 
 ```sql
 set hello="world";
@@ -123,21 +129,21 @@ set hello="world";
 set spark.sql.shuffle.partitions=200 where type="conf";
 ```
 
-表示将底层spark引擎的shuffle默认分区数设置为200. 那么如何制定这是一个配置呢？ 答案就是加上
+该变量表示将底层 Spark 引擎的 shuffle 默认分区数设置为 200。 
 
-```sql
-where type="conf"
-```
 
-条件子句。
+第三种是 shell,也就是 set 后的 key 最后是由 shell 执行生成的。 
 
-第三种是shell,也就是set后的key最后是由shell执行生成的。 我们已经不推荐使用该方式。典型的例子比如：
+> 不推荐使用该方式， 安全风险较大
+
+典型的例子比如：
 
 ```sql
 set date=`date` where type="shell";
 select "${date}" as dt as output;
 ```
-注意，这里需要使用`` 括住该命令。
+注意，这里需要使用反引号括住该命令。
+
 输出结果为：
 
 ```sql
@@ -155,7 +161,7 @@ where type="sql";
 select "${date}" as dt as output;
 ```
 
-注意这里也需要使用`` 括住命令。 最后结果输出为：
+注意这里也需要使用反引号括住命令。 最后结果输出为：
 
 ```
 dt
@@ -163,7 +169,9 @@ dt
 2019-08-18
 ```
 
-最后一种是defaultParam，我们先看示例。
+最后一种是defaultParam。
+
+示例：
 
 ```sql
 set hello="foo";
@@ -180,8 +188,8 @@ name
 bar
 ```
 
-这符合大家直觉，下面的会覆盖上面的。那如果我想达到这么一种效果，如果变量已经设置了，我就不设置，如果变量没有被设置过，我就作为默认值。为了达到
-这个效果，MLSQL引入了defaultParam类型：
+这符合大家直觉，下面的会覆盖上面的。那如果用户想达到这么一种效果，如果变量已经设置了，新变量声明就失效，如果变量没有被设置过，则生效。
+为了达到这个效果，Kolo-lang 引入了 defaultParam 类型的变量：
 
 ```sql
 set hello="foo";
@@ -198,7 +206,7 @@ name
 foo
 ```
 
-如果前面没有设置过hello="foo",
+如果前面没有设置过 hello="foo",
 
 
 ```sql
@@ -217,32 +225,32 @@ bar
 
 ## 编译时和运行时变量
 
-Kolo-lang有非常完善的权限体系，可以轻松控制任何数据源到列级别的访问权限，而且创新性的提出了编译时权限，
-也就是通过静态分析MLSQL脚本从而完成表级别权限的校验（列级别依然需要运行时完成）。
+Kolo-lang 有非常完善的权限体系，可以轻松控制任何数据源到列级别的访问权限，而且创新性的提出了预处理时权限，
+也就是通过静态分析 Kolo-lang 脚本从而完成表级别权限的校验（列级别依然需要运行时完成）。
 
-但是编译期权限最大的挑战在于set变量的解析，比如：
+但是预处理期间，权限最大的挑战在于 set 变量的解析，比如：
 
 ```sql
 select "foo" as foo as foo_table;
 set hello=`select foo from foo_table` where type="sql";
 select "${hello}" as name as output; 
 ```
-如果我们没有真的运行第一个句子，那么set语法就无法执行。但是因为是编译期，所以我们肯定不会真实运行第一个句子，这就会导致执行失败。
-根本原因是因为set依赖了运行时才会产生的表。
 
-为了解决这个问题，我们引入了 compile/runtime 两个模式。如果你希望你的set语句可以编译时就evaluate值，那么添加该参数即可。
+在没有执行第一个句子，那么第二条 set 语句在预处理期间执行就会报错，因为此时并没有叫 foo_table 的表。
+
+为了解决这个问题，Kolo-lang 引入了 compile/runtime 两个模式。如果用户希望在 set 语句预处理阶段就可以 evaluate 值，那么添加该参数即可。
 
 ```sql
 set hello=`select 1 as foo ` where type="sql" and mode="compile";
 ```
 
-如果你希望你的set值，只在运行时才需要，则设置为runtime:
+如果希望 set 变量，只在运行时才需要执行，则设置为 runtime:
 
 ```sql
 set hello=`select 1 as foo ` where type="sql" and mode="runtime";
 ```
 
-编译期我们不会运行这个set语句。
+此时，Kolo-lang 在预处理阶段不会进行该变量的创建。
 
 
 ## 内置变量
@@ -255,4 +263,4 @@ set jack='''
 ''';
 ```
 
-date是内置的，你可以用他实现丰富的日期处理。
+date 是内置的，你可以用他实现丰富的日期处理。

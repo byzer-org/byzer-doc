@@ -1,15 +1,16 @@
 ## 注册函数，模型/Register
 
-Register句式在Kolo-lang中其实主要可以完成三类工作：
+Register 句式在 Kolo-lang 中主要可以完成三类工作：
 
-1. 动态注册Java/Scala写的UDF/UDAF函数
-2. 将内置或者Python模型注册成 UDF函数
-3. 在流式计算中，注册wartermark
+1. 动态注册 Java/Scala 写的 UDF/UDAF 函数
+2. 将内置或者 Python 模型注册成 UDF 函数
+3. 在流式计算中，注册 wartermark/windows
 
-### 注册SQL函数
+### 注册 SQL 函数
 
-在SQL中，最强大的莫过于函数了。在Hive中，其相比其他的传统数据而言，在于其可以很好的进行函数的扩展。 Kolo-lang 将这个优势发展到极致。
-我们来看看如何创建 一个函数：
+在 SQL 中，最强大的莫过于函数了。Kolo-lang 支持动态创建 UDF/UDAF 函数。
+
+示例代码：
 
 ```ruby
 register ScriptUDF.`` as plusFun where
@@ -22,9 +23,9 @@ def apply(a:Double,b:Double)={
 ''';
 ```
 
-使用ET ScriptUDF注册一个函数叫plusFun,这个函数使用scala语言，函数的类型是UDF,对应的实现代码在code参数里。
+上面代码的含义是，使用 ET ScriptUDF 注册一个函数叫 plusFun，这个函数使用 Scala 语言，函数的类型是 UDF,对应的实现代码在 code 参数里。
 
-现在我们就可以在select语句中使用plusFun函数了：
+在Kolo-lang中， 执行完上面代码后，用户可以直接在 select 语句中使用 plusFun 函数：
 
 ```sql
 -- create a data table.
@@ -47,7 +48,7 @@ def apply(a:Double,b:Double)={
 
 #### 通过变量持有代码片段
 
-代码片段也可以使用变量持有，然后在ScriptUDF中引用：
+代码片段也可以使用变量持有，然后在 ScriptUDF 中引用：
 
 ```sql
 set plusFun='''
@@ -187,10 +188,10 @@ load jsonStr.`data` as dataTable;
 select funx(a) as res from dataTable as output;
 ```
 
-由于java语言的特殊性，我们需要注意几点：
+由于 Java 语言的特殊性，有如下几点注意事项：
 
-> 1. 传递的代码必须是一个java类，并且默认系统会寻找UDF.apply()做为运行的udf，如果需要特殊类名和方法名，需要在register时，声明options，例如例子2。
-> 2. 不支持包名(package申明)
+> 1. 传递的代码必须是一个 Java 类，并且默认系统会寻找 UDF.apply() 做为运行的 udf，如果需要特殊类名和方法名，需要在 register 时，声明 options，参考例子2。
+> 2. 不支持包名(package声明)
 
 例子2：
 
@@ -235,9 +236,9 @@ select rf_predict(features) as predict_label from trainData
 as output;
 ```
 
-register语句的含义是： 将 `/tmp/rf ` 中的RandomForest模型注册成一个函数，函数名叫rf_predict.
+register语句的含义是： 将 `/tmp/rf ` 中的 RandomForest 模型注册成一个函数，函数名叫 rf_predict.
 
-register 后面也能接 where/options子句：
+register 后面也能接 where/options 子句：
 
 ```sql
 register  RandomForest.`/tmp/rf` as rf_predict
@@ -248,7 +249,7 @@ options algIndex="0"
 
 如果训练时同时训练了多个模型的话：
 
-1. algIndex可以让用户手动指定选择哪个模型
+1. algIndex 可以让用户手动指定选择哪个模型
 2. autoSelectByMetric 则可以通过一些指标，让系统自动选择一个模型。内置算法可选的指标有： f1|weightedPrecision|weightedRecall|accuracy。
 
 如果两个参数都没有指定话的，默认会使用f1指标。
@@ -256,7 +257,7 @@ options algIndex="0"
 
 ## 流式程序中注册 watermark
 
-在流式计算中，有wartermark以及window的概念。MLSQL的register语法也可以用于流式计算里的watermark的注册。
+在流式计算中，有 wartermark 以及 window 的概念。我们可以使用 Register 句式来完成这个需求：
 
 ```sql
 -- register watermark for table1
@@ -264,5 +265,3 @@ register WaterMarkInPlace.`table1` as tmp1
 options eventTimeCol="ts"
 and delayThreshold="10 seconds";
 ```
-
-这里大家只要有个感觉就行。本章节我们不会做过多解释，在后续专门的流式计算章节，我们会提供非常详细的说明。

@@ -1,7 +1,7 @@
 ## 保存数据/save
 
-save语法类似传统SQL中的insert语法。但同load语法一样，Kolo-lang是要面向各种数据源的。insert语法无法很好的满足该诉求，
-同时insert语法过于繁琐，所以Kolo-lang提供了新的save语法专门应对数据存储。
+save 句式类似传统 SQL 中的 insert 语法。但同 load 语法一样，Kolo-lang 是要面向各种数据源的。insert 语法无法很好的满足该诉求，
+同时insert语法过于繁琐，所以 Kolo-lang 提供了新的 save 句式专门应对数据存储。
 
 ### 基本语法
 
@@ -14,24 +14,29 @@ load jsonStr.`rawData` as table1;
 save overwrite table1 as json.`/tmp/jack`;
 ```
 
-最后一句就是save句式了。 
+最后一句就是 save 句式了。 
 
-怎么理解这个句式呢？ 将table1覆盖保存，使用json格式，保存位置为 `/tmp/jack`。 还是比较易于理解的吧。通常，save语句里的数据源或者格式和load是保持一致的，配置参数也类似。但有部分数据源只支持save,有部分只支持load。典型的比如 jsonStr,他就 只支持load,不支持save。
+上面的 save 语句的含义是： 将 table1 进行覆盖保存，存储的格式为 Json 格式，保存位置是 `/tmp/jack`。 
 
-save语句也支持where/options条件子句。比如，我希望保存的时候，将数据按切分成十分来保存，就可以按下面的方式写：
+通常，save 语句里的数据源或者格式和 load 是保持一致的，配置参数也几乎保持一致。
+
+但有部分数据源只支持 save,有部分只支持 load。典型的比如 jsonStr 就只支持 load,而不支持save。
+
+save 语句也支持 where/options 条件子句。比如，如果用户希望保存时控制文件数量，那么可以使用 where/options 子句中的 fileNum 参数
+进行控制：
 
 ```sql
 save overwrite table1 as json.`/tmp/jack` where fileNum="10";
 ```
 
-Save支持四种存储方式：
+Save 支持四种存储方式：
 
 1. overwrite
 2. append
 3. ignore
 4. errorIfExists
 
-save 也支持connect 语句的引用。
+save 也支持 connect 语句的引用。
 
 比如：
 
@@ -48,3 +53,7 @@ as db_1;
 
 save append tmp_article_table as jdbc.`db_1.crawler_table`;
 ```
+
+connect 语句并不是真的去连接数据库，而仅仅是方便后续记在同一数据源，避免在 load 句式中反复填写相同的参数。
+
+对于示例中的 connect 语句， jdbc + db_1 为唯一标记。 当系统遇到下面 save 语句中 jdbc.`db_1.crawler_table` 时，他会通过 jdbc 以及 db_1 找到所有的配置参数， 如 driver， user, url, 等等，然后自动附带上到 save 语句中。

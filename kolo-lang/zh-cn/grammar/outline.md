@@ -1,6 +1,6 @@
 ## Kolo-Lang 语言向导
 
-Kolo-lang 是声明式语言，这和SQL非常类似。不同的是，Kolo-lang也支持Python脚本，用户也可以使用Scala/Java动态开发和注册UDF函数。
+Kolo-lang 是声明式语言，这和 SQL 非常类似。不同的是，Kolo-lang 也支持 Python 脚本，用户也可以使用 Scala/Java 动态开发和注册 UDF 函数。
 这使得其灵活度得到了很大提高。
 
 Kolo-lang 针对大数据领域的流程抽象出了如下几个句法结构：
@@ -27,14 +27,18 @@ where header="true"
 as hello_world;
 ```
 
-在上面的语句中，通过load关键字进行加载申明。加载的数据格式为excel, 路径为 `./example-data/excel/hello_world.xlsx`,
-加载的过程中配置参数在where/options 子语句中。最后，我们系统会加载为一张表，我们通过as 将其命名为hell_world.
+在上面的语句中，通过 load 关键字进行加载申明。加载的数据格式为 excel , 路径为 `./example-data/excel/hello_world.xlsx`,
+加载的过程中配置参数在 where/options 子语句中。加载后的结果是一张表，使用 as 进行命名，名称为 `hello_world`。
 
-Kolo-lang 几乎可以加载市面上主流的数据源，数据格式。各种云对象存储，亦或是HDFS,还有如支持JDBC驱动的数据库。
+Kolo-lang 几乎可以加载市面上主流的
+
+1. 数据源， 比如 JDBC 协议的数据库， 多种云上对象存储，HDFS。
+2. 数据格式，比如文件格式如 text， image， csv， json， xml等。
+
 
 ### 数据处理
 
-Kolo-lang主要使用select语句处理加载后的数据。
+Kolo-lang 主要使用 select 句式处理加载后的数据。
 
 ```sql
 load excel.`./example-data/excel/hello_world.xlsx` 
@@ -44,7 +48,7 @@ as hello_world;
 select hello from hello_world as output;
 ```
 
-在这里例子中，我们可以使用兼容spark-sql的语法对hello-world表进行处理。
+在这里例子中使用兼容 Spark SQL 的语法对 `hello-world` 表进行处理。
 
 ### 数据保存
 
@@ -56,26 +60,27 @@ as hello_world;
 save overwrite hello_world as csv.`./tmp/hw` where header="true";
 ```
 
-save 表示我们要对表进行保存。overwrite表示对目标对象进行覆盖。 hello_world则是被保存的表。 as 后面紧接着保存的格式和路径。 最后保存的配置选项在
-where/options子句中。
+save 表示要对表进行保存。overwrite 表示对目标对象进行覆盖。 hello_world 则是被保存的表。 as 后面紧接着保存的格式和路径。 最后保存的配置选项在
+where/options 子句中。
 
 ### 代码复用
 
-在同一个项目里，我们可以通过include来包含不同的文件。
+在同一个项目里，脚本之间的引用可以通过 include 句式来完成。
+
 
 ```sql
 include project.`./src/common/PyHeader.mlsql`;
 ```
 
-这个语法在桌面版中有效。不同的Notebook 实现，则可能会有不同，但总体格式是一致的。
+这个语法在桌面版中有效。不同的 Notebook 实现，则可能会有不同，但总体格式是一致的。
 
-如果希望达到包级别的复用，Kolo-lang使用github作为包管理器。举例，笔者实现了一个Kolo-lang示例项目库：
+如果希望达到包级别的复用，Kolo-lang 使用 Github 作为包管理器。举例，lib-core 是 Kolo-lang 的一个示例Lib：
 
 ```
 https://github.com/allwefantasy/lib-core
 ```
 
-我们可以通过如下代码将该库引入自己的项目：
+可以通过如下代码将该库引入自己的项目：
 
 ```sql
 include lib.`github.com/allwefantasy/lib-core`
@@ -84,7 +89,7 @@ mirror="gitee.com"
 and alias="libCore";
 ```
 
-接着，我们引入hello模块，从而获得hello函数：
+接着，引入 hello 模块，最后就可以在 select 句式中使用 hello 函数了：
 
 ```sql
 include local.`libCore.udf.hello`;
@@ -93,9 +98,9 @@ select hello() as name as output;
 
 ### 宏函数
 
-标准SQL中也有函数，Kolo-lang的宏函数则是SQL层级的。
+标准 SQL 中也有函数，Kolo-lang 的宏函数则是 SQL 层级的。
 
-譬如每次都写完整的load语句是一件沮丧的事情。我们可以将其进行封装。
+譬如每次都写完整的 load 语句是一件沮丧的事情。可以将其进行封装：
 
 ```sql
 set loadExcel = '''
@@ -107,9 +112,9 @@ as {1}
 !loadExcel ./example-data/excel/hello_world.xlsx helloTable;
 ```
 
-我们使用类似命令行的方式进行参数传递。使用`!` 进行宏函数的调用。
+宏函数使用类似命令行的方式进行参数传递，使用前缀 `!` 进行宏函数的调用。
 
-我们也支持命名参数：
+宏函数也支持命名参数：
 
 ```sql
 set loadExcel = '''
@@ -121,9 +126,10 @@ as ${tableName}
 !loadExcel _ -path ./example-data/excel/hello_world.xlsx -tableName helloTable;
 ```
 
+
 ### Native UDF 
 
-Kolo-lang支持用户使用Java/Scala编写UDF函数。 Kolo-lang的一大优势是，随写随用。
+Kolo-lang 支持用户使用 Java/Scala 编写 UDF 函数。 Kolo-lang 的一大优势是，随写随用。
 
 ```ruby
 register ScriptUDF.`` as arrayLast 
@@ -136,27 +142,32 @@ and udfType="udf";
 select arrayLast(array("a","b")) as lastChar as output;
 ```
 
-在上面的代码中，我们定义了一个arrayLast的函数，他获取数组中最后一个值。我们通过register进行注册，之后马上可以使用。
+在上面的代码中定义了一个 arrayLast 的函数，该函数的逻辑是获取数组中最后一个值。通过 register 句式注册完成后，
+就可以在 select 句式中直接使用，效果和内置的函数一样。
 
 ### 变量
 
-Kolo-lang 也支持变量。它使用set进行申明。比如：
+Kolo-lang 也支持变量。变量使用 `set` 进行声明。
+
+比如：
 
 ```sql
 set a="b";
 ```
 
-使用示例如下：
+变量可以被应用于 select 句式中：
 
 ```sql
 select "${a}" as a as output;
 ```
 
-我们可以在很多地方以`${}`的方式对变量进行引用。
+在 Kolo-lang 中，变量引用主要以 `${}` 的方式进行，分支条件表达式则是特例，它以  `:VariableName` 形式进行引用。
 
 ### 分支语句
 
-Kolo-lang支持高级别的分支语句。示例如下：
+Kolo-lang 支持高级别的分支语句。
+
+示例如下：
 
 ```sql
 set a = "wow,jack";
@@ -187,7 +198,8 @@ select * from final_table as output;
 
 ### 机器学习
 
-使用load/select 我们可以加载，关联，预处理数据。处理得到的数据后，可以使用train进行训练。
+load/select 句式可以完成对数据的加载，关联，预处理等相关工作。
+处理完成后，可以对结果表使用 train 句式进行训练。
 
 ```sql
 train mock_data as RandomForest.`/tmp/models/randomforest` where
@@ -201,9 +213,11 @@ and `fitParam.0.featuresCol`="features"
 and `fitParam.0.maxDepth`="2";
 ```
 
-这句话表示，我们使用mock_data表为训练数据，使用RandomForest进行训练，训练的参数在where/options子句中申明。得到的模型保存在`/tmp/models/randomforest`中。
+这句话表示，使用 mock_data 表为训练数据，使用 RandomForest 进行训练，训练的参数在 where/options 子句中申明。
+得到的模型保存在 `/tmp/models/randomforest` 中。
 
-我们可以将模型注册成UDF函数，从而方便的将模型应用于批，流，API中。
+训练成功得到模型文件后，就可以将模型注册成 UDF 函数供后续将模型应用于批，流，API中。
+此时可以使用 register 句式完成模型到 UDF 的注册。
 
 ```sql
 register RandomForest.`/tmp/models/randomforest` as model_predict;
@@ -212,7 +226,9 @@ select vec_array(model_predict(features)) as predicted_value from mock_data as o
 
 ### Python支持
 
-我们使用ET Ray 来支持Python
+Python 脚本的支持在 Kolo-lang 中主要是使用ET Ray 来完成的。
+
+下面是一段纯 Kolo-lang 的代码：
 
 ```sql
 select 1 as a as mockTable;
@@ -243,9 +259,12 @@ context.build_result(newrows)
 select * from newMockTable as output;
 ```
 
+
+在 Notebook 中，语法会得到简化，可以在单独的 cell 里写 Python 脚本。
+
 ## 插件支持
 
-run/train以及数据源等很多东西都是可以通过插件进行扩展的。
+run/train 以及数据源等很多东西都是可以通过插件进行扩展的。
 
 安装和使用第三方插件很容易，比如：
 
@@ -254,7 +273,9 @@ run/train以及数据源等很多东西都是可以通过插件进行扩展的�
 !plugin app add - "mlsql-mllib-3.0";
 ```
 
-接着我们就获得了一个叫 `SampleDatasetExt` 的ET.使用该ET可以生成测试数据：
+安装完成后，就可以使用一个名称为 `SampleDatasetExt` 的 ET 。
+
+使用该ET可以生成测试数据：
 
 ```sql
 run command as SampleDatasetExt.`` 
@@ -265,5 +286,5 @@ and labelSize="2"
 as mockData;
 ```
 
-该ET会产生一个叫mockData的表，该表有三个字段id,features,label,条数100000, 特征长度100, 分类种类为2.
+该 ET 会产生一个叫 mockData 的表，该表有三个字段 id，features，label，条数 100000, 特征长度 100, 分类种类为 2.
 
