@@ -20,6 +20,9 @@
 		},
 		{
 			"pattern": "^http://www.openldap.org/"
+		},
+		{
+			"pattern": "^https://mlsql-downloads.kyligence.io/"
 		}
 	],
 	"replacementPatterns": [
