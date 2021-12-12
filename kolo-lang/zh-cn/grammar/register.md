@@ -1,4 +1,4 @@
-## 注册函数，模型/Register
+# 注册函数，模型/Register
 
 Register 句式在 Kolo-lang 中主要可以完成三类工作：
 
@@ -6,7 +6,7 @@ Register 句式在 Kolo-lang 中主要可以完成三类工作：
 2. 将内置或者 Python 模型注册成 UDF 函数
 3. 在流式计算中，注册 wartermark/windows
 
-### 注册 SQL 函数
+## 注册 SQL 函数
 
 在 SQL 中，最强大的莫过于函数了。Kolo-lang 支持动态创建 UDF/UDAF 函数。
 
@@ -23,9 +23,9 @@ def apply(a:Double,b:Double)={
 ''';
 ```
 
-上面代码的含义是，使用 ET ScriptUDF 注册一个函数叫 plusFun，这个函数使用 Scala 语言，函数的类型是 UDF,对应的实现代码在 code 参数里。
+上面代码的含义是，使用 ET ScriptUDF 注册一个函数叫 `plusFun`，这个函数使用 Scala 语言，函数的类型是 UDF,对应的实现代码在 code 参数里。
 
-在Kolo-lang中， 执行完上面代码后，用户可以直接在 select 语句中使用 plusFun 函数：
+在 Kolo-lang 中， 执行完上面代码后，用户可以直接在 `select` 语句中使用 `plusFun` 函数：
 
 ```sql
 -- create a data table.
@@ -46,7 +46,7 @@ def apply(a:Double,b:Double)={
 1. lang 支持 java/scala
 2. udfType 支持 udf/udaf 
 
-#### 通过变量持有代码片段
+### 通过变量持有代码片段
 
 代码片段也可以使用变量持有，然后在 ScriptUDF 中引用：
 
@@ -106,7 +106,7 @@ methodName="hello"  and className="A";
 select plusFun(1,2) as plus, helloFun("jack") as jack as output;
 ```
 
-#### Scala UDAF示例
+### Scala UDAF示例
 
 ```ruby
 set plusFun='''
@@ -156,7 +156,7 @@ load jsonStr.`data` as dataTable;
 select a,plusFun(a) as res from dataTable group by a as output;
 ```
 
-#### Java 语言 UDF 示例
+### Java 语言 UDF 示例
 
 
 ```sql
@@ -190,8 +190,8 @@ select funx(a) as res from dataTable as output;
 
 由于 Java 语言的特殊性，有如下几点注意事项：
 
-> 1. 传递的代码必须是一个 Java 类，并且默认系统会寻找 UDF.apply() 做为运行的 udf，如果需要特殊类名和方法名，需要在 register 时，声明 options，参考例子2。
-> 2. 不支持包名(package声明)
+> 1. 传递的代码必须是一个 Java 类，并且默认系统会寻找 `UDF.apply()` 做为运行的 udf，如果需要特殊类名和方法名，需要在 `register` 时声明必要的 `options`，参考例子2。
+> 2. 不支持包名( package 声明)
 
 例子2：
 
@@ -252,12 +252,12 @@ options algIndex="0"
 1. algIndex 可以让用户手动指定选择哪个模型
 2. autoSelectByMetric 则可以通过一些指标，让系统自动选择一个模型。内置算法可选的指标有： f1|weightedPrecision|weightedRecall|accuracy。
 
-如果两个参数都没有指定话的，默认会使用f1指标。
+如果两个参数都没有指定话的，默认会使用 `f1` 指标。
 
 
-## 流式程序中注册 watermark
+## 流式程序中注册 Watermark
 
-在流式计算中，有 wartermark 以及 window 的概念。我们可以使用 Register 句式来完成这个需求：
+在流式计算中，有 wartermark 以及 window 的概念。我们可以使用 `Register` 句式来完成这个需求：
 
 ```sql
 -- register watermark for table1

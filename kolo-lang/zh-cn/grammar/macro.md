@@ -1,8 +1,10 @@
-## 宏函数/Macro Function
+# 宏函数/Macro Function
 
-Kolo-lang 中的宏函数和 select 句式中函数是不一样的。 宏函数主要是为了复用 kolo-lang 代码。
+Kolo-lang 中的宏函数和 `select` 句式中函数是不一样的。 宏函数主要是为了复用 Kolo-lang 代码。
 
-以加载 excel 文件的代码为例，
+## 基础用法
+
+以加载 `excel` 文件的代码为例:
 
 ```sql
 load excel.`./example-data/excel/hello_world.xlsx` 
@@ -12,7 +14,7 @@ as hello_world;
 select hello from hello_world as output;
 ```
 
-如果每次都写完整的 load 语句，可能会比较繁琐。此时用户可以将其封装成一个宏函数：
+如果每次都写完整的 `load` 语句，可能会比较繁琐。此时用户可以将其封装成一个宏函数：
 
 ```sql
 set loadExcel = '''
@@ -54,7 +56,7 @@ as ${tableName}
 
 注意，为了识别命名参数，宏函数要求第一个参数是 `_` 。
 
-### 宏函数的限制
+## 宏函数的限制
 
 宏函数的使用，目前也有几个限制：
 
@@ -74,4 +76,4 @@ select 1 as a as output
 !hello;
 ```
 
-该语句包含了一个内置的宏函数 !hdfs, 所以是非法的。
+该语句包含了一个内置的宏函数 `!hdfs`, 所以是非法的。

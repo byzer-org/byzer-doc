@@ -10,7 +10,7 @@ set hello="world";
 
 此时用户运行后不会有任何输出结果。
 
-如果希望看到此变量，可以通过 select 语句进行查看。
+如果希望看到此变量，可以通过 `select` 语句进行查看。
 
 示例：
 
@@ -44,13 +44,13 @@ as `${hello}`;
 select * from world as output;
 ```
 
-在上面代码中，并没有显式的定义 world 表，但用户依然可以在 select 语句中使用 world 表。
+在上面代码中，并没有显式的定义 `world` 表，但用户依然可以在 `select` 语句中使用 `world` 表。
 
 > 表名需要使用反引号将其括起来，避免语法解析错误
 
 ### 生命周期
 
-值得一提的是，set 语法当前的生命周期是 request 级别的，也就是每次请求有效。
+值得一提的是，`set` 语法当前的生命周期是 `request` 级别的，也就是每次请求有效。
 
 通常在 Kolo-lang 中，生命周期分成三个部分：
 
@@ -59,7 +59,7 @@ select * from world as output;
 3. application （全局应用有效）
 
 
-request 级别表示什么含义呢？ 如果你先执行
+`request` 级别表示什么含义呢？ 如果你先执行
 
 ```sql
 set hello="world";
@@ -102,7 +102,7 @@ tech.mlsql.dsl.adaptor.SelectAdaptor.analyze(SelectAdaptor.scala:49)
 set hello="abc" where scope="session";
 ```
 
-变量默认生命周期是 request。 也就是当前脚本或者当前 cell 中有效。 
+变量默认生命周期是 `request`。 也就是当前脚本或者当前 cell 中有效。 
 
 
 ## 变量类型
@@ -132,7 +132,7 @@ set spark.sql.shuffle.partitions=200 where type="conf";
 该变量表示将底层 Spark 引擎的 shuffle 默认分区数设置为 200。 
 
 
-第三种是 shell,也就是 set 后的 key 最后是由 shell 执行生成的。 
+第三种是 shell，也就是 `set` 后的 key 最后是由 shell 执行生成的。 
 
 > 不推荐使用该方式， 安全风险较大
 
@@ -152,7 +152,7 @@ dt
 Mon Aug 19 10:28:10 CST 2019
 ```
 
-第四种是sql类型，这意味着set后的key最后是由sql引擎执行生成的。下面的例子可以让大家看出其特点和用法：
+第四种是 `sql` 类型，这意味着 `set` 后的 key 最后是由 sql 引擎执行生成的。下面的例子可以看出其特点和用法：
 
 ```sql
 set date=`select date_sub(CAST(current_timestamp() as DATE), 1) as dt` 
@@ -180,7 +180,7 @@ set hello="bar";
 select "${hello}" as name as output;
 ```
 
-最后输出是
+结果输出是
 
 ```
 name
@@ -189,7 +189,7 @@ bar
 ```
 
 这符合大家直觉，下面的会覆盖上面的。那如果用户想达到这么一种效果，如果变量已经设置了，新变量声明就失效，如果变量没有被设置过，则生效。
-为了达到这个效果，Kolo-lang 引入了 defaultParam 类型的变量：
+为了达到这个效果，Kolo-lang 引入了 `defaultParam` 类型的变量：
 
 ```sql
 set hello="foo";
@@ -206,7 +206,7 @@ name
 foo
 ```
 
-如果前面没有设置过 hello="foo",
+如果前面没有设置过 `hello="foo"`,
 
 
 ```sql
@@ -228,7 +228,7 @@ bar
 Kolo-lang 有非常完善的权限体系，可以轻松控制任何数据源到列级别的访问权限，而且创新性的提出了预处理时权限，
 也就是通过静态分析 Kolo-lang 脚本从而完成表级别权限的校验（列级别依然需要运行时完成）。
 
-但是预处理期间，权限最大的挑战在于 set 变量的解析，比如：
+但是预处理期间，权限最大的挑战在于 `set` 变量的解析，比如：
 
 ```sql
 select "foo" as foo as foo_table;
@@ -236,15 +236,15 @@ set hello=`select foo from foo_table` where type="sql";
 select "${hello}" as name as output; 
 ```
 
-在没有执行第一个句子，那么第二条 set 语句在预处理期间执行就会报错，因为此时并没有叫 foo_table 的表。
+在没有执行第一个句子，那么第二条 `set` 语句在预处理期间执行就会报错，因为此时并没有叫 `foo_table` 的表。
 
-为了解决这个问题，Kolo-lang 引入了 compile/runtime 两个模式。如果用户希望在 set 语句预处理阶段就可以 evaluate 值，那么添加该参数即可。
+为了解决这个问题，Kolo-lang 引入了 `compile/runtime` 两个模式。如果用户希望在 `set` 语句预处理阶段就可以 evaluate 值，那么添加该参数即可。
 
 ```sql
 set hello=`select 1 as foo ` where type="sql" and mode="compile";
 ```
 
-如果希望 set 变量，只在运行时才需要执行，则设置为 runtime:
+如果希望 `set` 变量，只在运行时才需要执行，则设置为 `runtime`:
 
 ```sql
 set hello=`select 1 as foo ` where type="sql" and mode="runtime";
@@ -263,4 +263,4 @@ set jack='''
 ''';
 ```
 
-date 是内置的，你可以用他实现丰富的日期处理。
+`date` 是内置的，你可以用他实现丰富的日期处理。
