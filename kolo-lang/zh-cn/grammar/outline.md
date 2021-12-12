@@ -288,7 +288,7 @@ and labelSize="2"
 as mockData;
 ```
 
-该 ET 会产生一个叫 `mockDat` 的表，该表有三个字段 `id，features，label`，条数 100000, 特征长度 100, 分类种类为 2.
+该 ET 会产生一个叫 `mockData` 的表，该表有三个字段 `id，features，label`，条数 100000, 特征长度 100, 分类种类为 2.
 
 ## 作用域
 
