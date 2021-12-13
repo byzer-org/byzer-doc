@@ -1,13 +1,83 @@
 # 动态创建UDF/UDAF
 
-Kolo 支持使用 Python、Java、Scala 编写UDF/UDAF。无需打包或重启，只需运行注册UDF的Kolo代码，就可以即时生效。极大的方便用户自定义扩展Kolo的功能。
+Kolo 支持使用 Python、Java、Scala 编写UDF/UDAF。
+无需打包或重启，只需运行注册 UDF 的 Kolo 代码，就可以即时生效。
+极大的方便用户扩展 Kolo 的功能。
 
-对于Python UDF，特别说明以下几点：
+### UDF注册
 
-1. Kolo支持 Python 版本为 2.7.1
-2. Python不支持任何native库，比如numpy.
-3. Python必要指定返回值，否则
-4. 我们提供了专门的交互式Python语法以及大规模数据处理的Python语法，用以弥补Python UDF的不足。在Python专门章节 我们会提供更详细的介绍。
+Kolo 提供 `register` 语法注册 UDF。你可以用以下两种方式使用它。
 
-所以我们建议对于python尽可能只做简单的文本解析处理，以及使用原生自带的库。
+#### 方法一
 
+先将脚本注册为虚拟表，再将表注册为UDF。
+
+下面是一个使用 scala 语言编写 UDF 并注册的例子：
+```
+-- script
+> SET plusFun='''
+def apply(a:Double,b:Double)={
+   a + b
+}
+''';
+
+-- register as a table
+> LOAD script.`plusFun` AS scriptTable;
+
+-- register as UDF
+> REGISTER ScriptUDF.`scriptTable` AS plusFun OPTIONS lang = "scala";
+```
+
+#### 方法二
+
+Kolo 支持在一个语句中完成 UDF 的注册的所有步骤。
+
+在这种方式中，我们必须手动指定脚本的编写语言，以及 UDF 的种类。文末有我们支持的语言以及 UDF 列表。
+
+下面是一个使用 scala 语言编写并注册的例子。
+```
+> REGISTER ScriptUDF.`` AS plusFun WHERE
+and lang="scala"
+and udfType="udf"
+and code='''
+def apply(a:Double,b:Double)={
+   a + b
+}
+''';
+```
+---
+#### 总结
+
+**适用范围**
+
+`方法一`方便做代码分割，UDF 申明可以放在单独文件，注册动作可以放在另外的文件，通过 `include` 来完成整合。
+
+`方法二`相较于`方法一`更为简洁明了，适合数量较少的 UDF 注册。
+
+**参数设置**
+
+`方法一`使用 OPTIONS 关键字连接参数，`方法二`使用 WHERE 关键字连接参数。
+
+**目前支持的参数有：**
+- lang: Scala/Java/Python
+- udfType: UDF/UDAF
+- code: UDF 代码
+- className: code中自定义类名（仅Java）
+- methodName: code中自定义函数名
+
+---
+
+### UDF使用
+
+无论使用哪种方式注册，你都可以开箱即用的使用注册过的 UDF。下面是一个使用上面注册过的 UDF 的例子。
+
+```
+> SELECT plusFun(1,2) AS sum;
+3
+```
+
+### 支持的语言/UDF种类
+
+- Scala：UDF/UDAF
+- Java：UDF     
+- Python：UDF     
