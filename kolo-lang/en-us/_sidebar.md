@@ -64,11 +64,11 @@
         * [Built-In UDF](/kolo-lang/en-us/udf/built_in_udf/README.md)
           * [Http request](/kolo-lang/en-us/udf/built_in_udf/http.md)
           * [Common Functions](/kolo-lang/en-us/udf/built_in_udf/vec.md)
-        * [Extend UDF](/kolo-lang/en-us/udf/extend_udf.md)
-          * [Python UDF](/kolo-lang/en-us/udf/python_udf.md)
-          * [Scala UDF](/kolo-lang/en-us/udf/scala_udf.md)
-          * [Scala UDAF](/kolo-lang/en-us/udf/scala_udaf.md)
-          * [Java UDF](/kolo-lang/en-us/udf/java_udf.md)
+        * [Extend UDF](/kolo-lang/en-us/udf/extend_udf/README.md)
+          * [Python UDF](/kolo-lang/en-us/udf/extend_udf/python_udf.md)
+          * [Scala UDF](/kolo-lang/en-us/udf/extend_udf/scala_udf.md)
+          * [Scala UDAF](/kolo-lang/en-us/udf/extend_udf/scala_udaf.md)
+          * [Java UDF](/kolo-lang/en-us/udf/extend_udf/java_udf.md)
 
     * Streaming Processing
       * [Streaming Process](/kolo-lang/en-us/streaming/README.md)
