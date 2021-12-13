@@ -28,18 +28,18 @@
   * [内置宏函数/build-in Macro Functions](/kolo-lang/zh-cn/grammar/commands.md)
 
 - 数据处理和分析
-    - 在 Kolo 中加载数据源
-      * [数据源](/kolo-lang/zh-cn/datasource/README.md)
+    - [加载和存储多种数据源](/kolo-lang/zh-cn/datasource/README.md)
       * [RestAPI](/kolo-lang/zh-cn/datasource/restapi.md)
       * [JDBC](/kolo-lang/zh-cn/datasource/jdbc.md)
       * [ElasticSearch](/kolo-lang/zh-cn/datasource/es.md)
       * [Solr](/kolo-lang/zh-cn/datasource/solr.md)
       * [HBase](/kolo-lang/zh-cn/datasource/hbase.md)
       * [MongoDB](/kolo-lang/zh-cn/datasource/mongodb.md)
-      * [Parquet/Json/Text/Xml/Csv](/kolo-lang/zh-cn/datasource/file.md)
-      * [jsonStr/script/KoloAPI/KoloConf](/kolo-lang/zh-cn/datasource/kolo_source.md)
+      * [本地文件/HDFS](/kolo-lang/zh-cn/datasource/file.md)
+      * [内置数据源](/kolo-lang/zh-cn/datasource/kolo_source.md)
       * [Kafka](/kolo-lang/zh-cn/datasource/kafka.md)
       * [MockStreaming](/kolo-lang/zh-cn/datasource/mock_streaming.md)
+      * [其他](/kolo-lang/zh-cn/datasource/other.md)
 
     - 使用数仓/数据湖
         * [使用数仓/数据湖](/kolo-lang/zh-cn/datahouse/README.md)
