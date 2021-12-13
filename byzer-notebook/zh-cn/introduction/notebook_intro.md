@@ -6,7 +6,7 @@ Byzer Notebook 为业务分析师、数据科学家和 IT 工程师提供了统�
 
 
 
-## 组成部分
+### 组成部分
 
 * 文档
 
@@ -23,7 +23,7 @@ Byzer Notebook 不仅支持交互式地编写和运行代码，还提供了可�
 
 
 
-## Byzer Notebook 的主要特点
+### Byzer Notebook 的主要特点
 
 - 拥有强大的 Notebook 交互编译能力
   1. 支持 Kolo 语言和 Python 语言的无缝切换
@@ -31,14 +31,23 @@ Byzer Notebook 不仅支持交互式地编写和运行代码，还提供了可�
   3. 提供完善的代码提示
   4. 提供快捷键操作
   5. 对代码编写说明文档或语句时，支持 Markdown 语法
+  
+  
+  
 - 提供稳定可靠的数据工程能力
   1. 支持数仓（Hive），数据湖 （Deltlake），文件系统（HDFS）等各种主流数据源。
   2. 内置丰富的特征工程组件
   3. 可以使用电子邮件、飞书等与他人共享脚本和数据集。
+  
+  
+  
 - 提供低代码可视化工作流
   1. 提供算法、特征工程、数据处理等多类型节点
   2. 支持交互式生成 Kolo 标准语句
   3. 支持工作流一键转成笔记本模式
+  
+  
+  
 - 拥有简单但又灵活的机器学习能力
   1. 内置丰富的算法组件
   2. 支持模型的多版本存储与发布
@@ -47,7 +56,7 @@ Byzer Notebook 不仅支持交互式地编写和运行代码，还提供了可�
 
 
 
-## 关于 Byzer 社区
+### 关于 Byzer 社区
 
 Byzer 是一个新兴且充满活力的开源项目，其前身是 MLSQL 。在 Byzer 社区中, 我们将会围绕 Kolo 语言，共建Byzer Notebook , Kolo Runtime 引擎, Kolo runtime extension, Kolo vscode extension 等应用集合。
 
