@@ -6,7 +6,7 @@ Kolo 集成 TF Cluster 的主要优势有：
 
 1. 一个 Spark 实例可以运行多个 TF Cluster，互不影响。
 2. 可以 local 模式运行 TF Cluster
-3. 数据交互本地化(也可以消费 Kafka)，假设你配置了10个 worker，数据会被切分成十份，然后同步到对应 worker 的本地目录。
+3. 数据交互本地化(也可以消费 Kafka)，假设你配置了 10 个 worker，数据会被切分成十份，然后同步到对应 worker 的本地目录。
 4. 易用，你只要写一个 python 脚本，所有调度相关工作全部由 Kolo 来完成。
 
 感兴趣的可以参看这个[ PR ](https://github.com/byzer-org/kolo-lang/pull/359)，看看具体实现源码。
@@ -86,7 +86,7 @@ Spark 在分发 Task 的时候是并行的，你不知道会分发到哪个节�
 1. 每个 Task 在启动 TF Server 之前，需要先获取端口，并且占用住，然后上报给 Driver，Driver 会记住这些。
 
 2. 接着 Task 会等待所有的 Task 都上报完成，然后释放占用的端口，启动对应的 TF Server。
-TF Server 完成训练后会上报Driver。
+TF Server 完成训练后会上报 Driver。
 
 3. PS 会监听是不是所有的 Worker 都已经完成了工作，如果是，则会自己把自己结束掉。
 
