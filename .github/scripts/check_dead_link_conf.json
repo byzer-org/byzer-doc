@@ -26,6 +26,9 @@
 		},
 		{
 			"pattern": "^https://go.dev/"
+		},
+		{
+			"pattern": "^https://download.byzer.org/"
 		}
 	],
 	"replacementPatterns": [
