@@ -41,13 +41,13 @@
 #### 2. 数据目录
 
 Byzer Notebook 支持多种数据源类型的一站式接入。
-线上试用的环境目前仅支持 Detalake 和 HDFS 数据源的导入和存储。
+线上试用的环境目前仅支持 Delta lake 和 HDFS 数据源的导入和存储。
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/zh-cn/introduction/images/catalog.png" alt="drawing"  width="250"/>
 </p>
 
-> 提示：Detalake 线上环境为 Public 环境，请勿保存重要文件。
+> 提示：Delta lake 线上环境为 Public 环境，请勿保存重要文件。
 
 #### 3. Byzer Notebook 
 
@@ -69,7 +69,7 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
 
 ##### 3.3 Code 模式 VS Markdown 模式
 
-对于cel l可以切换 **code 编码模式** 和 **Markdown文本编辑** 模式。
+对于cell可以切换 **code 编码模式** 和 **Markdown文本编辑** 模式。
 
 ##### 3.3 快捷键辅助及文档手册辅助
 
