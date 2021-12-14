@@ -23,6 +23,9 @@
 		},
 		{
 			"pattern": "^https://mlsql-downloads.kyligence.io/"
+		},
+		{
+			"pattern": "^https://go.dev/"
 		}
 	],
 	"replacementPatterns": [
