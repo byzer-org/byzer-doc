@@ -46,7 +46,7 @@ stepSizeRange 表示每个批次随机会给 0 - 3 条数据。你也可用 fixS
 接着对数据做个简单的处理。
 
 ```sql
-select cast(key as string) as k,timestamp  from newkafkatable1 
+select cast(key as string) as k, timestamp  from newkafkatable1 
 as table21;
 ```
 
