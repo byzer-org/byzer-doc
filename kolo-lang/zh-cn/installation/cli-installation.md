@@ -2,7 +2,7 @@
 
 我们提供了命令行执行脚本的能力，方便用户自助实现更多自动化能力，如下图所示，我们通过命令行执行一个开发好的 Kolo-lang 脚本：
 
-![execute mlsql cli](execute-kolo-lang-cli.png)
+![execute mlsql cli](images/execute-kolo-lang-cli.png)
 
 
 
@@ -94,11 +94,11 @@ mlsql run hello.mlsql
 
 注意，如果是 Mac 用户，会提示 App 的安全问题，如下图：
 
-![无法打开MLSQL](mac_app_warn.png)
+![无法打开MLSQL](images/mac_app_warn.png)
 
 需要通过 系统偏好设置 - 安全性与隐私 - 允许从以下位置下载 App ，选择仍然允许。
 
-![安全性与隐私](mac_app_warn_2.jpeg)
+![安全性与隐私](images/mac_app_warn_2.jpeg)
 
 然后我们就可以通过命令行执行并查看效果，完整的执行日志如下：
 ```
@@ -131,4 +131,4 @@ log4j:WARN No such property [rollingPolicy] in org.apache.log4j.RollingFileAppen
 21/09/09 18:41:44  INFO JobManager: JobManager is shutdown....
 ```
 
-> 恭喜，你已经完成 MLSQL 命令行的安装和使用。
+> 恭喜，你已经完成 Kolo 命令行的安装和使用。
