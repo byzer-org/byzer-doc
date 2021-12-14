@@ -21,6 +21,4 @@
 
 [GitHub](https://github.com/byzer-org)
 [Byzer Notebook Doc](/byzer-notebook/en-us/)
-[Byzer Notebook 文档](/byzer-notebook/zh-cn/)
 [Kolo-Lang Doc](/kolo-lang/en-us/)
-[Kolo-Lang 文档](/kolo-lang/zh-cn/)
