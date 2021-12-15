@@ -1,4 +1,4 @@
-## 快速上手
+# 快速开始
 
 本章节将会介绍如何使用 Docker 镜像环境快速体验 Byzer Notebook。
 
@@ -64,8 +64,5 @@
    输入账号密码: admin/admin，开始探索 Byzer Notebook 吧。
    
    ![explore_notebook](https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/zh-cn/introduction/images/explore_notebook_cn.png)
-    
    
-   
-
    
