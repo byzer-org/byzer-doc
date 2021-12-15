@@ -8,7 +8,23 @@
 
 在开始试用之前，请确认您已在 [**白泽 Byzer**](http://www.byzer.org) 官网成功注册试用账号。
 
+点击官网主页上的 **在线试用**：
 
+<p align="center">
+    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/zh-cn/introduction/images/online_trial.png" alt="name"  width="800"/>
+</p>
+
+填写基本信息注册并点击 **创建账号**：
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/zh-cn/introduction/images/register.png" alt="name"  width="800"/>
+</p>
+
+通过邮箱中的链接验证后，您就可以进入到准备区，点击 **开始试用** 开始体验之旅。
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/zh-cn/introduction/images/start_trial.png" alt="name"  width="800"/>
+</p>
 
 ### 快速开始 
 
