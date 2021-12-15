@@ -1,4 +1,4 @@
-# Kafla
+# Kafka
 
 Kolo 显示的支持 Kafka 作为流式数据源，也支持将其作为普通数据源进行 AdHoc 加载，性能同样可观。
 

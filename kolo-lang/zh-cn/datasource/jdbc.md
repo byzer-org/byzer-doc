@@ -85,8 +85,8 @@ and prePtnArray = "age<=10 | age > 10"
 and prePtnDelimiter = "\|"
 as table1;
 ```
-### MySQL原生SQL加载
-值得注意的是，Kolo 还支持使用 MySQL 原生 SQL 的方式去加载 MySQL 数据。比如：
+### MySQL 原生 SQL 加载
+值得注意的是，Kolo 还支持使用 MySQL 原生 SQL 的方式加载数据。比如：
 
 ```sql
 > LOAD jdbc.`db_1.test1` WHERE directQuery='''
@@ -156,7 +156,7 @@ WHERE idCol="a,b,c";
 >如果数据库层面没有定义联合约束主键，将不会执行 `update` 操作，数据会不断增加。
 
 
-## 流式数据写入MySQL
+## 流式数据写入 MySQL
 
 举个简单的例子：
 
