@@ -4,7 +4,7 @@ Kolo 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift 
 
 本节会以 MySQL 为主要例子进行介绍。
 
-### 加载数据
+## 加载数据
 
 Kolo 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
 
