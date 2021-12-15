@@ -10,6 +10,8 @@
 * 云原生设计，充分利用云上算力和便宜的存储
 * 一套语言，一个引擎，覆盖 Data + AI 的能力，开箱即用
 
+> 小故事：[Kolo-lang 命名的起源](/kolo-lang/zh-cn/appendix/naming_story.md)
+
 ## 关于Byzer 社区
 
 Byzer 社区是一个新兴且充满活力的开源项目，前身为 MLSQL 社区，核心是 **Kolo-lang**
