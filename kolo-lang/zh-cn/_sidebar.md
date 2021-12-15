@@ -1,7 +1,7 @@
 - Kolo-Lang Introduction
   * [Kolo-Lang](/kolo-lang/zh-cn/introduction/kolo_lang_intro.md)
-  * [在线体验](/kolo-lang/zh-cn/introduction/byzer_lab.md)
-  * [快速入门](/kolo-lang/zh-cn/introduction/get_started.md)
+  * [在线体验](/kolo-lang/zh-cn/introduction/online_trial.md)
+  * [快速开始](/kolo-lang/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/kolo-lang/zh-cn/appendix/faq.md)
   * [如何贡献](/kolo-lang/zh-cn/appendix/contribute.md)  
 
