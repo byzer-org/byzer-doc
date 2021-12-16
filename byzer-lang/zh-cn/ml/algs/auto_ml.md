@@ -36,6 +36,32 @@ and keepVersion="true"
 
 -- specicy the test dataset which will be used to feed evaluator to generate some metrics e.g. F1, Accurate
 
-and evaluateTable="data1"
+and evaluateTable="data1";
 ```
+
+最后输出结果如下：
+
+<p align="center">
+    <img src="/byzer-lang/zh-cn/ml/algs/images/automl_result.png" alt="name"  width="800"/>
+</p>
+
+**AutoML支持如下几个特性：** 
+
+- 可以通过 keepVersion 来设置是否保留版本。
+- AutoML 支持在用户指定的算法集合里进行模型训练，用户通过配置 algos 参数（目前支持 " GBTs, LinearRegression, LogisticRegression, NaiveBayes, RandomForest " 的子集），让数据集在指定的算法集合中进行训练，获取最优模型
+- AutoML 会根据算法的表现排序，默认是按照 **accuracy**，用户可以指定按照 f1 或者其他的 metrics 进行排序。
+- AutoML 预测的时候，会根据历史训练的所有模型中挑选出**表现最好的模型**进行打分预测，用户无需指定特定模型。
+
+
+### 批量预测
+
+```sql
+predict data1 as AutoML.`/tmp/auto_ml`;
+```
+
+结果如下：
+<p align="center">
+    <img src="/byzer-lang/zh-cn/ml/algs/images/batchautoml.png" alt="name"  width="800"/>
+</p>
+
 
