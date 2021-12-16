@@ -1,10 +1,10 @@
-## Kolo 如何帮助分析师更高效
+## Byzer 如何帮助分析师更高效
 ### 前言
 我之前写过一篇文章叫如何按程序员思维写分析师脚本，这里主要是在两方面帮助分析师：
 
 将程序员一些较为高效的工作模式转移到分析师身上，这包括脚本片段复用，脚本 include，工程项目，视图等。
-Kolo 平台提供这些思维的功能支持。
-迄今为止，在之前文章提到的所有功能点，都已经在 Kolo 中实现。当然，拥有这些还是远远不够的，因为SQL语言自身的设计和用途上的限制，导致做很多事情还是会有点力有不逮，下部分内容我们会具体举一个例子。
+Byzer 平台提供这些思维的功能支持。
+迄今为止，在之前文章提到的所有功能点，都已经在 Byzer 中实现。当然，拥有这些还是远远不够的，因为SQL语言自身的设计和用途上的限制，导致做很多事情还是会有点力有不逮，下部分内容我们会具体举一个例子。
 
 父子关系计算
 父子关系计算指的是什么呢？譬如有一张表，数据格式如下：
@@ -28,7 +28,7 @@ Kolo 平台提供这些思维的功能支持。
 如果用 SQL 只能用 join 来实现有限层次的计算，而且 SQL 代码会很 ugly，并且计算量还不小。本质上，对于需要递归的计算，SQL 其实不是非常适合的。 那怎么解决呢？
 
 ### 扩展 SQL 中的王者：ET
-ET 其实是 Kolo 中 Estimator/Transformer 里的缩写，我们借鉴了算法领域的 Estimator/Transformer 的概念，来描述解决一个特定抽象问题的模块。该模块可以使用 Kolo 的扩展语法来完成。 假设我们有一个 ET 解决了父子计算问题，它的名字叫 TreeBuildExt，怎么在SQL中使用呢？
+ET 其实是 Byzer 中 Estimator/Transformer 里的缩写，我们借鉴了算法领域的 Estimator/Transformer 的概念，来描述解决一个特定抽象问题的模块。该模块可以使用 Byzer 的扩展语法来完成。 假设我们有一个 ET 解决了父子计算问题，它的名字叫 TreeBuildExt，怎么在SQL中使用呢？
 
 我们来看一个较为完整的示例：
 
@@ -68,7 +68,7 @@ select * from result as output;
 研发可以开发非常多为分析师定制的ET模块，从而高效的提高分析师的工作效率，也让很多”不可能“变成”可能“。值得一提的是，分析师做不了的工作，不需转交给研发，而是由研发开发ET,从而然工作职责更加清晰，让分析师的边界更加宽广。
 
 ### 总结
-* 关于设置本地开发环境，可参看 [Kolo 开发环境配置指南](https://docs.byzer.org/#/byzer-lang/zh-cn/developer/dev_env/README)。
-* 关于 ET 具体开发指南，参看 [Kolo-ET 开发指南](https://docs.byzer.org/#/byzer-lang/zh-cn/extension/et/README)。
+* 关于设置本地开发环境，可参看 [Byzer 开发环境配置指南](https://docs.byzer.org/#/byzer-lang/zh-cn/developer/dev_env/README)。
+* 关于 ET 具体开发指南，参看 [Byzer-ET 开发指南](https://docs.byzer.org/#/byzer-lang/zh-cn/extension/et/README)。
 
-如果大家想体验 Kolo 产品，可点击一键体验全套 Kolo 产品，或者自助完成编译部署。
+如果大家想体验 Byzer 产品，可点击一键体验全套 Byzer 产品，或者自助完成编译部署。

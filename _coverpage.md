@@ -1,4 +1,4 @@
-![logo](_media/Kolo_With_Slogan_Color_v1.0.svg)
+![logo](_media/Byzer_With_Slogan_Color_v1.0.svg)
 
 # Byzer Org Documentation
 

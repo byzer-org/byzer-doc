@@ -1,1 +1,1 @@
-# Kolo Language
+# Byzer Language

@@ -1,6 +1,6 @@
-## Kolo 对 Python 的支持之路
+## Byzer 对 Python 的支持之路
 ### 前言
-Python 是做机器学习框架一定要支持的。Kolo 很早就支持集成 Python 脚本做模型的训练和预测。
+Python 是做机器学习框架一定要支持的。Byzer 很早就支持集成 Python 脚本做模型的训练和预测。
 
 训练的使用方式：
 

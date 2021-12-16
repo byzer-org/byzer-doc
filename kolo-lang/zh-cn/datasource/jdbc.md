@@ -1,12 +1,12 @@
 # JDBC 数据源
 
-Kolo 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server等。
+Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server等。
 
 本节会以 MySQL 为主要例子进行介绍。
 
 ## 加载数据
 
-Kolo 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
+Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
 
 下面是一个使用 `connect` 语法的例子：
 
@@ -21,7 +21,7 @@ Kolo 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据�
  AS db_1;
 ```
 
-> 这条语句表明，Kolo 连接的是 JDBC 数据源。WHERE 语句中包含连接相关的参数，指定驱动是 MySQL 的驱动，设置用户名/密码为 root。
+> 这条语句表明，Byzer 连接的是 JDBC 数据源。WHERE 语句中包含连接相关的参数，指定驱动是 MySQL 的驱动，设置用户名/密码为 root。
 最后将这个链接的别名设置为 db_1.
 
 同样，我们也可以使用 `load` 语法加载数据源：
@@ -66,7 +66,7 @@ AS table1;
 - `partitionColumn`, `lowerBound`, `upperBound`,`numPartitions` 用来控制加载表的并行度。你可以调整这几个参数提升加载速度。
 - 当 `driver` 为 MySQL 时，`url` 默认设置参数 useCursorFetch=true，并且 `fetchsize` 默认为-2147483648（在 spark2 中不支持设置 `fetchsize` 为负数，默认值为1000），用于支持数据库游标的方式拉取数据，避免全量加载导致 OOM。
 
-**Kolo内置参数**
+**Byzer内置参数**
 
 | Property Name  |  Meaning |
 |---|---|
@@ -86,7 +86,7 @@ and prePtnDelimiter = "\|"
 as table1;
 ```
 ### MySQL 原生 SQL 加载
-值得注意的是，Kolo 还支持使用 MySQL 原生 SQL 的方式加载数据。比如：
+值得注意的是，Byzer 还支持使用 MySQL 原生 SQL 的方式加载数据。比如：
 
 ```sql
 > LOAD jdbc.`db_1.test1` WHERE directQuery='''
@@ -108,7 +108,7 @@ select * from test1 where a = "b"
 
 ## 保存数据
 
-建立 JDBC 数据连接后，你可以使用 `save` 语句对得到的数据进行保存。Kolo 支持 `append`/`overwrite` 方式保存数据。
+建立 JDBC 数据连接后，你可以使用 `save` 语句对得到的数据进行保存。Byzer 支持 `append`/`overwrite` 方式保存数据。
 
 下面是 `append` 的例子：
 ```
@@ -142,7 +142,7 @@ and `driver-statement-1`="create table test1.....";
 
 `idCol` 的作用
 - 标记数据需要执行 `Upsert` 操作 
-- 确定需要的更新字段，因为主键本身是不需要更新的。Kolo 会将表所有的字段去除
+- 确定需要的更新字段，因为主键本身是不需要更新的。Byzer 会将表所有的字段去除
 `idCol` 定义的字段，得到需要更新的字段。
 
 
@@ -152,7 +152,7 @@ and `driver-statement-1`="create table test1.....";
 > SAVE append tmp_article_table AS jdbc.`db_1.test1`
 WHERE idCol="a,b,c";
 ```
->Kolo 内部使用了 MySQL 的 `duplicate key` 语法，用户需要确认操作的数据库表确实有重复联合主键约束。
+>Byzer 内部使用了 MySQL 的 `duplicate key` 语法，用户需要确认操作的数据库表确实有重复联合主键约束。
 >如果数据库层面没有定义联合约束主键，将不会执行 `update` 操作，数据会不断增加。
 
 

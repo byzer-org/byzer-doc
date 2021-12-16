@@ -1,11 +1,11 @@
-## Kolo Cluster 路由策略
+## Byzer Cluster 路由策略
 ### 前言
-Kolo Cluster 具备多 Kolo Engine 实例管理功能，实现负载均衡，多业务切分等等功能。
+Byzer Cluster 具备多 Byzer Engine 实例管理功能，实现负载均衡，多业务切分等等功能。
 
 ### 负载均衡
-Kolo Cluster 有一个和 Kolo Engine 完全一致的 /run/script 接口，参数也是保持一致的。
+Byzer Cluster 有一个和 Byzer Engine 完全一致的 /run/script 接口，参数也是保持一致的。
 
-在 Kolo Engine 的基础上，多出了两个参数：
+在 Byzer Engine 的基础上，多出了两个参数：
 
 ```
 tags 

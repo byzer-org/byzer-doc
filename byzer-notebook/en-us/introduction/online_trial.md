@@ -77,4 +77,4 @@ For cell, you can switch between **code encoding mode** and **Markdown text edit
 
 ##### 3.3 Shortcut key assistance and documentation manual assistance
 
-Click the **?** button in the upper right corner of the navigation bar to **give feedback** and view the **Kolo User Manual**.
+Click the **?** button in the upper right corner of the navigation bar to **give feedback** and view the **Byzer User Manual**.

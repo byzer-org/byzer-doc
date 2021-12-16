@@ -2,8 +2,8 @@
 
 Byzer-lang 支持复杂的代码组织结构，这赋予了 Byzer-lang 强大的代码复用能力。
 
-1. 可以将一个 Kolo 脚本引入到另外一个 Kolo 脚本
-2. 也可以将一堆 Kolo 脚本组装成一个功能集，然后以 Lib 的方式提供给其他用户使用
+1. 可以将一个 Byzer 脚本引入到另外一个 Byzer 脚本
+2. 也可以将一堆 Byzer 脚本组装成一个功能集，然后以 Lib 的方式提供给其他用户使用
 
 ## 引入第三方依赖库
 
@@ -50,7 +50,7 @@ select hello() as name as output;
 为了完成一个复杂项目的开发，往往需要将功能代码拆解成多个脚本，实现代码的复用和交互组织。在 Byzer-lang 中，分成两种情况。
 
 1. 项目作为第三方 Lib 提供给其他用户用，就像 `libCore` 一样
-2. 本项目内 Kolo 脚本之间的互相引用
+2. 本项目内 Byzer 脚本之间的互相引用
 
 ### Lib 内脚本依赖
 
@@ -67,9 +67,9 @@ include local.`[PATH]`;
 include local.`github.com/allwefantasy/lib-core.udf.hello`;
 ```
 
-### 普通项目内 Kolo 脚本依赖
+### 普通项目内 Byzer 脚本依赖
 
-具体引用方式，取决于你是使用 Web (比如 byzer notebook ) 还是桌面(比如 Kolo-desktop)。
+具体引用方式，取决于你是使用 Web (比如 byzer notebook ) 还是桌面(比如 Byzer-desktop)。
 
 如果是 Web 端的，请参考 Web 端的使用手册（比如 byzer notebook 的使用功能手册） 。如果是桌面版的，则使用 `project` 关键字，
 比如希望在 `src/algs/a.kolo` 中引入 `src/algs/b.kolo`,

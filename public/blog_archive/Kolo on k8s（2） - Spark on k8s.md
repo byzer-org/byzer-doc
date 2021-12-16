@@ -1,4 +1,4 @@
-## Kolo on k8s（2） - Spark on k8s
+## Byzer on k8s（2） - Spark on k8s
 下面将基于 spark native 方式部署，分别讲解如下三种模式：
  
 1. spark submit 从物理机 cluster 模式提交
@@ -15,7 +15,7 @@ docker run --insecure-registry -d -p 5000:5000 --restart always --name registry 
  
 # 可以通过curl来访问：
 curl -XGET http://172.16.2.66:5000/v2/_catalog
-curl -XGET http://172.16.2.66:5000/v2/mlsql/tags/list（查看 Kolo 库下的 tags）
+curl -XGET http://172.16.2.66:5000/v2/mlsql/tags/list（查看 Byzer 库下的 tags）
 ```
 * 在 Spark 包下，生成镜像并推送到镜像库：
 

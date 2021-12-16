@@ -1,7 +1,7 @@
 # http 请求
-http 请求可以让 Kolo 脚本变得更加强大，因为这可以集合所有内部或者外部 API 来完成某项工作。 
+http 请求可以让 Byzer 脚本变得更加强大，因为这可以集合所有内部或者外部 API 来完成某项工作。 
 
-Kolo 提供了一系列功能较为全面的 http 请求函数。
+Byzer 提供了一系列功能较为全面的 http 请求函数。
 
 ### crawler_request
 crawler_request(url) - 通过 get 方法请求 url，返回请求到的 html 网页

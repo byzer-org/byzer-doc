@@ -224,9 +224,9 @@ register RandomForest.`/tmp/models/randomforest` as model_predict;
 select vec_array(model_predict(features)) as predicted_value from mock_data as output;
 ```
 
-## Kolo-python支持
+## Byzer-python支持
 
-Kolo 通过 Kolo-python 支持 Python 脚本。 如果用户在  Byzer Notebook 中使用，将会更加易用。
+Byzer 通过 Byzer-python 支持 Python 脚本。 如果用户在  Byzer Notebook 中使用，将会更加易用。
 
 下面展示的是一段纯 Byzer-lang 的代码：
 

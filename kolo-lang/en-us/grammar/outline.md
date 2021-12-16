@@ -182,9 +182,9 @@ At this time, you can use the `register` clause to complete the registration of 
 register RandomForest.`/tmp/models/randomforest` as model_predict;select vec_array(model_predict(features)) as predicted_value from mock_data as output;
 ```
 
-## Kolo-python
+## Byzer-python
 
-Kolo supports Python scripting through Kolo-python. It will be easier to use if users use it in Byzer Notebook.
+Byzer supports Python scripting through Byzer-python. It will be easier to use if users use it in Byzer Notebook.
 
 Here is a piece of Byzer-lang script:
 

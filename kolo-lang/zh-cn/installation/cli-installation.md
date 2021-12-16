@@ -128,4 +128,4 @@ log4j:WARN No such property [rollingPolicy] in org.apache.log4j.RollingFileAppen
 21/09/09 18:41:44  INFO JobManager: JobManager is shutdown....
 ```
 
-> 恭喜，你已经完成 Kolo 命令行的安装和使用。
+> 恭喜，你已经完成 Byzer 命令行的安装和使用。

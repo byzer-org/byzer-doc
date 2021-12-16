@@ -1,6 +1,6 @@
 # 快速开始
 
-本章节将会介绍如何使用 Docker 镜像环境快速体验 Kolo 的 IDE 应用平台 Byzer Notebook。
+本章节将会介绍如何使用 Docker 镜像环境快速体验 Byzer 的 IDE 应用平台 Byzer Notebook。
 
 ### 前置条件
 

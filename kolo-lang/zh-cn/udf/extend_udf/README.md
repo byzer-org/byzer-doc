@@ -1,12 +1,12 @@
 # 动态创建UDF/UDAF
 
-Kolo 支持使用 Python、Java、Scala 编写UDF/UDAF。
-无需打包或重启，只需运行注册 UDF 的 Kolo 代码，就可以即时生效。
-极大的方便用户扩展 Kolo 的功能。
+Byzer 支持使用 Python、Java、Scala 编写UDF/UDAF。
+无需打包或重启，只需运行注册 UDF 的 Byzer 代码，就可以即时生效。
+极大的方便用户扩展 Byzer 的功能。
 
 ### UDF注册
 
-Kolo 提供 `register` 语法注册 UDF。你可以用以下两种方式使用它。
+Byzer 提供 `register` 语法注册 UDF。你可以用以下两种方式使用它。
 
 #### 方法一
 
@@ -30,7 +30,7 @@ def apply(a:Double,b:Double)={
 
 #### 方法二
 
-Kolo 支持在一个语句中完成 UDF 的注册的所有步骤。
+Byzer 支持在一个语句中完成 UDF 的注册的所有步骤。
 
 在这种方式中，我们必须手动指定脚本的编写语言，以及 UDF 的种类。文末有我们支持的语言以及 UDF 列表。
 

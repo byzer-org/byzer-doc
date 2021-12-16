@@ -9,10 +9,10 @@
   * [New Features](/byzer-lang/en-us/what's_new/new_features.md)
 
 - Installation
-  * [Kolo Engine](/byzer-lang/en-us/installation/kolo_engine.md)
-  * [Kolo Desktop](/byzer-lang/en-us/installation/kolo_desktop.md)    
-  * [Kolo CLI](/byzer-lang/en-us/installation/kolo_cli.md)
-  * [Kolo Sandbox](/byzer-lang/en-us/installation/sandbox.md)
+  * [Byzer Engine](/byzer-lang/en-us/installation/kolo_engine.md)
+  * [Byzer Desktop](/byzer-lang/en-us/installation/kolo_desktop.md)    
+  * [Byzer CLI](/byzer-lang/en-us/installation/kolo_cli.md)
+  * [Byzer Sandbox](/byzer-lang/en-us/installation/sandbox.md)
 
 - Byzer-lang Grammar Manual
   * [Byzer-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
@@ -28,7 +28,7 @@
   * [Build-in Marco Functions](/byzer-lang/en-us/grammar/commands.md)
 
 - Data Pipeline & Analysis
-    - Load Datasource in Kolo
+    - Load Datasource in Byzer
       * [Datasource](/byzer-lang/en-us/datasource/README.md)
       * [RestAPI](/byzer-lang/en-us/datasource/restapi.md)
       * [JDBC](/byzer-lang/en-us/datasource/jdbc.md)
@@ -37,7 +37,7 @@
       * [HBase](/byzer-lang/en-us/datasource/hbase.md)
       * [MongoDB](/byzer-lang/en-us/datasource/mongodb.md)
       * [Parquet/Json/Text/Xml/Csv](/byzer-lang/en-us/datasource/file.md)
-      * [jsonStr/script/KoloAPI/KoloConf](/byzer-lang/en-us/datasource/kolo_source.md)
+      * [jsonStr/script/ByzerAPI/ByzerConf](/byzer-lang/en-us/datasource/kolo_source.md)
       * [Kafka](/byzer-lang/en-us/datasource/kafka.md)
       * [MockStreaming](/byzer-lang/en-us/datasource/mock_streaming.md)
 
@@ -48,7 +48,7 @@
         * [MySQL Binlog](/byzer-lang/en-us/datahouse/mysql_binlog.md)
 
     - Extend with Python 
-        * [Use Python to Extend Kolo](/byzer-lang/en-us/python/README.md)
+        * [Use Python to Extend Byzer](/byzer-lang/en-us/python/README.md)
         * [Environment](/byzer-lang/en-us/python/env.md)
         * [ETL](/byzer-lang/en-us/python/etl.md)
         * [Train](/byzer-lang/en-us/python/train.md)
@@ -60,7 +60,7 @@
         * [Parallel in Python](/byzer-lang/en-us/python/py_parallel.md)
 
     * UDF Extension
-        * [UDF in Kolo](/byzer-lang/en-us/udf/README.md)
+        * [UDF in Byzer](/byzer-lang/en-us/udf/README.md)
         * [Built-In UDF](/byzer-lang/en-us/udf/built_in_udf/README.md)
           * [Http request](/byzer-lang/en-us/udf/built_in_udf/http.md)
           * [Common Functions](/byzer-lang/en-us/udf/built_in_udf/vec.md)
@@ -72,7 +72,7 @@
 
     * Streaming Processing
       * [Streaming Process](/byzer-lang/en-us/streaming/README.md)
-      * [Kolo Kafka Tools](/byzer-lang/en-us/streaming/kafka_tool.md)
+      * [Byzer Kafka Tools](/byzer-lang/en-us/streaming/kafka_tool.md)
       * [Query from Kafka](/byzer-lang/en-us/streaming/query_kafka.md)
       * [Set Callback](/byzer-lang/en-us/streaming/callback.md)
       * [Save Result in Batch Mode](/byzer-lang/en-us/streaming/save_in_batch.md)
@@ -138,7 +138,7 @@
       * [Datasource Extension Development](/byzer-lang/en-us/developer/extension/ds_dev.md)
     * [Integration Test](/byzer-lang/en-us/developer/it/integration_test.md)     
     * API
-      * [Kolo Engine Rest API](/byzer-lang/en-us/developer/api/README.md)
+      * [Byzer Engine Rest API](/byzer-lang/en-us/developer/api/README.md)
         * [Script Run API](/byzer-lang/en-us/developer/api/run_script_api.md)
         * [Code Suggestion API](/byzer-lang/en-us/developer/api/code_suggest.md)
       * [Liveness API](/byzer-lang/en-us/developer/api/liveness.md)
@@ -148,8 +148,8 @@
 
 - Appendix
     * Release
-      * [Kolo Version Management](/byzer-lang/en-us/appendix/release-notes/version.md)
-      * [Kolo 2.2.0](/byzer-lang/en-us/appendix/release-notes/2.2.0.md)
+      * [Byzer Version Management](/byzer-lang/en-us/appendix/release-notes/version.md)
+      * [Byzer 2.2.0](/byzer-lang/en-us/appendix/release-notes/2.2.0.md)
       * [MLSQL Stack 2.1.0](/byzer-lang/en-us/appendix/release-notes/2.1.0.md)
       * [MLSQL Stack 2.0.1](/byzer-lang/en-us/appendix/release-notes/2.0.1.md)
       * [MLSQL Stack 2.0.0](/byzer-lang/en-us/appendix/release-notes/2.0.0.md)

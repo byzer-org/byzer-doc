@@ -1,8 +1,8 @@
 # HBase 数据源
 
-HBase 是一个应用很广泛的存储系统。Kolo 也支持将其中的某个索引加载为表。
+HBase 是一个应用很广泛的存储系统。Byzer 也支持将其中的某个索引加载为表。
 
-注意，HBase 的包并没有包含在 Kolo 默认发行包里，所以你需要通过 `--jars` 带上相关的依赖才能使用。用户有两种种方式获得
+注意，HBase 的包并没有包含在 Byzer 默认发行包里，所以你需要通过 `--jars` 带上相关的依赖才能使用。用户有两种种方式获得
 HBase Jar包：
 
 1. ~~直接使用 [hbase Datasource 插件](https://github.com/allwefantasy/mlsql-pluins/tree/master/ds-hbase-2x)~~；
@@ -21,15 +21,15 @@ HBase Jar包：
 
 因为 HBase 依赖很多，大概 80 多 M,下载会比较慢。
 
-### 在 Kolo 中执行
+### 在 Byzer 中执行
 
 **例子:**
 
 ```sql
 > SET rawText='''
 {"id":9,"content":"Spark","label":0.0}
-{"id":10,"content":"Kolo","label":0.0}
-{"id":12,"content":"Kolo lang","label":0.0}
+{"id":10,"content":"Byzer","label":0.0}
+{"id":12,"content":"Byzer lang","label":0.0}
 ''';
 
 > LOAD jsonStr.`rawText` AS orginal_text_corpus;

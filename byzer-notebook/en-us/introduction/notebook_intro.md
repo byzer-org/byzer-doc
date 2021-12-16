@@ -1,6 +1,6 @@
 # Byzer Notebook Introduction
 
-Byzer Notebook is a web interactive computing (Web IDE) application platform based on the Kolo engine.
+Byzer Notebook is a web interactive computing (Web IDE) application platform based on the Byzer engine.
 
 Byzer Notebook provides a unified platform and language for business analysts, data scientists and IT engineers, support interactively writing and running code. Moreover, in Byzer Notebook, support for table entry and table exit of multiple data sources and training and publishing of AI models can better help users open up complex data links and achieve low-cost data analysis and AI landing.
 
@@ -26,7 +26,7 @@ Byzer Notebook not only supports interactively writing and running code, but als
 
 - Provide powerful notebook interactive compilation capabilities
 
-    1. Support seamless switching between Kolo language and Python language
+    1. Support seamless switching between Byzer language and Python language
     2. When programming, it has the functions of syntax highlighting, indentation, and tab completion
     3. Provide perfect code hints
     4. Provide shortcut key operation
@@ -45,7 +45,7 @@ Byzer Notebook not only supports interactively writing and running code, but als
 - Provide low-code visual workflow
 
     1. Provide multiple types of nodes such as algorithms, feature engineering, data processing, etc
-    2. Support interactive generation of Kolo standard sentences
+    2. Support interactive generation of Byzer standard sentences
     3. Support one-click conversion of workflow to notebook mode
     
     
@@ -62,6 +62,6 @@ Byzer Notebook not only supports interactively writing and running code, but als
 
 ### About Byzer Community
 
-Byzer is a new and dynamic open source project, its predecessor is MLSQL. In the Byzer community, we will build a collection of applications such as Byzer Notebook, Kolo Runtime engine, Kolo runtime extension, Kolo vscode extension, etc. around the Kolo language.
+Byzer is a new and dynamic open source project, its predecessor is MLSQL. In the Byzer community, we will build a collection of applications such as Byzer Notebook, Byzer Runtime engine, Byzer runtime extension, Byzer vscode extension, etc. around the Byzer language.
 
 Data developers are welcome to join and build a community ecosystem.

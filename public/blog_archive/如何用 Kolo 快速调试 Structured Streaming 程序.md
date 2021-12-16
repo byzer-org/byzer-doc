@@ -1,6 +1,6 @@
-## 如何用 Kolo 快速调试 Structured Streaming 程序
+## 如何用 Byzer 快速调试 Structured Streaming 程序
 ### 前言
-早上对 Structured Streaming 的 window 函数，Output Mode 以及 Watermark 有些疑惑的地方。Structured Streaming 的文档偏少，而且网上的文章同质化太严重，基础的不能再基础了，但是我也不想再开个测试的工程项目，所以直接就给予 Kolo 来调试。
+早上对 Structured Streaming 的 window 函数，Output Mode 以及 Watermark 有些疑惑的地方。Structured Streaming 的文档偏少，而且网上的文章同质化太严重，基础的不能再基础了，但是我也不想再开个测试的工程项目，所以直接就给予 Byzer 来调试。
 
 ### 本地启动一个
 根据 streamingpro 的文档，在本地启动一个 local 模式的实例，然后打开 127.0.0.1:9003 页面。
@@ -87,7 +87,7 @@ and checkpointLocation="/tmp/cpl4";
 
 因为 Console 输出不支持从 checkpoint recover ，所以你可以手动删除 /tmp/cpl4 目录。
 
-接着你修改 Kolo 脚本，然后点击提交即可。
+接着你修改 Byzer 脚本，然后点击提交即可。
 
 ### 总结
 通过完全校本化，界面操作，以及 mock 数据的支持，可以很方便你进行 structured streaming 的探索。

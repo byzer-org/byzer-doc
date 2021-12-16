@@ -28,7 +28,7 @@
 
 <img src="/byzer-notebook/zh-cn/workspace/images/clear.png" style="zoom:50%;" />  **清楚所有结果**：清楚运行笔记本后的结果；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/markdown.png" style="zoom:50%;" />  **选择语言**：选择单元格内的语言，支持 Kolo、Python、Markdown 语言；
+<img src="/byzer-notebook/zh-cn/workspace/images/markdown.png" style="zoom:50%;" />  **选择语言**：选择单元格内的语言，支持 Byzer、Python、Markdown 语言；
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/workspace/images/shortcut2.png" alt="name"  width="800"/>

@@ -1,8 +1,8 @@
 # MockStream
 
-Kolo 显示的支持 MockStream。它可以用来模拟数据源，广泛应用于测试场景中。
+Byzer 显示的支持 MockStream。它可以用来模拟数据源，广泛应用于测试场景中。
 
-本章只介绍数据加载，想了解更多流式编程细节，请查看 [使用 Kolo 处理流数据](/byzer-lang/zh-cn/streaming/README.md)。
+本章只介绍数据加载，想了解更多流式编程细节，请查看 [使用 Byzer 处理流数据](/byzer-lang/zh-cn/streaming/README.md)。
 
 ### 模拟输入数据源
 

@@ -1,5 +1,5 @@
 # 本地文件/HDFS
-Kolo 支持大部分 HDFS/本地文件 数据读取。目前支持的数据格式有
+Byzer 支持大部分 HDFS/本地文件 数据读取。目前支持的数据格式有
 - Parquet
 - Json
 - Text

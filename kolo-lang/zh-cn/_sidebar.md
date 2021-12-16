@@ -10,9 +10,9 @@
 
 - 安装与配置
   * [Byzer-lang 安装与配置](/byzer-lang/zh-cn/installation/binary-installation.md)
-  * [Kolo 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
-  * [Kolo 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
-  * [Kolo Sandbox](/byzer-lang/zh-cn/installation/sandbox.md)
+  * [Byzer 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
+  * [Byzer 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
+  * [Byzer Sandbox](/byzer-lang/zh-cn/installation/sandbox.md)
 
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
@@ -67,13 +67,13 @@
           * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)
 
-    * [Kolo 流编程](/byzer-lang/zh-cn/streaming/README.md)
-      * [Kolo Kafka Tools](/byzer-lang/zh-cn/streaming/kafka_tool.md)
+    * [Byzer 流编程](/byzer-lang/zh-cn/streaming/README.md)
+      * [Byzer Kafka Tools](/byzer-lang/zh-cn/streaming/kafka_tool.md)
       * [查询 Kafka 数据](/byzer-lang/zh-cn/streaming/query_kafka.md)
       * [设置流式计算回调](/byzer-lang/zh-cn/streaming/callback.md)
       * [对流的结果以批的形式保存](/byzer-lang/zh-cn/streaming/save_in_batch.md)
       * [使用 window/watermark](/byzer-lang/zh-cn/streaming/window_watermark.md)
-      * [使用 Kolo 流式更新 MySQL 数据](/byzer-lang/zh-cn/streaming/stream_update_mysql.md)
+      * [使用 Byzer 流式更新 MySQL 数据](/byzer-lang/zh-cn/streaming/stream_update_mysql.md)
 
 - 机器学习
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)
@@ -132,7 +132,7 @@
       * [自定义数据源插件开发](/byzer-lang/zh-cn/developer/extension/ds_dev.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
     * API
-      * [Kolo Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
+      * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
         * [脚本执行 API](/byzer-lang/zh-cn/developer/api/run_script_api.md)
         * [代码提示 API](/byzer-lang/zh-cn/developer/api/code_suggest.md)
       * [Liveness API](/byzer-lang/zh-cn/developer/api/liveness.md)
@@ -142,8 +142,8 @@
 
 - 附录
   * 发行声明
-    * [Kolo 版本管理策略](/byzer-lang/zh-cn/appendix/release-notes/version.md)
-    * [Kolo 2.2.0](/byzer-lang/zh-cn/appendix/release-notes/2.2.0.md)
+    * [Byzer 版本管理策略](/byzer-lang/zh-cn/appendix/release-notes/version.md)
+    * [Byzer 2.2.0](/byzer-lang/zh-cn/appendix/release-notes/2.2.0.md)
     * [MLSQL Stack 2.1.0](/byzer-lang/zh-cn/appendix/release-notes/2.1.0.md)
     * [MLSQL Stack 2.0.1](/byzer-lang/zh-cn/appendix/release-notes/2.0.1.md)
     * [MLSQL Stack 2.0.0](/byzer-lang/zh-cn/appendix/release-notes/2.0.0.md)
