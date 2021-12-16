@@ -10,4 +10,4 @@
 
 [GitHub](https://github.com/byzer-org)
 [Byzer Notebook Doc](/byzer-notebook/zh-cn/)
-[Kolo-Lang Doc](/kolo-lang/zh-cn/)
+[Kolo-Lang Doc](/byzer-lang/zh-cn/)

@@ -17,7 +17,7 @@ set a = "wow,jack";
 select * from b as output;
 ```
 
-!if/!else 在 Kolo-lang 中并非关键字,都是[宏函数](/kolo-lang/zh-cn/grammar/macro.md)。因为宏函数的调用非常像命令行，所以其实学习门槛
+!if/!else 在 Kolo-lang 中并非关键字,都是[宏函数](/byzer-lang/zh-cn/grammar/macro.md)。因为宏函数的调用非常像命令行，所以其实学习门槛
 也会更低。
 
 在上面的示例中， 先通过变量申明得到一个变量 `a`。 然后在 宏函数 `!if` 只接受一个位置参数，因为是一个宏函数，调用的最后极为必须加上分号 `;` 。
@@ -26,7 +26,7 @@ select * from b as output;
 
 表达式也支持使用 register 句式注册的函数，本文后面部分会有使用示例。 
 
-在条件表达式中使用 `:` 来标识一个变量。变量来源于 [set 句式](/kolo-lang/zh-cn/grammar/set.md)。比如示例中表达式的 `:a` 变量对应的值为 "wow,jack" 。
+在条件表达式中使用 `:` 来标识一个变量。变量来源于 [set 句式](/byzer-lang/zh-cn/grammar/set.md)。比如示例中表达式的 `:a` 变量对应的值为 "wow,jack" 。
 
 如果表达式： 
 
@@ -160,7 +160,7 @@ select * from b as output;
 
 条件分支语句结合强大的变量声明语法，其实可以做很多有意思的事情。
 
-这里主要介绍和 [defaultParam 变量](/kolo-lang/zh-cn/grammar/set.md) 的结合。
+这里主要介绍和 [defaultParam 变量](/byzer-lang/zh-cn/grammar/set.md) 的结合。
 
 比如：
 

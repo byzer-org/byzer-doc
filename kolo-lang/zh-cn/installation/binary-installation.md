@@ -22,7 +22,7 @@ mlsql-engine_<spark_major_version>-<kolo_lang_version>
 
 ### 源码编译
 
-这一步可选，若您想手动编译，请按照 [README.md](https://github.com/byzer-org/kolo-lang#building-a-distribution) 步骤即可完成编译。
+这一步可选，若您想手动编译，请按照 [README.md](https://github.com/byzer-org/byzer-lang#building-a-distribution) 步骤即可完成编译。
 
 
 
@@ -137,4 +137,4 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 执行 $MLSQL_HOME/bin/stop-local.sh
 
 ### 更多参数
-[kolo-lang 更多参数](kolo-lang-configuration.md)
+[byzer-lang 更多参数](byzer-lang-configuration.md)

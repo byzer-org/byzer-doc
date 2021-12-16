@@ -75,6 +75,6 @@ and condaFile="....";
 ```
 
 只有通过 `script` 进行 `load` 之后才能方便的被后面的语句引用。
-这部分可以参照 [Kolo 的 UDF 功能](/kolo-lang/zh-cn/udf/README.md) 理解。
+这部分可以参照 [Kolo 的 UDF 功能](/byzer-lang/zh-cn/udf/README.md) 理解。
 
 

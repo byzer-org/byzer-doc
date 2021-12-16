@@ -25,7 +25,7 @@ RestApi 支持重试机制，支持取返回值中的字段进行多次请求，
 as token_1;
 ```
 
-在这个例子中，首先我们通过 SET 语法运行时执行 Kolo 的语法获取 3 个参数，详细这个语法了解请翻看 [set语法](/kolo-lang/zh-cn/grammar/set.md)。
+在这个例子中，首先我们通过 SET 语法运行时执行 Kolo 的语法获取 3 个参数，详细这个语法了解请翻看 [set语法](/byzer-lang/zh-cn/grammar/set.md)。
 
 在 load 语句中，我们使用 `Rest` 关键字标志数据源是 rest api，引号內填写访问 URL，当然也可以引用 SET 变量。
 

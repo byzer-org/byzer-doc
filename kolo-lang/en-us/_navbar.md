@@ -1,2 +1,2 @@
-* [中文](/kolo-lang/zh-cn/)
-* [En](/kolo-lang/en-us/)
+* [中文](/byzer-lang/zh-cn/)
+* [En](/byzer-lang/en-us/)

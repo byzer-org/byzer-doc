@@ -10,7 +10,7 @@
 * 云原生设计，充分利用云上算力和便宜的存储
 * 一套语言，一个引擎，覆盖 Data + AI 的能力，开箱即用
 
-> 小故事：[Kolo-lang 命名的起源](/kolo-lang/zh-cn/appendix/naming_story.md)
+> 小故事：[Kolo-lang 命名的起源](/byzer-lang/zh-cn/appendix/naming_story.md)
 
 ## 关于Byzer 社区
 

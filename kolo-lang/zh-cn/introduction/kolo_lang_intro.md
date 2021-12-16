@@ -6,7 +6,7 @@
 什么计算机语言适合入门数据行业、交互快、用途广、可扩展性好？答案总是 SQL。
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/tables.png" alt="name"  width="400"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/tables.png" alt="name"  width="400"/>
 </p>
 <center><i>只有 SQL 开发者才能看得懂的笑话</i></center>
 
@@ -32,14 +32,14 @@
 我们使用一种语言 Kolo，就可以在单一平台上实现过去要使用多语言、多平台、多组件才能实现的事情。
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/pipeline.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/pipeline.png" alt="name"  width="800"/>
 </p>
 <center><i>传统的数据处理链路</i></center>
 
 Kolo 既保留了 SQL 的所有原有优势，简洁易懂，上手就可以干活；Kolo 还允许用户进阶操作，提供更多可编程能力。Kolo 有以下 **四大特性**：
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/characteristics.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/characteristics.png" alt="name"  width="800"/>
 </p>
 
 ### Kolo 使用场景 /人群
@@ -49,7 +49,7 @@ Kolo 既保留了 SQL 的所有原有优势，简洁易懂，上手就可以干�
 设想一下，如果企业内的一名业务人员，通过学习进阶版的 SQL 语言 Kolo，就能够完成原来数据团队内的数据科学家 + 数据工程师 + 数据分析师的工作，那么企业在数据团队的投入成本就会大大减少。企业数字化转型不是重金招募更多数据专家，而是让每一个人都成为数据专家。
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/customer.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/customer.png" alt="name"  width="800"/>
 </p>
 
 ### Kolo 基础语法
@@ -57,7 +57,7 @@ Kolo 既保留了 SQL 的所有原有优势，简洁易懂，上手就可以干�
 Kolo 语法非常简单，比标准的 SQL 只多了一些关键字，整个学习过程可以在几个小时内完成。在学习 SQL 的基础上，大家再多努力一点点，就可以掌握用 SQL 进行机器学习。
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/grammar.png" alt="name"  width="500"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/grammar.png" alt="name"  width="500"/>
 </p>
 <center><i>类 SQL 的语法非常简单易懂</i></center>
 
@@ -65,7 +65,7 @@ Kolo 语法非常简单，比标准的 SQL 只多了一些关键字，整个学�
 
 Kolo基于云原生架构设计，可以解锁算力的限制，轻松对接 Spark 和 Ray。
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/clouddesign.png" alt="name"  width="650"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/clouddesign.png" alt="name"  width="650"/>
 </p>
 
 Kolo 核心引擎是 Spark，Ray 是可插拔的，两者都是分布式的，衔接上也是分布式的。所以我们说 Kolo 天然就是一个分布式引擎。
@@ -77,7 +77,7 @@ Kolo 核心引擎是 Spark，Ray 是可插拔的，两者都是分布式的，�
 
 ### Kolo 支持 Python
 对于一些资深的机器学习用户，他们可能会担心，已经在其他产品例如 Jupyter Notebook 用Python 的 scikit-learn 或者 tensorflow 进行了机器学习的模型开发，项目文件已经存在大量的代码，如果迁移到MLSQL就会涉及代码重写。
-在 Kolo 中我们支持 Python 代码的引用和适配，资深 Python 用户可以继续使用您习惯的机器学习的包进行模型开发。这部分的内容可以参考 [Python 扩展](/kolo-lang/zh-cn/python/README.md)  章节。
+在 Kolo 中我们支持 Python 代码的引用和适配，资深 Python 用户可以继续使用您习惯的机器学习的包进行模型开发。这部分的内容可以参考 [Python 扩展](/byzer-lang/zh-cn/python/README.md)  章节。
 
 接下来，就上手试试 Kolo 吧。
 

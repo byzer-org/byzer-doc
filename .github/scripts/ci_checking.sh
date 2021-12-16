@@ -16,7 +16,7 @@ function check_dead_link(){
 
 
 echo "Start to check dead links."
-check_dead_link kolo-lang
+check_dead_link byzer-lang
 check_dead_link byzer-notebook
 
 if [ $succ -eq 0 ]; then

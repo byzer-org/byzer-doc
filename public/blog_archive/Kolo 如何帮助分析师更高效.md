@@ -68,7 +68,7 @@ select * from result as output;
 研发可以开发非常多为分析师定制的ET模块，从而高效的提高分析师的工作效率，也让很多”不可能“变成”可能“。值得一提的是，分析师做不了的工作，不需转交给研发，而是由研发开发ET,从而然工作职责更加清晰，让分析师的边界更加宽广。
 
 ### 总结
-* 关于设置本地开发环境，可参看 [Kolo 开发环境配置指南](https://docs.byzer.org/#/kolo-lang/zh-cn/developer/dev_env/README)。
-* 关于 ET 具体开发指南，参看 [Kolo-ET 开发指南](https://docs.byzer.org/#/kolo-lang/zh-cn/extension/et/README)。
+* 关于设置本地开发环境，可参看 [Kolo 开发环境配置指南](https://docs.byzer.org/#/byzer-lang/zh-cn/developer/dev_env/README)。
+* 关于 ET 具体开发指南，参看 [Kolo-ET 开发指南](https://docs.byzer.org/#/byzer-lang/zh-cn/extension/et/README)。
 
 如果大家想体验 Kolo 产品，可点击一键体验全套 Kolo 产品，或者自助完成编译部署。

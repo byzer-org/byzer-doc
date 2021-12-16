@@ -2,7 +2,7 @@
 
 Kolo 显示的支持 Kafka 作为流式数据源，也支持将其作为普通数据源进行 AdHoc 加载，性能同样可观。
 
-本章只介绍数据加载，想了解更多流式编程细节，请查看 [使用 Kolo 处理流数据](/kolo-lang/zh-cn/streaming/README.md)。
+本章只介绍数据加载，想了解更多流式编程细节，请查看 [使用 Kolo 处理流数据](/byzer-lang/zh-cn/streaming/README.md)。
 
 
 ## 流式加载

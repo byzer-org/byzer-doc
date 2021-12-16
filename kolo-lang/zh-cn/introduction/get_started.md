@@ -46,23 +46,23 @@
 
    `docker pull allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
 
-   <img src="/kolo-lang/zh-cn/introduction/images/fetch_sandbox_image.png" alt="fetch_image"/>
+   <img src="/byzer-lang/zh-cn/introduction/images/fetch_sandbox_image.png" alt="fetch_image"/>
 
 2. 运行容器
 
    `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
 
-   <img src="/kolo-lang/zh-cn/introduction/images/run_sandbox_container.png" alt="run_container"/>
+   <img src="/byzer-lang/zh-cn/introduction/images/run_sandbox_container.png" alt="run_container"/>
 
 3. 浏览器访问
 
    访问 `http://localhost:9002`
 
 
-   <img src="/kolo-lang/zh-cn/introduction/images/visit_notebook.png" alt="visit_notebook"/>
+   <img src="/byzer-lang/zh-cn/introduction/images/visit_notebook.png" alt="visit_notebook"/>
 
    输入账号密码: admin/admin，开始探索 Byzer Notebook 吧。
 
-   <img src="/kolo-lang/zh-cn/introduction/images/explore_notebook_cn.png" alt="explore_notebook"/>
+   <img src="/byzer-lang/zh-cn/introduction/images/explore_notebook_cn.png" alt="explore_notebook"/>
    
 

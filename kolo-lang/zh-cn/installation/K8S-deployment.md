@@ -1,6 +1,6 @@
 # K8S镜像部署指南
 
-本文描述了如何部署 kolo-lang K8S 镜像，并体验基本功能。总体分为三步，环境搭建，部署，体验功能。
+本文描述了如何部署 byzer-lang K8S 镜像，并体验基本功能。总体分为三步，环境搭建，部署，体验功能。
 
 ## 环境搭建
 
@@ -91,8 +91,8 @@ kubectl create secret docker-registry regcred \
 | engine-executor-memory       | Spark executor 堆内存，单位MB                        |
 | engine-driver-core-num       | Spark driver 核数                                |
 | engine-driver-memory         | Spark driver 堆内存, 单位MB                         |
-| engine-access-token          | 调用 kolo-lang API所需 Token                       |
-| engine-jar-path-in-container | kolo-lang jar 在容器内路径，请不要修改。启动Spark Driver 需要它。 |
+| engine-access-token          | 调用 byzer-lang API所需 Token                       |
+| engine-jar-path-in-container | byzer-lang jar 在容器内路径，请不要修改。启动Spark Driver 需要它。 |
 | storage-name                 | 执行 juicefs format命令时，指定的名称                     |
 | storage-meta-url             | JuiceFS 的元数据库连接串                               |
 

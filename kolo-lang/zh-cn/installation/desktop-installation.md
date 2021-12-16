@@ -31,7 +31,7 @@ Kolo-lang VSCode 插件有两种安装方式，包含本地安装和从插件市
 
 - 从 VSCode 插件 Market 安装
 
-    1. 从 VSCode 的插件市场里搜索 `MLSQL` 并安装此插件 （友情提示，此处需要科学上网加持，Market 响应速度会更快）注意，市场里的是不包含 kolo-lang的，所以需要后续两步。
+    1. 从 VSCode 的插件市场里搜索 `MLSQL` 并安装此插件 （友情提示，此处需要科学上网加持，Market 响应速度会更快）注意，市场里的是不包含 byzer-lang的，所以需要后续两步。
 
        ![img_1.png](images/img_looup_mlsql.png)
     2. 从 [此处](https://download.byzer.org) 下载 `mlsql-app_2.4-2.1.0-darwin-amd64.tar.gz`，并解压
@@ -49,7 +49,7 @@ Kolo-lang VSCode 插件有两种安装方式，包含本地安装和从插件市
 ### 配置 .mlsql.config文件 （可选）
 
 请确保你本机已经安装了Java,如果系统无法自动识别，你可以通过添加 `.mlsql.config` 文件来手动配置`java.home`来告知系统。
-`.mlsql.config` 位于你的 kolo-lang 项目根目录,每个项目都可以有不同的配置。
+`.mlsql.config` 位于你的 byzer-lang 项目根目录,每个项目都可以有不同的配置。
 
 1. 根据下方图片，在 `.mlsql.config` 里配置两个变量，*java.home* 和 *engine.home*（engine.home仅需从市场安装的才需要）
 

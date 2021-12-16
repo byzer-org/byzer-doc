@@ -11,21 +11,21 @@
 点击官网主页上的 **在线试用**：
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/online_trial.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/online_trial.png" alt="name"  width="800"/>
 </p>
 
 
 填写基本信息注册并点击 **创建账号**：
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/register.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/register.png" alt="name"  width="800"/>
 </p>
 
 
 通过邮箱中的链接验证后，您就可以进入到准备区，点击 **开始试用** 开始体验之旅。
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/start_trial.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/start_trial.png" alt="name"  width="800"/>
 </p>
 
 
@@ -36,7 +36,7 @@
 ##### 1.1 创建文件
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/Workspace_create.png" alt="name"  width="250"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/Workspace_create.png" alt="name"  width="250"/>
 </p>
 
 
@@ -47,7 +47,7 @@
 ##### 1.2 操作文件
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/Workspace_edit.png" alt="drawing"  width="250"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/Workspace_edit.png" alt="drawing"  width="250"/>
 </p>
 
 
@@ -65,7 +65,7 @@ Byzer Notebook 支持多种数据源类型的一站式接入。
 线上试用的环境目前仅支持 Delta lake 和 HDFS 数据源的导入和存储。
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/catalog.png" alt="drawing"  width="250"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/catalog.png" alt="drawing"  width="250"/>
 </p>
 
 
@@ -76,7 +76,7 @@ Byzer Notebook 支持多种数据源类型的一站式接入。
 ##### 3.1 编辑 笔记本
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/toolbar.png" alt="drawing"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/toolbar.png" alt="drawing"  width="800"/>
 </p>
 
 
@@ -87,7 +87,7 @@ Byzer Notebook 支持多种数据源类型的一站式接入。
 ##### 3.2 运行 笔记本
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/run_button.png" alt="drawing"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/run_button.png" alt="drawing"  width="800"/>
 </p>
 
 
@@ -96,7 +96,7 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
 ##### 3.3 Code 模式 VS Markdown 模式
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/markdown.png" alt="drawing"  width="250"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/markdown.png" alt="drawing"  width="250"/>
 </p>
 
 
@@ -105,7 +105,7 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
 ##### 3.3 快捷键辅助及文档手册辅助
 
 <p align="center">
-    <img src="/kolo-lang/zh-cn/introduction/images/feedback.png" alt="drawing"  width="800"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/feedback.png" alt="drawing"  width="800"/>
 </p>
 
 

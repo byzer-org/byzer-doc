@@ -12,7 +12,7 @@ online docs: https://docs.byzer.org/ powered by [docsify](https://github.com/doc
 - byzer-notebook: content of byzer notebook docs
     - zh-cn
     - en-us
-- kolo-lang: content of kolo-lang docs
+- byzer-lang: content of byzer-lang docs
     - zh-cn
     - en-us
 - public: content of public blogs and shared slide
@@ -20,7 +20,7 @@ online docs: https://docs.byzer.org/ powered by [docsify](https://github.com/doc
 - coverpage.md: the content of index.html
 ```
 
-- If you add a new markdown file in `kolo-lang` or `byzer-notebook`, please make sure this file has been included in `_sidebar.md`
+- If you add a new markdown file in `byzer-lang` or `byzer-notebook`, please make sure this file has been included in `_sidebar.md`
 - If you want to cite pictures in the document, please create a `image` folder in the same level directory as the markdown file
 - If you want to public a shared slide or blog, **please ensure that the material is desensitized**
 

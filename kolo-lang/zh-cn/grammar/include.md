@@ -109,7 +109,7 @@ and outputTable="${outputTable}"
 and code='''py.rawXgboost''';
 ```
 
-> `run句式` 可以参考[扩展/Train|Run|Predict](/kolo-lang/zh-cn/grammar/et_statement.md)
+> `run句式` 可以参考[扩展/Train|Run|Predict](/byzer-lang/zh-cn/grammar/et_statement.md)
 
 在上面的示例代码中， 通过 `py.rawXgboost` 可以完成对 Python 文件脚本的引用，系统会自动将这部分内容替换为实际的
 Python 脚本内容。

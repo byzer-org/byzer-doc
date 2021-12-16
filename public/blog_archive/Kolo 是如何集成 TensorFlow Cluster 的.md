@@ -9,7 +9,7 @@ Kolo 集成 TF Cluster 的主要优势有：
 3. 数据交互本地化(也可以消费 Kafka)，假设你配置了 10 个 worker，数据会被切分成十份，然后同步到对应 worker 的本地目录。
 4. 易用，你只要写一个 python 脚本，所有调度相关工作全部由 Kolo 来完成。
 
-感兴趣的可以参看这个[ PR ](https://github.com/byzer-org/kolo-lang/pull/359)，看看具体实现源码。
+感兴趣的可以参看这个[ PR ](https://github.com/byzer-org/byzer-lang/pull/359)，看看具体实现源码。
 
 ### 一个示例
 
