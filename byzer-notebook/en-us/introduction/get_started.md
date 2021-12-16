@@ -46,23 +46,23 @@ Next, we will demonstrate the entire quick installation process through examples
 
    `docker pull allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
    
-   ![fetch_image](https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/fetch_sandbox_image.png)
+   ![fetch_image](/byzer-notebook/en-us/introduction/images/fetch_sandbox_image.png)
    
 2. Run Container
 
    `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
    
-   ![run_container](https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/run_sandbox_container.png)
+   ![run_container](/byzer-notebook/en-us/introduction/images/run_sandbox_container.png)
 
 3. Visit in Browser
 
    Visit `http://localhost:9002`
    
-   ![visit_notebook](https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/visit_notebook.png)
+   ![visit_notebook](/byzer-notebook/en-us/introduction/images/visit_notebook.png)
    
    Enter the account password: admin/admin, and start exploring Byzer Notebook.
    
-   ![explore_notebook](https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/explore_notebook_en.png)
+   ![explore_notebook](/byzer-notebook/en-us/introduction/images/explore_notebook_en.png)
    
    
 

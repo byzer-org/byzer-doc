@@ -17,7 +17,7 @@ Before starting the trial, please make sure that you have successfully registere
 ##### 1.1 Create file
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/Workspace_create.png" alt="name"  width="250"/>
+    <img src="/byzer-notebook/en-us/introduction/images/Workspace_create.png" alt="name"  width="250"/>
 </p>
 
 You can view all project files in the work area list. You can create **notebook** files, **workflow** files and **folders** by clicking ➕ on the right side of **workspace**. You can also import local **notebook** files (.mlnb) and **workflow** files (.mlwf) through **import**.
@@ -27,7 +27,7 @@ You can view all project files in the work area list. You can create **notebook*
 ##### 1.2 Manipulate files
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/Workspace_edit.png" alt="drawing"  width="250"/>
+    <img src="/byzer-notebook/en-us/introduction/images/Workspace_edit.png" alt="drawing"  width="250"/>
 </p>
 
 Click the buoy on the right side of the project file, you can perform operations such as **clone**, **move**, **rename**, **delete** on the file.
@@ -44,7 +44,7 @@ Byzer Notebook supports one-stop access of multiple data source types.
 The online trial environment currently only supports the import and storage of Delta lake and HDFS data sources.
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/catalog.png" alt="drawing"  width="250"/>
+    <img src="/byzer-notebook/en-us/introduction/images/catalog.png" alt="drawing"  width="250"/>
 </p>
 
 
@@ -57,7 +57,7 @@ The online trial environment currently only supports the import and storage of D
 ##### 3.1 Edit Notebook
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/toolbar.png" alt="drawing"  width="800"/>
+    <img src="/byzer-notebook/en-us/introduction/images/toolbar.png" alt="drawing"  width="800"/>
 </p>
 
 In the **workspace**, click the corresponding **notebook** to enter the dedicated workspace for the project file.
@@ -66,7 +66,7 @@ You can use the buttons in the **toolbar** at the top of the notebook workspace 
 ##### 3.2 Run the notebook
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/byzer-org/byzer-doc/main/byzer-notebook/en-us/introduction/images/run_button.png" alt="drawing"  width="800"/>
+    <img src="/byzer-notebook/en-us/introduction/images/run_button.png" alt="drawing"  width="800"/>
 </p>
 
 Both the upper right corner of the cell and the upper toolbar provide a run button, and the toolbar also provides a global run button.
