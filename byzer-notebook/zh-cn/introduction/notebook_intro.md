@@ -1,6 +1,6 @@
 # Byzer Notebook 简介
 
-Byzer Notebook 是基于 Kolo 引擎搭建的网页交互计算（Web IDE）应用平台。
+Byzer Notebook 是基于 Byzer 引擎搭建的网页交互计算（Web IDE）应用平台。
 
 Byzer Notebook 为业务分析师、数据科学家和 IT 工程师提供了统一的平台和语言，支持交互式地编写和运行代码。并且，在 Byzer Notebook 中，支持多数据源的表进表出和 AI 模型的训练与发布，能够更好地帮助用户打通复杂的数据链路，实现低成本的数据分析和 AI 落地。
 
@@ -26,7 +26,7 @@ Byzer Notebook 不仅支持交互式地编写和运行代码，还提供了可�
 ### Byzer Notebook 的主要特点
 
 - 拥有强大的 Notebook 交互编译能力
-  1. 支持 Kolo 语言和 Python 语言的无缝切换
+  1. 支持 Byzer 语言和 Python 语言的无缝切换
   2. 编程时具有语法高亮、缩进、tab 补全的功能
   3. 提供完善的代码提示
   4. 提供快捷键操作
@@ -43,7 +43,7 @@ Byzer Notebook 不仅支持交互式地编写和运行代码，还提供了可�
   
 - 提供低代码可视化工作流
   1. 提供算法、特征工程、数据处理等多类型节点
-  2. 支持交互式生成 Kolo 标准语句
+  2. 支持交互式生成 Byzer 标准语句
   3. 支持工作流一键转成笔记本模式
   
   
@@ -58,6 +58,6 @@ Byzer Notebook 不仅支持交互式地编写和运行代码，还提供了可�
 
 ### 关于 Byzer 社区
 
-Byzer 是一个新兴且充满活力的开源项目，其前身是 MLSQL 。在 Byzer 社区中, 我们将会围绕 Kolo 语言，共建Byzer Notebook , Kolo Runtime 引擎, Kolo runtime extension, Kolo vscode extension 等应用集合。
+Byzer 是一个新兴且充满活力的开源项目，其前身是 MLSQL 。在 Byzer 社区中, 我们将会围绕 Byzer 语言，共建Byzer Notebook , Byzer Runtime 引擎, Byzer runtime extension, Byzer vscode extension 等应用集合。
 
 欢迎数据开发者们加入，共建社区生态。

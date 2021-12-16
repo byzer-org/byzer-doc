@@ -91,7 +91,7 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
     <img src="/byzer-notebook/zh-cn/introduction/images/markdown.png" alt="drawing"  width="250"/>
 </p>
 
-对于cell可以切换 **Kolo 代码模式** 、**Python 代码模式** 和 **Markdown文本编辑** 模式。
+对于cell可以切换 **Byzer 代码模式** 、**Python 代码模式** 和 **Markdown文本编辑** 模式。
 
 ##### 3.3 快捷键辅助及文档手册辅助
 
@@ -99,5 +99,5 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
     <img src="/byzer-notebook/zh-cn/introduction/images/feedback.png" alt="drawing"  width="800"/>
 </p>
 
-点击导航导航栏右上角的 **?** 按钮，可给予 **反馈** 和查看 **Kolo 手册**。
+点击导航导航栏右上角的 **?** 按钮，可给予 **反馈** 和查看 **Byzer 手册**。
 

@@ -1,16 +1,16 @@
-## Kolo on k8s（3） - Kolo on k8s
+## Byzer on k8s（3） - Byzer on k8s
 
-有了前两篇的铺垫，主角 Kolo 终于上场了，在部署 Kolo on k8s，参考了这三篇文章（和作者的帮助）：
+有了前两篇的铺垫，主角 Byzer 终于上场了，在部署 Byzer on k8s，参考了这三篇文章（和作者的帮助）：
 
 1. http://docs.mlsql.tech/mlsql-stack/qa/mlsql-docker-image.html
 2. http://docs.mlsql.tech/mlsql-engine/howtouse/k8s_deploy.html
 3. http://blog.mlsql.tech/blog/liveness_readiness.html
 
 
-在正式部署 Kolo 之前，笔者先构建一个测试的框架，目的有三：
+在正式部署 Byzer 之前，笔者先构建一个测试的框架，目的有三：
 
 * 可以指定在某台机器部署
-* 快速更新 Kolo 配置
+* 快速更新 Byzer 配置
 * 快速测试
 
 建立标签，以保证 deployment 到指定机器：
@@ -66,10 +66,10 @@ spec:
             path: /root/k8s/mlsql/test-mount
 EOF
 # 指定在 test lable 的机器运行，这里指 172.16.2.62
-# 本地的 /root/k8s/mlsql/test-mount 挂载到容器的 /opt/mlsql，方便修改 Kolo 配置
+# 本地的 /root/k8s/mlsql/test-mount 挂载到容器的 /opt/mlsql，方便修改 Byzer 配置
 # args: [ "while true; do sleep 10000; done;" ]的作用是保证容器一直运行
 ```
-对于 Kolo，需要对外暴露 9003 端口，才可以在外部浏览器访问，而 Spark UI 需要对外暴露 4040 端口。下面通过 ingress/service 来暴露端口供外部访问：
+对于 Byzer，需要对外暴露 9003 端口，才可以在外部浏览器访问，而 Spark UI 需要对外暴露 4040 端口。下面通过 ingress/service 来暴露端口供外部访问：
 
 ```yaml
 cat > ingress.yaml << EOF 
@@ -125,7 +125,7 @@ kubectl apply -f service.yaml
 172.16.2.62 t1-24-12 hello.mlsql.com hello.ui.com
 ```
 
-然后把 Kolo 的启动包放到 `/root/k8s/mlsql/test-mount` 目录下，接着编写 Kolo 启动脚本：
+然后把 Byzer 的启动包放到 `/root/k8s/mlsql/test-mount` 目录下，接着编写 Byzer 启动脚本：
 
 ```shell
 cat > mlsql-start.sh << EOF 
@@ -199,9 +199,9 @@ nohup sh mlsql-start.sh &
 
 ![avatar](./images/k8s_code.png)
 
-通过这种方式启动 Kolo 只适用于测试，方便调试 Kolo，比如增加依赖的 jar，修改启动配置参数等等，可以在宿主机进行修改，然后到容器中启动 Kolo，很方便。
+通过这种方式启动 Byzer 只适用于测试，方便调试 Byzer，比如增加依赖的 jar，修改启动配置参数等等，可以在宿主机进行修改，然后到容器中启动 Byzer，很方便。
 
-目前 Kolo 是跑通了，但是还不完全支持 python，如果要支持 python，需要重新构建 Spark 环境镜像，增加 conda 和ray 等。
+目前 Byzer 是跑通了，但是还不完全支持 python，如果要支持 python，需要重新构建 Spark 环境镜像，增加 conda 和ray 等。
 
 进入 Spark 包，在 `kubernetes/dockerfiles/spark/` 目录下建如下文件（jdk14）：
 
@@ -295,7 +295,7 @@ docker build -t 172.16.2.66:5000/spark:3.0-j14-mlsql -f kubernetes/dockerfiles/s
 docker push 172.16.2.66:5000/spark:3.0-j14-mlsql
  
  
-# 基于 spark 镜像构建 Kolo 镜像
+# 基于 spark 镜像构建 Byzer 镜像
  
 
 cat > MLSQLDockerfile << EOF 
@@ -311,7 +311,7 @@ EOF
 docker build -t 172.16.2.66:5000/mlsql:3.0-j14-mlsql -f MLSQLDockerfile .
 docker push 172.16.2.66:5000/mlsql:3.0-j14-mlsql
 ```
-在生产使用 Kolo 时，该如何部署呢，下面来看一个模板：
+在生产使用 Byzer 时，该如何部署呢，下面来看一个模板：
 
 ```shell
 cat > mlsql-deployment-d.yaml << EOF 
@@ -467,4 +467,4 @@ lifecycle:
  
 # 这几行代码很重要，如果没有的话，当 delete deployment 的时候，executor 的 pod 还会一直存活，目的是先关闭SparkContext然后在关闭容器。
 ```
-真正生产部署的时候还有很多事情要做，比如 Kolo 日志采集，Spark 历史服务器，Kolo 访问 Hive 配置，Spark 配置等等，只要想做好，也不是什么大不了的事儿，加油
+真正生产部署的时候还有很多事情要做，比如 Byzer 日志采集，Spark 历史服务器，Byzer 访问 Hive 配置，Spark 配置等等，只要想做好，也不是什么大不了的事儿，加油

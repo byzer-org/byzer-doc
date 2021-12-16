@@ -1,15 +1,15 @@
-## Kolo 是如何集成 TensorFlow Cluster 的
+## Byzer 是如何集成 TensorFlow Cluster 的
 ### 前言
-我们知道 Kolo 支持 SKLearn，TF 等流行的算法框架，不过虽然支持了多个实例同时运行，但其实每个模型都需要跑全部数据。有的时候数据太大，确实是个问题，所以这个时候还是需要引入 Cluster 的。Kolo 基于 Spark，所以问题就变成了如何在 Spark 里集成TF Cluster 了。TFoS 已经实现了类似的功能，但遗憾的是，TFoS 完全是用 Python 编写的，并且每次都需要启动一个新的 Spark 实例来运行，overhead 是比较高的。
-### Kolo 集成 TF Cluster
-Kolo 集成 TF Cluster 的主要优势有：
+我们知道 Byzer 支持 SKLearn，TF 等流行的算法框架，不过虽然支持了多个实例同时运行，但其实每个模型都需要跑全部数据。有的时候数据太大，确实是个问题，所以这个时候还是需要引入 Cluster 的。Byzer 基于 Spark，所以问题就变成了如何在 Spark 里集成TF Cluster 了。TFoS 已经实现了类似的功能，但遗憾的是，TFoS 完全是用 Python 编写的，并且每次都需要启动一个新的 Spark 实例来运行，overhead 是比较高的。
+### Byzer 集成 TF Cluster
+Byzer 集成 TF Cluster 的主要优势有：
 
 1. 一个 Spark 实例可以运行多个 TF Cluster，互不影响。
 2. 可以 local 模式运行 TF Cluster
 3. 数据交互本地化(也可以消费 Kafka)，假设你配置了 10 个 worker，数据会被切分成十份，然后同步到对应 worker 的本地目录。
-4. 易用，你只要写一个 python 脚本，所有调度相关工作全部由 Kolo 来完成。
+4. 易用，你只要写一个 python 脚本，所有调度相关工作全部由 Byzer 来完成。
 
-感兴趣的可以参看这个[ PR ](https://github.com/byzer-org/kolo-lang/pull/359)，看看具体实现源码。
+感兴趣的可以参看这个[ PR ](https://github.com/byzer-org/byzer-lang/pull/359)，看看具体实现源码。
 
 ### 一个示例
 
@@ -92,4 +92,4 @@ TF Server 完成训练后会上报 Driver。
 
 4. 最后整个训练结束，并且把训练好的模型发送到 HDFS 上。
 
-Executor 和 Driver 交互，其实 Kolo 里已经实现了自己的 PRC 层。不过因为这次比较简单，只需要单向通讯即可，所以直接基于 Driver 的 http 接口完成。
+Executor 和 Driver 交互，其实 Byzer 里已经实现了自己的 PRC 层。不过因为这次比较简单，只需要单向通讯即可，所以直接基于 Driver 的 http 接口完成。

@@ -1,7 +1,7 @@
-## Kolo 数据源开发指南
+## Byzer 数据源开发指南
 
 ### 前言
-Kolo 支持标准的 Spark DataSource 数据源。典型使用如下：
+Byzer 支持标准的 Spark DataSource 数据源。典型使用如下：
 
 ```sql
 load hive.`public.test` as test;
@@ -18,7 +18,7 @@ select * from datasource as table1;
 那么我们如何实现自己的数据源呢？下面我们会分两部分，第一部分是已经有第三方实现了的标准 Spark 数据源的集成，第二个是你自己创造的新的数据源。
 
 标准 Spark 数据源的在封装
-我们以 HBase 为例，这是一个已经实现了标准Spark数据源的驱动，对应的类为`org.apache.spark.sql.execution.datasources.hbase`。 现在我们要把他封装成 Kolo 能够很好兼容的数据源。
+我们以 HBase 为例，这是一个已经实现了标准Spark数据源的驱动，对应的类为`org.apache.spark.sql.execution.datasources.hbase`。 现在我们要把他封装成 Byzer 能够很好兼容的数据源。
 
 我们先看看具体使用方法
 
@@ -39,7 +39,7 @@ select '2' as rowkey, 'insert test data' as name as insert_table;
 -- 保存数据到hbase表
 save insert_table as hbase.`hbase1:mlsql_example`;
 ```
-为了实现上述 Kolo 中的 hbase 数据源，我们只要实现创建一个类实现一些接口就可以实现上述功能：
+为了实现上述 Byzer 中的 hbase 数据源，我们只要实现创建一个类实现一些接口就可以实现上述功能：
 
 ```python
 package streaming.core.datasource.impl

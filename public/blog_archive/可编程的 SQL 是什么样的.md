@@ -187,7 +187,7 @@ select * from final_table as output;
 SQL 表达机器学习其实是比较困难的。但是别忘了我们是可编程的 SQL 呀。我们来看看示例，第一步我们准备一些数据：
 
 ```sql
-include project.`./src/common/mock_data.Kolo`;
+include project.`./src/common/mock_data.Byzer`;
 -- create mock/validate/test dataset.
 select vec_dense(features) as features, label as label from mock_data as mock_data;
 select * from mock_data as mock_data_validate;
@@ -233,7 +233,7 @@ run command as Ray.`` where
 inputTable="mockTable"
 and outputTable="newMockTable"
 and code='''
-from pyjava.api.Kolo import RayContext
+from pyjava.api.Byzer import RayContext
 
 ray_context = RayContext.connect(globals(),None)
 
@@ -254,7 +254,7 @@ select * from newMockTable as output;
 可编程 SQL 无论语法还是内核功能应该是可以扩展的。 比如我需要一个可以产生测试数据的功能。我只要执行如下指令就可以安装具有这个功能的插件：
 
 ```sql
-!plugin app add - "Kolo-mllib-3.0";
+!plugin app add - "Byzer-mllib-3.0";
 ```
 然后我就获得了一个叫 SampleDatasetExt 的工具，他可以产生大量的测试数据:
 
@@ -348,10 +348,10 @@ from data as output;
 这个可编程的 SQL 是还在梦想中么?当然不是！ 它就在这里： http://byzer.org 我们提供了桌面版和在线试用版本。还不快来感受下。
 
 ### 真的最后了
-Kolo 目前支持 Web 版，桌面版，包括 Script，Notebook 等多种交互模式。参考 Kolo 2.1.0 版本的[技术白皮书](http://blog.mlsql.tech/blog/mlsql-lang-white-paper.html)
+Byzer 目前支持 Web 版，桌面版，包括 Script，Notebook 等多种交互模式。参考 Byzer 2.1.0 版本的[技术白皮书](http://blog.mlsql.tech/blog/mlsql-lang-white-paper.html)
 
 
-现在，让我们看一段赏心悦目的 Kolo 代码
+现在，让我们看一段赏心悦目的 Byzer 代码
 
 下载图片tar包，并且解压
 设置 python 环境
@@ -360,4 +360,4 @@ Kolo 目前支持 Web 版，桌面版，包括 Script，Notebook 等多种交互
 对文件名进行处理
 将表以二进制图片包保存到对象存储目录中
 
-![avatar](images/kolo_code.png)
+![avatar](images/byzer_code.png)

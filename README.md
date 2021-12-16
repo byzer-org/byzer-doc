@@ -12,7 +12,7 @@ online docs: https://docs.byzer.org/ powered by [docsify](https://github.com/doc
 - byzer-notebook: content of byzer notebook docs
     - zh-cn
     - en-us
-- kolo-lang: content of kolo-lang docs
+- byzer-lang: content of byzer-lang docs
     - zh-cn
     - en-us
 - public: content of public blogs and shared slide
@@ -20,7 +20,7 @@ online docs: https://docs.byzer.org/ powered by [docsify](https://github.com/doc
 - coverpage.md: the content of index.html
 ```
 
-- If you add a new markdown file in `kolo-lang` or `byzer-notebook`, please make sure this file has been included in `_sidebar.md`
+- If you add a new markdown file in `byzer-lang` or `byzer-notebook`, please make sure this file has been included in `_sidebar.md`
 - If you want to cite pictures in the document, please create a `image` folder in the same level directory as the markdown file
 - If you want to public a shared slide or blog, **please ensure that the material is desensitized**
 
@@ -68,7 +68,7 @@ If you want to become a member of byzer orgnization, you will be accepted after 
 If you want to join **Byzer Docs User Group**,  you can contribute the following things or more by:
 
 - Post the blog or shared slides about any Byzer projects
-- Write the documentation of Kolo-Lang or Byzer-Notebook
+- Write the documentation of Byzer-Lang or Byzer-Notebook
 - Translate all the content to English
 
 Then, just file an issue with the tile like `Join Byzer Docs User Group` 

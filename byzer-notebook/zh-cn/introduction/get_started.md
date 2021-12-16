@@ -16,11 +16,11 @@
    
 2. 运行容器
 
-   `docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_kolo_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> allwefantasy/mlsql-sandbox:<tag>`
+   `docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_byzer_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> allwefantasy/mlsql-sandbox:<tag>`
    
    > container_name 是运行的容器名称
    > host_notebook_port 是 notebook 服务在宿主机上暴露的端口
-   > host_kolo_port 是 kolo 服务在宿主机上暴露的端口
+   > host_byzer_port 是 byzer 服务在宿主机上暴露的端口
    > host_mysql_port 是 mysql 服务在宿主机上暴露的端口
    > mysql_pwd 是 mysql 服务的 root 用户密码
    > tag 是上一步骤选定的镜像版本号
@@ -38,7 +38,7 @@
 - tag: 3.1.1-2.2.0
 - container_name: byzer-sandbox
 - host_notebook_port: 9002
-- host_kolo_port: 9003
+- host_byzer_port: 9003
 - host_mysql_port: 3306
 - mysql_pwd: root
 

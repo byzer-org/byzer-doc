@@ -7,10 +7,10 @@
 碎碎念了，我们来看看 PyMLSQL 是如何操作阿里云 ECS，方便大家低成本去动态控制 ECS。
 
 ### 什么是 PyMLSQL
-PyMLSQL 是 Kolo 一个辅助项目，目前提供两个功能：
+PyMLSQL 是 Byzer 一个辅助项目，目前提供两个功能：
 
-1. 为 Kolo 的 Python 支持提供了一个可用的库。
-2. 提供对云的操作封装，从而实现 Kolo 集群的自动化云端部署。
+1. 为 Byzer 的 Python 支持提供了一个可用的库。
+2. 提供对云的操作封装，从而实现 Byzer 集群的自动化云端部署。
 今天我们主要是介绍他的第二个功能。
 
 ### 抽象方式
@@ -108,5 +108,5 @@ pymlsql exec-shell --instance-id ${instance_id} \
 execute-user 定义以什么用户在ECS实例中执行脚本。
 
 ### 案例
-利用 PyMLSQL，我们实现了完全由 shell 脚本即可在阿里云部署一套任意节点数的 Kolo 集群。
+利用 PyMLSQL，我们实现了完全由 shell 脚本即可在阿里云部署一套任意节点数的 Byzer 集群。
 基本思路脚本会自动申请一台 ECS 实例（具有公网的），然后再登录到到 ECS 实例中去申请 slave 节点。还是很库的。
