@@ -117,9 +117,26 @@
         * [网络安装插件](/kolo-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/kolo-lang/zh-cn/extension/installation/offline_install.md)
     * [Estimator-Transformer 插件](/kolo-lang/zh-cn/extension/et/README.md)
+        * 内置ET
+          * [如何缓存表](/kolo-lang/zh-cn/extension/et/CacheExt.md)
+          * [直接操作MySQL](/kolo-lang/zh-cn/extension/et/JDBC.md)
+          * [Json展开插件使用](/kolo-lang/zh-cn/extension/et/JsonExpandExt.md)
+          * [Kolo-Watcher 插件使用](/kolo-lang/zh-cn/extension/et/kolo-watcher.md)
+          * [如何发送邮件](/kolo-lang/zh-cn/extension/et/SendMessage.md)
+          * [语法解析工具](/kolo-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
+          * [改变表的分区数](/kolo-lang/zh-cn/extension/et/TableRepartition.md)
+          * [计算复杂的父子关系](/kolo-lang/zh-cn/extension/et/TreeBuildExt.md)
+        * 外置ET
+          * [Connect语句持久化](/kolo-lang/zh-cn/extension/et/external/connect-persist.md)
+          * [mlsql 断言](/kolo-lang/zh-cn/extension/et/external/mlsql-assert.md)
+          * [mllib](/kolo-lang/zh-cn/extension/et/external/mlsql-mllib.md)
+          * [shell命令插件](/kolo-lang/zh-cn/extension/et/external/mlsql-shell.md)
+          * [将字符串当做代码执行](/kolo-lang/zh-cn/extension/et/external/run-script.md)
+          * [保存到增量表中再次加载](/kolo-lang/zh-cn/extension/et/external/save-then-load.md)
     * [DataSource 插件](/kolo-lang/zh-cn/extension/datasource/README.md)
         * [Excel 数据源插件](/kolo-lang/zh-cn/extension/datasource/excel.md)
         * [HBase 数据源](/kolo-lang/zh-cn/extension/datasource/hbase.md)
+        * [使用kolo-lang访问 REST API](/kolo-lang/zh-cn/extension/datasource/MLSQLRest.md)
 
 
 - 安全与权限
