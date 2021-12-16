@@ -12,7 +12,10 @@
   * [Kolo Engine](/kolo-lang/en-us/installation/kolo_engine.md)
   * [Kolo Desktop](/kolo-lang/en-us/installation/kolo_desktop.md)    
   * [Kolo CLI](/kolo-lang/en-us/installation/kolo_cli.md)
-  * [Kolo Sandbox](/kolo-lang/en-us/installation/sandbox.md)
+  * [Containerized deployment operation](/kolo-lang/en-us/installation/containerized_deployment.md)
+      * [Sandbox standalone deployment](/kolo-lang/en-us/installation/containerized_deployment/sandbox-standalone.md)
+      * [Multi-container deployment](/kolo-lang/en-us/installation/containerized_deployment/muti-continer.md)
+      * [K8S Image Deployment Guide](/kolo-lang/en-us/installation/containerized_deployment/K8S-deployment.md)
 
 - Kolo-lang Grammar Manual
   * [Kolo-Lang Guide](/kolo-lang/en-us/grammar/outline.md)  
@@ -119,9 +122,26 @@
         * [Online Install](/kolo-lang/en-us/extension/installation/online_install.md)
         * [Offline Install](/kolo-lang/en-us/extension/installation/offline_install.md)
     * [Estimator-Transformer](/kolo-lang/en-us/extension/et/README.md)
+        * Built-in ET
+            * [How to cache table](/kolo-lang/en-us/extension/et/external/CacheExt.md)
+            * [Direct MySQL operation](/kolo-lang/en-us/extension/et/external/JDBC.md)
+            * [Use of Json Expansion Plug-in](/kolo-lang/en-us/extension/et/external/JsonExpandExt.md)
+            * [Use of Kolo-Watcher plug-in](/kolo-lang/en-us/extension/et/external/kolo-watcher.md)
+            * [How to send mail](/kolo-lang/en-us/extension/et/external/SendMessage.md)
+            * [Syntax Analysis Tool](/kolo-lang/en-us/extension/et/external/SyntaxAnalyzeExt.md)
+            * [Change the number of partitions of the table](/kolo-lang/en-us/extension/et/external/TableRepartition.md)
+            * [Calculate complex parent-child relationship](/kolo-lang/en-us/extension/et/external/TreeBuildExt.md)
+        * External ET
+            * [Connect statement persistence](/kolo-lang/en-us/extension/et/external/connect-persist.md)
+            * [mlsql assertion](/kolo-lang/en-us/extension/et/external/mlsql-assert.md)
+            * [mllib](/kolo-lang/en-us/extension/et/external/mlsql-mllib.md)
+            * [shell command plugin](/kolo-lang/en-us/extension/et/external/mlsql-shell.md)
+            * [Execute string as code](/kolo-lang/en-us/extension/et/external/run-script.md)
+            * [Save to the incremental table and load again](/kolo-lang/en-us/extension/et/external/save-then-load.md)
     * [DataSource Extension](/kolo-lang/en-us/extension/datasource/README.md)
         * [Excel](/kolo-lang/en-us/extension/datasource/excel.md)
         * [HBase](/kolo-lang/en-us/extension/datasource/hbase.md)
+        * [Use kolo-lang to access REST API](/kolo-lang/zh-cn/extension/datasource/MLSQLRest.md)
 
 
 - Security 
@@ -135,12 +155,15 @@
       * [Spark 3.0.0 Env](/kolo-lang/en-us/developer/dev_env/spark_3_0_0.md)    
     * Extension Development
       * [ET Development](/kolo-lang/en-us/developer/extension/et_dev.md)
+      * [Command Development](/kolo-lang/en-us/developer/extension/et_command.md)
       * [Datasource Extension Development](/kolo-lang/en-us/developer/extension/ds_dev.md)
+      * [Introduction to parameter introspection mechanism](/kolo-lang/en-us/developer/extension/et_params_dev.md)
     * [Integration Test](/kolo-lang/en-us/developer/it/integration_test.md)     
     * API
       * [Kolo Engine Rest API](/kolo-lang/en-us/developer/api/README.md)
         * [Script Run API](/kolo-lang/en-us/developer/api/run_script_api.md)
         * [Code Suggestion API](/kolo-lang/en-us/developer/api/code_suggest.md)
+        * [Kolo Meta Information Store](/kolo-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/kolo-lang/en-us/developer/api/liveness.md)
       * [Readness API](/kolo-lang/en-us/developer/api/readiness.md)
     * [Performance Tunning](/kolo-lang/en-us/developer/tunning/dynamic_resource.md)

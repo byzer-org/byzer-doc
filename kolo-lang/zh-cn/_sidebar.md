@@ -12,7 +12,10 @@
   * [Kolo-lang 安装与配置](/kolo-lang/zh-cn/installation/binary-installation.md)
   * [Kolo 桌面版](/kolo-lang/zh-cn/installation/desktop-installation.md)    
   * [Kolo 命令行](/kolo-lang/zh-cn/installation/cli-installation.md)
-  * [Kolo Sandbox](/kolo-lang/zh-cn/installation/sandbox.md)
+  * [容器化部署操作](/kolo-lang/zh-cn/installation/containerized_deployment.md)
+    * [Sandbox 独立部署](/kolo-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
+    * [多容器部署](/kolo-lang/zh-cn/installation/containerized_deployment/muti-continer.md)
+    * [K8S镜像部署指南](/kolo-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
 
 - Kolo-Lang 语法手册
   * [Kolo-Lang 语言向导](/kolo-lang/zh-cn/grammar/outline.md)
@@ -118,9 +121,26 @@
         * [网络安装插件](/kolo-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/kolo-lang/zh-cn/extension/installation/offline_install.md)
     * [Estimator-Transformer 插件](/kolo-lang/zh-cn/extension/et/README.md)
+        * 内置ET
+          * [如何缓存表](/kolo-lang/zh-cn/extension/et/external/CacheExt.md)
+          * [直接操作MySQL](/kolo-lang/zh-cn/extension/et/external/JDBC.md)
+          * [Json展开插件使用](/kolo-lang/zh-cn/extension/et/external/JsonExpandExt.md)
+          * [Kolo-Watcher 插件使用](/kolo-lang/zh-cn/extension/et/external/kolo-watcher.md)
+          * [如何发送邮件](/kolo-lang/zh-cn/extension/et/external/SendMessage.md)
+          * [语法解析工具](/kolo-lang/zh-cn/extension/et/external/SyntaxAnalyzeExt.md)
+          * [改变表的分区数](/kolo-lang/zh-cn/extension/et/external/TableRepartition.md)
+          * [计算复杂的父子关系](/kolo-lang/zh-cn/extension/et/external/TreeBuildExt.md)
+        * 外置ET
+          * [Connect语句持久化](/kolo-lang/zh-cn/extension/et/external/connect-persist.md)
+          * [mlsql 断言](/kolo-lang/zh-cn/extension/et/external/mlsql-assert.md)
+          * [mllib](/kolo-lang/zh-cn/extension/et/external/mlsql-mllib.md)
+          * [shell命令插件](/kolo-lang/zh-cn/extension/et/external/mlsql-shell.md)
+          * [将字符串当做代码执行](/kolo-lang/zh-cn/extension/et/external/run-script.md)
+          * [保存到增量表中再次加载](/kolo-lang/zh-cn/extension/et/external/save-then-load.md)
     * [DataSource 插件](/kolo-lang/zh-cn/extension/datasource/README.md)
         * [Excel 数据源插件](/kolo-lang/zh-cn/extension/datasource/excel.md)
         * [HBase 数据源](/kolo-lang/zh-cn/extension/datasource/hbase.md)
+        * [使用kolo-lang访问 REST API](/kolo-lang/zh-cn/extension/datasource/MLSQLRest.md)
 
 
 - 安全与权限
@@ -136,11 +156,14 @@
     * 插件开发
       * [自定义 ET 插件开发](/kolo-lang/zh-cn/developer/extension/et_dev.md)
       * [自定义数据源插件开发](/kolo-lang/zh-cn/developer/extension/ds_dev.md)
+      * [命令行开发](/kolo-lang/en-us/developer/extension/et_command.md)
+      * [参数自省机制介绍](/kolo-lang/en-us/developer/extension/et_params_dev.md)
     * [自动化测试用例开发](/kolo-lang/zh-cn/developer/it/integration_test.md)     
     * API
       * [Kolo Engine Rest API](/kolo-lang/zh-cn/developer/api/README.md)
         * [脚本执行 API](/kolo-lang/zh-cn/developer/api/run_script_api.md)
         * [代码提示 API](/kolo-lang/zh-cn/developer/api/code_suggest.md)
+        * [Kolo元信息存储](/kolo-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/kolo-lang/zh-cn/developer/api/liveness.md)
       * [Readness API](/kolo-lang/zh-cn/developer/api/readiness.md)
     * [性能调优](/kolo-lang/zh-cn/developer/tunning/dynamic_resource.md)
@@ -154,4 +177,6 @@
       * [MLSQL Stack 2.0.1](/kolo-lang/zh-cn/appendix/release-notes/2.0.1.md)
       * [MLSQL Stack 2.0.0](/kolo-lang/zh-cn/appendix/release-notes/2.0.0.md)
     * [术语表](/kolo-lang/zh-cn/appendix/terms.md)  
-    * [Blog](/kolo-lang/zh-cn/appendix/blog.md)   
+    * [Blog](/kolo-lang/zh-cn/appendix/blog.md)  
+      * [编译时权限控制](/kolo-lang/zh-cn/public/blog_archive/Compile-time_access_control.md)  
+      * [如何实现Spark过载保护](/kolo-lang/zh-cn/public/blog_archive/overload_protection.md)  
