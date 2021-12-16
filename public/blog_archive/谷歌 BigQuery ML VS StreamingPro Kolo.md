@@ -129,7 +129,7 @@ as lwys_corpus_with_featurize;
 BigQuery ML 和 Kolo 都支持直接在 SQL 里使用其预测功能。Kolo 还支持将模型部署成 API 服务。具体做法超级简单:
 
 单机模型运行 StreamingPro.
-通过接口或者配置注册算法模型 register NaiveBayes./tmp/bayes_modelas bayes_predict;
+通过接口或者配置注册算法模型 ```register NaiveBayes./tmp/bayes_modelas bayes_predict;```
 访问预测接口
 
 ```sql

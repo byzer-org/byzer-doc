@@ -1,14 +1,12 @@
-## Kolo-lang 命令行安装与配置
+# Kolo-lang 命令行安装与配置
 
 我们提供了命令行执行脚本的能力，方便用户自助实现更多自动化能力，如下图所示，我们通过命令行执行一个开发好的 Kolo-lang 脚本：
 
-![execute mlsql cli](execute-kolo-lang-cli.png)
+![execute mlsql cli](images/execute-kolo-lang-cli.png)
 
+### 安装流程
 
-
-## 安装流程
-
-### 一、设置 Kolo-lang 环境
+#### 一、设置 Kolo-lang 环境
 
 下面将介绍 kolo-lang 命令行的几个环境变量的含义和安装步骤。
 
@@ -27,7 +25,6 @@
 - [mlsql lang mac](https://mlsql-downloads.kyligence.io/2.1.0/mlsql-app_2.4-2.1.0-darwin-amd64.tar.gz)
 
 - [mlsql lang linux](https://mlsql-downloads.kyligence.io/2.1.0/mlsql-app_2.4-2.1.0-linux-amd64.tar.gz)
-
 
 
 3. 目录结构
@@ -72,13 +69,13 @@ mlsql lang cli version 0.0.4-dev (2021-09-06 4a628b2)
 
 
 
-### 二、执行 Kolo-lang 脚本
+#### 二、执行 Kolo-lang 脚本
 
 ```shell
 mlsql run ./src/common/hello.mlsql
 ```
 
-## 使用示例
+### 使用示例
 
 下面我们来看一个完整的例子，我们创建一个 `hello.mlsql` 的脚本文件，内容如下：
 
@@ -94,11 +91,11 @@ mlsql run hello.mlsql
 
 注意，如果是 Mac 用户，会提示 App 的安全问题，如下图：
 
-![无法打开MLSQL](mac_app_warn.png)
+![无法打开MLSQL](images/mac_app_warn.png)
 
 需要通过 系统偏好设置 - 安全性与隐私 - 允许从以下位置下载 App ，选择仍然允许。
 
-![安全性与隐私](mac_app_warn_2.jpeg)
+![安全性与隐私](images/mac_app_warn_2.jpeg)
 
 然后我们就可以通过命令行执行并查看效果，完整的执行日志如下：
 ```
@@ -121,7 +118,7 @@ log4j:WARN No such property [rollingPolicy] in org.apache.log4j.RollingFileAppen
 21/09/09 18:41:43  INFO FileInputFormat: Total input paths to process : 1
 21/09/09 18:41:43  INFO DefaultMLSQLJobProgressListener: [owner] [admin] [groupId] [8dab06e4-9195-4e0f-a2a2-ec4d22159a24] __MMMMMM__ Total jobs: 1 current job:1 job script:run command as HDFSCommand.`` where parameters='''["-ls","/tmp"]'''
 +--------------------------------------------------------------------------------------------+
-|fileSystem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|fileSystem |
 +--------------------------------------------------------------------------------------------+
 |Found 20 items
 -rw-r--r--   1 root      wheel         15 2021-09-06 13:35 /tmp/DidFinish.txt DidFinish.txt
@@ -131,4 +128,4 @@ log4j:WARN No such property [rollingPolicy] in org.apache.log4j.RollingFileAppen
 21/09/09 18:41:44  INFO JobManager: JobManager is shutdown....
 ```
 
-> 恭喜，你已经完成 MLSQL 命令行的安装和使用。
+> 恭喜，你已经完成 Kolo 命令行的安装和使用。

@@ -1,10 +1,10 @@
-## Kolo-lang 部署
+# Kolo-lang 安装与部署
 
 Kolo-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
 ###  下载二进制包
 
-下载站点 http://downloads.mlsql.kyligence.io/ , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
+下载站点 http://download.byzer.org/ , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
 
 ```
 mlsql-engine_<spark_major_version>-<kolo_lang_version>    
@@ -136,5 +136,5 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 ### 停止Kolo-lang
 执行 $MLSQL_HOME/bin/stop-local.sh
 
-## 更多参数
+### 更多参数
 [kolo-lang 更多参数](kolo-lang-configuration.md)

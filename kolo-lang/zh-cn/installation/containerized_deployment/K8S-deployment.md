@@ -6,7 +6,7 @@
 
 ### 编译部署工具
 
-从 [Go官网](https://golang.org/dl/) 下载安装 Go 1.16.7，该版本经过测试。
+从 [Go官网](https://go.dev/) 下载安装 Go 1.16.7，该版本经过测试。
 
 > 我们没有测试过 Go 1.17，请慎用。
 
@@ -25,7 +25,7 @@ make all
 
 结果如下图:
 
-![mlsql-deploy_help](kolo-k8s_help.PNG)
+![mlsql-deploy_help](images/kolo-k8s_help.PNG)
 
 ### 安装并配置 K8S
 
