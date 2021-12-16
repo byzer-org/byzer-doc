@@ -1,4 +1,4 @@
-## Kolo-lang 桌面版使用 (Mac/Linux)
+# Kolo-lang 桌面版使用 (Mac/Linux)
 
 ### 前置条件
 1. 安装 [Visual Studio Code](https://code.visualstudio.com/)
