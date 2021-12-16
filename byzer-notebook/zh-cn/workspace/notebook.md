@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 使用笔记本
 
 在工作区页面，您可以创建、编辑或运行笔记本。
@@ -48,35 +47,4 @@
 </p>
 
 鼠标悬浮在单元格左侧，点击出现的 ➕ 按钮，您可以快速添加一个单元格，将添加在光标所在单元格的下方，你也可以托住当前单元格上下滑动以调整所有单元格的顺序。
-=======
-# 使用 Notebook
-
-
-## 工具栏介绍
-
-
-
-## 运行笔记本
-
-
-
-## 切换脚本模式
-
-
-<img src="images/clear.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标   
-
-<img src="images/add.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标
-
-<img src="images/run.png" style="zoom:50%;" /> 的地方释放根深蒂固是非观是非观风格 这是一个图标
-
-<img src="images/runall.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标 
-
-<img src="images/runnext.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标
-
-<img src="images/save.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标
-
-<img src="images/edit.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标
-
-<img src="images/trash.png" style="zoom:50%;" />的地方释放根深蒂固是非观是非观风格 这是一个图标
->>>>>>> 4e9a2f3 (add pics)
 
