@@ -1,4 +1,4 @@
-## Kolo-lang 部署
+# Kolo-lang 安装与部署
 
 Kolo-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
@@ -136,5 +136,5 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 ### 停止Kolo-lang
 执行 $MLSQL_HOME/bin/stop-local.sh
 
-## 更多参数
+### 更多参数
 [kolo-lang 更多参数](kolo-lang-configuration.md)

@@ -1,5 +1,5 @@
 - Introduction
-  * [ByzerNotebook](/byzer-notebook/zh-cn/introduction/notebook_intro.md)
+  * [Byzer Notebook 简介](/byzer-notebook/zh-cn/introduction/notebook_intro.md)
   * [在线试用](/byzer-notebook/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-notebook/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/byzer-notebook/zh-cn/appendix/faq.md)

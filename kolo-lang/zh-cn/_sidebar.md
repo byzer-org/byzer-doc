@@ -41,14 +41,12 @@
       * [MockStreaming](/kolo-lang/zh-cn/datasource/mock_streaming.md)
       * [其他](/kolo-lang/zh-cn/datasource/other.md)
 
-    - 使用数仓/数据湖
-        * [使用数仓/数据湖](/kolo-lang/zh-cn/datahouse/README.md)
+    - [使用数仓/数据湖](/kolo-lang/zh-cn/datahouse/README.md)
         * [Hive加载和存储](/kolo-lang/zh-cn/datahouse/hive.md)
         * [Delta加载和存储以及流式支持](/kolo-lang/zh-cn/datahouse/delta_lake.md)
         * [MySQL Binlog同步](/kolo-lang/zh-cn/datahouse/mysql_binlog.md)
 
-    - Python 扩展
-        * [使用 Python 扩展 Kolo](/kolo-lang/zh-cn/python/README.md)
+    - [Python 扩展](/kolo-lang/zh-cn/python/README.md)
         * [环境依赖](/kolo-lang/zh-cn/python/env.md)
         * [数据处理](/kolo-lang/zh-cn/python/etl.md)
         * [模型训练](/kolo-lang/zh-cn/python/train.md)
@@ -59,8 +57,7 @@
         * [dataMode 详解](/kolo-lang/zh-cn/python/datamode.md)
         * [Python并行度你所需要知道的](/kolo-lang/zh-cn/python/py_parallel.md)
 
-    * UDF 扩展
-        * [Kolo 的 UDF 功能](/kolo-lang/zh-cn/udf/README.md)
+    * [UDF 扩展](/kolo-lang/zh-cn/udf/README.md)
         * [系统内置 UDF](/kolo-lang/zh-cn/udf/built_in_udf/README.md)
           * [http请求](/kolo-lang/zh-cn/udf/built_in_udf/http.md)
           * [常用函数](/kolo-lang/zh-cn/udf/built_in_udf/vec.md)
@@ -70,8 +67,7 @@
           * [Scala UDAF](/kolo-lang/zh-cn/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/kolo-lang/zh-cn/udf/extend_udf/java_udf.md)
 
-    * Kolo 流编程
-      * [使用 Kolo 处理流数据](/kolo-lang/zh-cn/streaming/README.md)
+    * [Kolo 流编程](/kolo-lang/zh-cn/streaming/README.md)
       * [Kolo Kafka Tools](/kolo-lang/zh-cn/streaming/kafka_tool.md)
       * [查询 Kafka 数据](/kolo-lang/zh-cn/streaming/query_kafka.md)
       * [设置流式计算回调](/kolo-lang/zh-cn/streaming/callback.md)
@@ -124,13 +120,11 @@
 
 
 - 安全与权限
-    * [接口访问控制](/kolo-lang/zh-cn/security/interface_acl/README.md)
-    * [数据访问权限管理](/kolo-lang/zh-cn/security/data_acl/README.md)
-
+  * [接口访问控制](/kolo-lang/zh-cn/security/interface_acl/README.md)
+  * [数据访问权限管理](/kolo-lang/zh-cn/security/data_acl/README.md)
 
 - 开发者指南
-    * 开发环境
-      * [开发环境配置](/kolo-lang/zh-cn/developer/dev_env/README.md)
+    * [开发环境配置](/kolo-lang/zh-cn/developer/dev_env/README.md)
       * [Spark 2.4.3 开发环境](/kolo-lang/zh-cn/developer/dev_env/spark_2_4_3.md)
       * [Spark 3.0.0 开发环境](/kolo-lang/zh-cn/developer/dev_env/spark_3_0_0.md)    
     * 插件开发
@@ -147,12 +141,12 @@
 
 
 - 附录
-    * 发行声明
-      * [Kolo 版本管理策略](/kolo-lang/zh-cn/appendix/release-notes/version.md)
-      * [Kolo 2.2.0](/kolo-lang/zh-cn/appendix/release-notes/2.2.0.md)
-      * [MLSQL Stack 2.1.0](/kolo-lang/zh-cn/appendix/release-notes/2.1.0.md)
-      * [MLSQL Stack 2.0.1](/kolo-lang/zh-cn/appendix/release-notes/2.0.1.md)
-      * [MLSQL Stack 2.0.0](/kolo-lang/zh-cn/appendix/release-notes/2.0.0.md)
-    * [术语表](/kolo-lang/zh-cn/appendix/terms.md)  
-    * [Blog](/kolo-lang/zh-cn/appendix/blog.md)   
-    * [取名小故事](/kolo-lang/zh-cn/appendix/naming_story.md)   
+  * 发行声明
+    * [Kolo 版本管理策略](/kolo-lang/zh-cn/appendix/release-notes/version.md)
+    * [Kolo 2.2.0](/kolo-lang/zh-cn/appendix/release-notes/2.2.0.md)
+    * [MLSQL Stack 2.1.0](/kolo-lang/zh-cn/appendix/release-notes/2.1.0.md)
+    * [MLSQL Stack 2.0.1](/kolo-lang/zh-cn/appendix/release-notes/2.0.1.md)
+    * [MLSQL Stack 2.0.0](/kolo-lang/zh-cn/appendix/release-notes/2.0.0.md)
+  * [术语表](/kolo-lang/zh-cn/appendix/terms.md)  
+  * [Blog](/kolo-lang/zh-cn/appendix/blog.md)   
+  * [取名小故事](/kolo-lang/zh-cn/appendix/naming_story.md)   
