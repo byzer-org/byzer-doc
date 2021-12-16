@@ -1,6 +1,6 @@
 # 扩展/Train|Run|Predict
 
-Train/Run/Predict 都属于 Kolo-lang 里独有的，并且可扩展的句式。
+Train/Run/Predict 都属于 Byzer-lang 里独有的，并且可扩展的句式。
 
 ## 基础语法
 
@@ -29,7 +29,7 @@ and fitParam.0.numTrees="4"
 第二行代码，则表示提供 `trainData` 为数据集，使用算法 RandomForest，将模型保存在 `/tmp/rf` 下，训练的参数为 `fitParam.0.*` 指定的那些。
 
 
-其中 `fitParam.0` 表示第一组参数，用户可以递增设置 N 组，Kolo-lang 会自动运行多组，最后返回结果列表。
+其中 `fitParam.0` 表示第一组参数，用户可以递增设置 N 组，Byzer-lang 会自动运行多组，最后返回结果列表。
 
 ### Run
 
@@ -60,7 +60,7 @@ predict testData as RandomForest.`/tmp/rf`;
 ## ET 概念
 
 无论是 Train/Run/Predict, 他的核心都是对应的算法或者处理工具，实现表进表出（中间可能会有文件输出），弥补传统 SQL 的不足。
-在 Kolo-lang 中把他们统一称为 `ET`, 也就是 Estimator/Transformer 的缩写。
+在 Byzer-lang 中把他们统一称为 `ET`, 也就是 Estimator/Transformer 的缩写。
 
 `ET` 都是可扩展的，用户可以完成自己的 `ET` 组件。在开发者指南中，有更详细的关于如何开发自己 `ET` 的介绍。
 

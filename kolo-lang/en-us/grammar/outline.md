@@ -1,10 +1,10 @@
 # Kolo-Lang Guide
 
-Kolo-lang is a declarative language, which is very similar to SQL. The difference is that Kolo-lang also supports Python scripts, and users can also use Scala/Java to dynamically develop and register UDF functions.
+Byzer-lang is a declarative language, which is very similar to SQL. The difference is that Byzer-lang also supports Python scripts, and users can also use Scala/Java to dynamically develop and register UDF functions.
 
 This has greatly improved the flexibility of this language.
 
-Kolo-lang abstracts the following syntax structures for processing big data:
+Byzer-lang abstracts the following syntax structures for processing big data:
 
 1. Load data/Load
 2. Process data/Select|Run
@@ -16,7 +16,7 @@ and syntax structures for machine learning:
 2. Model registration/Register
 3. Model prediction/Select|Predict
 
-In addition, Kolo-lang supports scripts and package management.
+In addition, Byzer-lang supports scripts and package management.
 
 ## Load data
 
@@ -29,7 +29,7 @@ as hello_world;
 
 As the statement shown above, the keyword `load` clarifies the data loading. The loaded data format is `excel`, and the file path is `./example-data/excel/hello_world.xlsx`. During the loading process, the configuration parameters are specified in `where/options` clause. The result after loading is a table named `hello_world` specified after `as`.
 
-Kolo-lang can load most:
+Byzer-lang can load most:
 
 1. Data sources, such as JDBC protocol databases, object storage on clouds, HDFS.
 2. Data formats, such as text, image, csv, json, xml, etc.
@@ -72,7 +72,7 @@ include project.`./src/common/PyHeader.mlsql`;
 
 This syntax works in the desktop version. Different Notebook implementations may vary, but the overall format is consistent.
 
-If you want to achieve package-level reuse, Kolo-lang uses Github as the package manager. For example, lib-core is an example of Kolo-lang Lib:
+If you want to achieve package-level reuse, Byzer-lang uses Github as the package manager. For example, lib-core is an example of Byzer-lang Lib:
 
 ```
 https://github.com/allwefantasy/lib-core
@@ -96,7 +96,7 @@ select hello() as name as output;
 
 ## Macro function
 
-There are also functions in standard SQL, and the macro functions of Kolo-lang are SQL-level.
+There are also functions in standard SQL, and the macro functions of Byzer-lang are SQL-level.
 
 For example, writing a complete `load` statement every time can be a frustrating thing. You can encapsulate it as follows:
 
@@ -120,7 +120,7 @@ set loadExcel = '''load excel.`${path}` where header="true" as ${tableName}''';!
 
 ## Native UDF
 
-Kolo-lang supports users to write UDF functions using Java /Scala. One of the great advantages of Kolo-lang is that you can write as you need.
+Byzer-lang supports users to write UDF functions using Java /Scala. One of the great advantages of Byzer-lang is that you can write as you need.
 
 ```ruby
 register ScriptUDF.`` as arrayLast where lang="scala"and code='''def apply(a:Seq[String])={      a.last}'''and udfType="udf";select arrayLast(array("a","b")) as lastChar as output;
@@ -130,7 +130,7 @@ The above code defines an `arrayLast` function whose logic is to get the last va
 
 ## Variable
 
-Kolo-lang also supports variables. Variables are declared using `set`.
+Byzer-lang also supports variables. Variables are declared using `set`.
 
 For example:
 
@@ -148,7 +148,7 @@ Variable are mainly referenced in the form of `${}`. The branch conditional expr
 
 ## Branch statement
 
-Kolo-lang supports high-level branch statements.
+Byzer-lang supports high-level branch statements.
 
 For example:
 
@@ -186,7 +186,7 @@ register RandomForest.`/tmp/models/randomforest` as model_predict;select vec_arr
 
 Kolo supports Python scripting through Kolo-python. It will be easier to use if users use it in Byzer Notebook.
 
-Here is a piece of Kolo-lang script:
+Here is a piece of Byzer-lang script:
 
 ```sql
 select 1 as a as mockTable;-- specify the output schema of python!python conf "schema=st(field(a,long))";-- specify the python code will be executed in which virtual env.!python env "PYTHON_ENV=source /opt/miniconda3/bin/activate ray1.8.0";run command as Ray.`` where inputTable="mockTable"and outputTable="newMockTable"and code='''from pyjava.api.mlsql import RayContextray_context = RayContext.connect(globals(),None)newrows = []for row in ray_context.collect():    row["a"] = 2    newrows.append(row)    context.build_result(newrows)''';select * from newMockTable as output;
@@ -219,7 +219,7 @@ The ET will produce a table called `mockData` with 3 fields `id`, `feature`, `la
 
 ## Scope
 
-Kolo-lang is an interpreted language. Variables, macro functions, UDF registration, `select` temporary tables, etc., all follow the following rules:
+Byzer-lang is an interpreted language. Variables, macro functions, UDF registration, `select` temporary tables, etc., all follow the following rules:
 
 1. Can be used after declaration;
 2. For multiple statements, the latter will overwrite the previous;

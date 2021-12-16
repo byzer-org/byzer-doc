@@ -1,6 +1,6 @@
 ## 数据转换/Select
 
-Kolo-lang的select 语句，兼容Spark SQL。 我们唯一做的改动是最后必须加上 `as 表名`。
+Byzer-lang的select 语句，兼容Spark SQL。 我们唯一做的改动是最后必须加上 `as 表名`。
 
 ### 基本语法
 

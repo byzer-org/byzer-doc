@@ -1,4 +1,4 @@
-# Kolo-lang 桌面版使用 (Mac/Linux)
+# Byzer-lang 桌面版使用 (Mac/Linux)
 
 ### 前置条件
 1. 安装 [Visual Studio Code](https://code.visualstudio.com/)
@@ -18,7 +18,7 @@
 
 ### 安装步骤
 
-Kolo-lang VSCode 插件有两种安装方式，包含本地安装和从插件市场安装。具体步骤如下：
+Byzer-lang VSCode 插件有两种安装方式，包含本地安装和从插件市场安装。具体步骤如下：
 
 - 本地安装
 
@@ -63,7 +63,7 @@ Kolo-lang VSCode 插件有两种安装方式，包含本地安装和从插件市
 
 ### 示例
 
-您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 Kolo-lang VSCode 插件的样例项目
+您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 Byzer-lang VSCode 插件的样例项目
 在执行之前，可以先执行 `./src/common/PyHeader.mlsql` 文件进行 python env 的设置。
 1. **ExcelExample**
 

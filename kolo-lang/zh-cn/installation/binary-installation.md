@@ -1,6 +1,6 @@
-# Kolo-lang 安装与部署
+# Byzer-lang 安装与部署
 
-Kolo-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
+Byzer-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
 ###  下载二进制包
 
@@ -9,9 +9,9 @@ Kolo-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 ```
 mlsql-engine_<spark_major_version>-<kolo_lang_version>    
 ```
-这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。Kolo-lang 支持两个版本Spark
+这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。Byzer-lang 支持两个版本Spark
 
-| Kolo-lang 版本                  | Spark版本                  |
+| Byzer-lang 版本                  | Spark版本                  |
 |---------------------------------|-----------------------|
 | mlsql-engine_3.0-2.1.0          | Spark-3.1.1-hadoop3.2 |
 | mlsql-engine_2.4-2.1.0          | Spark-2.4.3-hadoop2.7 | 
@@ -26,7 +26,7 @@ mlsql-engine_<spark_major_version>-<kolo_lang_version>
 
 
 
-下载或编译的二进制包解压，设置 MLSQL_HOME 环境变量。JDK8 和 Spark 是 Kolo-lang 启动的必要条件，请参考以下文档安装。  
+下载或编译的二进制包解压，设置 MLSQL_HOME 环境变量。JDK8 和 Spark 是 Byzer-lang 启动的必要条件，请参考以下文档安装。  
 
 ### JDK8 安装
 
@@ -47,7 +47,7 @@ rm jdk-8u151-linux-x64.tar.gz
 wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
 wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 ```
-删除 $SPARK_HOME/jars/velocity-1.5.jar，因为该 jar 与 Kolo-lang 冲突. 
+删除 $SPARK_HOME/jars/velocity-1.5.jar，因为该 jar 与 Byzer-lang 冲突. 
 
 ### 启动参数详解
 一个典型的启动命令：
@@ -68,11 +68,11 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
         -streaming.enableHiveSupport true
 ```
 
-以位置[1]为分割点，前面主要是 Spark 相关配置，后面部分则是 Kolo-lang 相关配置。也有另外一个区别点，Spark 配置以两个横杠开头，
-而 Kolo-lang 配置以一个横杠开头。
+以位置[1]为分割点，前面主要是 Spark 相关配置，后面部分则是 Byzer-lang 相关配置。也有另外一个区别点，Spark 配置以两个横杠开头，
+而 Byzer-lang 配置以一个横杠开头。
 
-通过在这种方式，我们可以将 Kolo-lang 运行在 K8s, Yarn, Mesos 以及 Local 等各种环境之上。
-> Kolo-lang 使用到了很多以 spark 开头的参数，他们必须使用 --conf 来进行配置，而不是 - 配置。这个务必要注意。
+通过在这种方式，我们可以将 Byzer-lang 运行在 K8s, Yarn, Mesos 以及 Local 等各种环境之上。
+> Byzer-lang 使用到了很多以 spark 开头的参数，他们必须使用 --conf 来进行配置，而不是 - 配置。这个务必要注意。
 
 **常用参数**
 
@@ -89,7 +89,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 
 
 ### Local 模式启动
-$MLSQL_HOME/bin/start-local.sh 包含 Kolo-lang 基本参数，请参考上面文档修改后启动。 
+$MLSQL_HOME/bin/start-local.sh 包含 Byzer-lang 基本参数，请参考上面文档修改后启动。 
 
 ```shell
 mkdir -p $MLSQL_HOME/logs
@@ -133,7 +133,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 ### K8S 模式启动
 [K8S 模式启动](K8S-deployment.md)
 
-### 停止Kolo-lang
+### 停止Byzer-lang
 执行 $MLSQL_HOME/bin/stop-local.sh
 
 ### 更多参数

@@ -10,7 +10,7 @@
 
 ## 二层通讯参数
 
-Kolo-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制 executor.
+Byzer-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制 executor.
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
@@ -46,7 +46,7 @@ UDF 的编写需要符合 Kolo-Lang 的规范。我们推荐直接在 Console �
 
 ## Session设置
 
-Kolo-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session ,如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](../developer/api/run_script_api.md)。
+Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session ,如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](../developer/api/run_script_api.md)。
 
 
 | 参数 | 说明 | 示例值 |
@@ -56,7 +56,7 @@ Kolo-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相�
 
 ## 分布式日志收集
 
-Kolo-lang 支持将部分任务的日志发送到Driver。
+Byzer-lang 支持将部分任务的日志发送到Driver。
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|

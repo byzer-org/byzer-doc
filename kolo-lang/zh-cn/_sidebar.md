@@ -9,7 +9,7 @@
   * [新功能](/byzer-lang/zh-cn/what's_new/new_features.md)
 
 - 安装与配置
-  * [Kolo-lang 安装与配置](/byzer-lang/zh-cn/installation/binary-installation.md)
+  * [Byzer-lang 安装与配置](/byzer-lang/zh-cn/installation/binary-installation.md)
   * [Kolo 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
   * [Kolo 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
   * [Kolo Sandbox](/byzer-lang/zh-cn/installation/sandbox.md)

@@ -1,6 +1,6 @@
 # 注册函数，模型/Register
 
-Register 句式在 Kolo-lang 中主要可以完成三类工作：
+Register 句式在 Byzer-lang 中主要可以完成三类工作：
 
 1. 动态注册 Java/Scala 写的 UDF/UDAF 函数
 2. 将内置或者 Python 模型注册成 UDF 函数
@@ -8,7 +8,7 @@ Register 句式在 Kolo-lang 中主要可以完成三类工作：
 
 ## 注册 SQL 函数
 
-在 SQL 中，最强大的莫过于函数了。Kolo-lang 支持动态创建 UDF/UDAF 函数。
+在 SQL 中，最强大的莫过于函数了。Byzer-lang 支持动态创建 UDF/UDAF 函数。
 
 示例代码：
 
@@ -25,7 +25,7 @@ def apply(a:Double,b:Double)={
 
 上面代码的含义是，使用 ET ScriptUDF 注册一个函数叫 `plusFun`，这个函数使用 Scala 语言，函数的类型是 UDF,对应的实现代码在 code 参数里。
 
-在 Kolo-lang 中， 执行完上面代码后，用户可以直接在 `select` 语句中使用 `plusFun` 函数：
+在 Byzer-lang 中， 执行完上面代码后，用户可以直接在 `select` 语句中使用 `plusFun` 函数：
 
 ```sql
 -- create a data table.

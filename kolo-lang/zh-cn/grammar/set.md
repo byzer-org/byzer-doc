@@ -1,6 +1,6 @@
 ## 变量/Set
 
-Kolo-lang 支持变量。
+Byzer-lang 支持变量。
 
 ## 基础应用
 
@@ -52,7 +52,7 @@ select * from world as output;
 
 值得一提的是，`set` 语法当前的生命周期是 `request` 级别的，也就是每次请求有效。
 
-通常在 Kolo-lang 中，生命周期分成三个部分：
+通常在 Byzer-lang 中，生命周期分成三个部分：
 
 1. request （当前执行请求有效）
 2. session  （当前会话周期有效）
@@ -107,7 +107,7 @@ set hello="abc" where scope="session";
 
 ## 变量类型
 
-Kolo-lang 的变量被分为五种类型：
+Byzer-lang 的变量被分为五种类型：
 
 1. text
 2. conf
@@ -189,7 +189,7 @@ bar
 ```
 
 这符合大家直觉，下面的会覆盖上面的。那如果用户想达到这么一种效果，如果变量已经设置了，新变量声明就失效，如果变量没有被设置过，则生效。
-为了达到这个效果，Kolo-lang 引入了 `defaultParam` 类型的变量：
+为了达到这个效果，Byzer-lang 引入了 `defaultParam` 类型的变量：
 
 ```sql
 set hello="foo";
@@ -225,8 +225,8 @@ bar
 
 ## 编译时和运行时变量
 
-Kolo-lang 有非常完善的权限体系，可以轻松控制任何数据源到列级别的访问权限，而且创新性的提出了预处理时权限，
-也就是通过静态分析 Kolo-lang 脚本从而完成表级别权限的校验（列级别依然需要运行时完成）。
+Byzer-lang 有非常完善的权限体系，可以轻松控制任何数据源到列级别的访问权限，而且创新性的提出了预处理时权限，
+也就是通过静态分析 Byzer-lang 脚本从而完成表级别权限的校验（列级别依然需要运行时完成）。
 
 但是预处理期间，权限最大的挑战在于 `set` 变量的解析，比如：
 
@@ -238,7 +238,7 @@ select "${hello}" as name as output;
 
 在没有执行第一个句子，那么第二条 `set` 语句在预处理期间执行就会报错，因为此时并没有叫 `foo_table` 的表。
 
-为了解决这个问题，Kolo-lang 引入了 `compile/runtime` 两个模式。如果用户希望在 `set` 语句预处理阶段就可以 evaluate 值，那么添加该参数即可。
+为了解决这个问题，Byzer-lang 引入了 `compile/runtime` 两个模式。如果用户希望在 `set` 语句预处理阶段就可以 evaluate 值，那么添加该参数即可。
 
 ```sql
 set hello=`select 1 as foo ` where type="sql" and mode="compile";
@@ -250,12 +250,12 @@ set hello=`select 1 as foo ` where type="sql" and mode="compile";
 set hello=`select 1 as foo ` where type="sql" and mode="runtime";
 ```
 
-此时，Kolo-lang 在预处理阶段不会进行该变量的创建。
+此时，Byzer-lang 在预处理阶段不会进行该变量的创建。
 
 
 ## 内置变量
 
-Kolo-lang 提供了一些内置变量，看下面的代码：
+Byzer-lang 提供了一些内置变量，看下面的代码：
 
 ```sql
 set jack='''

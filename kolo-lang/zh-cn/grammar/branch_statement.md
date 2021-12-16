@@ -1,6 +1,6 @@
 # 分支/If|Else
 
-> 类似传统编程语言，Kolo-lang 有变量，宏函数，也有分支语句结构。
+> 类似传统编程语言，Byzer-lang 有变量，宏函数，也有分支语句结构。
 
 ## 基本用法
 
@@ -17,7 +17,7 @@ set a = "wow,jack";
 select * from b as output;
 ```
 
-!if/!else 在 Kolo-lang 中并非关键字,都是[宏函数](/byzer-lang/zh-cn/grammar/macro.md)。因为宏函数的调用非常像命令行，所以其实学习门槛
+!if/!else 在 Byzer-lang 中并非关键字,都是[宏函数](/byzer-lang/zh-cn/grammar/macro.md)。因为宏函数的调用非常像命令行，所以其实学习门槛
 也会更低。
 
 在上面的示例中， 先通过变量申明得到一个变量 `a`。 然后在 宏函数 `!if` 只接受一个位置参数，因为是一个宏函数，调用的最后极为必须加上分号 `;` 。
@@ -56,7 +56,7 @@ select 2 as a as b;
 select * from b as output;
 ```
 
-从上面的例子可以看到，Kolo-lang 的条件判断语句具有以下特色：
+从上面的例子可以看到，Byzer-lang 的条件判断语句具有以下特色：
 
 1. 语法设计遵循 SQL 的一些原则。比如采用 `and/or` 替代 `&&/||`。使用 `select` 语句做变量赋值
 2. 兼容 Spark SQL 函数
@@ -64,7 +64,7 @@ select * from b as output;
 
 ## 分支语句嵌套
 
-Kolo-lang 也支持分支语句的嵌套。
+Byzer-lang 也支持分支语句的嵌套。
 
 示例：
 
@@ -112,7 +112,7 @@ select split(:a,",")[0] as :name, split(:a,",")[1] as :num;
 :name == "jack" and :num == 3
 ```
 
-Kolo-lang 会在执行时对变量 `:num` 自动进行类型转换，转换为数字。
+Byzer-lang 会在执行时对变量 `:num` 自动进行类型转换，转换为数字。
 
 ## 表达式中变量的作用域
 
@@ -195,7 +195,7 @@ select * from b as output;
 
 ## 在条件表达式中使用自定义函数
 
-前面提到, Kolo-lang 支持使用自定义 UDF 函数，经过注册的 UDF 函数，也可以用在条件分支语句中的条件表达式中。
+前面提到, Byzer-lang 支持使用自定义 UDF 函数，经过注册的 UDF 函数，也可以用在条件分支语句中的条件表达式中。
 
 示例：
 
@@ -218,7 +218,7 @@ select * from b as output;
 
 ## !if/!else 子语句中表的生命周期问题以及解决办法
 
-在 Kolo-lang 中，表的生命周期是 session 级别的。这意味着在一个 session 中， 表都是会被自动注册在系统中的，除非被删除或者被重新定义了亦或是 session 失效。
+在 Byzer-lang 中，表的生命周期是 session 级别的。这意味着在一个 session 中， 表都是会被自动注册在系统中的，除非被删除或者被重新定义了亦或是 session 失效。
 session 级别的生命周期主要配套 notebook 使用，方便用户进行调试。 然而，这在使用 `!if/!else` 的时候则会有困惑发生。
 
 来看下面这个例子：

@@ -49,7 +49,7 @@ minikube start
 
 ### 配置 K8S 密钥
 
-启动 Kolo-lang Driver Pod 时，K8S 会从 [Docker hub](https://hub.docker.com/) 拉取镜像，因而需要这一步。请执行以下命令：
+启动 Byzer-lang Driver Pod 时，K8S 会从 [Docker hub](https://hub.docker.com/) 拉取镜像，因而需要这一步。请执行以下命令：
 
 ```shell
 kubectl create secret docker-registry regcred \
@@ -58,7 +58,7 @@ kubectl create secret docker-registry regcred \
 -n default
 ```
 
-### 部署 Kolo-lang
+### 部署 Byzer-lang
 
 使用 kolo-K8s 工具，部署至 K8S 集群。例子如下：
 

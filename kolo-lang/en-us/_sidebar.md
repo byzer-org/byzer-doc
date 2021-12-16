@@ -14,7 +14,7 @@
   * [Kolo CLI](/byzer-lang/en-us/installation/kolo_cli.md)
   * [Kolo Sandbox](/byzer-lang/en-us/installation/sandbox.md)
 
-- Kolo-lang Grammar Manual
+- Byzer-lang Grammar Manual
   * [Kolo-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
   * [Data Load/Load](/byzer-lang/en-us/grammar/load.md)
   * [Data Transform/Select](/byzer-lang/en-us/grammar/select.md)

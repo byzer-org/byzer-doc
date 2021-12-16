@@ -1,13 +1,13 @@
 # 代码引入/Include
 
-Kolo-lang 支持复杂的代码组织结构，这赋予了 Kolo-lang 强大的代码复用能力。
+Byzer-lang 支持复杂的代码组织结构，这赋予了 Byzer-lang 强大的代码复用能力。
 
 1. 可以将一个 Kolo 脚本引入到另外一个 Kolo 脚本
 2. 也可以将一堆 Kolo 脚本组装成一个功能集，然后以 Lib 的方式提供给其他用户使用
 
 ## 引入第三方依赖库
 
-`lib-core` 是 allwefantasy 维护的一个 Kolo-lang Lib库，里面有很多用 Kolo-lang 写成的一些功能。Kolo-lang 使用 Github 来作为 Lib 管理工具。
+`lib-core` 是 allwefantasy 维护的一个 Byzer-lang Lib库，里面有很多用 Byzer-lang 写成的一些功能。Byzer-lang 使用 Github 来作为 Lib 管理工具。
 
 如果需要引入 `lib-core`,可以通过如下方式：
 
@@ -21,7 +21,7 @@ alias="libCore";
 ```
 
 > 1. 如果熟悉编程的同学，可以理解为这是 Maven 中的 Jar 包声明，亦或是 Go 语言中的 Module 声明
-> 2. 同传统语言不同的是，Kolo-lang 是纯解释型语言，所以引入库可以变成语言运行时的一部分
+> 2. 同传统语言不同的是，Byzer-lang 是纯解释型语言，所以引入库可以变成语言运行时的一部分
 
 在上面的代码示例中，通过 `include` 引入了 `lib-core` 库，为了方便使用它，用户可以给其取了一个别名叫 `libCore`。
 
@@ -47,7 +47,7 @@ select hello() as name as output;
 
 ## 项目内脚本引用
 
-为了完成一个复杂项目的开发，往往需要将功能代码拆解成多个脚本，实现代码的复用和交互组织。在 Kolo-lang 中，分成两种情况。
+为了完成一个复杂项目的开发，往往需要将功能代码拆解成多个脚本，实现代码的复用和交互组织。在 Byzer-lang 中，分成两种情况。
 
 1. 项目作为第三方 Lib 提供给其他用户用，就像 `libCore` 一样
 2. 本项目内 Kolo 脚本之间的互相引用
@@ -81,9 +81,9 @@ include project.`src/algs/b.kolo`;
 ```
 
 
-## Kolo-lang 对 Python 脚本的引用
+## Byzer-lang 对 Python 脚本的引用
 
-Kolo-lang 支持直接引用 Python 脚本文件。 不过对于 Python 脚本的引用是使用内置宏函数 `!pyInclude` 来完成的，而不是使用
+Byzer-lang 支持直接引用 Python 脚本文件。 不过对于 Python 脚本的引用是使用内置宏函数 `!pyInclude` 来完成的，而不是使用
 `include` 句式来完成。
 
 如果你是在开发一个 Lib 库，那么必须使用 local + 全路径。
@@ -114,7 +114,7 @@ and code='''py.rawXgboost''';
 在上面的示例代码中， 通过 `py.rawXgboost` 可以完成对 Python 文件脚本的引用，系统会自动将这部分内容替换为实际的
 Python 脚本内容。
 
-通过将 Python 代码和 Kolo-lang 代码分离,可以有效的
+通过将 Python 代码和 Byzer-lang 代码分离,可以有效的
 帮助用户提升开发效率。在 `lib-core` 中大量使用了该技巧。
 
 对于一个库的开发者，可以通过分支语句来判定是应该使用模块 `include` 还是普通的项目脚本 `include`:
@@ -138,7 +138,7 @@ set inModule="true" where type="defaultParam";
 
 ## 限制
 
-Kolo-lang 不支持循环引用。
+Byzer-lang 不支持循环引用。
 
 
 

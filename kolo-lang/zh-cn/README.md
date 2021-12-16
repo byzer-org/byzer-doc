@@ -1,6 +1,6 @@
 # Kolo Lang
 
-## 为什么我们需要开发 Kolo-lang？ 
+## 为什么我们需要开发 Byzer-lang？ 
 
 在 ABC （AI、BigData、Cloud Native）蓬勃发展的大数据时代，随着云基础设施、基础软件、算法模型等逐渐完善，效率在逐渐成为工程师落地数据平台和完成 AI 工程化的痛点。无论是从基础设施的更换，更换更易用的框架层面，还是招聘更优秀的研发人才，都无法有效的大幅度提升效率。
 
@@ -10,11 +10,11 @@
 * 云原生设计，充分利用云上算力和便宜的存储
 * 一套语言，一个引擎，覆盖 Data + AI 的能力，开箱即用
 
-> 小故事：[Kolo-lang 命名的起源](/byzer-lang/zh-cn/appendix/naming_story.md)
+> 小故事：[Byzer-lang 命名的起源](/byzer-lang/zh-cn/appendix/naming_story.md)
 
 ## 关于Byzer 社区
 
-Byzer 社区是一个新兴且充满活力的开源项目，前身为 MLSQL 社区，核心是 **Kolo-lang**
+Byzer 社区是一个新兴且充满活力的开源项目，前身为 MLSQL 社区，核心是 **Byzer-lang**
 * 面向 Data & AI，围绕 Kolo 打造技术生态
 * 旨在释放分析师、工程师、运维人员的生产力
 * 帮助用户以低成本、高效率的方式落地数据平台和完成 AI 工程化

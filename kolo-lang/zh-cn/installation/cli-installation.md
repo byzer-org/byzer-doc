@@ -1,12 +1,12 @@
-# Kolo-lang 命令行安装与配置
+# Byzer-lang 命令行安装与配置
 
-我们提供了命令行执行脚本的能力，方便用户自助实现更多自动化能力，如下图所示，我们通过命令行执行一个开发好的 Kolo-lang 脚本：
+我们提供了命令行执行脚本的能力，方便用户自助实现更多自动化能力，如下图所示，我们通过命令行执行一个开发好的 Byzer-lang 脚本：
 
 ![execute mlsql cli](images/execute-byzer-lang-cli.png)
 
 ### 安装流程
 
-#### 一、设置 Kolo-lang 环境
+#### 一、设置 Byzer-lang 环境
 
 下面将介绍 byzer-lang 命令行的几个环境变量的含义和安装步骤。
 
@@ -16,7 +16,7 @@
 
 - **MLSQL_LANG_HOME**：该环境变量的值就是 byzer-lang 命令行所在的目录，设置 `PATH` 的时候，也可以使用该变量以方便设置。
 
-- **PATH**：指定一个路径列表，用于搜索可执行文件。执行一个可执行文件时，如果该文件不能在当前路径下找到，则会依次寻找 `PATH` 中的每一个路径，直至找到可执行文件为止。Kolo-lang 命令行的执行命令 (mlsql) 在其安装路径下的 bin 目录中。因此我们应该将该路径添加到 PATH 变量中。
+- **PATH**：指定一个路径列表，用于搜索可执行文件。执行一个可执行文件时，如果该文件不能在当前路径下找到，则会依次寻找 `PATH` 中的每一个路径，直至找到可执行文件为止。Byzer-lang 命令行的执行命令 (mlsql) 在其安装路径下的 bin 目录中。因此我们应该将该路径添加到 PATH 变量中。
 
 2. 下载 byzer-lang 命令行
 
@@ -69,7 +69,7 @@ mlsql lang cli version 0.0.4-dev (2021-09-06 4a628b2)
 
 
 
-#### 二、执行 Kolo-lang 脚本
+#### 二、执行 Byzer-lang 脚本
 
 ```shell
 mlsql run ./src/common/hello.mlsql
@@ -83,7 +83,7 @@ mlsql run ./src/common/hello.mlsql
 !hdfs -ls /;
 ```
 
-使用一行命令，执行 Kolo-lang 脚本：
+使用一行命令，执行 Byzer-lang 脚本：
 
 ```shell
 mlsql run hello.mlsql

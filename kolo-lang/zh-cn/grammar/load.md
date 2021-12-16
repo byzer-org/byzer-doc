@@ -118,6 +118,6 @@ select * from newtable as output;
 在 JDBC 数据源的 `where/options` 参数里，用户可以配置一个 `directQuery` 参数。
 该参数可以写数据源原生支持的语法。比如对于 ClickHouse 可能就是一段合乎 ClickHouse 的 SQL, 而对于 MySQL 则可能是合乎 MySQL 语法的 SQL。
 
-Kolo-lang 会将 `directQuery` 的查询下推到底层引擎，并且将执行的结果作为注册成新的表。 
-在上面的例子中，新表名称为 `newtable`。 这个表可以被后续的 Kolo-lang 代码引用。
+Byzer-lang 会将 `directQuery` 的查询下推到底层引擎，并且将执行的结果作为注册成新的表。 
+在上面的例子中，新表名称为 `newtable`。 这个表可以被后续的 Byzer-lang 代码引用。
 

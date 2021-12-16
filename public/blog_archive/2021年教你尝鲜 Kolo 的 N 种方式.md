@@ -7,7 +7,7 @@
 那么桌面版非常适合你。参考这里的 [README](https://github.com/allwefantasy/mlsql-lang-example-project) 
 
 下载一个 [vscode](https://so.csdn.net/so/search?from=pc_blog_highlight&q=vscode)
-，然后在离线安装 Kolo-lang 插件就可以了。
+，然后在离线安装 Byzer-lang 插件就可以了。
 PS: vscode 商店对插件大小有限制，从商店安装的话还是需要自己手动安装一些依赖，所以反倒离线安装一个 vsix 更方便。
 
 ## 我想和小伙伴一起玩玩

@@ -1,7 +1,7 @@
 # Kolo Lang
 
 
-## Why we need Kolo-lang？ 
+## Why we need Byzer-lang？ 
 
 In the booming big data era of ABC (AI, BigData, Cloud Native), with the gradual improvement of cloud infrastructure, basic software, and algorithm models, efficiency is gradually becoming a pain point for engineers to implement data platforms and complete AI engineering. Whether it is from the replacement of infrastructure, the replacement of easier-to-use frameworks, or the recruitment of better R&D talents, it is impossible to effectively and greatly improve efficiency.
 

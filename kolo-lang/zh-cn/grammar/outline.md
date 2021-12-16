@@ -1,9 +1,9 @@
 # Kolo-Lang 语言向导
 
-Kolo-lang 是声明式语言，这和 SQL 非常类似。不同的是，Kolo-lang 也支持 Python 脚本，用户也可以使用 Scala/Java 动态开发和注册 UDF 函数。
+Byzer-lang 是声明式语言，这和 SQL 非常类似。不同的是，Byzer-lang 也支持 Python 脚本，用户也可以使用 Scala/Java 动态开发和注册 UDF 函数。
 这使得其灵活度得到了很大提高。
 
-Kolo-lang 针对大数据领域的流程抽象出了如下几个句法结构：
+Byzer-lang 针对大数据领域的流程抽象出了如下几个句法结构：
 
 1. 数据加载/Load
 2. 数据转换/Select|Run
@@ -16,7 +16,7 @@ Kolo-lang 针对大数据领域的流程抽象出了如下几个句法结构：
 3. 模型预测/Select|Predict
 
 
-此外，在代码复用上，Kolo-lang 支持脚本和包的管理。 
+此外，在代码复用上，Byzer-lang 支持脚本和包的管理。 
 
 ## 加载数据
 
@@ -30,7 +30,7 @@ as hello_world;
 在上面的语句中，通过 `load` 关键字进行加载申明。加载的数据格式为 `excel` , 路径为 `./example-data/excel/hello_world.xlsx`,
 加载的过程中配置参数在 `where/options` 子语句中。加载后的结果是一张表，使用 `as 语法` 进行命名，名称为 `hello_world`。
 
-Kolo-lang 几乎可以加载市面上主流的
+Byzer-lang 几乎可以加载市面上主流的
 
 1. 数据源， 比如 JDBC 协议的数据库， 多种云上对象存储，HDFS。
 2. 数据格式，比如文件格式如 text， image， csv， json， xml等。
@@ -38,7 +38,7 @@ Kolo-lang 几乎可以加载市面上主流的
 
 ## 数据处理
 
-Kolo-lang 主要使用 `select` 句式处理加载后的数据。
+Byzer-lang 主要使用 `select` 句式处理加载后的数据。
 
 ```sql
 load excel.`./example-data/excel/hello_world.xlsx` 
@@ -74,7 +74,7 @@ include project.`./src/common/PyHeader.mlsql`;
 
 这个语法在桌面版中有效。不同的 Notebook 实现，则可能会有不同，但总体格式是一致的。
 
-如果希望达到包级别的复用，Kolo-lang 使用 Github 作为包管理器。举例，lib-core 是 Kolo-lang 的一个示例 Lib：
+如果希望达到包级别的复用，Byzer-lang 使用 Github 作为包管理器。举例，lib-core 是 Byzer-lang 的一个示例 Lib：
 
 ```
 https://github.com/allwefantasy/lib-core
@@ -98,7 +98,7 @@ select hello() as name as output;
 
 ## 宏函数
 
-标准 SQL 中也有函数，Kolo-lang 的宏函数则是 SQL 层级的。
+标准 SQL 中也有函数，Byzer-lang 的宏函数则是 SQL 层级的。
 
 譬如每次都写完整的 `load` 语句是一件沮丧的事情。可以将其进行封装：
 
@@ -129,7 +129,7 @@ as ${tableName}
 
 ## Native UDF 
 
-Kolo-lang 支持用户使用 Java/Scala 编写 UDF 函数。 Kolo-lang 的一大优势是，随写随用。
+Byzer-lang 支持用户使用 Java/Scala 编写 UDF 函数。 Byzer-lang 的一大优势是，随写随用。
 
 ```ruby
 register ScriptUDF.`` as arrayLast 
@@ -147,7 +147,7 @@ select arrayLast(array("a","b")) as lastChar as output;
 
 ## 变量
 
-Kolo-lang 也支持变量。变量使用 `set` 进行声明。
+Byzer-lang 也支持变量。变量使用 `set` 进行声明。
 
 比如：
 
@@ -161,11 +161,11 @@ set a="b";
 select "${a}" as a as output;
 ```
 
-在 Kolo-lang 中，变量引用主要以 `${}` 的方式进行，分支条件表达式则是特例，它以  `:VariableName` 形式进行引用。
+在 Byzer-lang 中，变量引用主要以 `${}` 的方式进行，分支条件表达式则是特例，它以  `:VariableName` 形式进行引用。
 
 ## 分支语句
 
-Kolo-lang 支持高级别的分支语句。
+Byzer-lang 支持高级别的分支语句。
 
 示例如下：
 
@@ -228,7 +228,7 @@ select vec_array(model_predict(features)) as predicted_value from mock_data as o
 
 Kolo 通过 Kolo-python 支持 Python 脚本。 如果用户在  Byzer Notebook 中使用，将会更加易用。
 
-下面展示的是一段纯 Kolo-lang 的代码：
+下面展示的是一段纯 Byzer-lang 的代码：
 
 ```sql
 select 1 as a as mockTable;
@@ -292,7 +292,7 @@ as mockData;
 
 ## 作用域
 
-Kolo-lang 是解释型语言。 变量，宏函数， UDF 注册，`select` 临时表等等， 都遵循如下规则：
+Byzer-lang 是解释型语言。 变量，宏函数， UDF 注册，`select` 临时表等等， 都遵循如下规则：
 
 1. 声明后即可使用
 2. 多次声明，后面的会覆盖覆盖前面的

@@ -1,7 +1,7 @@
 # 内置宏函数/build-in Macro Functions
 
 
-Kolo-lang 内置了非常多的宏函数，可以帮助用户实现更好的交互。
+Byzer-lang 内置了非常多的宏函数，可以帮助用户实现更好的交互。
 
 - !show
 
