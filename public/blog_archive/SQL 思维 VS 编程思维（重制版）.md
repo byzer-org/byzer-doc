@@ -39,7 +39,7 @@ Byzer 很好的解决了这个问题，他在增强了 SQL 的表达能力（脚
 
 下面是一段小的 Byzer 脚本：
 
- ![avartar](./images/kolo_sample.png)
+ ![avartar](./images/byzer_sample.png)
 
 
 全部 SQL 化是 Byzer 的主要特色，虽然也允许你使用 Python 编程，但是是作为内置在 SQL 中的脚本语言存在的，但这也让 Byzer 的能力得到很大的扩展，基本可以做任何想做的事情。

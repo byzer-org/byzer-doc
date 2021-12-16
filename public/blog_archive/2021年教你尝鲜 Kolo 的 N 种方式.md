@@ -24,5 +24,5 @@ Byzer-engine: http://download.byzer.org/2.2.0-SNAPSHOT/mlsql-engine_3.0-2.2.0-SN
 ## 想在生产环境里用
 参考:
 
-- [引擎 K8s 部署指南](https://docs.byzer.org/#/byzer-lang/en-us/installation/kolo_engine) 
-- [Yarn 部署](https://docs.byzer.org/#/byzer-lang/en-us/installation/kolo_engine) 
+- [引擎 K8s 部署指南](https://docs.byzer.org/#/byzer-lang/en-us/installation/byzer_engine) 
+- [Yarn 部署](https://docs.byzer.org/#/byzer-lang/en-us/installation/byzer_engine) 
