@@ -1,6 +1,6 @@
 # 数据加载/Load
 
- Kolo-Lang 的设计哲学是 `Everything is a table`，那么就可以在 Kolo-Lang 中抽象各种文件数据源，数据库，数据仓库，数据湖甚至 Rest API 成一个表，然后使用二维表的操作方式来处理它。 这主要通过 `load` 句式来达成。
+ Byzer-Lang 的设计哲学是 `Everything is a table`，那么就可以在 Byzer-Lang 中抽象各种文件数据源，数据库，数据仓库，数据湖甚至 Rest API 成一个表，然后使用二维表的操作方式来处理它。 这主要通过 `load` 句式来达成。
 
 
 ## 基本使用

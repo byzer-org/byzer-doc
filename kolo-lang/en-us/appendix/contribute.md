@@ -1,6 +1,6 @@
 ## How to Contribute
 
-If Kolo-Lang and Byzer Notebook are helpful to you, or if you are interested in contributing your own strength, the ([Byzer Org](https://github.com/byzer-org)) is looking forward to your contribution, let's work together to create a data-oriented and AI-oriented community.
+If Byzer-Lang and Byzer Notebook are helpful to you, or if you are interested in contributing your own strength, the ([Byzer Org](https://github.com/byzer-org)) is looking forward to your contribution, let's work together to create a data-oriented and AI-oriented community.
 
 
 ## Community Organization
@@ -45,7 +45,7 @@ If you are a user, you can contribute in the following ways:
 
 ## If you are a developer
 
-If you are a developer, welcome to participate in the technical design and development of Kolo-Lang, Byzer Notebook and its ecology:
+If you are a developer, welcome to participate in the technical design and development of Byzer-Lang, Byzer Notebook and its ecology:
 - Contribute code
 - Code Review
 - Contribute to technical design and participate in technical discussions

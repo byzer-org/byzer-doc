@@ -29,7 +29,7 @@ Byzer-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控�
 ## 自定义UDF jar包注册
 
 如果我们将自己的 UDF 打包进 Jar 包里，我们需要在启动的时候告诉系统对应的 UDF 类名称。
-UDF 的编写需要符合 Kolo-Lang 的规范。我们推荐直接在 Console 里动态编写 UDF/UDAF。
+UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console 里动态编写 UDF/UDAF。
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|

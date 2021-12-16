@@ -1,4 +1,4 @@
-# Kolo-Lang Guide
+# Byzer-Lang Guide
 
 Byzer-lang is a declarative language, which is very similar to SQL. The difference is that Byzer-lang also supports Python scripts, and users can also use Scala/Java to dynamically develop and register UDF functions.
 

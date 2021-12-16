@@ -68,7 +68,7 @@ If you want to become a member of byzer orgnization, you will be accepted after 
 If you want to join **Byzer Docs User Group**,  you can contribute the following things or more by:
 
 - Post the blog or shared slides about any Byzer projects
-- Write the documentation of Kolo-Lang or Byzer-Notebook
+- Write the documentation of Byzer-Lang or Byzer-Notebook
 - Translate all the content to English
 
 Then, just file an issue with the tile like `Join Byzer Docs User Group` 

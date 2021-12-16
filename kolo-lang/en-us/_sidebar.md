@@ -1,5 +1,5 @@
-- Kolo-Lang Introduction
-  * [Kolo-Lang](/byzer-lang/en-us/introduction/kolo_lang_intro.md)
+- Byzer-Lang Introduction
+  * [Byzer-Lang](/byzer-lang/en-us/introduction/kolo_lang_intro.md)
   * [Online Trial](/byzer-lang/en-us/introduction/byzer_lab.md)
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
   * [FAQ](/byzer-lang/en-us/appendix/faq.md)
@@ -15,7 +15,7 @@
   * [Kolo Sandbox](/byzer-lang/en-us/installation/sandbox.md)
 
 - Byzer-lang Grammar Manual
-  * [Kolo-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
+  * [Byzer-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
   * [Data Load/Load](/byzer-lang/en-us/grammar/load.md)
   * [Data Transform/Select](/byzer-lang/en-us/grammar/select.md)
   * [Data Save/Save](/byzer-lang/en-us/grammar/save.md)

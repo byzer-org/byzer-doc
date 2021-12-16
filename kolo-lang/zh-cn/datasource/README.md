@@ -1,6 +1,6 @@
 # 加载和存储多种数据源
 
-阅读本章节前，请阅读 [Kolo-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md) 以及 [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)。确保熟悉 Kolo 中数据加载相关的基本概念。
+阅读本章节前，请阅读 [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md) 以及 [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)。确保熟悉 Kolo 中数据加载相关的基本概念。
 
 Kolo 具备加载和存储多种数据源的能力。支持的数据源如下：
 - JDBC

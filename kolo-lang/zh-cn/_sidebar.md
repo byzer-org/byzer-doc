@@ -1,5 +1,5 @@
-- Kolo-Lang Introduction
-  * [Kolo-Lang](/byzer-lang/zh-cn/introduction/kolo_lang_intro.md)
+- Byzer-Lang Introduction
+  * [Byzer-Lang](/byzer-lang/zh-cn/introduction/kolo_lang_intro.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq.md)
@@ -14,8 +14,8 @@
   * [Kolo 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
   * [Kolo Sandbox](/byzer-lang/zh-cn/installation/sandbox.md)
 
-- Kolo-Lang 语法手册
-  * [Kolo-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
+- Byzer-Lang 语法手册
+  * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
   * [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)
   * [数据转换/Select](/byzer-lang/zh-cn/grammar/select.md)
   * [保存数据/save](/byzer-lang/zh-cn/grammar/save.md)  

@@ -1,4 +1,4 @@
-# Kolo-Lang 语言向导
+# Byzer-Lang 语言向导
 
 Byzer-lang 是声明式语言，这和 SQL 非常类似。不同的是，Byzer-lang 也支持 Python 脚本，用户也可以使用 Scala/Java 动态开发和注册 UDF 函数。
 这使得其灵活度得到了很大提高。

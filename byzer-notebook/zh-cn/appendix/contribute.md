@@ -1,6 +1,6 @@
 ## 贡献白泽社区
 
-如果 Kolo-Lang 和 Byzer Notebook 对您有帮助，或您有兴趣想要贡献自己的一份力量，白泽社区（[Byzer Org](https://github.com/byzer-org)）非常期待您的加入，大家一起来共创一个面向数据以及 AI 的社区。
+如果 Byzer-Lang 和 Byzer Notebook 对您有帮助，或您有兴趣想要贡献自己的一份力量，白泽社区（[Byzer Org](https://github.com/byzer-org)）非常期待您的加入，大家一起来共创一个面向数据以及 AI 的社区。
 
 ## 社区组织架构
 
@@ -44,7 +44,7 @@
 
 ## 如果你是一个开发者
 
-如果你是一个开发者，欢迎参与 Kolo-Lang，Byzer Notebook 及其生态的技术设计和开发：
+如果你是一个开发者，欢迎参与 Byzer-Lang，Byzer Notebook 及其生态的技术设计和开发：
 - 贡献代码
 - Code Review
 - 贡献技术设计以及参与技术讨论

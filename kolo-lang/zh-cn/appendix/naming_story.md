@@ -2,7 +2,7 @@
 
 Kolo 创始人：[祝海林（William Zhu）](https://github.com/allwefantasy) 
 
-在白泽社区建立的时候，我们说我们既然要搞一个编程语言，那就来取一个很酷的编程语言的名字吧。下面是 William 讲述的 Kolo-Lang 取名的故事
+在白泽社区建立的时候，我们说我们既然要搞一个编程语言，那就来取一个很酷的编程语言的名字吧。下面是 William 讲述的 Byzer-Lang 取名的故事
 
 
 > Kolo 的前身是 MLSQL， MLSQL 的前身是 StreamingPro，名字自身体现了一种演化。

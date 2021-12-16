@@ -1,1 +1,1 @@
-# Kolo-Lang 语法手册
+# Byzer-Lang 语法手册
