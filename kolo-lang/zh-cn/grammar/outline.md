@@ -85,7 +85,7 @@ https://github.com/allwefantasy/lib-core
 ```sql
 include lib.`github.com/allwefantasy/lib-core`
 where 
-mirror="gitee.com"
+libMirror="gitee.com"
 and alias="libCore";
 ```
 
@@ -224,11 +224,11 @@ register RandomForest.`/tmp/models/randomforest` as model_predict;
 select vec_array(model_predict(features)) as predicted_value from mock_data as output;
 ```
 
-## Python支持
+## Kolo-python支持
 
-Python 脚本的支持在 Kolo-lang 中主要是使用 ET Ray 来完成的。
+Kolo 通过 Kolo-python 支持 Python 脚本。 如果用户在  Byzer Notebook 中使用，将会更加易用。
 
-下面是一段纯 Kolo-lang 的代码：
+下面展示的是一段纯 Kolo-lang 的代码：
 
 ```sql
 select 1 as a as mockTable;
