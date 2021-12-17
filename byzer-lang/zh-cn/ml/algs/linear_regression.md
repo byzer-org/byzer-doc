@@ -1,6 +1,6 @@
 # LinearRegression
 
-线性回归(Linear Regression)是利用称为线性回归方程的最小二乘函数对一个或多个自变量和因变量之间关系进行建模的一种回归分析
+线性回归 (Linear Regression) 是利用称为线性回归方程的最小二乘函数对一个或多个自变量和因变量之间关系进行建模的一种回归分析。
 
 ```sql
 -- create test data
@@ -70,13 +70,14 @@ trainParams	Map(featuresCol -> features, elasticNetParam -> 0.1, labelCol -> lab
 
 对于大部分内置算法而言，都支持如下几个特性：
 
-1. 可以通过keepVersion 来设置是否保留版本。
-2. 通过fitParam.数字序号 配置多组参数，设置evaluateTable后系统自动算出metrics.
+1. 可以通过 keepVersion 来设置是否保留版本。
+2. 通过 fitParam.数字序号 配置多组参数，设置 evaluateTable 后系统自动算出 metrics.
 
 
-## 批量预测
 
-```
+### 批量预测
+
+```sql
 predict data1 as LinearRegression.`/tmp/model_3`;
 ```
 
@@ -88,7 +89,9 @@ features	                            label	prediction
 {"type":1,"values":[5.1,3.5,1.4,0.2]}	1	0.24999999999999645
 ```
 
-## API预测
+
+
+### API预测
 
 
 ```sql
@@ -105,5 +108,6 @@ autoSelectByMetric="f1";
 select lr_predict(features) as predict_label, label from data1 as output;
 ```
 
-algIndex可以选择我用哪组参数得到的算法。我们也可以让系统自动选择，前提是我们在训练时配置了evalateTable， 这个只要使用autoSelectByMetric即可。
-最后，就可以像使用一个函数一样对一个feature进行预测了。
+algIndex 可以选择使用哪组参数得到的算法模型。您也可以让系统自动选择，前提是在训练时配置了evalateTable， 这个只要使用 autoSelectByMetric 即可。
+
+最后，就可以像使用一个函数一样对一个 feature 进行预测了。
