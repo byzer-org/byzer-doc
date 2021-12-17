@@ -1,5 +1,5 @@
 - Byzer-Lang Introduction
-  * [Byzer-Lang](/byzer-lang/zh-cn/introduction/kolo_lang_intro.md)
+  * [Byzer-Lang](/byzer-lang/zh-cn/introduction/byzer_lang_intro.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
@@ -15,7 +15,10 @@
   * [Byzer-lang 安装与配置](/byzer-lang/zh-cn/installation/binary-installation.md)
   * [Byzer 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
   * [Byzer 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
-  * [Byzer Sandbox](/byzer-lang/zh-cn/installation/sandbox.md)
+  * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)
+  * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
+  * [多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md)
+  * [K8S镜像部署指南](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
 
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
@@ -39,7 +42,7 @@
       * [HBase](/byzer-lang/zh-cn/datasource/hbase.md)
       * [MongoDB](/byzer-lang/zh-cn/datasource/mongodb.md)
       * [本地文件/HDFS](/byzer-lang/zh-cn/datasource/file.md)
-      * [内置数据源](/byzer-lang/zh-cn/datasource/kolo_source.md)
+      * [内置数据源](/byzer-lang/zh-cn/datasource/byzer_source.md)
       * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
       * [MockStreaming](/byzer-lang/zh-cn/datasource/mock_streaming.md)
       * [其他](/byzer-lang/zh-cn/datasource/other.md)
@@ -112,9 +115,26 @@
         * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
+      * 内置ET
+        * [如何缓存表](/byzer-lang/zh-cn/extension/et/external/CacheExt.md)
+        * [直接操作MySQL](/byzer-lang/zh-cn/extension/et/external/JDBC.md)
+        * [Json展开插件使用](/byzer-lang/zh-cn/extension/et/external/JsonExpandExt.md)
+        * [Byzer-Watcher 插件使用](/byzer-lang/zh-cn/extension/et/external/byzer-watcher.md)
+        * [如何发送邮件](/byzer-lang/zh-cn/extension/et/external/SendMessage.md)
+        * [语法解析工具](/byzer-lang/zh-cn/extension/et/external/SyntaxAnalyzeExt.md)
+        * [改变表的分区数](/byzer-lang/zh-cn/extension/et/external/TableRepartition.md)
+        * [计算复杂的父子关系](/byzer-lang/zh-cn/extension/et/external/TreeBuildExt.md)
+      * 外置ET
+        * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
+        * [mlsql 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
+        * [mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
+        * [shell命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
+        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
+        * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
     * [DataSource 插件](/byzer-lang/zh-cn/extension/datasource/README.md)
         * [Excel 数据源插件](/byzer-lang/zh-cn/extension/datasource/excel.md)
         * [HBase 数据源](/byzer-lang/zh-cn/extension/datasource/hbase.md)
+        * [使用byzer-lang访问 REST API](/byzer-lang/zh-cn/extension/datasource/MLSQLRest.md)
 
 
 - 安全与权限
@@ -128,11 +148,14 @@
     * 插件开发
       * [自定义 ET 插件开发](/byzer-lang/zh-cn/developer/extension/et_dev.md)
       * [自定义数据源插件开发](/byzer-lang/zh-cn/developer/extension/ds_dev.md)
+      * [命令行开发](/byzer-lang/en-us/developer/extension/et_command.md)
+      * [参数自省机制介绍](/byzer-lang/en-us/developer/extension/et_params_dev.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
     * API
       * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
         * [脚本执行 API](/byzer-lang/zh-cn/developer/api/run_script_api.md)
         * [代码提示 API](/byzer-lang/zh-cn/developer/api/code_suggest.md)
+        * [Byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/byzer-lang/zh-cn/developer/api/liveness.md)
       * [Readness API](/byzer-lang/zh-cn/developer/api/readiness.md)
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
@@ -146,5 +169,7 @@
     * [MLSQL Stack 2.0.1](/byzer-lang/zh-cn/appendix/release-notes/2.0.1.md)
     * [MLSQL Stack 2.0.0](/byzer-lang/zh-cn/appendix/release-notes/2.0.0.md)
   * [术语表](/byzer-lang/zh-cn/appendix/terms.md)  
-  * [Blog](/byzer-lang/zh-cn/appendix/blog.md)   
+  * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
+      * [编译时权限控制](/public/blog_archive/Compile-time_access_control.md)
+      * [如何实现Spark过载保护](/public/blog_archive/overload_protection.md)
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
