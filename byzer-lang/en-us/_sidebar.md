@@ -9,9 +9,9 @@
   * [New Features](/byzer-lang/en-us/what's_new/new_features.md)
 
 - Installation
-  * [Byzer Engine](/byzer-lang/en-us/installation/kolo_engine.md)
-  * [Byzer Desktop](/byzer-lang/en-us/installation/kolo_desktop.md)    
-  * [Byzer CLI](/byzer-lang/en-us/installation/kolo_cli.md)
+  * [Byzer-lang](/byzer-lang/en-us/installation/binary-installation.md)
+  * [Byzer Desktop](/byzer-lang/en-us/installation/desktop-installation.md)    
+  * [Byzer CLI](/byzer-lang/en-us/installation/cli-installation.md)
   * [Byzer Sandbox](/byzer-lang/en-us/installation/sandbox.md)
 
 - Byzer-lang Grammar Manual
@@ -28,8 +28,7 @@
   * [Build-in Marco Functions](/byzer-lang/en-us/grammar/commands.md)
 
 - Data Pipeline & Analysis
-    - Load Datasource in Byzer
-      * [Datasource](/byzer-lang/en-us/datasource/README.md)
+    - [Load Datasource in Byzer](/byzer-lang/en-us/datasource/README.md)
       * [RestAPI](/byzer-lang/en-us/datasource/restapi.md)
       * [JDBC](/byzer-lang/en-us/datasource/jdbc.md)
       * [ElasticSearch](/byzer-lang/en-us/datasource/es.md)
@@ -40,15 +39,14 @@
       * [jsonStr/script/ByzerAPI/ByzerConf](/byzer-lang/en-us/datasource/kolo_source.md)
       * [Kafka](/byzer-lang/en-us/datasource/kafka.md)
       * [MockStreaming](/byzer-lang/en-us/datasource/mock_streaming.md)
+      * [Others](/byzer-lang/zh-cn/datasource/other.md)
 
-    - Data Warehouse / DataLake
-        * [Data Warehouse / DataLake](/byzer-lang/en-us/datahouse/README.md)
+    - [Data Warehouse / DataLake](/byzer-lang/en-us/datahouse/README.md)
         * [Load/Save in Hive](/byzer-lang/en-us/datahouse/hive.md)
         * [Delta lake](/byzer-lang/en-us/datahouse/delta_lake.md)
         * [MySQL Binlog](/byzer-lang/en-us/datahouse/mysql_binlog.md)
 
-    - Extend with Python 
-        * [Use Python to Extend Byzer](/byzer-lang/en-us/python/README.md)
+    - [Extend with Python](/byzer-lang/en-us/python/README.md)
         * [Environment](/byzer-lang/en-us/python/env.md)
         * [ETL](/byzer-lang/en-us/python/etl.md)
         * [Train](/byzer-lang/en-us/python/train.md)
@@ -59,8 +57,7 @@
         * [Datamode](/byzer-lang/en-us/python/datamode.md)
         * [Parallel in Python](/byzer-lang/en-us/python/py_parallel.md)
 
-    * UDF Extension
-        * [UDF in Byzer](/byzer-lang/en-us/udf/README.md)
+    * [UDF Extension](/byzer-lang/en-us/udf/README.md)
         * [Built-In UDF](/byzer-lang/en-us/udf/built_in_udf/README.md)
           * [Http request](/byzer-lang/en-us/udf/built_in_udf/http.md)
           * [Common Functions](/byzer-lang/en-us/udf/built_in_udf/vec.md)
@@ -70,8 +67,7 @@
           * [Scala UDAF](/byzer-lang/en-us/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/byzer-lang/en-us/udf/extend_udf/java_udf.md)
 
-    * Streaming Processing
-      * [Streaming Process](/byzer-lang/en-us/streaming/README.md)
+    * [Streaming Processing](/byzer-lang/en-us/streaming/README.md)
       * [Byzer Kafka Tools](/byzer-lang/en-us/streaming/kafka_tool.md)
       * [Query from Kafka](/byzer-lang/en-us/streaming/query_kafka.md)
       * [Set Callback](/byzer-lang/en-us/streaming/callback.md)
