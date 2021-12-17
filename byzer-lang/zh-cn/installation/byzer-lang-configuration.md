@@ -10,7 +10,7 @@
 
 ## 二层通讯参数
 
-Kolo-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制executor.
+Byzer-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制executor.
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
@@ -28,8 +28,8 @@ Kolo-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制
 
 ## 自定义UDF jar包注册
 
-如果我们将自己的UDF打包进Jar包里，我们需要在启动的时候告诉系统对应的UDF 类名称。
-UDF的编写需要符合 Byzer-lang 的规范。我们推荐直接在 Notebook 里动态编写UDF/UDAF。
+如果我们将自己的 UDF 打包进 Jar 包里，我们需要在启动的时候告诉系统对应的 UDF 类名称。
+UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console 里动态编写 UDF/UDAF。
 
 | 参数 | 说明               | 示例值 |
 |----|------------------|-----|
@@ -41,9 +41,8 @@ UDF的编写需要符合 Byzer-lang 的规范。我们推荐直接在 Notebook �
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
-| streaming.plugin.clzznames  |  支持多个class,用逗号分隔  |     |
+| streaming.plugin.clzznames  |  支持多个class, 用逗号分隔  |     |
 
-可通过如下地址下载插件(填写插件名和版本)：
 
 ## Session设置
 

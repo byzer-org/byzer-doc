@@ -4,19 +4,19 @@ Byzer-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
 ###  下载二进制包
 
-下载站点 https://download.byzer.org/ , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
+[下载站点](https://download.byzer.org/byzer/) , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
 
 ```
 byzer-lang_<spark_major_version>-<byzer_lang_version>    
 ```
 这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。byzer-lang 支持两个版本Spark
 
-| byzer-lang 版本           | Spark版本                  |
-|-------------------------------|-----------------------|
-| mlsql-engine_3.0-2.1.0        | Spark-3.1.1-hadoop3.2 |
-| mlsql-engine_2.4-2.1.0        | Spark-2.4.3-hadoop2.7 | 
-| byzer-lang_3.0-2.2.0          | Spark-3.1.1-hadoop3.2 |
-| byzer-lang_2.4-2.2.0          | Spark-2.4.3-hadoop2.7 |
+| Byzer-lang 版本          | Spark版本                  |
+|------------------------|-----------------------|
+| mlsql-engine_3.0-2.1.0 | Spark-3.1.1-hadoop3.2 |
+| mlsql-engine_2.4-2.1.0 | Spark-2.4.3-hadoop2.7 | 
+| byzer-lang_3.0-2.2.0   | Spark-3.1.1-hadoop3.2 |
+| byzer-lang_2.4-2.2.0   | Spark-2.4.3-hadoop2.7 |
 
 ### 源码编译(可选)
 
@@ -66,7 +66,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 ```
 
 以位置[1]为分割点，前面主要是 Spark 相关配置，后面部分则是 Byzer-lang 相关配置。也有另外一个区别点，Spark 配置以两个横杠开头，
-而 byzer-lang 配置以一个横杠开头。
+而 Byzer-lang 配置以一个横杠开头。
 
 通过在这种方式，我们可以将 Byzer-lang 运行在 K8s, Yarn, Mesos 以及 Local 等各种环境之上。
 > Byzer-lang 使用到了很多以 spark 开头的参数，他们必须使用 --conf 来进行配置，而不是 - 配置。这个务必要注意。
@@ -134,4 +134,4 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 执行 $MLSQL_HOME/bin/stop-local.sh
 
 ### 更多参数
-[Byzer-lang 更多参数](byzer-lang-configuration.md)
+[Byzer-lang 更多参数](./byzer-lang-configuration.md)

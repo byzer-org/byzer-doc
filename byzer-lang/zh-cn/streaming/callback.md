@@ -64,4 +64,4 @@ and checkpointLocation="/tmp/cpl14";
 !callback post "http://127.0.0.1:9002/api_v1/test" when "started,progress,terminated";
 ```
 
-这个表示如果发生started,progress,terminated三个事件中的任何一个，都以 HTTP POST 协议上报给 http://127.0.0.1:9002/api_v1/test 接口。
+这个表示如果发生 started, progress, terminated 三个事件中的任何一个，都以 HTTP POST 协议上报给 http://127.0.0.1:9002/api_v1/test 接口。
