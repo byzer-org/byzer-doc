@@ -49,17 +49,16 @@
         * [Delta加载和存储以及流式支持](/byzer-lang/zh-cn/datahouse/delta_lake.md)
         * [MySQL Binlog同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
 
-    - [Python 扩展](/byzer-lang/zh-cn/python/README.md)
+    - [Byzer-python](/byzer-lang/zh-cn/python/README.md)
         * [环境依赖](/byzer-lang/zh-cn/python/env.md)
         * [数据处理](/byzer-lang/zh-cn/python/etl.md)
         * [模型训练](/byzer-lang/zh-cn/python/train.md)
+        * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
         * [PyJava API简介](/byzer-lang/zh-cn/python/pyjava.md)
-        * [结合Python读取Excel](/byzer-lang/zh-cn/python/read_excel.md)
-        * [结合Python保存Excel](/byzer-lang/zh-cn/python/write_excel.md)
-        * [K8s下的Python资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
+        * [k8s 下的 Byzer-python 资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
         * [dataMode 详解](/byzer-lang/zh-cn/python/datamode.md)
-        * [Python并行度你所需要知道的](/byzer-lang/zh-cn/python/py_parallel.md)
-
+        * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
+    
     * [UDF 扩展](/byzer-lang/zh-cn/udf/README.md)
         * [系统内置 UDF](/byzer-lang/zh-cn/udf/built_in_udf/README.md)
           * [http请求](/byzer-lang/zh-cn/udf/built_in_udf/http.md)
@@ -69,7 +68,7 @@
           * [Scala UDF](/byzer-lang/zh-cn/udf/extend_udf/scala_udf.md)
           * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)
-
+    
     * [Byzer 流编程](/byzer-lang/zh-cn/streaming/README.md)
       * [Byzer Kafka Tools](/byzer-lang/zh-cn/streaming/kafka_tool.md)
       * [查询 Kafka 数据](/byzer-lang/zh-cn/streaming/query_kafka.md)
@@ -77,7 +76,7 @@
       * [对流的结果以批的形式保存](/byzer-lang/zh-cn/streaming/save_in_batch.md)
       * [使用 window/watermark](/byzer-lang/zh-cn/streaming/window_watermark.md)
       * [使用 Byzer 流式更新 MySQL 数据](/byzer-lang/zh-cn/streaming/stream_update_mysql.md)
-
+    
 - 机器学习
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)
         * [文本向量化](/byzer-lang/zh-cn/ml/feature/nlp/README.md)
