@@ -31,10 +31,10 @@
 			"pattern": "^https://go.dev/"
 		},
 		{
-			"pattern": "^ https://download.byzer.org/"
+			"pattern": "^https://download.byzer.org/"
 		},
 		{
-			"pattern": "^ https://mlsql-docs.kyligence.io/"
+			"pattern": "^https://mlsql-docs.kyligence.io/"
 		}
 	],
 	"replacementPatterns": [
