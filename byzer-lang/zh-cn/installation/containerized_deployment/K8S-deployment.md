@@ -25,7 +25,7 @@ make all
 
 结果如下图:
 
-![mlsql-deploy_help](kolo-k8s_help.PNG)
+![mlsql-deploy_help](images/kolo-k8s_help.PNG)
 
 ### 安装并配置 K8S
 
