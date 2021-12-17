@@ -4,7 +4,7 @@
 
 ### 前置条件
 
-[安装 Docker](!https://www.docker.com/products/docker-desktop)，如果已安装请忽略。
+[安装 Docker](https://www.docker.com/products/docker-desktop)，如果已安装请忽略。
 
 ### 安装 Sandbox 镜像
 
@@ -12,7 +12,7 @@
 
    `docker pull allwefantasy/mlsql-sandbox:<tag>`
 
-   > tag 对应着镜像的版本号，[这里](!https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags)可以查看所有可用的 tag
+   > tag 对应着镜像的版本号，[这里](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags)可以查看所有可用的 tag
 
 2. 运行容器
 

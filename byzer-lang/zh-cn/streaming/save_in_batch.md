@@ -157,4 +157,4 @@ load hive.`default.jack_2` as ddd;
 ```
 
 > 使用原生 Hive INSERT 语句时，需要先在 Hive 建表。
-> Byzer 集成 Hive 请参考 [hive](../installation/hive-setup.md)
+
