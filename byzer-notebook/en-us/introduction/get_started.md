@@ -4,7 +4,7 @@ This chapter will introduce how to use the docker mirror environment to quickly 
 
 ### Prerequisites
 
-[Install Docker](!https://www.docker.com/products/docker-desktop), ignore if it is already installed.
+[Install Docker](https://www.docker.com/products/docker-desktop), ignore if it is already installed.
 
 ### Install Sandbox Image
 
@@ -12,7 +12,7 @@ This chapter will introduce how to use the docker mirror environment to quickly 
 
    `docker pull allwefantasy/mlsql-sandbox:<tag>`
    
-   > tag corresponds to the version number of the mirror, [here](!https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags) list all available tags.
+   > tag corresponds to the version number of the mirror, [here](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags) list all available tags.
    
 2. Run Container
 

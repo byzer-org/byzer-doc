@@ -1,6 +1,6 @@
 # 网络安装插件
 
-如果你内网（也可以通过自己设置代理）可以访问 [http://store.mlsql.tech](http://store.mlsql.tech])，那么你可以直接使用命令行方式在Kolo-notebook里安装。
+如果你内网（也可以通过自己设置代理）可以访问 [http://store.mlsql.tech](http://store.mlsql.tech)，那么你可以直接使用命令行方式在Kolo-notebook里安装。
 
 比如如果需要安装excel支持，一行命令在Kolo-notebook里即可搞定：
 
