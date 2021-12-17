@@ -2,7 +2,10 @@
   * [Byzer-Lang](/byzer-lang/zh-cn/introduction/kolo_lang_intro.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
-  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq.md)
+  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
+    * [听说mlsql-cluster暂时不更新了，mlsql-cluster是个啥？](/byzer-lang/zh-cn/appendix/faq/mlsql-cluster.md)
+    * [MLSQL K8s部署，镜像环境如何制作](/byzer-lang/zh-cn/appendix/faq/mlsql-k8s-build.md)
+    * [加载JDBC(如MySQL，Oracle)数据常见困惑](/byzer-lang/zh-cn/appendix/faq/jdbc.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
 
 - 全新功能

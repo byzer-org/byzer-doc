@@ -2,7 +2,8 @@
   * [Byzer-Lang](/byzer-lang/en-us/introduction/kolo_lang_intro.md)
   * [Online Trial](/byzer-lang/en-us/introduction/byzer_lab.md)
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
-  * [FAQ](/byzer-lang/en-us/appendix/faq.md)
+  * [FAQ](/byzer-lang/en-us/appendix/faq/README.md)
+    * [mlsql-cluster](/byzer-lang/en-us/appendix/faq/mlsql-cluster.md)
   * [How to Contribute](/byzer-lang/en-us/appendix/contribute.md)  
 
 - What's New
