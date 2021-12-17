@@ -42,7 +42,6 @@
       * [HBase](/byzer-lang/zh-cn/datasource/hbase.md)
       * [MongoDB](/byzer-lang/zh-cn/datasource/mongodb.md)
       * [本地文件/HDFS](/byzer-lang/zh-cn/datasource/file.md)
-      * [内置数据源](/byzer-lang/zh-cn/datasource/byzer_source.md)
       * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
       * [MockStreaming](/byzer-lang/zh-cn/datasource/mock_streaming.md)
       * [其他](/byzer-lang/zh-cn/datasource/other.md)

@@ -2,7 +2,7 @@
 
 做机器学习一大痛点就是训练阶段的特征工程代码无法复用在 API 预测阶段。
 
-Byzer 提供了非常多的特征工程 `ET`（[什么是ET？]((/byzer-lang/zh-cn/grammar/et_statement.md))）,能够很好的解决这一痛点。
+Byzer 提供了非常多的特征工程 `ET`（[什么是ET?](/byzer-lang/zh-cn/grammar/et_statement.md)）,能够很好的解决这一痛点。
 
 Byzer 内置这些 `ET` 有如下特点：
 

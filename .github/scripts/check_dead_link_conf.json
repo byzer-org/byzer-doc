@@ -4,7 +4,10 @@
 			"pattern": "^http://host:port"
 		},
 		{
-			"pattern": "^http://host:8079"
+			"pattern": "^http://127.0.0.1"
+		},
+		{
+			"pattern": "^http://localhost"
 		},
 		{
 			"pattern": "^http://www.apache.org"
@@ -29,6 +32,9 @@
 		},
 		{
 			"pattern": "^https://download.byzer.org/"
+		},
+		{
+			"pattern": "^https://mlsql-docs.kyligence.io/"
 		}
 	],
 	"replacementPatterns": [

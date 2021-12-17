@@ -20,7 +20,7 @@ Byzer-lang VSCode 插件本地安装具体步骤如下：
 
   2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 vsix 进行安装
 
-     ![img.png](img_local_install.png)
+     ![img.png](images/img_local_install.png)
 
 > 请注意:
 > 1. Windows 环境版本还未被验证过，因此建议您在 Linux 和 Mac 的环境下使用
@@ -49,20 +49,20 @@ Byzer-lang VSCode 插件本地安装具体步骤如下：
 
 1. **ExcelExample**
 
-   ![img.png](img_eg_execl.png)
+   ![img.png](images/img_eg_execl.png)
 
 2. **IfElseExample**
 
-   ![img_1.png](img_eg_ifelse.png)
+   ![img_1.png](images/img_eg_ifelse.png)
 
 3. **SimpleMLExample**
 
-   ![img_2.png](img_eg_mlsqlnb.png)
+   ![img_2.png](images/img_eg_mlsqlnb.png)
 
 4. **PythonScriptExample**
 
-   ![img_3.png](img_eg_pyscript.png)
+   ![img_3.png](images/img_eg_pyscript.png)
 
 5. **PublicModuleIncludeExample**
 
-   ![img_4.png](img_eg_module_include.png)
+   ![img_4.png](images/img_eg_module_include.png)
