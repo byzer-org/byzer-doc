@@ -1,6 +1,6 @@
 # RandomForest
 
-RandomForest是一个分类算法。
+RandomForest 是一个分类算法。
 
 ```sql
 -- create test data
@@ -68,10 +68,10 @@ trainParams  Map(maxDepth -> 2, featuresCol -> features, labelCol -> label)
 对于大部分内置算法而言，都支持如下几个特性：
 
 1. 可以通过 keepVersion 来设置是否保留版本。
-2. 通过fitParam.数字序号 配置多组参数，设置evaluateTable后系统自动算出metrics.
+2. 通过 fitParam.数字序号 配置多组参数，设置 evaluateTable 后系统自动算出 metrics.
 
 
-## 批量预测
+### 批量预测
 
 ```
 predict data1 as RandomForest.`/tmp/model`;
@@ -85,7 +85,7 @@ features                                label  rawPrediction                    
 {"type":1,"values":[5.1,3.5,1.4,0.2]}	1	{"type":1,"values":[16.28594461094461,3.7140553890553893]}	{"type":1,"values":[0.8142972305472306,0.18570276945276948]}	0
 ```
 
-## API预测
+### API预测
 
 
 ```sql
