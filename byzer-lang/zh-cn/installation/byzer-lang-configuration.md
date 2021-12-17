@@ -10,7 +10,7 @@
 
 ## 二层通讯参数
 
-Kolo-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制executor.
+Byzer-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制executor.
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|

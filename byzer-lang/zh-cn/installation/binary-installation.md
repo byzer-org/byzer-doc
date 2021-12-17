@@ -4,19 +4,19 @@ Byzer-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
 ###  下载二进制包
 
-下载站点 https://download.byzer.org/ , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
+[下载站点](https://download.byzer.org/byzer/) , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
 
 ```
 byzer-lang_<spark_major_version>-<byzer_lang_version>    
 ```
 这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。byzer-lang 支持两个版本Spark
 
-| byzer-lang 版本           | Spark版本                  |
-|-------------------------------|-----------------------|
-| mlsql-engine_3.0-2.1.0        | Spark-3.1.1-hadoop3.2 |
-| mlsql-engine_2.4-2.1.0        | Spark-2.4.3-hadoop2.7 | 
-| byzer-lang_3.0-2.2.0          | Spark-3.1.1-hadoop3.2 |
-| byzer-lang_2.4-2.2.0          | Spark-2.4.3-hadoop2.7 |
+| Byzer-lang 版本          | Spark版本                  |
+|------------------------|-----------------------|
+| mlsql-engine_3.0-2.1.0 | Spark-3.1.1-hadoop3.2 |
+| mlsql-engine_2.4-2.1.0 | Spark-2.4.3-hadoop2.7 | 
+| byzer-lang_3.0-2.2.0   | Spark-3.1.1-hadoop3.2 |
+| byzer-lang_2.4-2.2.0   | Spark-2.4.3-hadoop2.7 |
 
 ### 源码编译(可选)
 
@@ -134,4 +134,4 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 执行 $MLSQL_HOME/bin/stop-local.sh
 
 ### 更多参数
-[Byzer-lang 更多参数](byzer-lang-configuration.md)
+[Byzer-lang 更多参数](./byzer-lang-configuration.md)

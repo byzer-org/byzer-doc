@@ -2,12 +2,12 @@
 
 Byzer-lang 目前显式支持 Kafka 以及 MockStream. MockStream 主要用于模拟数据源，测试场景中应用的比较多。
 
-> 值得注意的是，Byzer-lang 支持 Kafka 0.10 及以上版本，而原生的structured Streaming 只支持0.10版本的Kafka.
+> 值得注意的是，Byzer-lang 支持 Kafka 0.10 及以上版本，而原生的 Structured Streaming 只支持0.10版本的    Kafka.
 
 
 ## 消费 Kafka 数据
-开始之前，先准备 Kafka 数据。您可以先创建一个名为 quickstart-events 的 topic 。
-> 请参考 [Kafka 开发环境搭建](kafka_local_install.md) 安装 Kafka 。
+开始之前，先准备 Kafka 数据。您可以先创建一个名为 my-topic 的 topic 。
+> 请参考 [Kafka 开发环境搭建](./kafka_local_install.md) 安装 Kafka 。
 
 ```shell
 cd cd /work/kafka_2.11-0.10.0.1
@@ -29,7 +29,7 @@ cd cd /work/kafka_2.11-0.10.0.1
 ```
 
 好！费了一番力气后，我们终于可以使用 Byzer-lang 消费 Kafka 数据了。
-```
+
 ```sql
 
 load kafka.`my-topic` options
@@ -39,15 +39,16 @@ as kafka_post_parquet;
 select string(`value`), topic, partition, offset,`timestamp`, timestampType from kafka_post_parquet as ddd;
 
 ```
+
 ![kafka 结果集](./kolo-kafka-consumer.PNG)
 
 可以看出， Byzer-lang 返回 Kafka 消息, topic, partition, offset, timestamp 等重要信息。
 
 获取了数据之后，Byzer-lang Stream 支持的输出数据源有：
 
-1. 文件写入(比如 parquet,orc,json,csv等等)
-2. Kafka写入
-3. 以及MySQL写入。
+1. 文件写入(比如 parquet, orc, json, csv 等等)
+2. Kafka 写入
+3. 以及 MySQL 写入。
 
 以 MySQL 为例，具体使用如下：
 
@@ -71,7 +72,7 @@ and duration="3"
 and checkpointLocation="/tmp/cpl3";
 ```
 
-只有save语法会触发整个流的提交和执行。这里面有几个核心的参数：
+只有 save 语法会触发整个流的提交和执行。这里面有几个核心的参数：
 
 1. duration，执行周期，单位为秒,如果是0,则执行完立马执行下一个周期。
 2. checkpointLocation 流重启后恢复用
@@ -101,14 +102,14 @@ stepSizeRange="0-3"
 as newkafkatable1;
 ```
 
-通过set 以及load语法我们制造了一批数据，然后呢，我们使用mockStream来加载这些数据，mockStream
-会每个周期发送0到3条数据出来，这个通过stepSizeRange进行控制。
+通过set 以及load语法我们制造了一批数据，然后呢，我们使用 mockStream 来加载这些数据，mockStream
+会每个周期发送0到3条数据出来，这个通过 stepSizeRange 进行控制。
 
-这样我们就可以脱离Kafka从而实现方便的代码测试。当然，你肯定很像知道 newkafkatable1 也就是我们加载完kafka后的数据该怎么处理，
+这样我们就可以脱离 Kafka 从而实现方便的代码测试。当然，你肯定很像知道 newkafkatable1 也就是我们加载完 kafka 后的数据该怎么处理，
 和普通的批处理是类似的：
 
 ```sql
-select cast(key as string) as k,count(*) as c  from newkafkatable1 group by key
+select cast(key as string) as k,count(*) as c  from newkafkatable1 group by k
 as table21;
 ```
 
@@ -119,9 +120,10 @@ as table21;
 set streamName="streamExample";
 
 -- connect mysql as the data sink.
+-- Please change mysql connection string accordingly. 
 connect jdbc where  
 driver="com.mysql.jdbc.Driver"
-and url="jdbc:mysql://127.0.0.1:3306/notebook"
+and url="jdbc:mysql://127.0.0.1:13306/notebook?useSSL=false"
 and driver="com.mysql.jdbc.Driver"
 and user="root"
 and password="root"
@@ -147,7 +149,7 @@ stepSizeRange="0-3"
 as newkafkatable1;
 
 -- aggregation 
-select cast(key as string) as k,count(*) as c  from newkafkatable1 group by key
+select cast(key as string) as k,count(*) as c  from newkafkatable1 group by k
 as table21;
 
 -- output the the result to console.
@@ -162,7 +164,7 @@ save append table21
 as streamJDBC.`mysql1.test1` 
 options mode="Complete"
 and `driver-statement-0`="create table  if not exists test1(k TEXT,c BIGINT)"
-and `statement-0`="insert into wow.test1(k,c) values(?,?)"
+and `statement-0`="insert into notebook.test1(k,c) values(?,?)"
 and duration="3"
 and checkpointLocation="/tmp/cpl3";
 ```
@@ -227,4 +229,3 @@ Batch: 6
 注意：
 
 > 使用 console，每次重启你需要删除 checkpointLocation
-  

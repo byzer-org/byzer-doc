@@ -12,7 +12,7 @@ Byzer-lang VSCode 插件本地安装具体步骤如下：
   - [Linux 版](http://download.mlsql.tech/byzer-lang-linux-0.0.7.vsix)
   - [Mac 版](http://download.mlsql.tech/byzer-lang-mac-0.0.7.vsix)
 
-  2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 byzer-lang-<os>-0.0.7.vsix 进行安装
+  2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 vsix 进行安装
 
      ![img.png](img_local_install.png)
 
@@ -38,7 +38,7 @@ Byzer-lang VSCode 插件本地安装具体步骤如下：
 
 ### 示例
 
-您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 Kolo-lang VSCode 插件的样例项目
+您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 Byzer-lang VSCode 插件的样例项目
 在执行之前，可以先执行 `./src/common/PyHeader.mlsql`  启用 conda env 
 
 1. **ExcelExample**

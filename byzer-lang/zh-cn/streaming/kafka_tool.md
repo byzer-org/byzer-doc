@@ -8,6 +8,7 @@
 ```
 
 这个命令表示我要采集 10 条数据，来源是 Kafka 集群"127.0.0.1:9092"，主题( topic ) 是wow。
+
 ![kafka-SampleData](./kafka-sampleData.PNG)
 
 ## 自动推测Kafka的Schema
@@ -16,9 +17,9 @@
 !kafkaTool schemaInfer 10 records from "127.0.0.1:9092" my-topic;
 ```
 
-句法格式和前面一致，唯一区别是换了个命令，把sampleData换成schemaInfer. 目前只支持 Kafka json格式的消息。
+句法格式和前面一致，唯一区别是换了个命令，把 sampleData 换成 schemaInfer. 目前只支持 json 格式的 Kafka 消息。
 
-## 查看流式程序的checkpoint目录的最新offset
+## 查看流式程序的 checkpoint 目录的最新 offset
 
 ```sql
 !kafkaTool streamOffset /tmp/ck;
