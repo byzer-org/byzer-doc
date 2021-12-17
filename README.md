@@ -38,7 +38,7 @@ Welcome to **file an ISSUE** or **submit a PR** when:
 - Please make sure that `node` has been installed in your local machine
 - Just fork byzer-doc to your repository
 - Clone your repo to your local machine
-- Install `docsify` by `npm -i docsify-cli -g`
+- Install `docsify` by `npm i docsify-cli -g`
 - Run `cd /path/to/byzer-doc`
 - Run `docsify serve ./`
 
