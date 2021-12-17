@@ -59,10 +59,22 @@ as sample_data;
 现在指定 Python 脚本返回的数据格式：如果返回的是表，可以通过设置 `schema=st(field({name},{type})...)` 定义各字段的字段名和字段类型；如果返回到是文件，可设置 `schema=file`。
 
 ```sql
-!python conf "schema=st(field(_id,string),field(x,float),field(y,float))";
+!python conf "schema=st(field(_id,string),field(x,double),field(y,double))";
 ```
 
-> 以上四项配置都是 Session 级别的，推荐每次执行 python 脚本时手动指定。
+`schema` 字段类型对应关系：
+
+| Python 类型 | schema 字段类型 | 例（Python 数据：schema 定义）                                                                                              |
+|----------| --------------- |---------------------------------------------------------------------------------------------------------------------|
+| `int`      | `long`            | `{"int_value": 1}` ：`"schema=st(field(int_value,long))"`                                                            |
+| `float`    | `double`          | `{"float_value": 2.1}` ：`"schema=st(field(float_value,double))"`                                                    |
+| `str`      | `string`          | `{"str_value": "Everything is a table!"}` ：`"schema=st(field(str_value,string))"`                               |
+| `bool`     | `boolean`         | `{"bool_value": True}` ：`"schema=st(field(bool_value,boolean)"`                                                     |
+| `list`    | `array`           | `{"list_value": [1.0, 3.0, 5.0]}`：`"schema=st(field(list_value,array(double)))"`                                    |
+| `dict`    | `map`             | `{"dict_value": {"list1": [1, 3, 5], "list2": [2, 4, 6]}}` ：`"schema=st(field(dict_value,map(string,array(long))))"` |
+| `bytes` | `binary` | `{"bytes_value": b"Everything is a table!"}` ：`"schema=st(field(bytes_value,binary))"` |
+
+> 以上四项配置都是 Session 级别的，推荐每次执行 Python 脚本时手动指定。
 
 运行 Python 脚本对表 `sample_data` 进行处理：
 
@@ -91,11 +103,14 @@ context.build_result(result)
 ''';
 ```
 
-![image-20211216204004515](./image/image-etl-1.png)
+<p align="center">
+<img src="/byzer-lang/zh-cn/python/image/image-etl-1.png" title="image-etl-1" height="400"/>
+</p>
 
-##  Byzer-python 代码说明
+## Byzer-python 代码说明
 
-注意到 Python 脚本以字符串参数形式出现在代码中，这是 Byzer-Python 代码的一个模版。其中参数 `inputTable` 指定需要处理的表，没有需要处理的表时，可设置为 `command` ；参数 `outputTable` 指定输出表的表名；参数 `code` 为需要执行的 Python 脚本。
+注意到 Python 脚本以字符串参数形式出现在代码中，这是 Byzer-Python 代码的一个模版。其中参数 `inputTable` 指定需要处理的表，没有需要处理的表时，可设置为 `command`
+；参数 `outputTable` 指定输出表的表名；参数 `code` 为需要执行的 Python 脚本。
 
 ```sql
 run command as Ray.`` where 
@@ -141,7 +156,8 @@ result = map(handle_record, datas)
 context.build_result(result)
 ```
 
-上文的 Byzer-python 代码是用原生的 Byzer-lang 代码书写的。在 Byzer Notebook 和 Byzer 桌面版中，您可以使用**注解**来配置上文提到的 `!python` 配置项和输入输出表 `inputTable/outputtable` ，此时 Byzer-python 代码的编写和与普通 Python 脚本无异：
+上文的 Byzer-python 代码是用原生的 Byzer-lang 代码书写的。在 Byzer Notebook 和 Byzer 桌面版中，您可以使用**注解**来配置上文提到的 `!python`
+配置项和输入输出表 `inputTable/outputtable` ，此时 Byzer-python 代码的编写和与普通 Python 脚本无异：
 
 ```python
 #%python
@@ -173,7 +189,8 @@ context.build_result(result)
 
 ## Byzer-python 读写 Excel 文件
 
-Python 有很多处理 Excel 文件的库，功能成熟完善，您可以在 Byzer-python 环境中安装相应的库来处理您的 Excel 文件。这里以 `pandas` 为例来读取和保存 Excel 文件（需要安装 `xlrd/xlwt` 包，`pip install xlrd==1.2.0 xlwt`）：
+Python 有很多处理 Excel 文件的库，功能成熟完善，您可以在 Byzer-python 环境中安装相应的库来处理您的 Excel 文件。这里以 `pandas` 为例来读取和保存 Excel 文件（需要安装 `xlrd/xlwt`
+包，`pip install xlrd==1.2.0 xlwt`）：
 
 ```sql
 -- 将上文 sample_data 保存成 Excel 文件
@@ -279,11 +296,14 @@ context.build_result(res)
 ''';
 ```
 
-![image-20211216205025637](./image/image-etl-ray.png)
+<p align="center">
+<img height="400" src="/byzer-lang/zh-cn/python/image/image-etl-ray.png" title="image-etl-ray"/>
+</p>
 
 ## Byzer-python 图表绘制
 
-您可以在 Byzer 桌面版 和 Bzyer Notebook 中使用 Python 绘图包（`matplotlib`、`plotly`、`pyecharts` 等，需要提前安装）绘制精美的图表，并用 Byzer-python 提供的 API 输出图片：
+您可以在 Byzer 桌面版 和 Bzyer Notebook 中使用 Python 绘图包（`matplotlib`、`plotly`、`pyecharts` 等，需要提前安装）绘制精美的图表，并用 Byzer-python 提供的
+API 输出图片：
 
 ```sql
 -- 绘图数据
@@ -339,7 +359,9 @@ context.build_result([{"content":html,"mime":"html"}])
 ''';
 ```
 
-![image-plot](./image/image-plot.png)
+<p align="center">
+<img alt="image-plot" src="/byzer-lang/zh-cn/python/image/image-plot.png"/>
+</p>
 
 使用 `matplotlib` 绘制图表：
 
@@ -401,4 +423,6 @@ Utils.show_plt(plt, context)
 ''';
 ```
 
-![image-plot2](./image/image-plot2.png)
+<p align="center">
+<img alt="image-plot2" src="/byzer-lang/zh-cn/python/image/image-plot2.png"/>
+</p>

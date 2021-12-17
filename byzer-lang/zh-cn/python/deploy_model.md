@@ -1,6 +1,7 @@
 # 模型部署
 
-在 Byzer 中，我们可以使用和内置算法一样的方式将一个基于 Byzer-python 训练出的 AI 模型注册成一个 UDF 函数，这样可以将模型应用于批、流，以及 Web 服务中。接下来我们将展示 Byzer-python 基于 Ray 从模型训练再到模型部署的全流程 demo。
+在 Byzer 中，我们可以使用和内置算法一样的方式将一个基于 Byzer-python 训练出的 AI 模型注册成一个 UDF 函数，这样可以将模型应用于批、流，以及 Web 服务中。接下来我们将展示 Byzer-python 基于
+Ray 从模型训练再到模型部署的全流程 demo。
 
 #### 数据准备
 
@@ -163,6 +164,7 @@ select cast(image as array<double>) as image, label as label from mnist_data whe
 select model_predict(array(image))[0][0] as predicted, label as label  from  mnist_test_data as output;
 ```
 
-![image-20211217164423076](./image/image-deploy.png)
-
+<p align="center">
+    <img src="/byzer-lang/zh-cn/python/image/image-deploy.png" alt="name"  width="800"/>
+</p>
 后续可以直接调用 Byzer-engine 的 Rest API， 使用注册好的 UDF 函数对您的数据集作预测。

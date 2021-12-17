@@ -4,7 +4,7 @@
 
 > 这里用到 `tensorflow`，运行前需要在 Driver 端安装
 
-```ruby
+```sql
 !python env "PYTHON_ENV=source activate dev";
 !python conf "schema=st(field(epoch,string),field(k,string), field(b,string))";
 !python conf "dataMode=model";
@@ -84,14 +84,15 @@ context.build_result(res)
 ```
 
 结果展示了每一个 epoch 的斜率（k）和截距（b）的拟合数据
-
-![img](./image/image-train-result.png)
+<p align="center">
+<img alt="img" src="/byzer-lang/zh-cn/python/image/image-train-result.png"/>
+</p>
 
 ## 分布式训练
 
 > 运行前需要在 Ray 环境中安装 `tensorflow`
 
-```ruby
+```sql
 !python env "PYTHON_ENV=source activate dev";
 !python conf "schema=st(field(epoch,string),field(k,string), field(b,string))";
 !python conf "dataMode=model";
@@ -156,5 +157,6 @@ context.build_result(res)
 ''';
 ```
 
-![image-train-result2](./image/image-train-result2.png)
-
+<p align="center">
+<img alt="image-train-result2" src="/byzer-lang/zh-cn/python/image/image-train-result2.png"/>
+</p>

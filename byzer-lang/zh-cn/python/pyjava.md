@@ -2,7 +2,7 @@
 
 前面的示例中，可以看到类似 `RayContext`、 `PythonContext` 这些对象。这些对象帮助用户进行输入和输出的控制。
 
-Byzer-python 代码：
+Byzer-python 代码编写三步走：
 
 #### 1. 初始化 `RayContext`
 
@@ -34,7 +34,7 @@ data_refs = ray_context.data_servers()
 data = [RayContext.collect_from([data_ref]) for data_ref in data_refs]
 ```
 
-> 注意，`data_refs` 是字符串数组，每个元素是一个 `ip:port` 的形态.  可以使用 `RayContext.collect_from`  单独获取每个数据分片。
+> 注意，`data_refs` 是字符串数组，每个元素是一个 `ip:port` 的形态. 可以使用 `RayContext.collect_from`  单独获取每个数据分片。
 >
 
 如果数据规模大，可以转化为 Dask 数据集来进行操作：
@@ -204,9 +204,9 @@ context.build_result(model_binary)
 ''';
 ```
 
-将 Byzer-python 产生的表保存到数据湖里去（delta）
+将 Byzer-python 产生的表保存到数据湖里
 
 ```sql
-save overwrite model_output as delta.`ai_model.trained_model`;
+save overwrite model_output as delta.`ai_model.model_output`;
 ```
 
