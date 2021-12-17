@@ -4,7 +4,7 @@
 
 #### 安装 Docker Desktop
 
-需要安装 Docker Desktop，操作步骤 [Sandbox 独立部署](./sandbox-standalone.md) 中有介绍，不再赘述。
+需要安装 Docker Desktop，操作步骤 [Sandbox 独立部署](sandbox-standalone.md) 中有介绍，不再赘述。
 
 #### 下载构建项目
 
