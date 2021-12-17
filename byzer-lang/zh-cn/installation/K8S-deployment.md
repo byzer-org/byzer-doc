@@ -10,7 +10,7 @@
 
 > 我们没有测试过 Go 1.17，请慎用。
 
-从 [Github](https://github.com/byzer-org/kolo-k8s) 获取部署工具代码, 配置 [Goproxy](https://github.com/goproxy/goproxy.cn) ,
+从 [Github](https://github.com/byzer-org/byzer-k8s) 获取部署工具代码, 配置 [Goproxy](https://github.com/goproxy/goproxy.cn) ,
 并在项目根目录执行命令开始编译
 
 ```shell
@@ -64,7 +64,7 @@ kubectl create secret docker-registry regcred \
 
 ```shell
 # 请根据实际情况修改目录 
-/work/kolo-k8s/kolo-k8s run \
+/work/byzer-k8s/byzer-k8s run \
   --kube-config  ~/.kube/config \
   --engine-name mlsql-engine \
   --engine-image techmlsql/mlsql-engine:3.0-2.1.0 \
