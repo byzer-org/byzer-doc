@@ -254,7 +254,7 @@ context.build_result(data)
 
 ## Byzer-python 分布式计算
 
-分布式处理依赖 Ray 环境，您可以参考[Ray 环境搭建](/Byzer-lang/zh-cn/python/env.md) 搭建 Ray 集群。这里我们简单介绍下如何使用 Pyjava 高阶 API 使用 Ray 完成分布式计算：
+分布式处理依赖 Ray 环境，您可以参考[Ray 环境搭建](/byzer-lang/zh-cn/python/env.md) 搭建 Ray 集群。这里我们简单介绍下如何使用 Pyjava 高阶 API 使用 Ray 完成分布式计算：
 
 ```sql
 !python env "PYTHON_ENV=source activate dev";

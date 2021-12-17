@@ -29,6 +29,12 @@
 		},
 		{
 			"pattern": "^https://go.dev/"
+		},
+		{
+			"pattern": "^ https://download.byzer.org/"
+		},
+		{
+			"pattern": "^ https://mlsql-docs.kyligence.io/"
 		}
 	],
 	"replacementPatterns": [
