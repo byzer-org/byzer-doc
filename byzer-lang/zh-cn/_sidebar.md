@@ -77,16 +77,12 @@
 
 - 机器学习
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)
-        * [文本向量化](/byzer-lang/zh-cn/ml/feature/nlp/README.md)
-            * [TFIDF](/byzer-lang/zh-cn/ml/feature/nlp/tfidf.md)
-            * [Word2Vec](/byzer-lang/zh-cn/ml/feature/nlp/word2vec.md)
+        * [离散化](/byzer-lang/zh-cn/ml/feature/discretizer/README.md)
+          * [Bucketizer](/byzer-lang/zh-cn/ml/feature/discretizer/bucketizer.md)
+          * [Quantile](/byzer-lang/zh-cn/ml/feature/discretizer/quantile.md)
         * [特征平滑](/byzer-lang/zh-cn/ml/feature/scale.md)
         * [归一化](/byzer-lang/zh-cn/ml/feature/normalize.md)
         * [混淆矩阵](/byzer-lang/zh-cn/ml/feature/confusion_matrix.md)
-        * [离散化](/byzer-lang/zh-cn/ml/feature/discretizer/README.md)
-            * [Bucketizer](/byzer-lang/zh-cn/ml/feature/discretizer/bucketizer.md)
-            * [Quantile](/byzer-lang/zh-cn/ml/feature/discretizer/quantile.md)
-        * [Map转化为向量](/byzer-lang/zh-cn/ml/feature/vecmap.md)
         * [数据集切分](/byzer-lang/zh-cn/ml/feature/rate_sample.md)
 
     * [内置算法](/byzer-lang/zh-cn/ml/algs/README.md)
