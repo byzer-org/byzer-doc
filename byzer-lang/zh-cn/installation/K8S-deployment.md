@@ -49,7 +49,7 @@ minikube start
 
 ### 配置 K8S 密钥
 
-启动 Kolo-lang Driver Pod 时，K8S 会从 [Docker hub](https://hub.docker.com/) 拉取镜像，因而需要这一步。请执行以下命令：
+启动 Byzer-lang Driver Pod 时，K8S 会从 [Docker hub](https://hub.docker.com/) 拉取镜像，因而需要这一步。请执行以下命令：
 
 ```shell
 kubectl create secret docker-registry regcred \
@@ -58,9 +58,9 @@ kubectl create secret docker-registry regcred \
 -n default
 ```
 
-### 部署 Kolo-lang
+### 部署 Byzer-lang
 
-使用 kolo-K8s 工具，部署至 K8S 集群。例子如下：
+使用 Byzer-K8s 工具，部署至 K8S 集群。例子如下：
 
 ```shell
 # 请根据实际情况修改目录 
@@ -83,7 +83,7 @@ kubectl create secret docker-registry regcred \
 
 | 参数名                          | 说明                                             |
 |------------------------------|------------------------------------------------|
-| kube-config                  | K8S 配置文件。kolo-k8s 会读取 K8S ApiServer 地址         |
+| kube-config                  | K8S 配置文件。byzer-k8s 会读取 K8S ApiServer 地址         |
 | engine-name                  | K8S Deployment名称 请取一个有实际意义的名字                  |
 | engine-image                 | 请不要改，这是 K8S 从 docker hub 拉取的镜像名                |
 | engine-executor-core-num     | 每个 Spark Executor 核数                           |
@@ -91,8 +91,8 @@ kubectl create secret docker-registry regcred \
 | engine-executor-memory       | Spark executor 堆内存，单位MB                        |
 | engine-driver-core-num       | Spark driver 核数                                |
 | engine-driver-memory         | Spark driver 堆内存, 单位MB                         |
-| engine-access-token          | 调用 kolo-lang API所需 Token                       |
-| engine-jar-path-in-container | kolo-lang jar 在容器内路径，请不要修改。启动Spark Driver 需要它。 |
+| engine-access-token          | 调用 byzer-lang API所需 Token                      |
+| engine-jar-path-in-container | byzer-lang jar 在容器内路径，请不要修改。启动Spark Driver 需要它。 |
 | storage-name                 | 执行 juicefs format命令时，指定的名称                     |
 | storage-meta-url             | JuiceFS 的元数据库连接串                               |
 
