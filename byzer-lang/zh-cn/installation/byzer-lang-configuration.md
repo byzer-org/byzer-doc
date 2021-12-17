@@ -10,7 +10,7 @@
 
 ## 二层通讯参数
 
-Byzer-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制 executor.
+Kolo-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控制executor.
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
@@ -28,12 +28,12 @@ Byzer-lang 会在 Spark 之上构建一个二层通讯，方便driver直接控�
 
 ## 自定义UDF jar包注册
 
-如果我们将自己的 UDF 打包进 Jar 包里，我们需要在启动的时候告诉系统对应的 UDF 类名称。
-UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console 里动态编写 UDF/UDAF。
+如果我们将自己的UDF打包进Jar包里，我们需要在启动的时候告诉系统对应的UDF 类名称。
+UDF的编写需要符合 Byzer-lang 的规范。我们推荐直接在 Notebook 里动态编写UDF/UDAF。
 
-| 参数 | 说明 | 示例值 |
-|----|----|-----|
-| streaming.udf.clzznames  |  支持多个class, 用逗号分隔  |     |
+| 参数 | 说明               | 示例值 |
+|----|------------------|-----|
+| streaming.udf.clzznames  | 支持多个class, 用逗号分隔 |     |
 
 ## 离线插件安装
 
@@ -41,12 +41,13 @@ UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console �
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
-| streaming.plugin.clzznames  |  支持多个class, 用逗号分隔  |     |
+| streaming.plugin.clzznames  |  支持多个class,用逗号分隔  |     |
 
+可通过如下地址下载插件(填写插件名和版本)：
 
 ## Session设置
 
-Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session ,如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](../developer/api/run_script_api.md)。
+Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session ,如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](http://docs.mlsql.tech/mlsql-engine/api/run-script.html)。
 
 
 | 参数 | 说明 | 示例值 |

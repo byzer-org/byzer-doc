@@ -6,11 +6,11 @@
 
 ### 编译部署工具
 
-从 [Go官网](https://go.dev/) 下载安装 Go 1.16.7，该版本经过测试。
+从 [Go官网](https://golang.org/dl/) 下载安装 Go 1.16.7，该版本经过测试。
 
 > 我们没有测试过 Go 1.17，请慎用。
 
-从 [Github](https://github.com/byzer-org/kolo-k8s) 获取部署工具代码, 配置 [Goproxy](https://github.com/goproxy/goproxy.cn) ,
+从 [Github](https://github.com/byzer-org/byzer-k8s) 获取部署工具代码, 配置 [Goproxy](https://github.com/goproxy/goproxy.cn) ,
 并在项目根目录执行命令开始编译
 
 ```shell
@@ -25,7 +25,7 @@ make all
 
 结果如下图:
 
-![mlsql-deploy_help](images/kolo-k8s_help.PNG)
+![mlsql-deploy_help](kolo-k8s_help.PNG)
 
 ### 安装并配置 K8S
 
@@ -60,11 +60,11 @@ kubectl create secret docker-registry regcred \
 
 ### 部署 Byzer-lang
 
-使用 kolo-K8s 工具，部署至 K8S 集群。例子如下：
+使用 Byzer-K8s 工具，部署至 K8S 集群。例子如下：
 
 ```shell
 # 请根据实际情况修改目录 
-/work/kolo-k8s/kolo-k8s run \
+/work/byzer-k8s/byzer-k8s run \
   --kube-config  ~/.kube/config \
   --engine-name mlsql-engine \
   --engine-image techmlsql/mlsql-engine:3.0-2.1.0 \
@@ -83,7 +83,7 @@ kubectl create secret docker-registry regcred \
 
 | 参数名                          | 说明                                             |
 |------------------------------|------------------------------------------------|
-| kube-config                  | K8S 配置文件。kolo-k8s 会读取 K8S ApiServer 地址         |
+| kube-config                  | K8S 配置文件。byzer-k8s 会读取 K8S ApiServer 地址         |
 | engine-name                  | K8S Deployment名称 请取一个有实际意义的名字                  |
 | engine-image                 | 请不要改，这是 K8S 从 docker hub 拉取的镜像名                |
 | engine-executor-core-num     | 每个 Spark Executor 核数                           |
@@ -91,7 +91,7 @@ kubectl create secret docker-registry regcred \
 | engine-executor-memory       | Spark executor 堆内存，单位MB                        |
 | engine-driver-core-num       | Spark driver 核数                                |
 | engine-driver-memory         | Spark driver 堆内存, 单位MB                         |
-| engine-access-token          | 调用 byzer-lang API所需 Token                       |
+| engine-access-token          | 调用 byzer-lang API所需 Token                      |
 | engine-jar-path-in-container | byzer-lang jar 在容器内路径，请不要修改。启动Spark Driver 需要它。 |
 | storage-name                 | 执行 juicefs format命令时，指定的名称                     |
 | storage-meta-url             | JuiceFS 的元数据库连接串                               |
