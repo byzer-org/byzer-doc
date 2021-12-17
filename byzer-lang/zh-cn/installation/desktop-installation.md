@@ -2,6 +2,13 @@
 
 ### 前置条件
 1. 安装 [Visual Studio Code](https://code.visualstudio.com/)
+2. 安装 [JDK8-Mac](https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&field_operating_system_target_id=431&field_architecture_target_id=391&field_java_package_target_id=396) 或者 [JDK8-Linux](https://www.openlogic.com/openjdk-downloads?field_java_parent_version_target_id=416&field_operating_system_target_id=426&field_architecture_target_id=391&field_java_package_target_id=396)
+
+> 在Mac/Linux环境中验证测试过,但是在 Windows 环境尚未被验证过，因此建议您仅在 Linux 和 Mac 环境中使用.
+
+安装Java的过程中，留意下安装目录：
+
+![jdk.png](images/jdk.png)
 
 > 在 Mac/Linux 环境中测试通过, 但是在 Windows 环境文件读写报错，因此建议您仅在 Linux 和 Mac 环境中使用.
 

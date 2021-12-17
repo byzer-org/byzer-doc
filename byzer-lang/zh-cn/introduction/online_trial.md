@@ -96,7 +96,7 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
 ##### 3.3 Code 模式 VS Markdown 模式
 
 <p align="center">
-    <img src="/byzer-lang/zh-cn/introduction/images/markdown.png" alt="drawing"  width="250"/>
+    <img src="/byzer-lang/zh-cn/introduction/images/markdown.png" alt="drawing"  width="500"/>
 </p>
 
 

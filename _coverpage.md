@@ -1,6 +1,6 @@
-![logo](_media/Byzer_With_Slogan_Color_v1.0.svg)
+![logo](_media/Byzer_With_Slogan_C_v1.0.svg)
 
-# Byzer Org Documentation
+# Byzer Documentation
 
 
 > **Byzer-Lang**: a low-code open-source programming language for data pipeline, analytics and AI

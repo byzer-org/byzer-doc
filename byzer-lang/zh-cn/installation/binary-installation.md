@@ -66,7 +66,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 ```
 
 以位置[1]为分割点，前面主要是 Spark 相关配置，后面部分则是 Byzer-lang 相关配置。也有另外一个区别点，Spark 配置以两个横杠开头，
-而 byzer-lang 配置以一个横杠开头。
+而 Byzer-lang 配置以一个横杠开头。
 
 通过在这种方式，我们可以将 Byzer-lang 运行在 K8s, Yarn, Mesos 以及 Local 等各种环境之上。
 > Byzer-lang 使用到了很多以 spark 开头的参数，他们必须使用 --conf 来进行配置，而不是 - 配置。这个务必要注意。
@@ -128,7 +128,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 
 
 ### K8S 模式启动
-[K8S 模式启动](K8S-deployment.md)
+[K8S 模式启动](./containerized_deployment/K8S-deployment.md)
 
 ### 停止 Byzer-lang
 执行 $MLSQL_HOME/bin/stop-local.sh

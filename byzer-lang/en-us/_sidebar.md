@@ -1,18 +1,22 @@
 - Byzer-Lang Introduction
-  * [Byzer-Lang](/byzer-lang/en-us/introduction/kolo_lang_intro.md)
+  * [Byzer-Lang](/byzer-lang/en-us/introduction/byzer_lang_intro.md)
   * [Online Trial](/byzer-lang/en-us/introduction/byzer_lab.md)
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
-  * [FAQ](/byzer-lang/en-us/appendix/faq.md)
+  * [FAQ](/byzer-lang/en-us/appendix/faq/README.md)
+    * [mlsql-cluster](/byzer-lang/en-us/appendix/faq/mlsql-cluster.md)
   * [How to Contribute](/byzer-lang/en-us/appendix/contribute.md)  
 
 - What's New
   * [New Features](/byzer-lang/en-us/what's_new/new_features.md)
 
 - Installation
-  * [Byzer Engine](/byzer-lang/en-us/installation/kolo_engine.md)
-  * [Byzer Desktop](/byzer-lang/en-us/installation/kolo_desktop.md)    
-  * [Byzer CLI](/byzer-lang/en-us/installation/kolo_cli.md)
-  * [Byzer Sandbox](/byzer-lang/en-us/installation/sandbox.md)
+  * [Byzer-lang](/byzer-lang/en-us/installation/binary-installation.md)
+  * [Byzer Desktop](/byzer-lang/en-us/installation/desktop-installation.md)    
+  * [Byzer CLI](/byzer-lang/en-us/installation/cli-installation.md)
+  * [Containerized deployment operation](/byzer-lang/en-us/installation/containerized_deployment.md)
+      * [Sandbox standalone deployment](/byzer-lang/en-us/installation/containerized_deployment/sandbox-standalone.md)
+      * [Multi-container deployment](/byzer-lang/en-us/installation/containerized_deployment/muti-continer.md)
+      * [K8S Image Deployment Guide](/byzer-lang/en-us/installation/containerized_deployment/K8S-deployment.md)
 
 - Byzer-lang Grammar Manual
   * [Byzer-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
@@ -28,8 +32,7 @@
   * [Build-in Marco Functions](/byzer-lang/en-us/grammar/commands.md)
 
 - Data Pipeline & Analysis
-    - Load Datasource in Byzer
-      * [Datasource](/byzer-lang/en-us/datasource/README.md)
+    - [Load Datasource in Byzer](/byzer-lang/en-us/datasource/README.md)
       * [RestAPI](/byzer-lang/en-us/datasource/restapi.md)
       * [JDBC](/byzer-lang/en-us/datasource/jdbc.md)
       * [ElasticSearch](/byzer-lang/en-us/datasource/es.md)
@@ -37,30 +40,27 @@
       * [HBase](/byzer-lang/en-us/datasource/hbase.md)
       * [MongoDB](/byzer-lang/en-us/datasource/mongodb.md)
       * [Parquet/Json/Text/Xml/Csv](/byzer-lang/en-us/datasource/file.md)
-      * [jsonStr/script/ByzerAPI/ByzerConf](/byzer-lang/en-us/datasource/kolo_source.md)
+      * [jsonStr/script/ByzerAPI/ByzerConf](/byzer-lang/en-us/datasource/built_in_source.md)
       * [Kafka](/byzer-lang/en-us/datasource/kafka.md)
       * [MockStreaming](/byzer-lang/en-us/datasource/mock_streaming.md)
+      * [Others](/byzer-lang/zh-cn/datasource/other.md)
 
-    - Data Warehouse / DataLake
-        * [Data Warehouse / DataLake](/byzer-lang/en-us/datahouse/README.md)
+    - [Data Warehouse / DataLake](/byzer-lang/en-us/datahouse/README.md)
         * [Load/Save in Hive](/byzer-lang/en-us/datahouse/hive.md)
         * [Delta lake](/byzer-lang/en-us/datahouse/delta_lake.md)
         * [MySQL Binlog](/byzer-lang/en-us/datahouse/mysql_binlog.md)
 
-    - Extend with Python 
-        * [Use Python to Extend Byzer](/byzer-lang/en-us/python/README.md)
+    - [Byzer-python](/byzer-lang/en-us/python/README.md)
         * [Environment](/byzer-lang/en-us/python/env.md)
         * [ETL](/byzer-lang/en-us/python/etl.md)
         * [Train](/byzer-lang/en-us/python/train.md)
+        * [Deploy](/byzer-lang/en-us/python/deploy_model.md)
         * [PyJava API Introduction](/byzer-lang/en-us/python/pyjava.md)
-        * [Read Excel](/byzer-lang/en-us/python/read_excel.md)
-        * [Write Excel](/byzer-lang/en-us/python/write_excel.md)
         * [Resource Restriction under K8S](/byzer-lang/en-us/python/k8s_resource.md)
         * [Datamode](/byzer-lang/en-us/python/datamode.md)
-        * [Parallel in Python](/byzer-lang/en-us/python/py_parallel.md)
+        * [Parallel in Byzer-python](/byzer-lang/en-us/python/py_parallel.md)
 
-    * UDF Extension
-        * [UDF in Byzer](/byzer-lang/en-us/udf/README.md)
+    * [UDF Extension](/byzer-lang/en-us/udf/README.md)
         * [Built-In UDF](/byzer-lang/en-us/udf/built_in_udf/README.md)
           * [Http request](/byzer-lang/en-us/udf/built_in_udf/http.md)
           * [Common Functions](/byzer-lang/en-us/udf/built_in_udf/vec.md)
@@ -70,8 +70,7 @@
           * [Scala UDAF](/byzer-lang/en-us/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/byzer-lang/en-us/udf/extend_udf/java_udf.md)
 
-    * Streaming Processing
-      * [Streaming Process](/byzer-lang/en-us/streaming/README.md)
+    * [Streaming Processing](/byzer-lang/en-us/streaming/README.md)
       * [Byzer Kafka Tools](/byzer-lang/en-us/streaming/kafka_tool.md)
       * [Query from Kafka](/byzer-lang/en-us/streaming/query_kafka.md)
       * [Set Callback](/byzer-lang/en-us/streaming/callback.md)
@@ -119,9 +118,26 @@
         * [Online Install](/byzer-lang/en-us/extension/installation/online_install.md)
         * [Offline Install](/byzer-lang/en-us/extension/installation/offline_install.md)
     * [Estimator-Transformer](/byzer-lang/en-us/extension/et/README.md)
+        * Built-in ET
+            * [How to cache table](/byzer-lang/en-us/extension/et/CacheExt.md)
+            * [Direct MySQL operation](/byzer-lang/en-us/extension/et/JDBC.md)
+            * [Use of Json Expansion Plug-in](/byzer-lang/en-us/extension/et/JsonExpandExt.md)
+            * [Use of Kolo-Watcher plug-in](/byzer-lang/en-us/extension/et/byzer-watcher.md)
+            * [How to send mail](/byzer-lang/en-us/extension/et/SendMessage.md)
+            * [Syntax Analysis Tool](/byzer-lang/en-us/extension/et/SyntaxAnalyzeExt.md)
+            * [Change the number of partitions of the table](/byzer-lang/en-us/extension/et/TableRepartition.md)
+            * [Calculate complex parent-child relationship](/byzer-lang/en-us/extension/et/TreeBuildExt.md)
+        * External ET
+            * [Connect statement persistence](/byzer-lang/en-us/extension/et/external/connect-persist.md)
+            * [mlsql assertion](/byzer-lang/en-us/extension/et/external/mlsql-assert.md)
+            * [mllib](/byzer-lang/en-us/extension/et/external/mlsql-mllib.md)
+            * [shell command plugin](/byzer-lang/en-us/extension/et/external/mlsql-shell.md)
+            * [Execute string as code](/byzer-lang/en-us/extension/et/external/run-script.md)
+            * [Save to the incremental table and load again](/byzer-lang/en-us/extension/et/external/save-then-load.md)
     * [DataSource Extension](/byzer-lang/en-us/extension/datasource/README.md)
         * [Excel](/byzer-lang/en-us/extension/datasource/excel.md)
         * [HBase](/byzer-lang/en-us/extension/datasource/hbase.md)
+        * [Use byzer-lang to access REST API](/byzer-lang/zh-cn/extension/datasource/MLSQLRest.md)
 
 
 - Security 
@@ -135,12 +151,15 @@
       * [Spark 3.0.0 Env](/byzer-lang/en-us/developer/dev_env/spark_3_0_0.md)    
     * Extension Development
       * [ET Development](/byzer-lang/en-us/developer/extension/et_dev.md)
+      * [Command Development](/byzer-lang/en-us/developer/extension/et_command.md)
       * [Datasource Extension Development](/byzer-lang/en-us/developer/extension/ds_dev.md)
+      * [Introduction to parameter introspection mechanism](/byzer-lang/en-us/developer/extension/et_params_dev.md)
     * [Integration Test](/byzer-lang/en-us/developer/it/integration_test.md)     
     * API
       * [Byzer Engine Rest API](/byzer-lang/en-us/developer/api/README.md)
         * [Script Run API](/byzer-lang/en-us/developer/api/run_script_api.md)
         * [Code Suggestion API](/byzer-lang/en-us/developer/api/code_suggest.md)
+        * [Kolo Meta Information Store](/byzer-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/byzer-lang/en-us/developer/api/liveness.md)
       * [Readness API](/byzer-lang/en-us/developer/api/readiness.md)
     * [Performance Tunning](/byzer-lang/en-us/developer/tunning/dynamic_resource.md)
