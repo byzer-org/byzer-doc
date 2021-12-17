@@ -2,7 +2,7 @@
   * [Byzer Notebook 简介](/byzer-notebook/zh-cn/introduction/notebook_intro.md)
   * [在线试用](/byzer-notebook/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-notebook/zh-cn/introduction/get_started.md)
-  <!-- * [常见问题 FAQ](/byzer-notebook/zh-cn/appendix/faq.md) -->
+  * [常见问题 FAQ](/byzer-notebook/zh-cn/appendix/faq.md)
   * [如何贡献](/byzer-notebook/zh-cn/appendix/contribute.md)  
 
 - 全新功能
@@ -26,7 +26,7 @@
 
 - 运维
   * [任务历史](/byzer-notebook/zh-cn/operation/job_history.md)
-  <!-- * [任务调度](/byzer-notebook/zh-cn/operation/scheduler.md) -->
+  * [任务调度](/byzer-notebook/zh-cn/operation/scheduler.md)
   * [引擎设置](/byzer-notebook/zh-cn/operation/engine.md)
 
 - Demo 示例
