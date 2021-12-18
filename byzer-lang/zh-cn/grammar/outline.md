@@ -18,7 +18,7 @@ Byzer-lang 针对大数据领域的流程抽象出了如下几个句法结构：
 
 此外，在代码复用上，Byzer-lang 支持脚本和包的管理。 
 
-## 加载数据
+### 加载数据
 
 
 ```sql
@@ -36,7 +36,7 @@ Byzer-lang 几乎可以加载市面上主流的
 2. 数据格式，比如文件格式如 text， image， csv， json， xml等。
 
 
-## 数据处理
+### 数据处理
 
 Byzer-lang 主要使用 `select` 句式处理加载后的数据。
 
@@ -50,7 +50,7 @@ select hello from hello_world as output;
 
 在这里例子中使用兼容 Spark SQL 的语法对 `hello-world` 表进行处理。
 
-## 数据保存
+### 数据保存
 
 ```sql
 load excel.`./example-data/excel/hello_world.xlsx` 
@@ -63,7 +63,7 @@ save overwrite hello_world as csv.`./tmp/hw` where header="true";
 `save` 表示要对表进行保存。`overwrite` 表示对目标对象进行覆盖。 `hello_world` 则是被保存的表。 `as` 后面紧接着保存的格式和路径。 最后保存的配置选项在
 `where/options` 子句中。
 
-## 代码复用
+### 代码复用
 
 在同一个项目里，脚本之间的引用可以通过 `include` 句式来完成。
 
@@ -96,7 +96,7 @@ include local.`libCore.udf.hello`;
 select hello() as name as output;
 ```
 
-## 宏函数
+### 宏函数
 
 标准 SQL 中也有函数，Byzer-lang 的宏函数则是 SQL 层级的。
 
@@ -127,7 +127,7 @@ as ${tableName}
 ```
 
 
-## Native UDF 
+### Native UDF 
 
 Byzer-lang 支持用户使用 Java/Scala 编写 UDF 函数。 Byzer-lang 的一大优势是，随写随用。
 
@@ -145,7 +145,7 @@ select arrayLast(array("a","b")) as lastChar as output;
 在上面的代码中定义了一个 `arrayLast` 的函数，该函数的逻辑是获取数组中最后一个值。通过 `register` 句式注册完成后，
 就可以在 select 句式中直接使用，效果和内置的函数一样。
 
-## 变量
+### 变量
 
 Byzer-lang 也支持变量。变量使用 `set` 进行声明。
 
@@ -163,7 +163,7 @@ select "${a}" as a as output;
 
 在 Byzer-lang 中，变量引用主要以 `${}` 的方式进行，分支条件表达式则是特例，它以  `:VariableName` 形式进行引用。
 
-## 分支语句
+### 分支语句
 
 Byzer-lang 支持高级别的分支语句。
 
@@ -196,7 +196,7 @@ set b_count=`select count(*) from mockTable ` where type="sql" and mode="runtime
 select * from final_table as output;
 ```
 
-## 机器学习
+### 机器学习
 
 `load/select` 句式可以完成对数据的加载，关联，预处理等相关工作。
 处理完成后，可以对结果表使用 `train` 句式进行训练。
@@ -224,7 +224,7 @@ register RandomForest.`/tmp/models/randomforest` as model_predict;
 select vec_array(model_predict(features)) as predicted_value from mock_data as output;
 ```
 
-## Byzer-python支持
+### Byzer-python支持
 
 Byzer 通过 Byzer-python 支持 Python 脚本。 如果用户在  Byzer Notebook 中使用，将会更加易用。
 
@@ -262,7 +262,7 @@ select * from newMockTable as output;
 
 在 Notebook 中，语法会得到简化，可以在单独的 cell 里写 Python 脚本。
 
-## 插件支持
+### 插件支持
 
 `run/train` 以及数据源等很多东西都是可以通过插件进行扩展的。
 
@@ -290,7 +290,7 @@ as mockData;
 
 该 ET 会产生一个叫 `mockData` 的表，该表有三个字段 `id，features，label`，条数 100000, 特征长度 100, 分类种类为 2.
 
-## 作用域
+### 作用域
 
 Byzer-lang 是解释型语言。 变量，宏函数， UDF 注册，`select` 临时表等等， 都遵循如下规则：
 
