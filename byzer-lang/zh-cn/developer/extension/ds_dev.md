@@ -151,7 +151,7 @@ def batchPredict(df: DataFrame, path: String, params: Map[String, String]): Data
 3. load 对应 load 语法关键字，用于加载目录下的数据。
 4. predict 则对应 register 语法关键字。 将模型注册成UDF函数，方便在批/流/API中使用。
 
-> 如果想了解更详细的内容参考：[Train/Run/Predict语法](../../lang/et_statement.md)
+> 如果想了解更详细的内容参考：[Train/Run/Predict语法](../../grammar/et_statement.md)
 
 
 
