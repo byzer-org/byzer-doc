@@ -1,10 +1,10 @@
-## Sandbox 独立部署
+# Sandbox 独立部署
 
 Sandbox 包含了 Kolo 两大组件 Byzer Notebook 和 Kolo Lang，您可以快速体验 Kolo 功能。
 
-## 前置条件
+### 前置条件
 
-### 安装 Docker Desktop
+#### 安装 Docker Desktop
 
 Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用于构建和共享容器化应用程序和微服务。它提供
 了非常丰富便捷的管理平台，方便我们快速部署、管理Sandbox镜像和容器。
@@ -14,7 +14,7 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 适用于 Linux 的 Docker 桌面社区还在开发中，可以参考 [Docker 官网安装文档](https://docs.docker.com/engine/install/ubuntu/)
 在 Linux 上安装 Docker 引擎。
 
-## Sandbox 独立部署 Kolo
+### Sandbox 独立部署 Kolo
 
 使用 docker 命令启动 Spark 2.4.3版 Sandbox 容器:
 
@@ -43,11 +43,11 @@ techmlsql/mlsql-sandbox:3.1.1-2.2.0-SNAPSHOT
 > 请注意，若启动容器时，拉取镜像超时，您只需启动一个Sandbox 镜像。
 
 
-## 体验 Kolo 功能
+### 体验 Kolo 功能
 
 浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，在下一界面按下图输入，点击 Create a New Notebook - Create, 进入 Notebook 使用界面。
  
-### 使用 Python 和 Ray 处理 JSON 数据
+#### 使用 Python 和 Ray 处理 JSON 数据
 
 请执行代码:
 
@@ -95,7 +95,7 @@ select * from newdata as output;
 
 ![Python-Ray结果](images/python-ray-result.PNG)
 
-### 处理MySQL 数据
+#### 处理MySQL 数据
 
  ```sql
 -- 加载mlsql_console.mlsql_job 表数据
