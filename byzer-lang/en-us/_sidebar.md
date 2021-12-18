@@ -1,5 +1,6 @@
 - Byzer-Lang Introduction
   * [Byzer-Lang](/byzer-lang/en-us/introduction/byzer_lang_intro.md)
+  * [Byzer-Lang Design](/byzer-lang/en-us/introduction/byzer_lang_design.md)
   * [Online Trial](/byzer-lang/en-us/introduction/byzer_lab.md)
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
   * [FAQ](/byzer-lang/en-us/appendix/faq/README.md)
