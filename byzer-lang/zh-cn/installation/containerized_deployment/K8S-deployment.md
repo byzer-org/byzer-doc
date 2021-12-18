@@ -2,9 +2,9 @@
 
 本文描述了如何部署 byzer-lang K8S 镜像，并体验基本功能。总体分为三步，环境搭建，部署，体验功能。
 
-## 环境搭建
+### 环境搭建
 
-### 编译部署工具
+#### 编译部署工具
 
 从 [Go官网](https://golang.org/dl/) 下载安装 Go 1.16.7，该版本经过测试。
 
@@ -27,7 +27,7 @@ make all
 
 ![mlsql-deploy_help](images/kolo-k8s_help.PNG)
 
-### 安装并配置 K8S
+#### 安装并配置 K8S
 
 若您使用个人电脑，推荐使用 [Minikube](https://minikube.sigs.k8s.io/docs/), 仅需1条命令就能启动单机版K8S，它支持 Linux/MacOS/Windows。我们团队小伙伴已经成功
 
@@ -39,15 +39,15 @@ minikube start
 
 若安装生产环境 K8S 集群，请参考[13 - MLSQL on k8s（1） - k8s安装](https://mp.weixin.qq.com/s?__biz=MzI5NzEwODUwNw==&mid=2247483782&idx=1&sn=642b036caf8ab6a07ae7cdebe347acc3&chksm=ecbb54f2dbccdde4f6555f4e1c62403f073cf4e50d6aa66034700b2d9a8f97361857e518edc1&scene=21#wechat_redirect)。
 
-### 配置 JuiceFS
+#### 配置 JuiceFS
 
 参考 [kolo-k8s文档 - 配置JuiceFS](https://github.com/byzer-org/kolo-k8s#juicefs-file-system-setup)。
 
 > 请注意: 需要在 K8S 每台服务器配置 JuiceFS
 
-## 部署
+### 部署
 
-### 配置 K8S 密钥
+#### 配置 K8S 密钥
 
 启动 Byzer-lang Driver Pod 时，K8S 会从 [Docker hub](https://hub.docker.com/) 拉取镜像，因而需要这一步。请执行以下命令：
 
@@ -58,7 +58,7 @@ kubectl create secret docker-registry regcred \
 -n default
 ```
 
-### 部署 Byzer-lang
+#### 部署 Byzer-lang
 
 使用 Byzer-K8s 工具，部署至 K8S 集群。例子如下：
 
