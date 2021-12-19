@@ -74,8 +74,8 @@ App 扩展比较重要的有 auto-suggest（Byzer 代码提示） 等例子。
 
 #### IDE 支持  
 
-Byzer-lang 目前支持纯Web 版本的， Byzer-notebook ， 也支持 VSCode 脚本和 notebook 能力。
+Byzer-lang 目前已经支持纯 Web 版本 IDE ： Byzer-notebook ， 也支持用户在 VSCode 编辑脚本和使用 Notebook 能力。
 
-Byzer-Lang 作为一门语言，需要能够支持各种 IDE， 完成诸如高亮，代码提示，运行等能力。目前比较流行的方式是实现 **LSP （language server protocol）**，这样在编辑器层或者是 IDE 层，可以直接基于 LSP 完成相关功能。官方目前已经实现了 VSCode 的支持。 参考： [byzer-desktop](https://github.com/byzer-org/byzer-desktop) ， [byzer-language server](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-language-server)
+作为一门语言，需要能够支持各种 IDE， 完成诸如高亮，代码提示，运行等能力。目前比较流行的方式是实现 **LSP （language server protocol）**，这样在编辑器层或者是 IDE 层，可以直接基于 LSP 完成相关功能。官方目前已经实现了 VSCode 的支持。 参考： [byzer-desktop](https://github.com/byzer-org/byzer-desktop) ， [byzer-language server](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-language-server)
 
-在 Byzer-lang 是纯脚本式解释执行语言。 所以可以使用内置宏函数 `!show` 来实现参数自省，通过 **code suggestion api** 返回给调用方，完成代码的提示。
+Byzer-lang 是纯脚本式解释执行语言， 所以可以使用内置宏函数 `!show` 来实现参数自省，通过 **code suggestion api** 返回给调用方，完成代码的提示。
