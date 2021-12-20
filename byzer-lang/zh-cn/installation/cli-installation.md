@@ -20,12 +20,12 @@
 
 下载 byzer-lang 命令行程序包，地址如下：
 
-- [Mac 版](http://download.mlsql.tech/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
-- [Linux版](http://download.mlsql.tech/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
+- [Mac 版](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
+- [Linux 版](https://download.byzer.org/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
 
 3. 目录结构
 
-本示例以 mac 环境为例，下载 [适配 mac 环境的压缩包](http://download.mlsql.tech/byzer-lang-mac-amd64-2.3.0-preview.tar.gz) 后，对 tar 包进行解压缩，内部的目录结构如下：
+本示例以 mac 环境为例，下载 [适配 mac 环境的压缩包](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz) 后，对 tar 包进行解压缩，内部的目录结构如下：
 
 ```
 ./byzer-lang-mac-amd64-2.3.0-preview
