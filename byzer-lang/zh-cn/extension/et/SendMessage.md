@@ -13,8 +13,8 @@
 
 发送邮件使用 run 语法，我们目前支持2种方式，分别如下：
 
-- local: 连接本地 sendmail 服务器的方式。需要用户在本地服务器部署 sendmail 服务，并配置好用户名、授权码等信息，在MLSQL中会连接本地服务发送邮件。通过 sendmail 服务我们可以灵活的选择 MDA（邮件投递代理）或者 MTA（邮件服务器）来处理邮件。                           
-- config: 配置 SMTP 服务器的方式。在 MLSQL 中配置邮箱用户名和邮箱授权码、邮箱 SMTP 服务器地址、端口，通过授权码登录第三方客户端邮箱。如果使用个人或者企业邮箱推荐使用该方式。
+- local: 连接本地 sendmail 服务器的方式。需要用户在本地服务器部署 sendmail 服务，并配置好用户名、授权码等信息，在byzer中会连接本地服务发送邮件。通过 sendmail 服务我们可以灵活的选择 MDA（邮件投递代理）或者 MTA（邮件服务器）来处理邮件。                           
+- config: 配置 SMTP 服务器的方式。在 byzer 中配置邮箱用户名和邮箱授权码、邮箱 SMTP 服务器地址、端口，通过授权码登录第三方客户端邮箱。如果使用个人或者企业邮箱推荐使用该方式。
 
 
 
@@ -26,7 +26,7 @@
 
 ```sql
 set EMAIL_TITLE = "这是邮件标题";
-set EMAIL_BODY = "MLSQL 任务 xx 运行完成，请及时查询结果";
+set EMAIL_BODY = "byzer 任务 xx 运行完成，请及时查询结果";
 set EMAIL_TO = "yourMailAddress@qq.com,yourMailAddress@163.com";
 
 -- 使用配置账号的方式
@@ -62,7 +62,7 @@ and subject = "${EMAIL_TITLE}"
 
 下面介绍一下如何使用邮件发送HTML格式的文本，并携带附件。
 
-1） 首先通过 MLSQL Api Console 上传2个CSV文件`employee.csv`和`company.csv`，作为附件内容。
+1） 首先通过 byzer Api Console 上传2个CSV文件`employee.csv`和`company.csv`，作为附件内容。
 
 2） 通过如下SQL的方式发送该邮件，示例如下：
 
@@ -115,7 +115,7 @@ and password="---"
 
 #### 1. config 模式是使用什么方式发送邮件
 
-在 MLSQL config 模式中，使用的邮件用户代理（ Mail User Agent, 简称 MUA ）客户端程序是 JavaMail-API。
+在 byzer config 模式中，使用的邮件用户代理（ Mail User Agent, 简称 MUA ）客户端程序是 JavaMail-API。
 
 #### 2. 什么是授权码？
 

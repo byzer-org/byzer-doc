@@ -41,7 +41,7 @@ minikube start
 
 #### 配置 JuiceFS
 
-参考 [kolo-k8s文档 - 配置JuiceFS](https://github.com/byzer-org/kolo-k8s#juicefs-file-system-setup)。
+参考 [Byzer-k8s文档 - 配置JuiceFS](https://github.com/byzer-org/byzer-k8s#juicefs-file-system-setup)。
 
 > 请注意: 需要在 K8S 每台服务器配置 JuiceFS
 

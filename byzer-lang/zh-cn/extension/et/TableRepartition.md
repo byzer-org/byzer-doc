@@ -3,7 +3,7 @@
 很多时候，我们需要改变分区数，比如保存文件之前，或者我们使用 python,我们希望 python worker 尽可能的并行运行,这个时候就需要
 TableRepartition 的帮助了。
 
-TableRepartition 支持 run 语法执行，也支持使用 MLSQL 宏命令，下面将详细介绍两种使用方式。
+TableRepartition 支持 run 语法执行，也支持使用 byzer 宏命令，下面将详细介绍两种使用方式。
 
 
 

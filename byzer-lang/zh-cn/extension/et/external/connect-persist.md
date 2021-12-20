@@ -1,10 +1,10 @@
 # Connect语句持久化
 
-[connect-persist](https://github.com/byzer-org/kolo-extension/tree/master/connect-persist) 用于持久化connect语句。当系统重启后，无需再执行connect语句。
+[connect-persist](https://github.com/byzer-org/byzer-extension/tree/master/connect-persist) 用于持久化connect语句。当系统重启后，无需再执行connect语句。
 
 ## 如何安装
 
-> 如果MLSQL Meta Store 采用了MySQL存储，那么你需要使用 https://github.com/byzer-org/kolo-extension/blob/master/connect-persist/db.sql
+> 如果Byzer Meta Store 采用了MySQL存储，那么你需要使用 https://github.com/byzer-org/byzer-extension/blob/master/connect-persist/db.sql
 > 中的表创建到该MySQL存储中。
 
 完成如上操作之后，安装插件：
@@ -13,7 +13,7 @@
 !plugin app add - 'connect-persist-app-3.0';
 ```
 
-> 注意：示例中 mlsql 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `connect-persist-app-2.4`
+> 注意：示例中 byzer 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `connect-persist-app-2.4`
 
 
 ## 如何使用
@@ -37,7 +37,7 @@ as db1;
 !connectPersist;
 ```
 
-重启Kolo-lang引擎，我们可以在后台日志中看到持久化的连接被打印出来：
+重启byzer-lang引擎，我们可以在后台日志中看到持久化的连接被打印出来：
 
 ```
 21/12/15 22:24:37  INFO PluginHook: Register App Plugin connect-persist-app-3.0 in tech.mlsql.plugins.app.ConnectPersistApp
@@ -63,5 +63,5 @@ select * from newtable as output limit 1;
 
 ## 使用mysql存储元信息
 
-前面我们提到，Kolo Meta Store 可以采用MySQL存储，具体使用方式，请参考：[MLSQL元信息存储](../../../developer/api/meta_store.md)
+前面我们提到，byzer Meta Store 可以采用MySQL存储，具体使用方式，请参考：[byzer元信息存储](../../../developer/api/meta_store.md)
 
