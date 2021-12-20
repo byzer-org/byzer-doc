@@ -25,13 +25,13 @@ RestApi 支持重试机制，支持取返回值中的字段进行多次请求，
 as token_1;
 ```
 
-在这个例子中，首先我们通过 SET 语法运行时执行 Byzer 的语法获取 3 个参数，详细这个语法了解请翻看 [set语法](/byzer-lang/zh-cn/grammar/set.md)。
+在这个例子中，首先我们通过 SET 语法运行时执行 Byzer 的语法获取 3 个参数，详细这个语法了解请翻看 [set 语法](/byzer-lang/zh-cn/grammar/set.md)。
 
 在 load 语句中，我们使用 `Rest` 关键字标志数据源是 rest api，引号內填写访问 URL，当然也可以引用 SET 变量。
 
 在 load 语句中 使用 `where` 从句设置参数。
 `config.connect-timeout` 代表设置超时时间为 10s，
-`config.method` 设置请求的方法为POST，`header.content-type` 设置请求的内容格式，
+`config.method` 设置请求的方法为 POST，`header.content-type` 设置请求的内容格式，
 `body` 设置 post 请求的 body，
 最后把返回值注册为一张名为 token_1 的表。
 
@@ -47,8 +47,8 @@ as token_1;
 |参数|是否必须|说明|
 |---|-------|---|
 |config.method|必须| rest 请求的方法，可选 GET/POST/PUT|
-|config.socket-timeout|非必需| socket 连接时间，填写带单位的时间如10s|
-|config.connect-timeout|非必需|连接超时时间，填写带单位的时间如10s|
+|config.socket-timeout|非必需| socket 连接时间，填写带单位的时间如 10s|
+|config.connect-timeout|非必需|连接超时时间，填写带单位的时间如 10s|
 |header.Content-Type|非必需| method 为 POST 时，默认为 application/x-www-form-urlencoded; GET 时，默认为 application/json |
 |header.${user_define}|非必需| 通过这种方式可以自定义的设置请求头|
 |form.${user_define}|非必需| Content-Type 为 application/x-www-form-urlencoded 时，通过这种方式设置参数|
