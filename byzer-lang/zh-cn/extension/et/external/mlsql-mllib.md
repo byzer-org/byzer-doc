@@ -1,6 +1,6 @@
-# mlsql-mllib
+# byzer mllib
 
-[mlsql mllib](https://github.com/byzer-org/kolo-extension/tree/master/mlsql-mllib) 插件将 spark-mllib 包装为 MLSQL ET 使用。
+[byzer mllib](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-mllib) 插件将 spark-mllib 包装为 byzer ET 使用。
 
 ## 如何安装
 
@@ -10,7 +10,7 @@
 !plugin app add "tech.mlsql.plugins.mllib.app.MLSQLMllib" "mlsql-mllib-3.0";
 ```
 
-> 注意：示例中 mlsql 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `mlsql-mllib-2.4`
+> 注意：示例中 byzer 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `mlsql-mllib-2.4`
 
 检查是否安装成功，可以执行如下宏命令，用于查看ET组件的信息：
 
@@ -27,7 +27,7 @@
 pip install mlsql_plugin_tool
 mlsql_plugin_tool build --module_name mlsql-mllib --spark spark243
 ```
-然后更改 MLSQL 引擎的启动脚本，添加jar包：
+然后更改 byzer 引擎的启动脚本，添加jar包：
 
 ```
 --jars YOUR_JAR_PATH
