@@ -14,7 +14,7 @@
 
 ## 关于Byzer 社区
 
-Byzer 社区是一个新兴且充满活力的开源项目，前身为 MLSQL 社区，核心是 **Byzer-lang**
+[Byzer 社区](https://github.com/byzer-org)是一个新兴且充满活力的开源社区，前身为 MLSQL 社区，核心是 **Byzer-lang**
 * 面向 Data & AI，围绕 Byzer 打造技术生态
 * 旨在释放分析师、工程师、运维人员的生产力
 * 帮助用户以低成本、高效率的方式落地数据平台和完成 AI 工程化

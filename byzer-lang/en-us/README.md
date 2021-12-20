@@ -13,7 +13,7 @@ We believe that only in the **programming language level** innovation can fundam
 
 ## About Byzer community
 
-Byzer is a new and dynamic open source community, the core of the community is Byzer-Lang, formerly known as the MLSQL community.
+[Byzer Org](https://github.com/byzer-org) is a new and dynamic open source community, the core of the community is Byzer-Lang, formerly known as the MLSQL community.
 * For Data & AI, build technology ecosystem around Byzer
 * Aims to unlock the productivity of analysts, engineers, and operations personnel.
 * Help users to land data platform and complete AI engineering in a cost-effective and efficient way.
