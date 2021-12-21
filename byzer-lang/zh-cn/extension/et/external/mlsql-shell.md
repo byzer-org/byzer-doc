@@ -2,7 +2,7 @@
 
 [byzer shell](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-shell)  插件在 byzer engine 端提供 shell 宏命令，用于将 shell 脚本作为 byzer 代码的一部分来执行。
 
-![byzer shell](mlsql-shell.png)
+<img src="/byzer-lang/zh-cn/extension/et/external/mlsql-shell.png" alt="mlsql-shell.png"/>
 
 ## 如何安装
 

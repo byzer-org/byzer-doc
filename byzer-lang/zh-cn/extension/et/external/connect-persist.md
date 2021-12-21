@@ -63,5 +63,5 @@ select * from newtable as output limit 1;
 
 ## 使用mysql存储元信息
 
-前面我们提到，byzer Meta Store 可以采用MySQL存储，具体使用方式，请参考：[byzer元信息存储](../../../developer/api/meta_store.md)
+前面我们提到，byzer Meta Store 可以采用MySQL存储，具体使用方式，请参考：[byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
 

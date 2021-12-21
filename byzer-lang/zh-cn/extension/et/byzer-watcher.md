@@ -1,7 +1,7 @@
 # byzer-Watcher 插件使用
 
-byzer-Watcher 可以收集一些关键数据到MySQL,然后可以通过byzer代码计算对应的指标从而判别 一个byzer脚本是不是危险。
-具体的文章参考：[如何实现Spark过载保护](../../../../public/blog_archive/overload_protection.md)
+byzer-Watcher 可以收集一些关键数据到MySQL,然后可以通过byzer代码计算对应的指标从而判别 一个MLSQL脚本是不是危险。
+具体的文章参考：[如何实现Spark过载保护](/public/blog_archive/overload_protection.md)
 
 ## 开启方式
 
@@ -37,7 +37,7 @@ app_runtime_full:
 
 ## 加载数据表
 
-你可以加载相关MySQL库表到你的byzer Console里：
+你可以加载相关MySQL库表到你的byzer notebook里：
 
 ```sql
 connect jdbc where
