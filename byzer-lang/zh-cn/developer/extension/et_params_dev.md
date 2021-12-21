@@ -56,7 +56,7 @@ load modelParams.`RandomForest` as output;
 
 
 
-这里的 param表示参数，description则是对参数的描述。 value则会以字符串的形式把默认值、当前设置的值显示出来。 这些参数是给用户查看的。为了方便程序的二次封装使用，我们在新的[PR](https://github.com/byzer-org/byzer-lang/pull/1553)，新增了一个extra参数。该extra丰富了参数的描述。接下来我们用上面的例子做一下演示。
+这里的 param表示参数，description则是对参数的描述。 value则会以字符串的形式把默认值、当前设置的值显示出来。 这些参数是给用户查看的。为了方便程序的二次封装使用，我们在[PR](https://github.com/byzer-org/byzer-lang/pull/1553)，新增了一个extra参数。该extra丰富了参数的描述。接下来我们用上面的例子做一下演示。
 
 
 
@@ -634,7 +634,7 @@ val NAV_API_ID = Dynamic(
 
 
 
-前端如何根据这些信息渲染表单，这里有一个我实现的参考项目[](https://github.com/allwefantasy/ar_runtime_web_console)，使用React开发。
+前端如何根据这些信息渲染表单，这里有一个我们实现的参考项目[](https://github.com/allwefantasy/ar_runtime_web_console)，使用React开发。
 
 
 
