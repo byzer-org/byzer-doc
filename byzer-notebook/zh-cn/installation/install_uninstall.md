@@ -70,6 +70,7 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 <p align="center">
 <img src="/byzer-notebook/zh-cn/installation/image/image-started.png" title="image-ray-started"/>
 </p>
+
 ## 停止
 
 进入 `Byzer-Notebook-<byzer_notebook_version>` 目录，执行：
