@@ -21,8 +21,8 @@
 
 - 工作区
   * [工作区介绍](/byzer-notebook/zh-cn/workspace/intro.md)
-  * [使用 Notebook](/byzer-notebook/zh-cn/workspace/notebook.md)
-  * [使用 Workflow](/byzer-notebook/zh-cn/workspace/workflow.md)
+  * [使用笔记本](/byzer-notebook/zh-cn/workspace/notebook.md)
+  * [使用工作流](/byzer-notebook/zh-cn/workspace/workflow.md)
 
 - 运维
   * [任务历史](/byzer-notebook/zh-cn/operation/job_history.md)
