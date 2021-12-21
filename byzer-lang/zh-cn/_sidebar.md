@@ -148,8 +148,8 @@
     * 插件开发
       * [自定义 ET 插件开发](/byzer-lang/zh-cn/developer/extension/et_dev.md)
       * [自定义数据源插件开发](/byzer-lang/zh-cn/developer/extension/ds_dev.md)
-      * [命令行开发](/byzer-lang/en-us/developer/extension/et_command.md)
-      * [参数自省机制介绍](/byzer-lang/en-us/developer/extension/et_params_dev.md)
+      * [命令行开发](/byzer-lang/zh-cn/developer/extension/et_command.md)
+      * [参数自省机制介绍](/byzer-lang/zh-cn/developer/extension/et_params_dev.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
     * API
       * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
