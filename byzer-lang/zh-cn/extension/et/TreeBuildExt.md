@@ -33,7 +33,7 @@ set jsonStr = '''
 load jsonStr.`jsonStr` as data;
 ```
 
-如果您当前使用的是spark3版本（kolo中默认为spark3），则需要设置以下参数：
+如果您当前使用的是spark3版本（byzer中默认为spark3），则需要设置以下参数：
 
 ```
 set spark.sql.legacy.allowUntypedScalaUDF=true where type="conf";

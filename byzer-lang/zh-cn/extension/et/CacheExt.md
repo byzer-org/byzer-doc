@@ -2,7 +2,7 @@
 
 Spark有一个很酷的功能，就是cache，允许你把计算结果分布式缓存起来，但存在需要手动释放的问题。
 
-Kolo为了解决这个问题，需要将缓存的生命周期进行划分：
+byzer为了解决这个问题，需要将缓存的生命周期进行划分：
 
 1. script
 
@@ -21,7 +21,7 @@ select * from table1 as output;
 
 使用 `!cache` 命令，可以将表 table1 设置为
 
-上述代码也可以使用run语法，通过执行ET的方式实现。实际ET和command只是使用方式上面的不同，在Kolo-lang内部实现使用的是相同的代码逻辑。
+上述代码也可以使用run语法，通过执行ET的方式实现。实际ET和command只是使用方式上面的不同，在byzer-lang内部实现使用的是相同的代码逻辑。
 
 代码示例如下：
 
@@ -30,7 +30,7 @@ run table1 as CacheExt.`` where execute="cache" and lifeTime="script";
 select * from table1 as output;
 ```
 
-session级别暂时还没有实现。application级别则是和MLSQL Engine的生命周期保持一致。需要手动释放：
+session级别暂时还没有实现。application级别则是和byzer Engine的生命周期保持一致。需要手动释放：
 
 ```sql
 !uncache table1;
