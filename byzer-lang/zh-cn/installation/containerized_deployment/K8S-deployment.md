@@ -25,7 +25,7 @@ make all
 
 结果如下图:
 
-  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/kolo-k8s_help.PNG" alt="mlsql-deploy_help"/>
+  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/byzer-k8s_help.PNG" alt="mlsql-deploy_help"/>
 
 #### 安装并配置 K8S
 
