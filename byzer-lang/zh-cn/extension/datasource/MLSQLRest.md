@@ -1,6 +1,6 @@
-## 使用kolo-lang访问*REST* *API*
+## 使用byzer-lang访问*REST API*
 
-Rest 数据源可以让 kolo-lang 脚本更加灵活，可以使用该数据源完成非常复杂的REST API交互。Rest 数据源支持简单的REST API调用，也支持直接在Rest数据源中实现分页数据的读取。
+Rest 数据源可以让 byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的REST API交互。Rest 数据源支持简单的REST API调用，也支持直接在Rest数据源中实现分页数据的读取。
 
 
 
@@ -345,7 +345,7 @@ and `config.method`="post"
 ;
 ```
 
-我们请求的kolo-notebook是需要授权的，我们通过`header.`设置Jsession等授权信息。
+我们请求的byzer-notebook是需要授权的，我们通过`header.`设置Jsession等授权信息。
 
 
 
