@@ -141,10 +141,7 @@
   * [接口访问控制](/byzer-lang/zh-cn/security/interface_acl/README.md)
   * [数据访问权限管理](/byzer-lang/zh-cn/security/data_acl/README.md)
 
-- 开发者指南
-    * [开发环境配置](/byzer-lang/zh-cn/developer/dev_env/README.md)
-      * [Spark 2.4.3 开发环境](/byzer-lang/zh-cn/developer/dev_env/spark_2_4_3.md)
-      * [Spark 3.0.0 开发环境](/byzer-lang/zh-cn/developer/dev_env/spark_3_0_0.md)    
+- 开发者指南   
     * 插件开发
       * [自定义 ET 插件开发](/byzer-lang/zh-cn/developer/extension/et_dev.md)
       * [自定义数据源插件开发](/byzer-lang/zh-cn/developer/extension/ds_dev.md)
