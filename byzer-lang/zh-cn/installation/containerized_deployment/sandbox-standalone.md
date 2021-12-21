@@ -1,6 +1,6 @@
 # Sandbox 独立部署
 
-Sandbox 包含了 Kolo 两大组件 Byzer Notebook 和 Kolo Lang，您可以快速体验 Kolo 功能。
+Sandbox 包含了 Byzer 两大组件 Byzer Notebook 和 Byzer Lang，您可以快速体验 Byzer 功能。
 
 ### 前置条件
 
@@ -14,7 +14,7 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 适用于 Linux 的 Docker 桌面社区还在开发中，可以参考 [Docker 官网安装文档](https://docs.docker.com/engine/install/ubuntu/)
 在 Linux 上安装 Docker 引擎。
 
-### Sandbox 独立部署 Kolo
+### Sandbox 独立部署 Byzer
 
 使用 docker 命令启动 Spark 2.4.3版 Sandbox 容器:
 
@@ -43,7 +43,7 @@ techmlsql/mlsql-sandbox:3.1.1-2.2.0-SNAPSHOT
 > 请注意，若启动容器时，拉取镜像超时，您只需启动一个Sandbox 镜像。
 
 
-### 体验 Kolo 功能
+### 体验 Byzer 功能
 
 浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，在下一界面按下图输入，点击 Create a New Notebook - Create, 进入 Notebook 使用界面。
  
@@ -93,7 +93,7 @@ select * from newdata as output;
 
 结果如下:
 
-![Python-Ray结果](images/python-ray-result.PNG)
+  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray结果"/>
 
 #### 处理MySQL 数据
 
@@ -118,4 +118,5 @@ select * from table3 as table4;
  ```
 
 结果如下:
-![MySQL-deltalake](images/mysql-deltalake.PNG)
+
+  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/mysql-deltalake.PNG" alt="MySQL-deltalake"/>

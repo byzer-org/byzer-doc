@@ -1,7 +1,7 @@
-# Kolo-Watcher 插件使用
+# byzer-Watcher 插件使用
 
-Kolo-Watcher 可以收集一些关键数据到MySQL,然后可以通过Kolo代码计算对应的指标从而判别 一个MLSQL脚本是不是危险。
-具体的文章参考：[如何实现Spark过载保护](../../../../public/blog_archive/overload_protection.md)
+byzer-Watcher 可以收集一些关键数据到MySQL,然后可以通过byzer代码计算对应的指标从而判别 一个MLSQL脚本是不是危险。
+具体的文章参考：[如何实现Spark过载保护](/public/blog_archive/overload_protection.md)
 
 ## 开启方式
 
@@ -23,7 +23,7 @@ app_runtime_full:
 ''';
 ```
 
-此时MLSQL会连接该数据库，并且每两秒收集一次数据写入MySQL.
+此时byzer会连接该数据库，并且每两秒收集一次数据写入MySQL.
 
 
 ## 设置日志保留时间
@@ -37,7 +37,7 @@ app_runtime_full:
 
 ## 加载数据表
 
-你可以加载相关MySQL库表到你的MLSQL Console里：
+你可以加载相关MySQL库表到你的byzer notebook里：
 
 ```sql
 connect jdbc where
@@ -53,7 +53,7 @@ load jdbc.`app_runtime_full.w_executor_job` as w_executor_job;
 
 之后就可以查询统计这些信息了。
 
-下面一段脚本是针对每个executor计算一个特定MLSQL脚本的危险指数：
+下面一段脚本是针对每个executor计算一个特定byzer脚本的危险指数：
 
 ```sql
 -- 规整数据

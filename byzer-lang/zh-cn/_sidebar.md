@@ -4,9 +4,9 @@
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
-    * [听说mlsql-cluster暂时不更新了，mlsql-cluster是个啥？](/byzer-lang/zh-cn/appendix/faq/mlsql-cluster.md)
-    * [MLSQL K8s部署，镜像环境如何制作](/byzer-lang/zh-cn/appendix/faq/mlsql-k8s-build.md)
-    * [加载JDBC(如MySQL，Oracle)数据常见困惑](/byzer-lang/zh-cn/appendix/faq/jdbc.md)
+    * [听说 mlsql-cluster 暂时不更新了，mlsql-cluster 是个啥？](/byzer-lang/zh-cn/appendix/faq/mlsql-cluster.md)
+    * [MLSQL K8s 部署，镜像环境如何制作](/byzer-lang/zh-cn/appendix/faq/mlsql-k8s-build.md)
+    * [加载 JDBC(如 MySQL，Oracle)数据常见困惑](/byzer-lang/zh-cn/appendix/faq/jdbc.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
 
 - 全新功能
@@ -17,9 +17,9 @@
   * [Byzer 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
   * [Byzer 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
   * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)
-  * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
-  * [多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md)
-  * [K8S镜像部署指南](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
+    * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
+    * [多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md)
+    * [K8S 镜像部署指南](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
 
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
@@ -48,23 +48,23 @@
       * [其他](/byzer-lang/zh-cn/datasource/other.md)
 
     - [使用数仓/数据湖](/byzer-lang/zh-cn/datahouse/README.md)
-        * [Hive加载和存储](/byzer-lang/zh-cn/datahouse/hive.md)
-        * [Delta加载和存储以及流式支持](/byzer-lang/zh-cn/datahouse/delta_lake.md)
-        * [MySQL Binlog同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
+        * [Hive 加载和存储](/byzer-lang/zh-cn/datahouse/hive.md)
+        * [Delta 加载和存储以及流式支持](/byzer-lang/zh-cn/datahouse/delta_lake.md)
+        * [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
 
     - [Byzer-python](/byzer-lang/zh-cn/python/README.md)
         * [环境依赖](/byzer-lang/zh-cn/python/env.md)
         * [数据处理](/byzer-lang/zh-cn/python/etl.md)
         * [模型训练](/byzer-lang/zh-cn/python/train.md)
         * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
-        * [PyJava API简介](/byzer-lang/zh-cn/python/pyjava.md)
+        * [PyJava API 简介](/byzer-lang/zh-cn/python/pyjava.md)
         * [k8s 下的 Byzer-python 资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
         * [dataMode 详解](/byzer-lang/zh-cn/python/datamode.md)
         * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
     
     * [UDF 扩展](/byzer-lang/zh-cn/udf/README.md)
         * [系统内置 UDF](/byzer-lang/zh-cn/udf/built_in_udf/README.md)
-          * [http请求](/byzer-lang/zh-cn/udf/built_in_udf/http.md)
+          * [http 请求](/byzer-lang/zh-cn/udf/built_in_udf/http.md)
           * [常用函数](/byzer-lang/zh-cn/udf/built_in_udf/vec.md)
         * [动态扩展 UDF](/byzer-lang/zh-cn/udf/extend_udf/README.md)
           * [Python UDF](/byzer-lang/zh-cn/udf/extend_udf/python_udf.md)
@@ -105,9 +105,9 @@
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
 
 - 深度学习
-    * [基于Java的深度学习框架集成](/byzer-lang/zh-cn/dl/README.md)
+    * [基于 Java 的深度学习框架集成](/byzer-lang/zh-cn/dl/README.md)
         * [加载图片数据](/byzer-lang/zh-cn/dl/load_image.md)
-        * [Cifar10示例](/byzer-lang/zh-cn/dl/cifar10.md)
+        * [Cifar10 示例](/byzer-lang/zh-cn/dl/cifar10.md)
 
 - 插件系统
     * [插件与安装](/byzer-lang/zh-cn/extension/README.md)
@@ -141,15 +141,12 @@
   * [接口访问控制](/byzer-lang/zh-cn/security/interface_acl/README.md)
   * [数据访问权限管理](/byzer-lang/zh-cn/security/data_acl/README.md)
 
-- 开发者指南
-    * [开发环境配置](/byzer-lang/zh-cn/developer/dev_env/README.md)
-      * [Spark 2.4.3 开发环境](/byzer-lang/zh-cn/developer/dev_env/spark_2_4_3.md)
-      * [Spark 3.0.0 开发环境](/byzer-lang/zh-cn/developer/dev_env/spark_3_0_0.md)    
+- 开发者指南   
     * 插件开发
       * [自定义 ET 插件开发](/byzer-lang/zh-cn/developer/extension/et_dev.md)
       * [自定义数据源插件开发](/byzer-lang/zh-cn/developer/extension/ds_dev.md)
-      * [命令行开发](/byzer-lang/en-us/developer/extension/et_command.md)
-      * [参数自省机制介绍](/byzer-lang/en-us/developer/extension/et_params_dev.md)
+      * [命令行开发](/byzer-lang/zh-cn/developer/extension/et_command.md)
+      * [参数自省机制介绍](/byzer-lang/zh-cn/developer/extension/et_params_dev.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
     * API
       * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)

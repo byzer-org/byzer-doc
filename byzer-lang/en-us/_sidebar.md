@@ -145,11 +145,7 @@
     * [Interface ACL](/byzer-lang/en-us/security/interface_acl/README.md)
     * [Data ACL](/byzer-lang/en-us/security/data_acl/README.md)
 
-- Development
-    * Dev Environment
-      * [Dev Environment](/byzer-lang/en-us/developer/dev_env/README.md)
-      * [Spark 2.4.3 Env](/byzer-lang/en-us/developer/dev_env/spark_2_4_3.md)
-      * [Spark 3.0.0 Env](/byzer-lang/en-us/developer/dev_env/spark_3_0_0.md)    
+- Development  
     * Extension Development
       * [ET Development](/byzer-lang/en-us/developer/extension/et_dev.md)
       * [Command Development](/byzer-lang/en-us/developer/extension/et_command.md)

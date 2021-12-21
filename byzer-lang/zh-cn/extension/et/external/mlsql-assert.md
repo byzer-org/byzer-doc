@@ -1,6 +1,6 @@
-# mlsql 断言
+# byzer 断言
 
-[mlsql 断言](https://github.com/byzer-org/kolo-extension/tree/master/mlsql-assert) 插件提供了在表中使用 `assert` 断言命令，用于判断 MLSQL 的结果表中数据是否符合预期。
+[byzer 断言](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-assert) 插件提供了在表中使用 `assert` 断言命令，用于判断 byzer 的结果表中数据是否符合预期。
 
 
 ## 如何安装
@@ -11,7 +11,7 @@ Execute following command in web console:
 !plugin app add - "mlsql-assert-3.0";
 ```
 
-> 注意：示例中 mlsql 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `mlsql-assert-2.4`
+> 注意：示例中 byzer 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `mlsql-assert-2.4`
 
 ## 如何使用
 
@@ -36,7 +36,7 @@ as data1;
 -- 使用 RandomForest
 train data1 as RandomForest.`/tmp/model` where
 
--- 一旦设置为 true，每次运行此脚本时，MLSQL 都会为您的模型生成新目录
+-- 一旦设置为 true，每次运行此脚本时，byzer 都会为您的模型生成新目录
 keepVersion="true"
 
 -- 指定测试数据集，该数据集将用于提供评估器以生成一些指标，例如：F1, Accurate

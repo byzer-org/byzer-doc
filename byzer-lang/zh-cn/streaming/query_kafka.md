@@ -42,11 +42,11 @@ select string(`value`), topic, partition, offset,`timestamp`, timestampType from
 
 ![kafka 结果集](./kolo-kafka-consumer.PNG)
 
-可以看出， Byzer-lang 返回 Kafka 消息, topic, partition, offset, timestamp 等重要信息。
+可以看出， Byzer-lang 返回 Kafka 消息，topic，partition，offset，timestamp 等重要信息。
 
 获取了数据之后，Byzer-lang Stream 支持的输出数据源有：
 
-1. 文件写入(比如 parquet, orc, json, csv 等等)
+1. 文件写入(比如 parquet，orc，json，csv 等等)
 2. Kafka 写入
 3. 以及 MySQL 写入。
 
@@ -74,13 +74,13 @@ and checkpointLocation="/tmp/cpl3";
 
 只有 save 语法会触发整个流的提交和执行。这里面有几个核心的参数：
 
-1. duration，执行周期，单位为秒,如果是0,则执行完立马执行下一个周期。
+1. duration，执行周期，单位为秒，如果是 0，则执行完立马执行下一个周期。
 2. checkpointLocation 流重启后恢复用
-3. mode， 三种模式，Update,Append,Complete,请参考structured streaming里这三种模式的区别。
+3. mode， 三种模式，Update，Append，Complete，请参考 structured streaming 里这三种模式的区别。
 
 ## 模拟输入数据源
 
-为了方便测试，我们提供了一个Mock输入，来模拟Kafka输入。
+为了方便测试，我们提供了一个 Mock 输入，来模拟 Kafka 输入。
 
 ```
 -- mock some data.
@@ -171,7 +171,7 @@ and checkpointLocation="/tmp/cpl3";
 
 注意：
 
-> 任何一个流程序都需要一个唯一的标识符，通过  set streamName="streamExample"; 来设置。
+> 任何一个流程序都需要一个唯一的标识符，通过 `set streamName="streamExample";` 来设置。
 
 如果你不想有任何依赖，就是想跑一个例子看看，可以使用如下的语句：
 
