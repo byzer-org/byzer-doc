@@ -6,7 +6,7 @@ In this chapter, we will guide you to quickly get started with Byzer Notebook, y
 
 ### Official website registration
 
-Before starting the trial, please make sure that you have successfully registered a trial account on the [**Byzer**](http://www.byzer.org) official website.
+Before starting the trial, please make sure that you have successfully registered a trial account on the [**Byzer**](https://www.byzer.org) official website.
 
 
 
