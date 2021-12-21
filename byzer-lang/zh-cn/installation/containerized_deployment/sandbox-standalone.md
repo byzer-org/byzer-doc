@@ -93,7 +93,7 @@ select * from newdata as output;
 
 结果如下:
 
-![Python-Ray结果](images/python-ray-result.PNG)
+  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray结果"/>
 
 #### 处理MySQL 数据
 
@@ -118,4 +118,5 @@ select * from table3 as table4;
  ```
 
 结果如下:
-![MySQL-deltalake](images/mysql-deltalake.PNG)
+
+  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/mysql-deltalake.PNG" alt="MySQL-deltalake"/>

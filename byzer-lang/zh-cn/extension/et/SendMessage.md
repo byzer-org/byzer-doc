@@ -131,7 +131,7 @@ and password="---"
 
 不同邮箱获取授权码的方式不同，我们以`QQ邮箱`为例，首先访问 `设置 - 账户 - POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务`，然后找到下图所示的菜单，开启 POP3/SMTP 服务，并点击`生成授权码`。
 
-![qq_mail_indentify_code.png](./images/qq_mail_indentify_code.png)
+  <img src="/byzer-lang/zh-cn/extension/et/images/qq_mail_indentify_code.png" alt="qq_mail_indentify_code.png"/>
 
 #### 5. 如何获取 smtpHost、smtpPort
 
@@ -145,6 +145,6 @@ and password="---"
 
 如果使用的是163邮箱，则相关服务器信息：
 
-![163_mail_indentify_code.png](./images/163_mail_indentify_code.png)
+  <img src="/byzer-lang/zh-cn/extension/et/images/163_mail_indentify_code.png" alt="163_mail_indentify_code.png"/>
 
 > 注意：每个邮件厂商的smtp服务都有自己的实现，不同的厂商端口号对应的协议可能不同，比如端口587，在qq中使用的TSL协议，而在163中使用的是SSL协议，请以官方使用说明为准。
