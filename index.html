@@ -72,6 +72,7 @@
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
@@ -95,10 +96,10 @@
         }
 
         // Public site only
-        if (/docsify/.test(location.host)) {
-          loadJS('//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/ga.min.js');
-          loadJS('//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/matomo.min.js');
-        }
+        // if (/docsify/.test(location.host)) {
+          // loadJS('//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/ga.min.js');
+          // loadJS('//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/matomo.min.js');
+        // }
       })();
     </script>
     <script src="//cdn.jsdelivr.net/npm/vue@2/dist/vue.min.js"></script>
