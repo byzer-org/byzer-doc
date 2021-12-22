@@ -8,13 +8,13 @@
 
 #### 下载构建项目
 
-多容器部署需要一个docker-compose.yaml定义构成应用程序的服务,这样它们可以在隔离环境中一起运行。 为了方便使用，请下载 Byzer-build 这个开源项目，在项目中提供了完整的 docker compose 配置，下面将演示具体的操作流程。
+多容器部署需要一个docker-compose.yaml定义构成应用程序的服务,这样它们可以在隔离环境中一起运行。 为了方便使用，请下载 byzer-build 这个开源项目，在项目中提供了完整的 docker compose 配置，下面将演示具体的操作流程。
 
 下载并获取主干的代码：
 
 ```shell
-git clone https://github.com/byzer-org/kolo-build.git kolo-build
-cd kolo-build && git checkout main && git pull -r origin main
+git clone https://github.com/byzer-org/byzer-build.git byzer-build
+cd byzer-build && git checkout main && git pull -r origin main
 ```
 
 #### 设置环境变量
