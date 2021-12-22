@@ -25,7 +25,7 @@ docker run -d \
 -p 9002:9002 \
 -p 9003:9003 \
 -e MYSQL_ROOT_PASSWORD=root \
-allwefantasy/mlsql-sandbox:2.4.3-2.2.0-SNAPSHOT
+byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
 ```
 
 使用 docker 命令启动 Spark 3.1.1版 Sandbox 容器:
@@ -37,7 +37,7 @@ docker run -d \
 -p 9002:9002 \
 -p 9003:9003 \
 -e MYSQL_ROOT_PASSWORD=root \
-allwefantasy/mlsql-sandbox:3.1.1-2.2.0-SNAPSHOT
+byzer/byzer-sandbox:3.1.1-2.2.0-SNAPSHOT
 ```
 
 > 请注意，若启动容器时，拉取镜像超时，您只需启动一个Sandbox 镜像。
