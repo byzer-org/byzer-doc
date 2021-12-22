@@ -9,14 +9,14 @@
 ### 安装 Sandbox 镜像
 
 1. 获取镜像
+  
+   `docker pull byzer/byzer-sandbox:<tag>`
 
-   `docker pull allwefantasy/mlsql-sandbox:<tag>`
+   > tag 对应着镜像的版本号，点击[此处](https://hub.docker.com/r/byzer/byzer-sandbox/tags)查看所有可用的 tag 。
 
-   > tag 对应着镜像的版本号，点击[此处](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags)查看所有可用的 tag。
+3. 运行容器（container）
 
-2. 运行容器（container）
-
-   `docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_byzer_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> allwefantasy/mlsql-sandbox:<tag>`
+   `docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_byzer_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> byzer/byzer-sandbox:<tag>`
 
    参数说明：
 
@@ -27,7 +27,7 @@
    - mysql_pwd：mysql 服务的 root 用户密码
    - Tag：上一步骤选定的镜像版本号
 
-3. 通过浏览器访问
+4. 通过浏览器访问
 
    访问 `http://localhost:9002` 开始体验 Byzer Notebook。
 
@@ -46,13 +46,11 @@
 
 1. 获取镜像
 
-   `docker pull allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
-
-   <img src="/byzer-lang/zh-cn/introduction/images/fetch_sandbox_image.png" alt="fetch_image"/>
+   `docker pull byzer/byzer-sandbox:3.1.1-2.2.0`
 
 2. 运行容器
 
-   `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
+   `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root byzer/byzer-sandbox:3.1.1-2.2.0`
 
    <img src="/byzer-lang/zh-cn/introduction/images/run_sandbox_container.png" alt="run_container"/>
 
