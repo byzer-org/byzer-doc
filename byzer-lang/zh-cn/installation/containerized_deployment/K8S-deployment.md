@@ -67,7 +67,7 @@ kubectl create secret docker-registry regcred \
 /work/byzer-k8s/byzer-k8s run \
   --kube-config  ~/.kube/config \
   --engine-name mlsql-engine \
-  --engine-image techmlsql/mlsql-engine:3.0-2.1.0 \
+  --engine-image allwefantasy/mlsql-engine:3.0-2.1.0-SNAPSHOT \
   --engine-executor-core-num 1 \
   --engine-executor-num 1   \
   --engine-executor-memory 1024 \
