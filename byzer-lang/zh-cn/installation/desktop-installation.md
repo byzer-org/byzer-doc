@@ -3,12 +3,6 @@
 ### 前置条件
 安装 [Visual Studio Code](https://code.visualstudio.com/)
 
-> 在Mac/Linux环境中验证测试过,但是在 Windows 环境尚未被验证过，因此建议您仅在 Linux 和 Mac 环境中使用.
-
-安装Java的过程中，留意下安装目录：
-
-![jdk.png](images/jdk.png)
-
 > 在 Mac/Linux 环境中测试通过, 但是在 Windows 环境文件读写报错，因此建议您仅在 Linux 和 Mac 环境中使用.
 
 ### 安装步骤
