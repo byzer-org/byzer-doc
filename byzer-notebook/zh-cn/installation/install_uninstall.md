@@ -55,6 +55,8 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 
 ## 启动
 
+> 需要首先启动 Byzer-lang, 它的部署安装请翻看 [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
+
 进入 `Byzer-Notebook-<byzer_notebook_version>` 目录，执行：
 
 ```bash
