@@ -13,8 +13,8 @@
 下载并获取主干的代码：
 
 ```shell
-git clone https://github.com/byzer-org/kolo-build.git kolo-build
-cd kolo-build && git checkout main && git pull -r origin main
+git clone https://github.com/byzer-org/byzer-build.git byzer-build
+cd byzer-build && git checkout main && git pull -r origin main
 ```
 
 #### 设置环境变量
@@ -28,11 +28,11 @@ export MYSQL_PORT=3306
 export KOLO_LANG_PORT=9003
 ## byzer notebook 客户端端口
 export BYZER_NOTEBOOK_PORT=9002
-## 当前 byzer 使用的spark版本（用于生成container name）
+## 当前 byzer 使用的 spark 版本（用于生成 container name）
 export SPARK_VERSION=3.1.1
-## byzer lang使用的版本（用于生成container name）
+## byzer lang 使用的版本（用于生成 container name）
 export KOLO_LANG_VERSION=2.2.0-SNAPSHOT
-## byzer notebook使用的版本（用于生成container name）
+## byzer notebook 使用的版本（用于生成 container name）
 export BYZER_NOTEBOOK_VERSION=0.0.1-SNAPSHOT
 ```
 
@@ -41,7 +41,7 @@ export BYZER_NOTEBOOK_VERSION=0.0.1-SNAPSHOT
 
 ### 使用脚本构建 Byzer Images
 
-运行下面脚本将会构建images到本地仓库，方便后面启动容器使用。
+运行下面脚本将会构建 images 到本地仓库，方便后面启动容器使用。
 
 ```
 sh -x dev/bin/build-images.sh

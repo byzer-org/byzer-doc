@@ -15,30 +15,30 @@
 
 其中Shuffle导致应用挂掉主要体现在：
 
-1. Executor Full GC，driver以为Executor挂掉杀掉他，或者其他节点到这个节点拉数据，半天拉不动，然后connection reset。
-2. Executor 真的就crash了，因为占用内存过大。
-3. OOM,这个是shuffle申请内存时申请不到了，会发生，所以Spark自带的OOM
+1. Executor Full GC，driver 以为 Executor 挂掉杀掉他，或者其他节点到这个节点拉数据，半天拉不动，然后connection reset。
+2. Executor 真的就 crash 了，因为占用内存过大。
+3. OOM，这个是 shuffle 申请内存时申请不到了，会发生，所以Spark自带的OOM
 
-然后因为超出Yarn内存限制的被杀，我们不做考虑。
+然后因为超出 Yarn 内存限制的被杀，我们不做考虑。
 
-其实Shuffle出现问题是Spark实例出现问题的主要原因。而导致Shuffle出现问题的原因则非常多，最常见的是数据分布不均匀。对此，我们的监控思路也就有了：
+其实 Shuffle 出现问题是 Spark 实例出现问题的主要原因。而导致 Shuffle 出现问题的原因则非常多，最常见的是数据分布不均匀。对此，我们的监控思路也就有了：
 
-1. 设置一个定时器，比如2s采集数据一次
-2. 采集的数据大致格式为 groupId, executorId, shuffleRead， shuffleWrites,其中 groupId为某一组job(比如MLSQL就是一个大脚本，每个脚本的任务都会有一个唯一的groupId)。采集的内容含义是，当前groupId涉及到的job已经长生的所有shuffle指标的快照。两条数据相减，就是shuffle在某N个周期内的增量情况。shuffle包括bytes和records以及diskSpill三个维度。
+1. 设置一个定时器，比如 2s 采集数据一次
+2. 采集的数据大致格式为 groupId，executorId，shuffleRead， shuffleWrites, 其中 groupId 为某一组 job(比如 MLSQL 就是一个大脚本，每个脚本的任务都会有一个唯一的 groupId)。采集的内容含义是，当前 groupId 涉及到的job已经长生的所有 shuffle 指标的快照。两条数据相减，就是shuffle在某N个周期内的增量情况。shuffle 包括 bytes 和 records 以及 diskSpill 三个维度。
 
-首先我们考虑，一个Bad Query 对Spark 实例的危害性来源于对Executor的直接伤害。所以我们首先要计算的是每个Executor危险指数。
+首先我们考虑，一个 Bad Query 对 Spark 实例的危害性来源于对 Executor 的直接伤害。所以我们首先要计算的是每个Executor危险指数。
 
-根据上面的数据，我么可以计算Executor危害性的四个因子：
+根据上面的数据，我么可以计算 Executor 危害性的四个因子：
 
-1. 计算shuffle 在在当前executor的非均衡程度，我们暂且称之为非均衡指数。指数越高，情况越不妙。
-2. shuffle速率，也就是每秒增长量。shuffle速率越低，则表示executor可能负载太高，出问题的概率就高。
+1. 计算 shuffle 在在当前 executor 的非均衡程度，我们暂且称之为非均衡指数。指数越高，情况越不妙。
+2. shuffle 速率，也就是每秒增长量。shuffle 速率越低，则表示 executor 可能负载太高，出问题的概率就高。
 3. shuffle bytes/ shuffle records 单记录大小，单记录越大，危险性越高。
-4. 当前executor GC情况。单位时间GC时间越长，危险性越高。
+4. 当前 executor GC 情况。单位时间 GC 时间越长，危险性越高。
 
 现在我们得到一个公式：
 
 ```text
-危险指数 =a*非均衡指数 - b*shuffle速率 + c*单记录大小 + d*gctime/persecond
+危险指数 = a * 非均衡指数 - b * shuffle 速率 + c * 单记录大小 + d * gctime/persecond
 ```
 
 因为本质上这几个因子值互相是不可比的，直接相加肯定是有问题的。我们给了一个权重系数，同时我们希望这几个因子尽可能可以归一到(0-1)。具体优化方式如下：

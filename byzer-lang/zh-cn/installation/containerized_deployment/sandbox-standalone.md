@@ -7,7 +7,7 @@ Sandbox 包含了 Byzer 两大组件 Byzer Notebook 和 Byzer Lang，您可以�
 #### 安装 Docker Desktop
 
 Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用于构建和共享容器化应用程序和微服务。它提供
-了非常丰富便捷的管理平台，方便我们快速部署、管理Sandbox镜像和容器。
+了非常丰富便捷的管理平台，方便我们快速部署、管理 Sandbox 镜像和容器。
 
 从 [Docker 官网](https://www.docker.com/products/docker-desktop) 下载适配您操作系统的安装包，安装并使用。
 
@@ -40,7 +40,7 @@ docker run -d \
 allwefantasy/mlsql-sandbox:3.1.1-2.2.0-SNAPSHOT
 ```
 
-> 请注意，若启动容器时，拉取镜像超时，您只需启动一个Sandbox 镜像。
+> 请注意，若启动容器时，拉取镜像超时，您只需启动一个 Sandbox 镜像。
 
 
 ### 体验 Byzer 功能
@@ -55,21 +55,21 @@ allwefantasy/mlsql-sandbox:3.1.1-2.2.0-SNAPSHOT
 -- 构造测试数据
 set mockData='''
 
-{"title":"第一","body":"内容1"}
-{"title":"第二","body":"内容2"}
-{"title":"第三","body":"内容3"}
+{"title":"第一","body":"内容 1"}
+{"title":"第二","body":"内容 2"}
+{"title":"第三","body":"内容 3"}
 
 ''';
 
 load jsonStr.`mockData` as data;
 
--- 设置Python 环境 
+-- 设置 Python 环境 
 !python env "PYTHON_ENV=:";
 !python conf "runIn=driver";
 !python conf "schema=st(field(title,string),field(body,string))";
 !python conf "dataMode=data";
 
--- Python 代码在Sandbox内置的Ray上执行
+-- Python 代码在 Sandbox 内置的 Ray 上执行
 !ray on data '''
 
 import ray
@@ -93,12 +93,12 @@ select * from newdata as output;
 
 结果如下:
 
-  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray结果"/>
+  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray 结果"/>
 
 #### 处理MySQL 数据
 
  ```sql
--- 加载mlsql_console.mlsql_job 表数据
+-- 加载 mlsql_console.mlsql_job 表数据
  load jdbc.`mlsql_job` where url="jdbc:mysql://localhost:3306/mlsql_console?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
  and driver="com.mysql.jdbc.Driver"
  and user="root"

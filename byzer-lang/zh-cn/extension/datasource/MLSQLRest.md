@@ -1,12 +1,12 @@
-## 使用byzer-lang访问*REST API*
+## 使用 byzer-lang 访问*REST API*
 
-Rest 数据源可以让 byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的REST API交互。Rest 数据源支持简单的REST API调用，也支持直接在Rest数据源中实现分页数据的读取。
+Rest 数据源可以让 byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的 REST API 交互。Rest 数据源支持简单的 REST API 调用，也支持直接在 Rest 数据源中实现分页数据的读取。
 
 
 
 ## 如何使用
 
-### 使用 POST 发起Json请求
+### 使用 POST 发起 Json 请求
 
 ```SQL
 SET ENGINE_URL="http://127.0.0.1:9003/run/script"; 
@@ -53,7 +53,7 @@ from table1 as output;
 
 
 
-### 使用  GET 发起Form表单请求
+### 使用 GET 发起 Form 表单请求
 
 ```SQL
 SET ENGINE_URL="https://cnodejs.org/api/v1/topics"; 
@@ -84,7 +84,7 @@ as cnodejs_articles;
 select status from cnodejs_articles as output;
 ```
 
-在这里，我们发起了get请求，请求参数可以放到URL里，也可以放到`form.[key]` 里。这些参数最终会被拼接到URL中。
+在这里，我们发起了 get 请求，请求参数可以放到 URL 里，也可以放到`form.[key]` 里。这些参数最终会被拼接到 URL 中。
 
 执行结果：
 
@@ -96,7 +96,7 @@ select status from cnodejs_articles as output;
 
 ### 设置动态渲染参数
 
-动态渲染参数可以在 `:{....}` 中执行代码。其语法和 if/else里的条件表达式相同，用于返回一个变量，该变量会以字符串形式返回。所以可以写的更复杂，比如：
+动态渲染参数可以在 `:{....}` 中执行代码。其语法和 if/else 里的条件表达式相同，用于返回一个变量，该变量会以字符串形式返回。所以可以写的更复杂，比如：
 
 ```Python
 and `form.created`=''':{select split(:create_at,":")[0] as :ca; :ca}'''
@@ -141,19 +141,19 @@ from cnodejs_articles as output;
  and `form.page`=''':{select 1 as :b;:b}'''
 ```
 
-其中的`:{select ``1`` as :b;:b}`会动态执行，并将结果渲染到模板代码中，则实际执行的SQL内容变成了：
+其中的`:{select ``1`` as :b;:b}`会动态执行，并将结果渲染到模板代码中，则实际执行的 SQL 内容变成了：
 
 ```SQL
  and `form.page`='''1'''
 ```
 
-所有form 参数都支持动态渲染参数。
+所有 form 参数都支持动态渲染参数。
 
 
 
 ### 如何解析结果集
 
-下面演示一个结果集解析的demo，为了方便处理JSON结果集，我们结合JsonExpandExt ET和explode函数，代码示例如下所示：
+下面演示一个结果集解析的 demo，为了方便处理JSON结果集，我们结合 JsonExpandExt ET 和 explode 函数，代码示例如下所示：
 
 ```SQL
 SET ENGINE_URL="https://cnodejs.org/api/v1/topics";
@@ -205,7 +205,7 @@ select explode(content.data) as article from cnodejs_articles as articles;
 
 ### *分页数据的读取*
 
-我们以Node.js专业中文社区的列表页为例，代码如下所示：
+我们以 Node.js 专业中文社区的列表页为例，代码如下所示：
 
 ```Ruby
 SET ENGINE_URL="https://cnodejs.org/api/v1/topics"; 
@@ -282,12 +282,12 @@ select count(article.id) from articles as output;
 
 
 
-结果如下，可以看到有6条数据，一共进行了三次分页
+结果如下，可以看到有 6 条数据，一共进行了三次分页
 
 ![img_1.png](img_1.png)
 
 
-对于那种需要从结果集获取分页参数的，则可以使用jsonpath进行抽取并且进行渲染，相关配置如下：
+对于那种需要从结果集获取分页参数的，则可以使用 jsonpath 进行抽取并且进行渲染，相关配置如下：
 
 ```Lua
 -- Use dynamic parameters in page.next to get `cursor` and `wow`
@@ -315,7 +315,7 @@ and `config.page.retry`="3"
 and `config.page.limit`="2"
 ```
 
-通过json path抽取的值会作为位置参数去重新生成 config.page.next页。
+通过json path抽取的值会作为位置参数去重新生成 config.page.next 页。
 
 
 
@@ -345,13 +345,13 @@ and `config.method`="post"
 ;
 ```
 
-我们请求的byzer-notebook是需要授权的，我们通过`header.`设置Jsession等授权信息。
+我们请求的 byzer-notebook 是需要授权的，我们通过`header.`设置 Jsession 等授权信息。
 
 
 
 ### 忽略请求结果异常
 
-对于 http 服务端响应的状态码不是200的情况，如果不想报错，可以结合分支加空表的模式：
+对于 http 服务端响应的状态码不是 200 的情况，如果不想报错，可以结合分支加空表的模式：
 
 ```SQL
 -- here the url is wrong, so the status == 404
@@ -421,19 +421,19 @@ as cnodejs_articles;
 
 | 参数名                  | 参数含义                                                     |
 | ----------------------- | ------------------------------------------------------------ |
-| config.connect-timeout  | http请求超时时间                                             |
-| config.socket-timeout   | socket连接的超时时间                                         |
-| config.method           | http请求行中的请求方法，如：`config.method`="GET"            |
-| config.retry            | 状态码不为200时尝试次数                                      |
-| config.retry.interval   | 重试时等待的时间，默认为1s                                   |
-| header.[参数]           | http请求头部参数，如：`header.content-type`="application/json" |
-| body                    | http的请求数据，如：`body`="{}"                              |
-| form.file-name          | 上传文件的名称，当POST请求的header.content-type为 multipart/form-data 时有效 |
-| form.file-path          | 上传文件的路径，当POST请求的header.content-type为 multipart/form-data 时有效 |
-| form.*                  | 请求体参数；如果是GET请求时表示请求行的参数，如果是POST请求为请求数据 |
-| config.page.next        | 翻页时下一页的URL地址                                        |
-| config.page.skip-params | 翻页是是否携带数据源中配置的URL参数，比如：Rest.`http://domain?a=1`，其中a=1就是配置的参数 |
-| config.page.values      | 获取服务端响应正文的规则路径，多条规则路径使用','进行分隔，如：$.cursor,$.wow；我们是通过JsonPath来完成的，了解更多使用方式，请参考： https://github.com/json-path/JsonPath |
+| config.connect-timeout  | http 请求超时时间                                             |
+| config.socket-timeout   | socket 连接的超时时间                                         |
+| config.method           | http 请求行中的请求方法，如：`config.method`="GET"            |
+| config.retry            | 状态码不为 200 时尝试次数                                      |
+| config.retry.interval   | 重试时等待的时间，默认为 1s                                   |
+| header.[参数]           | http 请求头部参数，如：`header.content-type`="application/json" |
+| body                    | http 的请求数据，如：`body`="{}"                              |
+| form.file-name          | 上传文件的名称，当 POST 请求的 header.content-type 为 multipart/form-data 时有效 |
+| form.file-path          | 上传文件的路径，当 POST 请求的 header.content-type 为 multipart/form-data 时有效 |
+| form.*                  | 请求体参数；如果是 GET 请求时表示请求行的参数，如果是 POST 请求为请求数据 |
+| config.page.next        | 翻页时下一页的 URL 地址                                        |
+| config.page.skip-params | 翻页是是否携带数据源中配置的 URL 参数，比如：Rest.`http://domain?a=1`，其中a=1 就是配置的参数 |
+| config.page.values      | 获取服务端响应正文的规则路径，多条规则路径使用','进行分隔，如：$.cursor,$.wow；我们是通过 JsonPath 来完成的，了解更多使用方式，请参考： https://github.com/json-path/JsonPath |
 | config.page.interval    | 翻页请求的间隔时间，避免高频请求对服务端造成影响             |
-| config.page.retry       | 翻页请求失败的重试次数，默认为3                              |
-| config.page.limit       | 翻页请求所使用的分页数，默认为1，表示只请求一次分页Rest接口  |
+| config.page.retry       | 翻页请求失败的重试次数，默认为 3                              |
+| config.page.limit       | 翻页请求所使用的分页数，默认为 1，表示只请求一次分页 Rest 接口  |
