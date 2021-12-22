@@ -20,10 +20,12 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 
 ```shell
 docker run -d \
---restart=always \
---name sandbox-2.4.3-2.2.0-SNAPSHOT \
+-p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
+--name sandbox-2.4.3-2.2.0-SNAPSHOT \
+--restart=always \
+-e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
 byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
 ```
@@ -32,11 +34,13 @@ byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
 
 ```shell
 docker run -d \
---restart=always \
---name sandbox-3.1.1-2.2.0-SNAPSHOT \
+-p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
+-e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
+--name sandbox-3.1.1-2.2.0-SNAPSHOT \
+--restart=always \
 byzer/byzer-sandbox:3.1.1-2.2.0-SNAPSHOT
 ```
 
@@ -99,10 +103,10 @@ select * from newdata as output;
 
  ```sql
 -- 加载 mlsql_console.mlsql_job 表数据
- load jdbc.`mlsql_job` where url="jdbc:mysql://localhost:3306/mlsql_console?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
+load jdbc.`usage_template` where url="jdbc:mysql://localhost:3306/notebook?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
  and driver="com.mysql.jdbc.Driver"
  and user="root"
- and password="mlsql"
+ and password="root"
  as table1;
  
 -- 查询100条
