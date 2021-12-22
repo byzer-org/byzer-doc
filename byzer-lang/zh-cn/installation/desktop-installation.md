@@ -30,17 +30,17 @@ Byzer-lang VSCode 插件本地安装具体步骤如下：
 
 只有打开了`.mlsql`结尾的文件，插件才会被初始化。
 
-### 配置 .mlsql.config文件 （可选）
+### 配置 .mlsql.config 文件 （可选）
 
-你可以通过添加 `.mlsql.config` 到你的 byzer-lang 项目根目录,每个项目都可以有不同的配置。
+你可以通过添加 `.mlsql.config` 到你的 Byzer-lang 项目根目录，每个项目都可以有不同的配置。
 
-1. 根据下方图片，在.mlsql.config里配置变量 *engine.home*（从市场安装的才需要engine.home）。根据您的操作系统(mac, linux win) 下载
+1. 根据下方图片，在 `.mlsql.config` 里配置变量 *engine.home*（从市场安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载
    - [Linux](https://download.byzer.org/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
    - [Mac](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
    
    解压缩。engine.home 指向该目录。（P.S. bin目录无需配置在 engin.home 里，只需要配置 bin 所在的目录）
    
-3. 如果你是第一次创建该文件，为了使配置生效，在 VSCode 里按住 `shift+command+p`，先选择【开发人员：重新加载窗口】确保 mlsql.config 文件生效，然后再选择 MLSQL RUN 即可编译和执行.mlsql文件
+3. 如果你是第一次创建该文件，为了使配置生效，在 VSCode 里按住 `shift+command+p`，先选择【开发人员：重新加载窗口】确保 mlsql.config 文件生效，然后再选择 MLSQL RUN 即可编译和执行 `.mlsql` 文件
 
 ### 示例
 

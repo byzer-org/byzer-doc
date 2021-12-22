@@ -202,7 +202,7 @@ trait MLSQLSink extends MLSQLDataSource {
   def save(writer: DataFrameWriter[Row], config: DataSinkConfig): Any
 }
 ```
-因为前面我们已经了  MLSQLDataSource需要的方法，所以现在我们只要是实现 save 语法即可，很简单，也是调用标准的 datasource api 完成写入：
+因为前面我们已经了 MLSQLDataSource 需要的方法，所以现在我们只要是实现 save 语法即可，很简单，也是调用标准的 datasource api 完成写入：
 
 ```scala
 override def save(writer: DataFrameWriter[Row], config: DataSinkConfig): Unit = {

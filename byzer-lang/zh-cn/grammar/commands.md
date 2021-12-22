@@ -190,7 +190,7 @@ Byzer-lang 内置了非常多的宏函数，可以帮助用户实现更好的交
 
 - !runScript
 
-将一段文本当做MLSQL脚本执行：
+将一段文本当做 Byzer 脚本执行：
 
 ```
 !runScript ''' select 1 as a as b; ''' named output;
@@ -229,7 +229,7 @@ select "${__last_table_name__}" as tableName as output;
 
 - !saveFile
 
-如果一个表只有一条记录，并且该记录只有一列，并且该列是binary格式，那么我们可以将该列的内容保存成一个文件。比
+如果一个表只有一条记录，并且该记录只有一列，并且该列是 binary 格式，那么我们可以将该列的内容保存成一个文件。比
 
 ```
 !saveFile _ -i [表名] -o [保存路径];
@@ -245,13 +245,13 @@ select "${__last_table_name__}" as tableName as output;
 
 - !profiler
 
-执行原生SQL:
+执行原生 SQL:
 
 ```
 !profiler sql ''' select 1 as a ''' ;
 ```
 
-查看所有spark内核的配置：
+查看所有 spark 内核的配置：
 
 ```
 !profiler conf;
@@ -260,13 +260,13 @@ select "${__last_table_name__}" as tableName as output;
 查看一个表的执行计划：
 
 ```
-!profiler explain [表名或者一条SQL];
+!profiler explain [表名或者一条 SQL];
 ```
 
 
 - !python
 
-可以通过该命令设置一些Python运行时环境。
+可以通过该命令设置一些 Python 运行时环境。
 
 
 - !delta
@@ -277,7 +277,7 @@ select "${__last_table_name__}" as tableName as output;
 !delta help;
 ```
 
-列出所有delta表：
+列出所有 delta 表：
 
 ```
 !delta show tables;
@@ -302,7 +302,7 @@ select "${__last_table_name__}" as tableName as output;
 !delta compact db/tablename 100 3 background;
 ```
 
-上面表示对db/table 100之前的版本的文件进行合并，每个目录只保留三个文件。
+上面表示对 db/table 100 之前的版本的文件进行合并，每个目录只保留三个文件。
 
 
 - !plugin
@@ -311,8 +311,8 @@ select "${__last_table_name__}" as tableName as output;
 
 - !kafkaTool
 
-Kafka相关的小工具
+Kafka 相关的小工具
 
 - !callback
 
-流式Event事件回调
+流式 Event 事件回调

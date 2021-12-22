@@ -45,8 +45,8 @@ and fetchsize="100";
 ```sql
 set rawText='''
 {"id":9,"content":"Spark好的语言1","label":0.0}
-{"id":10,"content":"MLSQL是一个好的语言6","label":0.0}
-{"id":12,"content":"MLSQL是一个好的语言7","label":0.0}
+{"id":10,"content":"MLSQL 是一个好的语言6","label":0.0}
+{"id":12,"content":"MLSQL 是一个好的语言7","label":0.0}
 ''';
 
 load jsonStr.`rawText` as orginal_text_corpus;

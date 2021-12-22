@@ -1,17 +1,17 @@
 # 自定义数据源插件开发
 
-数据源主要应用于byzer的Load/Save语法里。尽管byzer提供了非常多的数据源支持[加载和存储多种数据源](/byzer-lang/zh-cn/datasource/README.md)，但肯定还有非常的数据源并没有被官方支持到。byzer为此提供了自定义数据源的支持。
+数据源主要应用于 byzer 的 Load/Save 语法里。尽管 byzer 提供了非常多的数据源支持[加载和存储多种数据源](/byzer-lang/zh-cn/datasource/README.md)，但肯定还有非常的数据源并没有被官方支持到。byzer 为此提供了自定义数据源的支持。
 
 通常，为了达成此目标，用户大体需要实现两个步骤：
 
-1. 按Spark DataSource标准封装对应的数据源。因为Spark良好的生态储备，一般而言大部分数据源都会有Spark的Connector(DataSource)。 所以这一步实际上仅仅是引入相应的Connector Jar包即可。
-2. 按byzer DataSource标准进一步封装Spark DataSource数据源（或者原生的数据源）。比如我么常用的jsonStr,csvStr等就没有使用Spark DataSource Connector,而是职级使用byzer DataSource标准实现的。
+1. 按 Spark DataSource 标准封装对应的数据源。因为 Spark 良好的生态储备，一般而言大部分数据源都会有 Spark 的Connector(DataSource)。 所以这一步实际上仅仅是引入相应的 Connector Jar 包即可。
+2. 按 byzer DataSource 标准进一步封装 Spark DataSource 数据源（或者原生的数据源）。比如我么常用的jsonStr，csvStr 等就没有使用 Spark DataSource Connector，而是职级使用 byzer DataSource 标准实现的。
 
-在这篇教程中，我们不会介绍Spark DataSource的开发，而是介绍byzer DataSource的标准。
+在这篇教程中，我们不会介绍 Spark DataSource 的开发，而是介绍 byzer DataSource 的标准。
 
 ## byzer Excel 数据源介绍
 
-加载或者保存Excel会是一个较为常见的操作，我们在[mlsql-plugins](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了excel在byzer中的读取和保存。
+加载或者保存 Excel 会是一个较为常见的操作，我们在[mlsql-plugins](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了 excel 在 byzer 中的读取和保存。
 
 使用如下：
 
@@ -42,9 +42,9 @@ save overwrite b as excel.`/tmp/b.xlsx` where header="true";
 4. MLSQLRegistry 注册数据源名称
 5. VersionCompatibility 版本兼容
 
-1，2必须实现其中一个，3可选，4必须。
+1，2 必须实现其中一个，3 可选，4 必须。
 
-MLSQLSource的签名：
+MLSQLSource 的签名：
 
 ```scala
 trait MLSQLSource extends MLSQLDataSource with MLSQLSourceInfo {
@@ -52,7 +52,7 @@ trait MLSQLSource extends MLSQLDataSource with MLSQLSourceInfo {
 }
 ```
 
-MLSQLSink的签名:
+MLSQLSink 的签名:
 
 ```scala
 trait MLSQLSink extends MLSQLDataSource {
@@ -73,7 +73,7 @@ trait MLSQLSourceInfo extends MLSQLDataSource {
 }
 ```
 
-不过通常都会有一些基类，简化我们的操作。比如如果你实现的是文件类操作，那么就可以选用`streaming.core.datasource.MLSQLBaseFileSource`作为实现的基类。MLSQLExcel也会选择该类作为基类。
+不过通常都会有一些基类，简化我们的操作。比如如果你实现的是文件类操作，那么就可以选用`streaming.core.datasource.MLSQLBaseFileSource`作为实现的基类。MLSQLExcel 也会选择该类作为基类。
 
 下面是签名：
 
@@ -85,7 +85,7 @@ class MLSQLExcel(override val uid: String)
 ```
 
 
-我们先来看看如何Register我们的数据源：
+我们先来看看如何 Register 我们的数据源：
 
 ```scala
  override def register(): Unit = {
@@ -97,9 +97,9 @@ class MLSQLExcel(override val uid: String)
 
   override def shortFormat: String = "excel"
 ```
-定义fullFormat，shortFormat。 fullFormat是Spark数据源的类型。shortFormat则是你给这个数据源取的短名。这样我们可以在load/save语句中直接使用excel。
+定义 fullFormat，shortFormat。 fullFormat 是 Spark 数据源的类型。shortFormat 则是你给这个数据源取的短名。这样我们可以在 load/save 语句中直接使用 excel。
 
-register方法会将相关信息注册到一个统一的地方。
+register 方法会将相关信息注册到一个统一的地方。
 
 接着是提供权限校验的一些必要信息：
 
@@ -111,9 +111,9 @@ override def sourceInfo(config: DataAuthConfig): SourceInfo = {
   }
 ```
 
-其实就是要拼装出一个SourceInfo对象，这个对象会交给校验服务器进行校验。
+其实就是要拼装出一个 SourceInfo 对象，这个对象会交给校验服务器进行校验。
 
-最后是版本兼容,你需要明确指定兼容哪些版本的byzer。
+最后是版本兼容，你需要明确指定兼容哪些版本的 byzer。
 
 ```scala
 override def supportedVersions: Seq[String] = {
@@ -122,7 +122,7 @@ override def supportedVersions: Seq[String] = {
   }
 ```
 
-在byzer Excel这个示例中，load/save完全交给基类就好了。如果有特殊需求，可由覆盖基类。我们来看看基类是如何实现数据加载的。具体代码如下：
+在 byzer Excel 这个示例中，load/save 完全交给基类就好了。如果有特殊需求，可由覆盖基类。我们来看看基类是如何实现数据加载的。具体代码如下：
 
 ```scala
 override def load(reader: DataFrameReader, config: DataSourceConfig): DataFrame = {
@@ -133,16 +133,16 @@ override def load(reader: DataFrameReader, config: DataSourceConfig): DataFrame 
   }
 ```
 
-通过`ScriptSQLExec`对象可以获取一个context对象，该对象可当前HTTP请求的所有请求参数。 `config: DataSourceConfig`则包含了 load where条件里的所有参数，对应的是：
+通过`ScriptSQLExec`对象可以获取一个 context 对象，该对象可当前 HTTP 请求的所有请求参数。 `config: DataSourceConfig`则包含了 load where 条件里的所有参数，对应的是：
 
 ```
 useHeader="true" and 
 maxRowsInMemory="100" 
 and dataAddress="A1:C8"
 ```
-接着将这些参数设置到reader里，并且通过resourceRealPath解析到excel文件的实际路径，因为我们有主目录的概念。这里是标准的DataFrame 读 API了。
+接着将这些参数设置到 reader 里，并且通过 resourceRealPath 解析到 excel 文件的实际路径，因为我们有主目录的概念。这里是标准的 DataFrame 读 API 了。
 
-相应的，save操作也是类似的：
+相应的，save 操作也是类似的：
 
 ```sql
  override def save(writer: DataFrameWriter[Row], config: DataSinkConfig): Any = {
@@ -156,7 +156,7 @@ and dataAddress="A1:C8"
   }
 ```
 
-当然了，用户也可以完全实现自己的逻辑，比如读取一个图片什么的，直接使用HDFS API 去读取即可。可以使用我们封装好的`tech.mlsql.common.utils.hdfs.HDFSOperator`读取。
+当然了，用户也可以完全实现自己的逻辑，比如读取一个图片什么的，直接使用 HDFS API 去读取即可。可以使用我们封装好的`tech.mlsql.common.utils.hdfs.HDFSOperator`读取。
 
 这段代码是保存图片例子：
 
