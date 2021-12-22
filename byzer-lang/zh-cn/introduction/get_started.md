@@ -10,9 +10,9 @@
 
 1. 获取镜像
 
-   `docker pull allwefantasy/mlsql-sandbox:<tag>`
+   `docker pull byzer/byzer-sandbox:<tag>`
 
-   > tag 对应着镜像的版本号，点击[此处](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags)查看所有可用的 tag。
+   > tag 对应着镜像的版本号，点击[此处](https://hub.docker.com/r/byzer/byzer-sandbox/tags)查看所有可用的 tag。
 
 2. 运行容器（container）
 
@@ -52,7 +52,7 @@
 
 2. 运行容器
 
-   `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
+   `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root byzer/byzer-sandbox:3.1.1-2.2.0`
 
    <img src="/byzer-lang/zh-cn/introduction/images/run_sandbox_container.png" alt="run_container"/>
 
