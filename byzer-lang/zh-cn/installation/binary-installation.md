@@ -128,10 +128,10 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 
 
 ### K8S 模式启动
-[K8S 模式启动](./containerized_deployment/K8S-deployment.md)
+[K8S 模式启动](containerized_deployment/K8S-deployment.md)
 
 ### 停止 Byzer-lang
 执行 $MLSQL_HOME/bin/stop-local.sh
 
 ### 更多参数
-[Byzer-lang 更多参数](./byzer-lang-configuration.md)
+[Byzer-lang 更多参数](byzer-lang-configuration.md)
