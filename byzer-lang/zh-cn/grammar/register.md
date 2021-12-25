@@ -14,9 +14,9 @@ Register 句式在 Byzer-lang 中主要可以完成三类工作：
 
 ```ruby
 register ScriptUDF.`` as plusFun where
-and lang="scala"
+lang="scala"
 and udfType="udf"
-code='''
+and code='''
 def apply(a:Double,b:Double)={
    a + b
 }
