@@ -1,4 +1,4 @@
-# Byzer-lang 安装与部署
+# Byzer 二进制包
 
 Byzer-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 

@@ -14,7 +14,7 @@
 
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
-  * [Byzer-lang 安装与配置](/byzer-lang/zh-cn/installation/binary-installation.md)
+  * [Byzer 二进制包](/byzer-lang/zh-cn/installation/binary-installation.md)
   * [Byzer 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
   * [Byzer 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
   * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)
