@@ -82,10 +82,7 @@
       * [使用 Byzer 流式更新 MySQL 数据](/byzer-lang/zh-cn/streaming/stream_update_mysql.md)
     
 - 机器学习
-    * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)
-        * [离散化](/byzer-lang/zh-cn/ml/feature/discretizer/README.md)
-          * [Bucketizer](/byzer-lang/zh-cn/ml/feature/discretizer/bucketizer.md)
-          * [Quantile](/byzer-lang/zh-cn/ml/feature/discretizer/quantile.md)
+    * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
         * [特征平滑](/byzer-lang/zh-cn/ml/feature/scale.md)
         * [归一化](/byzer-lang/zh-cn/ml/feature/normalize.md)
         * [混淆矩阵](/byzer-lang/zh-cn/ml/feature/confusion_matrix.md)
