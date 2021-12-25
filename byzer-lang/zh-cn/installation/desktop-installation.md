@@ -3,32 +3,30 @@
 ### 前置条件
 安装 [Visual Studio Code](https://code.visualstudio.com/)
 
-> 在 Mac/Linux 环境中测试通过, 但是在 Windows 环境文件读写报错，因此建议您仅在 Linux 和 Mac 环境中使用.
+> Byzer-lang 桌面版已在 Mac/Linux 环境中测试通过，但在 Windows 环境存在文件读写报错的问题，因此推荐仅在 Linux 和 Mac 环境中使用。
 
 ### 安装步骤
 
-Byzer-lang VSCode 插件本地安装具体步骤如下：
+安装 Byzer-lang VSCode 插件，具体步骤如下：
   1. 下载对应操作系统的 vsix 文件，最新版为 0.0.7
   - [Linux 版](https://download.byzer.org/byzer-lang-linux-0.0.7.vsix)
   - [Mac 版](https://download.byzer.org/byzer-lang-mac-0.0.7.vsix)
 
-  2. 打开 VSCode -> 左侧面板选择`拓展` -> 选择 `从 VSIX 安装` -> 选择刚下载的 vsix 进行安装
+  2. 打开 VSCode， 在左侧面板选择`拓展` -> 选择 `从 VSIX 安装`，选择刚下载的 vsix 进行安装。
 
      ![img.png](images/img_local_install.png)
 
-> 请注意:
-> 1. Windows 环境版本还未被验证过，因此建议您在 Linux 和 Mac 的环境下使用
-> 2. 插件源码参考 [mlsql-lang-vscode-plugin/github](https://github.com/allwefantasy/mlsql-lang-vscode-plugin)
-
-### 特别注意
-
-只有打开了`.mlsql`结尾的文件，插件才会被初始化。
+> 注意：
+>
+> 1. 插件源码参考： [mlsql-lang-vscode-plugin/github](https://github.com/allwefantasy/mlsql-lang-vscode-plugin)
+>
+> 2. 只有打开了`.mlsql`结尾的文件，插件才会被初始化。
 
 ### 配置 .mlsql.config 文件 （可选）
 
-你可以通过添加 `.mlsql.config` 到你的 Byzer-lang 项目根目录，每个项目都可以有不同的配置。
+如希望为每个项目进行不同的配置，你可以通过添加 `.mlsql.config` 到你的 Byzer-lang 项目根目录实现。
 
-1. 根据下方图片，在 `.mlsql.config` 里配置变量 *engine.home*（从市场安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载
+1. 根据下方图片，在 `.mlsql.config` 里配置变量 *engine.home*（从市场安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载：
    - [Linux](https://download.byzer.org/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
    - [Mac](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
    
