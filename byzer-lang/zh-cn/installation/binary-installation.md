@@ -2,21 +2,49 @@
 
 Byzer-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
-###  下载二进制包
+### 安装前置准备
 
-[下载站点](https://download.byzer.org/byzer/) , 选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约
+JDK8 和 Spark 是 byzer-lang 启动的必要条件。
+
+#### JDK8 安装
+
+前往 [Oracle 网站](https://www.oracle.com/java/technologies/downloads/#java8)，下载最新版 JDK 8。
+
+执行以下命令下载并解压 JDK8 tar.gz，并设置 JAVA_HOME 环境变量。
+
+```
+cd <JDK_安装目录>
+wget "https://repo.huaweicloud.com/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz" 
+tar -xf jdk-8u151-linux-x64.tar.gz  
+rm jdk-8u151-linux-x64.tar.gz
+```
+
+#### Spark 安装
+
+byzer-lang 支持两个版本Spark：
+
+mlsql-engine_3.0-2.1.0 及 byzer-lang_3.0-2.2.0：Spark-3.1.1-hadoop3.2
+
+mlsql-engine_2.4-2.1.0 及 byzer-lang_2.4-2.2.0：Spark-2.4.3-hadoop2.7
+
+根据您的版本，下载解压 [Spark tgz](https://spark.apache.org/downloads.html)，再设置 SPARK_HOME 环境变量。
+
+```
+## 下载合适的 Spark 版本
+wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
+wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
+```
+
+删除 $SPARK_HOME/jars/velocity-1.5.jar，因为该 jar 与 byzer-lang 冲突。
+
+###  下载 Byzer-lang 二进制包
+
+前往[ Byzer-lang 下载页面](https://download.byzer.org/byzer/)，选择版本子目录例如 2.2.0 下载。二进制包名遵循以下规约：
 
 ```
 byzer-lang_<spark_major_version>-<byzer_lang_version>    
 ```
-这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。byzer-lang 支持两个版本Spark
-
-| Byzer-lang 版本          | Spark版本                  |
-|------------------------|-----------------------|
-| mlsql-engine_3.0-2.1.0 | Spark-3.1.1-hadoop3.2 |
-| mlsql-engine_2.4-2.1.0 | Spark-2.4.3-hadoop2.7 | 
-| byzer-lang_3.0-2.2.0   | Spark-3.1.1-hadoop3.2 |
-| byzer-lang_2.4-2.2.0   | Spark-2.4.3-hadoop2.7 |
+这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。
 
 ### 源码编译(可选)
 
@@ -24,27 +52,6 @@ byzer-lang_<spark_major_version>-<byzer_lang_version>
 
 ### 安装 byzer-lang
 下载或编译的二进制包解压，设置 MLSQL_HOME 环境变量。JDK8 和 Spark 是 byzer-lang 启动的必要条件。  
-
-### JDK8 安装
-
-执行以下命令下载并解压 JDK8 tar.gz，并设置 JAVA_HOME 环境变量
-
-```shell
-cd <JDK_安装目录>
-wget "https://repo.huaweicloud.com/java/jdk/8u151-b12/jdk-8u151-linux-x64.tar.gz" 
-tar -xf jdk-8u151-linux-x64.tar.gz  
-rm jdk-8u151-linux-x64.tar.gz
-```
-
-### 安装 Spark
-
-根据上面 Spark 兼容性表格，下载解压 Spark tgz，再设置 SPARK_HOME 环境变量
-```shell
-## 下载合适的 Spark 版本
-wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
-wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
-```
-删除 $SPARK_HOME/jars/velocity-1.5.jar，因为该 jar 与 byzer-lang 冲突. 
 
 ### 启动参数详解
 一个典型的启动命令：
