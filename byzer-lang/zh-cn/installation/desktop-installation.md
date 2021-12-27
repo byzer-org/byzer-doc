@@ -9,8 +9,8 @@
 
 安装 Byzer-lang VSCode 插件，具体步骤如下：
   1. 下载对应操作系统的 vsix 文件，最新版为 0.0.7
-  - [Linux 版](https://download.byzer.org/byzer-lang-linux-0.0.7.vsix)
-  - [Mac 版](https://download.byzer.org/byzer-lang-mac-0.0.7.vsix)
+  - [Linux 版](http://download.mlsql.tech/byzer-lang-linux-0.0.7.vsix)
+  - [Mac 版](http://download.mlsql.tech/byzer-lang-mac-0.0.7.vsix)
 
   2. 打开 VSCode， 在左侧面板选择`拓展` -> 选择 `从 VSIX 安装`，选择刚下载的 vsix 进行安装。
 
@@ -26,7 +26,7 @@
 
 如希望为每个项目进行不同的配置，你可以通过添加 `.mlsql.config` 到你的 Byzer-lang 项目根目录实现。
 
-1. 根据下方图片，在 `.mlsql.config` 里配置变量 *engine.home*（从市场安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载：
+1. 在 `.mlsql.config` 里配置变量 *engine.home*（从市场安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载：
    - [Linux](https://download.byzer.org/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
    - [Mac](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
    
