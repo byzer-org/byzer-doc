@@ -10,8 +10,8 @@ Byzer Notebook 为 Byzer 定制化，可以最大程度可以发挥 Byzer 语言
 
 ### 全新功能
 
-- 支持创建 Notebook 笔记本（`.mlnb`) 和 Workflow 工作流（`.mlwf`）文件
-- 支持批量上传数据源与导入`.mlnb` 和 `.mlwf` 文件
+- 支持创建 Notebook 笔记本（`.bznb`) 和 Workflow 工作流（`.bzwf`）文件
+- 支持批量上传数据源与导入`.bznb` 和 `.bzwf` 文件
 - 提供 markdown 语法支持 和 快捷键支持
 - 支持 Byzer 语言的代码提示
 - 支持创建可视化工作流节点，并在节点中提供 Byzer 代码生成器
