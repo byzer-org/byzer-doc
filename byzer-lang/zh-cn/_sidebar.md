@@ -87,7 +87,8 @@
         * [归一化](/byzer-lang/zh-cn/ml/feature/normalize.md)
         * [混淆矩阵](/byzer-lang/zh-cn/ml/feature/confusion_matrix.md)
         * [数据集切分](/byzer-lang/zh-cn/ml/feature/rate_sample.md)
-
+        * [Map 转化为向量](/byzer-lang/zh-cn/ml/feature/vecmap.md)
+        
     * [内置算法](/byzer-lang/zh-cn/ml/algs/README.md)
         * [AutoML](/byzer-lang/zh-cn/ml/algs/auto_ml.md) 
         * [KMeans](/byzer-lang/zh-cn/ml/algs/kmeans.md)
@@ -97,11 +98,11 @@
         * [LogisticRegression](/byzer-lang/zh-cn/ml/algs/logistic_regression.md)
         * [LinearRegression](/byzer-lang/zh-cn/ml/algs/linear_regression.md)
         * [LDA](/byzer-lang/zh-cn/ml/algs/lda.md)
-
+    
     * [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
         * [设计和原理](/byzer-lang/zh-cn/ml/api_service/design.md)
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
-
+    
 - 深度学习
     * [基于 Java 的深度学习框架集成](/byzer-lang/zh-cn/dl/README.md)
         * [加载图片数据](/byzer-lang/zh-cn/dl/load_image.md)

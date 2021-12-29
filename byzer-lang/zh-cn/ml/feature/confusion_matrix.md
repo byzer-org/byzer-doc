@@ -1,4 +1,4 @@
-# 混淆矩阵
+# 混淆矩阵 ConfusionMatrix
 
 混淆矩阵可以将每个分类的实际值和预测值形成一个矩阵，在分类算法里用处很多，用户可以直观看到数据的错误分布情况。
 
@@ -7,14 +7,14 @@
 假设我们有动物分类，两列中一列是实际值，另一列是预测值，内容如下：
 
 ```sql
-SET rawData='''
+set rawData='''
 {"label":"cat","predict":"rabbit"}
 {"label":"cat","predict":"dog"}
 {"label":"cat","predict":"cat"}
 {"label":"dog","predict":"dog"}
 {"label":"cat","predict":"dog"} 
 ''';
-LOAD jsonStr.`rawData` AS data;
+load jsonStr.`rawData` as data;
 ```
 
 ### 训练
@@ -22,11 +22,11 @@ LOAD jsonStr.`rawData` AS data;
 使用混淆矩阵来查看最后的预测结果分布：
 
 ```sql
-TRAIN data AS ConfusionMatrix.`/tmp/model` 
-WHERE actualCol="label" 
+train data as ConfusionMatrix.`/tmp/model` 
+where actualCol="label" 
 and predictCol="predict";
 
-LOAD parquet.`/tmp/model/data` as output;
+load parquet.`/tmp/model/data` as output;
 ```
 
 结果如下：
@@ -41,7 +41,7 @@ rabbit	 0	 0	 0
 另外我们也可以看到一些统计值：
 
 ```sql
-LOAD parquet.`/tmp/model/detail` AS output;
+load parquet.`/tmp/model/detail` as output;
 ```
 
 结果如下：
@@ -55,11 +55,5 @@ cat	  FN	3	        False negative [eqv with miss, Type II error]
 ......
 
 ```
-
-
-
-
-
-
 
 

@@ -1,4 +1,4 @@
-# VecMapInPlace
+# Map 转化为向量 VecMapInPlace
 
 VecMapInPlace 可以将一个 Map[String,Double] 转化为一个向量。
 
@@ -7,22 +7,22 @@ VecMapInPlace 可以将一个 Map[String,Double] 转化为一个向量。
 假设我们有如下数据：
 
 ```sql
-SET jsonStr='''
+set jsonStr='''
 {"features":{"a":1.6,"b":1.2},"label":0.0}
 {"features":{"a":1.5,"b":0.2},"label":0.0}
 {"features":{"a":1.6,"b":1.2},"label":0.0}
 {"features":{"a":1.6,"b":7.2},"label":0.0}
 ''';
-LOAD jsonStr.`jsonStr` as data;
+load jsonStr.`jsonStr` as data;
 
-REGISTER ScriptUDF.`` as convert_st_to_map where
+register ScriptUDF.`` as convert_st_to_map where
 code='''
 def apply(row:org.apache.spark.sql.Row) = {
   Map("a"->row.getAs[Double]("a"),"b"->row.getAs[Double]("b"))
 }
 ''';
 
-SELECT convert_st_to_map(features) as f from data as newdata;
+select convert_st_to_map(features) as f from data as newdata;
 ```
 
 这里使用了自定义 UDF 去将 Row 转化为 Map，详细了解可以翻看 [动态扩展 UDF](/byzer-lang/zh-cn/udf/extend_udf/README.md)。
@@ -30,10 +30,10 @@ SELECT convert_st_to_map(features) as f from data as newdata;
 ### 转化
 
 ```sql
-TRAIN newdata as VecMapInPlace.`/tmp/model`
+train newdata as VecMapInPlace.`/tmp/model`
 where inputCol="f";
 
-LOAD VecMapInPlace.`/tmp/model/data` as output;
+load VecMapInPlace.`/tmp/model/data` as output;
 ```
 
 显示结果如下：
@@ -53,7 +53,7 @@ f
 
 ```sql
 
-REGISTER VecMapInPlace.`/tmp/model` as convert;
+register VecMapInPlace.`/tmp/model` as convert;
 
 ```
 
@@ -61,7 +61,7 @@ REGISTER VecMapInPlace.`/tmp/model` as convert;
 现在，可以使用 `convert` 函数了。
 
 ```sql
-SELECT convert(map("a",1,"b",0)) as features as output;
+select convert(map("a",1,"b",0)) as features as output;
 ```
 
 输出结果为：
@@ -72,6 +72,5 @@ features
 ```
 
 通常，我们还需要对向量做平滑或者归一化，请参考对应章节。
-
 
 
