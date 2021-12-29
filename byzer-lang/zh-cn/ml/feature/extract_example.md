@@ -5,21 +5,21 @@ FeatureExtractInPlace 实现了提取文本中 `QQ`,`电话`,`邮箱` 等信息�
 ### 数据准备
 
 ```sql
-SET rawData='''
+set rawData='''
 {"content":"请联系 13634282910","predict":"rabbit"}
 {"content":"扣扣 527153688@qq.com","predict":"dog"}
 {"content":"<html> dddd img.dxycdn.com ffff 527153688@qq.com","predict":"cat"} 
 ''';
-LOAD jsonStr.`rawData` as data;
+load jsonStr.`rawData` as data;
 ```
 
 ### 抽取
 
 ```sql
-TRAIN data AS FeatureExtractInPlace.`/tmp/model`
-WHERE inputCol="content";
+train data as FeatureExtractInPlace.`/tmp/model`
+where inputCol="content";
 
-LOAD parquet.`/tmp/model/data` as output;
+load parquet.`/tmp/model/data` as output;
 ```
 
 结果如下：
@@ -60,7 +60,7 @@ REGISTER FeatureExtractInPlace.`/tmp/model` as convert;
 
 ```sql
 
-SELECT convert_qqwechat("扣扣 527153688@qq.com ") as features as output;
+select convert_qqwechat("扣扣 527153688@qq.com ") as features as output;
 ```
 
 输出结果为：

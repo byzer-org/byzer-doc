@@ -1,4 +1,4 @@
-# 特征平滑
+# 特征平滑 ScalerInPlace
 
 ScalerInPlace 支持 min-max, log2, logn 方法对数据进行特征平滑。
 不同于 NormalizeInPlace，ScalerInPlace 针对的是列。
@@ -7,14 +7,14 @@ ScalerInPlace 支持 min-max, log2, logn 方法对数据进行特征平滑。
 
 ```sql
 -- create test data
-SET jsonStr='''
+set jsonStr='''
 {"a":1,    "b":100, "label":0.0},
 {"a":100,  "b":100, "label":1.0}
 {"a":1000, "b":100, "label":0.0}
 {"a":10,   "b":100, "label":0.0}
 {"a":1,    "b":100, "label":1.0}
 ''';
-LOAD jsonStr.`jsonStr` as data;
+load jsonStr.`jsonStr` as data;
 ```
 
 ### 平滑
@@ -22,13 +22,13 @@ LOAD jsonStr.`jsonStr` as data;
 接着我们对第一列数据a,b两列数据都进行平滑。
 
 ```sql
-TRAIN data AS ScalerInPlace.`/tmp/scaler`
-WHERE inputCols="a,b"
+train data as ScalerInPlace.`/tmp/scaler`
+where inputCols="a,b"
 and scaleMethod="min-max"
 and removeOutlierValue="false"
 ;
 
-LOAD parquet.`/tmp/scaler/data` 
+load parquet.`/tmp/scaler/data` 
 as featurize_table;
 ```
 
@@ -51,14 +51,14 @@ a                    b   label
 > API 预测的相关原理及示例，详见 [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
 
 ```sql
-REGISTER ScalerInPlace.`/tmp/scaler` AS scale_convert;
+register ScalerInPlace.`/tmp/scaler` as scale_convert;
 ```
 
 通过上面的命令，ScalerInPlace 就会把训练阶段学习到的东西应用起来。
 现在，任意给定两个数字，都可以使用 `scale_convert` 函数将内容转化为向量。
 
 ```sql
-SELECT scale_convert(array(cast(7.0 as double), cast(8.0 as double))) AS features AS outputt;
+select scale_convert(array(cast(7.0 as double), cast(8.0 as double))) as features as output;
 ```
 
 输出结果为：

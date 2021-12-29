@@ -8,7 +8,7 @@ Bucketizer 可以手动指定如何对连续数据进行切分，形成分类的
 
 ```sql
 -- create test data
-SET jsonStr='''
+set jsonStr='''
 {"features":[5.1,3.5,1.4,0.2],"label":0.0},
 {"features":[5.1,3.5,1.4,0.2],"label":1.0}
 {"features":[5.1,3.5,1.4,0.2],"label":0.0}
@@ -20,8 +20,8 @@ SET jsonStr='''
 {"features":[5.1,3.5,1.4,0.2],"label":0.0}
 {"features":[5.1,3.5,1.4,0.2],"label":0.0}
 ''';
-LOAD jsonStr.`jsonStr` AS data;
-SELECT features[0] AS a ,features[1] AS b FROM data
+load jsonStr.`jsonStr` as data;
+select features[0] AS a ,features[1] as b from data
 as data1;
 ```
 
