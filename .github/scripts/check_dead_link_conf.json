@@ -37,7 +37,7 @@
 			"pattern": "^https://mlsql-docs.kyligence.io/"
 		},
 		{
-			"pattern": "^https://www.byzer.org/"
+			"pattern": "^https://www.byzer.org"
 		}
 	],
 	"replacementPatterns": [
