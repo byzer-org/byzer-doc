@@ -45,7 +45,7 @@ a                   b   label
 `removeOutlierValue` 设置为 true，会自动用中位数填充异常值。
 
 
->如果 `inputCols` 只有一列，那么该列可以为  
+>如果 `inputCols` 只有一列，那么该列可以为 double 数组 
 
 
 ### API 预测
@@ -60,13 +60,13 @@ register NormalizeInPlace.`/tmp/model` as convert;
 现在，任意给定两个数字，都可以使用 `convert` 函数将内容转化为向量。
 
 ```sql
-select convert(array(7,8)) as features as output;
+select convert(array(cast(7.0 as double), cast(8.0 as double))) as features as output;
 ```
 
 输出结果为：
 
 ```
 features
-[-0.4932558994483363,0]
+[ -0.4932558994483363, 0 ]
 ```
 
