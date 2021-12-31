@@ -102,10 +102,14 @@ nohup $MLSQL_HOME/bin/start-local.sh > $MLSQL_HOME/logs/mlsql_engine.log 2>&1 &
 
 ### Yarn 模式启动
 
-我们推荐使用 yarn-client 模式启动。
+我们推荐使用 yarn-client 模式启动。yarn-cluster 模式启动，由于AM 在Yarn 集群某台服务器，IP 不固定，会造成一系列问题。
 
-1. 将 hdfs/yarn/hive相关 xml 配置文件放到 $SPARK_HOME/conf 目录下。
-2. 修改`start-local.sh`, 找到文件里如下代码片段
+1. 软链接 `core-site.xml hdfs-site.xml yarn-site.xml` 文件到 $SPARK_HOME/conf 目录下。
+2. 设置环境变量 `HADOOP_CONF_DIR`, 指向 $SPARK_HOME/conf . 参考命令如下
+```shell 
+export HADOOP_CONF_DIR=$SPARK_HOME/conf 
+```
+3. 修改`start-local.sh`, 找到文件里如下代码片段
 
 ```shell
 $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
@@ -116,7 +120,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
         --conf "spark.sql.hive.thriftServer.singleSession=true" 
 ```
 
-将--master的local[*] 换成 yarn-client, 然后添加 executor 配置, 大概如下面的样子：
+将 `--master` 的 local[*] 换成 yarn, 添加 `--deploy-mode client`, 然后添加 executor 配置, 大概如下面的样子：
 
 ```shell
 $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
@@ -132,7 +136,6 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 ```
 
 然后运行即可。
-
 
 ### K8S 模式启动
 [K8S 模式启动](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
