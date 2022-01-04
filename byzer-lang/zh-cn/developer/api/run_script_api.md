@@ -2,6 +2,10 @@
 
 该接口用来执行 Byzer-lang 语句。
 
+Method: POST GET
+
+Content-Type: application/x-www-form-urlencoded
+
 ## 参数列表
 
 | 参数 | 说明                                                                                                                       | 示例值 |
@@ -29,3 +33,14 @@
 | `context.__auth_client__` | 权限认证客户端的类                                                                                                                |  默认是streaming.dsl.auth.meta.client.MLSQLConsoleClient |
 | `context.__auth_server_url__` | 数据访问验证服务器地址                                                                                                              |   |
 | `context.__auth_secret__` | Byzer-lang engine 回访请求服务器的密钥。比如 Notebook 调用了 Byzer-lang engine，需要传递这个参数， 然后 Byzer-lang engine 要回调 Notebook , 那么需要将这个参数带回 |   |
+
+
+## 例子
+调用本机 API 例子
+```shell
+curl --location --request POST 'http://localhost:9003/run/script' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'sql=select 1 as id as output;' \
+--data-urlencode 'owner=admin' \
+--data-urlencode 'jobName=91f8e37d-cfc7-4167-b396-7f33c14bc7da'
+```
