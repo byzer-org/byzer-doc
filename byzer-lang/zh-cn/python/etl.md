@@ -74,7 +74,7 @@ as sample_data;
 | `dict`    | `map`             | `{"dict_value": {"list1": [1, 3, 5], "list2": [2, 4, 6]}}` ：`"schema=st(field(dict_value,map(string,array(long))))"` |
 | `bytes` | `binary` | `{"bytes_value": b"Everything is a table!"}` ：`"schema=st(field(bytes_value,binary))"` |
 
-> 要注意的是，在schema的类型中，整型需要使用long，而不是integer或short；浮点数需要使用double，而不是float。因为在python中，int和float都是8个字节的。
+> 要注意，在schema的类型中，整型需要使用long，而不是integer或short；浮点数需要使用double，而不是float。因为在python中，int和float都是8个字节的。
 
 以上四项配置都是 Session 级别的，推荐每次执行 Python 脚本时手动指定。
 

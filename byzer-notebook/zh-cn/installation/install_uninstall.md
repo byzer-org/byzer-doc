@@ -44,8 +44,7 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 | notebook.database.username       | 元数据库连接账号，默认：`root`。                             |
 | notebook.database.password       | 元数据库连接账号的密码，默认：`root`。                       |
 | notebook.execution.timeout       | 运行 Byzer 脚本的超时时间（秒），默认：`2880`。              |
-| notebook.url                     | Byzer Notebook 服务地址，作用是给 Byzer 引擎回调，默认：`http://localhost:9002`。**您在配置此项时，应当保障此地址能被|
-|Byzer 引擎访问。** ||
+| notebook.url                     | Byzer Notebook 服务地址，作用是给 Byzer 引擎回调，默认：`http://localhost:9002`。**您在配置此项时，应当保障此地址能被 Byzer 引擎访问。** |
 | notebook.mlsql.engine-url        | 默认 Byzer 引擎 API 地址，默认：`http://localhost:9003`，使用时可在设置页面切换引擎。 |
 | notebook.mlsql.engine-backup-url | 备用 Byzer 引擎 API 地址 ，默认：`http://localhost:9004`，使用时可在设置页面切换引擎。 |
 | notebook.mlsql.auth-client       | Byzer 引擎鉴权插件，默认：`streaming.dsl.auth.client.DefaultConsoleClient`。您可自己开发鉴权插件配置在 Byzer 引擎端，而后将此项配置改为您的插件。 |
