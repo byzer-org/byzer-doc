@@ -126,8 +126,12 @@ register RandomForest.`/tmp/model` as rf_predict;
 ```
 dataType=row
 data=[{"feature":[1,2,3...]}]
-sql=select bayes_predict(vec_dense(feature)) as p
+sql=select rf_predict(vec_dense(feature)) as p
+owner=admin
+sessionPerUser=true
 ```
+
+> 其中，sessionPerUser=true是控制按照租户区分session。
 
 最后的预测结果为：
 
