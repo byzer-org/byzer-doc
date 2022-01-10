@@ -1,6 +1,8 @@
-## Byzer 是如何集成 TensorFlow Cluster 的
+# Byzer 是如何集成 TensorFlow Cluster 的
+
 ### 前言
 我们知道 Byzer 支持 SKLearn，TF 等流行的算法框架，不过虽然支持了多个实例同时运行，但其实每个模型都需要跑全部数据。有的时候数据太大，确实是个问题，所以这个时候还是需要引入 Cluster 的。Byzer 基于 Spark，所以问题就变成了如何在 Spark 里集成TF Cluster 了。TFoS 已经实现了类似的功能，但遗憾的是，TFoS 完全是用 Python 编写的，并且每次都需要启动一个新的 Spark 实例来运行，overhead 是比较高的。
+
 ### Byzer 集成 TF Cluster
 Byzer 集成 TF Cluster 的主要优势有：
 

@@ -8,6 +8,6 @@
 > **Byzer Notebook**: an IDE for Byzer-Lang but more than an IDE
 
 
-[GitHub](https://github.com/byzer-org)
 [Byzer Notebook Doc](/byzer-notebook/zh-cn/)
 [Byzer-Lang Doc](/byzer-lang/zh-cn/)
+[Blog](/public/blog/zh-cn/)
