@@ -1,4 +1,4 @@
-## FUSE(FileSystem in User Space) 对算法的价值
+# FUSE(FileSystem in User Space) 对算法的价值
 
 ### 前言
 Byzer 有一段时间致力于融合大数据平台和算法平台，实现 【同一个平台，同一个语言。】。事实上我们通过各种方式做到了，通过整合 Spark ML，Spark ML 周边，以及 Python 的支持（环境使用 Conda）来完成，但是依然不够完美。为什么呢？

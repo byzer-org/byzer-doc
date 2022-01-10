@@ -1,4 +1,5 @@
-## 谷歌 BigQuery ML VS StreamingPro MLSQL
+# 谷歌 BigQuery ML VS Byzer
+
 ### 前言
 对比下[谷歌 BigQuery ML正式上岗，只会用 SQL 也能玩转机器学习！](https://mp.weixin.qq.com/s/4mZjdFL68V_OXKCkZ72KrQ)和 Byzer 这两款产品。
 
