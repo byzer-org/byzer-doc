@@ -599,7 +599,7 @@ MLSQLConsoleClient会在auth函数中请求到我们Console中内置的权限服
 
 
 
-在Byzer中也支持列级别的控制，如果需要了解更多Byzer权限相关的内容，参考：[编译时权限控制](/public/blog_archive/Compile-time_access_control.md)
+在Byzer中也支持列级别的控制，如果需要了解更多Byzer权限相关的内容，参考：[编译时权限控制](/public/blog_archive_2021/Compile-time_access_control.md)
 
 
 

@@ -165,6 +165,4 @@
     * [MLSQL Stack 2.0.0](/byzer-lang/zh-cn/appendix/release-notes/2.0.0.md)
   * [术语表](/byzer-lang/zh-cn/appendix/terms.md)  
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
-      * [编译时权限控制](/public/blog_archive/Compile-time_access_control.md)
-      * [如何实现Spark过载保护](/public/blog_archive/overload_protection.md)
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
