@@ -302,9 +302,9 @@ Byzer-python 会启动四个满足资源要求的 python进程运行 `count_work
 ## Byzer-python 原理
 
 Byzer-lang  拥有 Hypebrid Runtime (`Spark + Ray`)  ，其中Ray 是可插拔的。具体语言架构图如下：  
-![avatar](./../images/byzer_archi.png)
+![avatar](./images/byzer_archi.png)
 Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方式实现和 Ray的交互：
-![avatar](../images/byzer_archi2.png)
+![avatar](./images/byzer_archi2.png)
 
 
 在第一个 Hello World 例子中，  其实是在Java Executor节点执行的，然后会把 Byzer-python 代码传递给 Python Worker 执行。此时因为没有连接 Ray集群，所以逻辑处理工作是在 Python Worker 中完成的，并且是单机执行的。
@@ -621,7 +621,7 @@ save overwrite cifar10_model as delta.`ai_model.cifar_model`;
 
 Ray的详细框架介绍,  下面这张图展示了 Ray 的主要架构。GCS 作为集中的服务端，是 Worker 之间传递消息的纽带。每个 Server 都有一个共用的 Object Store，通过 Apache Arrow/Plasma 的方式存储数据及数据通信。 Local Scheduler 是 Node 内部的调度，同时通过 GCS 来和其他 Node 上的 Worker 通信。
 
-![avatar](../images/ray1.png)
+![avatar](./images/ray1.png)
 
 那么如何启动一个 ray 的 server 呢？首先要创建一个 python 环境 （具体看 Conda 安装 python 部分），然后在 python 环境中安装 ray （>=1.8.0）
 
@@ -639,7 +639,7 @@ ray start --head # 该命令的意思是执行该命令的机器是ray集群的h
 
 这样就可以在控制台上看到成功启动 ray 的结果
 
-![avatar](../images/ray2.png)
+![avatar](./images/ray2.png)
 
 如果需要dashboard支持， 可以再加一个参数  `--include-dashboard true` 这样启动后就可以根据提示访问 Ray的管理页面。默认地址：  `http://127.0.0.1:8265`
 
@@ -692,7 +692,7 @@ OR
 ```
 由于在 Byzer-lang 里操作的都是二维宽表，而 python 代码的执行是基于跨进程通信的，进程之间也是通过宽表进行通信。因此，需要定义 python 进程返回结果的字段结构。
 
-![avatar](../images/picture2.png)
+![avatar](./images/picture2.png)
 
 下面是指定由 JAVA 端到 python 端的输入数据的定义，以及 python 端数据输出到 JAVA 端的结构定义
 下面代码 input 指定了输入数据表 data1 （P.S. 该输入数据必须是在 Byzer-lang 里执行产生过的）
@@ -773,7 +773,7 @@ load jsonStr.`jsonStr` as data;
 select features[0] as a ,features[1] as b from data
 as data1;
 ```
-![avatar](../images/a1.png)
+![avatar](./images/a1.png)
 ##### Step. 2 Byzer-python 做数据处理
 ```
 Note. 从 java 端接受的数据格式也是list(dict)，也就是说，每一行的数据都以字典的数据结构
@@ -823,7 +823,7 @@ res = [foo(row) for row in datas]
 ## 构造结果数据返回
 context.build_result(res)
 ```
-![avatar](../images/a2.png)
+![avatar](./images/a2.png)
 #### 使用 Byzer-python  做分布式处理 (需要用户启动 Ray)
 ```
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev
@@ -862,7 +862,7 @@ res =  ray.get(foo.remote(data_servers))
 ## 构造结果数据返回
 context.build_result(res)
 ```
-![avatar](../images/a3.png)
+![avatar](./images/a3.png)
 #### 模型训练（单机）
 ```
  需要 Driver 侧安装  tensorflow
@@ -947,7 +947,7 @@ res = [{'epoch':item[0], 'k':item[1], 'b':item[2]} for item in res]
 context.build_result(res)
 ```
 结果展示了每一个 epoch 的斜率（k）和截距（b）的拟合数据
-![avatar](../images/a4.png)
+![avatar](./images/a4.png)
 #### 模型训练 （分布式）
 ```
 需要在  Ray 侧 安装 tensorflow
@@ -1012,7 +1012,7 @@ res =  ray.get(train.remote(data_servers))
 res = [{'epoch':item[0], 'k':item[1], 'b':item[2]} for item in res]
 context.build_result(res)
 ```
-![avatar](../images/a5.png)
+![avatar](./images/a5.png)
 #### 利用 Byzer-python 进行报表绘制
 ```
 set jsonStr='''
@@ -1056,7 +1056,7 @@ with open("bar_demo.html") as file:
 os.remove("bar_demo.html")
 context.build_result([{"content":html,"mime":"html"}])
 ```
-![avatar](../images/a6.png)
+![avatar](./images/a6.png)
 #### 如何将Python代码包装成库
 
 
