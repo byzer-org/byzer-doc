@@ -6,7 +6,7 @@ Byzer 作为一门面向 Data 和 AI 的新一代编程语言，在设计的时�
 
 第一点是我们希望在语言层面能够尽可能简单，减少上手的成本，所以采用了声明式语言（SQL-like）来设计，但是对于日常使用来讲，又希望保持一定的灵活性，所以 Byzer 在设计的时候，是融合了声明式语言和命令式语言的设计。
 
-第二点是我们希望直接设计成一个解释型的语言，Byzer 目的是想要解决 Data Pipeline 处理和 AI 落地的效率问题，大数据和 AI 领域对吞吐的需求超过了对延迟的苛刻要求，对语言的运行延迟不再那么严格，我们需要的更为抽象更易用的语言，并且能够跨平台，所以我们采用了解释型语言的设计。
+第二点是我们希望直接设计成一个解释型语言，Byzer 目的是想要解决 Data Pipeline 处理和 AI 落地的效率问题，大数据和 AI 领域对吞吐的需求超过了对延迟的苛刻要求，对语言的运行延迟不再那么严格，我们需要的更为抽象更易用的语言，并且能够跨平台，所以我们采用了解释型语言的设计。
 
 第三点是想要尽可能复用业界现有的强大生态，可以让语言的执行天然云原生和分布式，所以我们采用了 Spark/Ray 作为了语言的执行引擎，得益于 Spark 和 Python 的强大生态，Byzer 的生态也非常丰富。
 
@@ -22,7 +22,7 @@ Byzer 的架构如下图：
 
 ![byzer-lang-arch](images/byzer-arch.png)
 
-我们可以看到 Byzer 作为一个解释性语言，拥有解释器（Interpreter）以及运行时环境 （Runtime），Byzer 的 Interpreter 会对 Byzer 的脚本做词法分析，预处理，解析等阶段，然后生成 Java/Scala/Python/SQL 等代码，然后提交到 Runtime 上进行执行。这里可以看出，生成的 Java 或 Scala 代码，就是 Byzer 的 Native 代码。
+我们可以看到 Byzer 作为一个解释型语言，拥有解释器（Interpreter）以及运行时环境 （Runtime），Byzer 的 Interpreter 会对 Byzer 的脚本做词法分析，预处理，解析等阶段，然后生成 Java/Scala/Python/SQL 等代码，然后提交到 Runtime 上进行执行。这里可以看出，生成的 Java 或 Scala 代码，就是 Byzer 的 Native 代码。
 
 Byzer 使用 **Github 作为包管理器（Package Manager）**，有内置 lib 库和第三方 lib 库（lib 库是使用 Byzer 语言编写出的功能模块）
 
