@@ -5,10 +5,15 @@ Ray 从模型训练再到模型部署的全流程 demo。
 
 #### 数据准备
 
-首先，准备 mnist 数据集（需要安装 `tensorflow` 和 `keras`）：
+首先，安装 `tensorflow` 和 `keras`:
+```shell
+pip install keras tensorflow "tenacity~=6.2.0"
+```
+
+准备 mnist 数据集（需要）：
 
 ```sql
-!python env "PYTHON_ENV=source activate dev";
+!python env "PYTHON_ENV=source activate ray1.8.0";
 !python conf "schema=st(field(image,array(long)),field(label,long),field(tag,string))";
 !python conf "runIn=driver";
 !python conf "dataMode=model";
@@ -46,7 +51,7 @@ save overwrite mnist_data as delta.`ai_datasets.mnist`;
 load delta.`ai_datasets.mnist` as mnist_data;
 select image, label from mnist_data where tag="train" as mnist_train_data;
 
-!python env "PYTHON_ENV=source activate dev";
+!python env "PYTHON_ENV=source activate ray1.8.0";
 !python conf "schema=file";
 !python conf "dataMode=model";
 !python conf "runIn=driver";
@@ -63,7 +68,7 @@ from pyjava.storage import streaming_tar
 import numpy as np
 
 
-ray_context = RayContext.connect(globals(),"10.1.3.197:10001")
+ray_context = RayContext.connect(globals(),"127.0.0.1:10001")
 data_servers = ray_context.data_servers()
 
 train_dataset = [item for item in RayContext.collect_from(data_servers)]
@@ -105,11 +110,11 @@ save overwrite mnist_model as delta.`ai_model.mnist_model`;
 训练好模型之后，我们就可以用 Byzer-lang 的 Register 语法将模型注册成基于 Ray 的服务了，下面是模型注册的代码：
 
 ```sql
-!python env "PYTHON_ENV=source activate dev";
+!python env "PYTHON_ENV=source activate ray1.8.0";
 !python conf "schema=st(field(content,string))";
 !python conf "mode=model";
 !python conf "runIn=driver";
-!python conf "rayAddress=10.1.3.197:10001";
+!python conf "rayAddress=127.0.0.1:10001";
 
 
 -- 加载前面训练好的tf模型
