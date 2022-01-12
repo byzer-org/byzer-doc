@@ -1,5 +1,6 @@
 - Blog
     - [2021-12-18 Datafun 活动 Byzer 介绍](/public/blog/zh-cn/2021-12-18-datafun-byzer.md)
+    - [2022-01-12 Kolo-lang Python Tutorial](/public/blog/zh-cn/2022-01-12-python_in_kolo_tutorial.md)
 - Blog Archive 2021
     - [可编程的 SQL 是什么样的？](/public/blog_archive_2021/可编程的SQL是什么样的.md)
     - [SQL思维VS编程思维](/public/blog_archive_2021/SQL思维VS编程思维.md)
