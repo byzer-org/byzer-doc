@@ -61,8 +61,8 @@ byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
 
 ### 体验 Byzer 功能
 
-浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，在下一界面按下图输入，点击 Create a New Notebook - Create, 进入 Notebook 使用界面。
- 
+浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，点击 **Create a New Notebook - Create**，进入 Notebook 使用界面，贴入如下代码：
+
 #### 使用 Python 和 Ray 处理 JSON 数据
 
 请执行代码:
@@ -105,7 +105,7 @@ ray_context.foreach(echo)
 ''' named newdata;
 
 select * from newdata as output;
-``` 
+```
 
 结果如下:
 
