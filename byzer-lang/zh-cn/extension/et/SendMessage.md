@@ -62,9 +62,9 @@ and subject = "${EMAIL_TITLE}"
 
 下面介绍一下如何使用邮件发送HTML格式的文本，并携带附件。
 
-1） 首先通过 byzer Api Console 上传2个CSV文件`employee.csv`和`company.csv`，作为附件内容。
+1） 首先通过 Byzer-Notebook 上传2个CSV文件`employee.csv`和`company.csv`，作为附件内容。
 
-2） 通过如下SQL的方式发送该邮件，示例如下：
+2） 通过如下 SQL 的方式发送该邮件，示例如下：
 
 ```sql
 set EMAIL_TITLE = "这是邮件标题";
@@ -95,7 +95,7 @@ and password="---"
 | 参数名  |  参数含义 |
 |---|---|
 | method | 消息发送方式，目前支持：MAIL（邮件发送）；默认值为MAIL |
-| mailType | 邮件服务类型，目前支持：local（使用本地sendmail服务）、config（sql配置SMTP服务器）；默认值为local |
+| mailType | 邮件服务类型，目前支持：local（使用本地sendmail服务）、config（sql配置SMTP服务器）；默认值为 config |
 | userName | 邮箱服务用户名，即邮箱账号，如：do_not_reply@gmail.com；如果为config模式该值必填。 |
 | password | 邮箱服务授权码；如果为config模式该值必填。 |
 | <font color='red'> from </font> | 发件人邮箱账户 |
