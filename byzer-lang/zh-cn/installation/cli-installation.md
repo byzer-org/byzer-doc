@@ -22,15 +22,14 @@
 
 下载 byzer-lang 命令行程序包，地址如下：
 
-- [Mac 版](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
-- [Linux 版](https://download.byzer.org/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
+- [Mac 版](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz)
+- [Linux 版](https://download.byzer.org/byzer/2.2.1/byzer-lang-linux-amd64-3.0-2.2.1.tar.gz)
 
 3. 目录结构
 
-本示例以 mac 环境为例，下载 [适配 mac 环境的压缩包](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz) 后，对 tar 包进行解压缩，内部的目录结构如下：
+本示例以 mac 环境为例，下载 [适配 mac 环境的压缩包](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz) 后，对 tar 包进行解压缩，内部的目录结构如下：
 
 ```
-./byzer-lang-mac-amd64-2.3.0-preview
 |-- bin
 |-- jdk8
 |-- libs
@@ -45,7 +44,7 @@
 接下来，需要把解压后的文件放置到固定的目录，并配置环境变量，其中 `MLSQL_LANG_HOME` 为包含 `bin` 目录的上一层目录，如下所示：
 
 ```
-export MLSQL_LANG_HOME=/opt/mlsql-app_2.4-2.1.0-linux-amd64
+export MLSQL_LANG_HOME=/opt/byzer-lang-darwin-amd64-3.0-2.2.1
 export PATH=${MLSQL_LANG_HOME}/bin:$PATH
 ```
 

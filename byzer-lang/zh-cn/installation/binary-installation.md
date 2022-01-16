@@ -4,7 +4,7 @@ Byzer-lang 是 Byzer Notebook 的执行引擎，下面介绍部署方式。
 
 ### 安装前置准备
 
-JDK8 和 Spark 是 byzer-lang 启动的必要条件。
+JDK8 和 Spark 是 Byzer-lang 启动的必要条件。
 
 #### JDK8 安装
 
@@ -44,7 +44,7 @@ wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7
 ```
 byzer-lang_<spark_major_version>-<byzer_lang_version>    
 ```
-这里 spark_major_version 指 2.4 或者 3.0。SNAPSHOT 包每日更新，供您体验最新功能。
+这里 spark_major_version 指 2.4 或者 3.0。nightly-build 每日更新，供您体验最新功能。
 
 ### 源码编译(可选)
 
