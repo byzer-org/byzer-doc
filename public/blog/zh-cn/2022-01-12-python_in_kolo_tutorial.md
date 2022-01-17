@@ -1,4 +1,4 @@
-# Byzer-python_tutorial
+# Byzer-python Tutorial
 
 | **Version** | **Author** | **Date** | **Comment** |
 | ------ | ------ | ------ |------ |
