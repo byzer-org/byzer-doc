@@ -16,16 +16,10 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 
 ### Sandbox 独立部署 Byzer
 
-下载 byzer docker repo 最新的image（基于 Spark 3）：
+下载 Byzer docker repo 最新的image（基于 Spark 3）：
 
 ```shell
-docker pull byzer/byzer-sandbox:3.1.1-2.2.0-SNAPSHOT
-```
-
-如果需要体验spark2 版本的byzer，请下载 byzer docker repo 最新的image：
-
-```shell
-docker pull byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
+docker pull byzer/byzer-sandbox:3.1.1-latest
 ```
 
 使用 docker 命令启动 Spark 3.1.1版 Sandbox 容器:

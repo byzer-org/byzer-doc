@@ -67,14 +67,14 @@ kubectl create secret docker-registry regcred \
 /work/byzer-k8s/byzer-k8s run \
   --kube-config  ~/.kube/config \
   --engine-name mlsql-engine \
-  --engine-image byzer/byzer-lang-k8s:3.1.1-2.2.0-SNAPSHOT \
+  --engine-image byzer/byzer-lang-k8s:3.1.1-2.2.1 \
   --engine-executor-core-num 1 \
   --engine-executor-num 1   \
   --engine-executor-memory 1024 \
   --engine-driver-core-num 1   \
   --engine-driver-memory 1024 \
   --engine-access-token mlsql   \
-  --engine-jar-path-in-container local:///home/deploy/mlsql/libs/streamingpro-mlsql-spark_3.0_2.12-2.1.0.jar   \
+  --engine-jar-path-in-container local:///home/deploy/mlsql/libs/streamingpro-mlsql-spark_3.0_2.12-2.2.1.jar   \
   --storage-name  jfs \
   --storage-meta-url redis://192.168.50.254:6379/1
 ```
