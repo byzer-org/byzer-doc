@@ -2,7 +2,7 @@
 
 | **Version** | **Author** | **Date** | **Comment** |
 | ------ | ------ | ------ |------ |
-| V 1.0 | Andie Huang (ckeys1993@gmail.com) | 2022/01/11 | mv from **CloudDoc**|
+| V 1.0 | Andie Huang (ckeys1993@gmail.com) | 2022/01/11 | first version|
 
 
 
@@ -16,7 +16,7 @@ Byzer-python 核心在于，实现了 Byzer 表在Python中的无缝衔接， �
 1. 官网提供了在线Lab供用户学习使用Byzer-lang. 可访问网址：https://www.byzer.org
 2. 使用docker进行快速体验，文档地址：https://docs.byzer.org/#/byzer-lang/zh-cn/introduction/get_started 。或按如下方式启动容器后，请访问http://127.0.0.1:9002 进入 Byzer Notebook。
 
-```
+```shell
 export MYSQL_PASSWORD=${1:-root}
 export SPARK_VERSION=${SPARK_VERSION:-3.1.1}
 
@@ -39,7 +39,7 @@ byzer/byzer-sandbox:${SPARK_VERSION}-lastest
 
 ### 极简例子
 
-```
+```python
 #%python
 #%input=command
 #%output=output
@@ -75,13 +75,13 @@ context.build_result([{"hello":"world"}])
 4. schema
 5. dataMode 应该都设置为 `model` 只有在特定 API情况下才设置为 `data` 
 
-```
-注解 的生命周期是 session, 也就是用户的整个生命周期。用户需要在每次使用 Byzer-python 时都要在Byzer Notebook cel l中声明覆盖。
-```
 
-上面的示例 Byzer-python 代码是通过注解来完成的。也可以通过原生的Byzer代码来书写：
+> 注解 的生命周期是 session, 也就是用户的整个生命周期。用户需要在每次使用 Byzer-python 时都要在Byzer Notebook cell 中声明覆盖。
 
-```
+
+上面的示例 Byzer-python 代码是通过注解来完成的。也可以通过原生的 Byzer 代码来书写：
+
+```python
 -- Python hello world
 
 !python conf "schema=st(field(hello,string))";
@@ -104,13 +104,13 @@ context.build_result([{"hello":"world"}])
 
 在上面的例子，没有输入（输入指定了一张空表 `command` ）。 这次尝试加点数据。
 
-```
+```sql
 select 1 as a as mockTable;
 ```
 
-然后给a 字段加1：
+然后给 a 字段加1：
 
-```
+```python
 #%python
 #%input=mockTable
 #%output=mockTable2
@@ -137,19 +137,19 @@ context.build_result(add_one())
 
 通过注解，指定了 `mockTable` 作为输入。同时输出为 `mockTable2`, 这意味着，可以后续在  Byzer 代码中使用  `mockTable2`:
 
-```
+```sql
 select * from mockTable2 as output;
 ```
 
 在书写 Byzer-python 代码时，默认会有个变量叫 `context` 无需声明即可使用。 `context` 用来构建输出。为了方便代码提示，用户通常需要加一句冗余代码：
 
-```
+```sql
 context:PythonContext = context
 ```
 
 Byzer-python 通过下面的代码来完成系统初始化
 
-```
+```sql
 ray_context = RayContext.connect(globals(),None)
 ```
 
@@ -158,9 +158,9 @@ ray_context = RayContext.connect(globals(),None)
 
 初始化后，用户就可以通过  `ray_context` 来获取输入。获取的方式有很多，在上面的示例中，使用`ray_context.collect()` 方法来获取一个 `dict` 格式的 `generator` 。
 
-```
-注意，ray_context.collect() 得到的数据集只能迭代一次。
-```
+
+> 注意，ray_context.collect() 得到的数据集只能迭代一次。
+
 
 为了能够实现给 `a`  字段加 `1` 的操作，定义一个函数 `add_one` 来对数据进行更改，并且重新生成一个 `generator` 传递给 `context.build_result` 实现将 Byzer-python处理的结果集返回给 Byzer 引擎。 `build_result` 函数接受包含 `Dict`的 `generator` 和 `list`。
 
@@ -168,13 +168,13 @@ ray_context = RayContext.connect(globals(),None)
 
 上面的例子在初始化语句 `ray_context = RayContext.connect(globals(),None) ` 第二个参数都被设置为 `None` 了，所以是单机执行的。现在看看如何让 Byzer-python 分布式执行任务。
 
-```
-该例子需要有Ray集群。请参考本文Ray部分看如何启动。
-```
+
+> 该例子需要有Ray集群。请参考本文Ray部分看如何启动。
+
 
 第一步，制造一些数据：
 
-```
+```python
 -- distribute python hello world
 
 set jsonStr='''
@@ -192,7 +192,7 @@ load jsonStr.`jsonStr` as data;
 
 接着使用 Byzer-python 对 `data` 表进行处理：
 
-```
+```python
 #%python
 #%input=data
 #%output=mockTable2
@@ -221,19 +221,19 @@ ray_context.foreach(echo)
 这个例子稍微复杂点，和第一个例子的不同之处有两个。
 第一个是 `dataMode` 改成了 `data` 。前面的例子都是 `model` .  
 
-```
-当前只有在使用了 ray_context.foreach 和  ray_context.map_iter API 时需要将dataMode 修改成 data.
-```
+
+> 当前只有在使用了 ray_context.foreach 和  ray_context.map_iter API 时需要将dataMode 修改成 data.
+
 
 第二个，在 下面的语句中：
 
-```
+```python
 ray_context = RayContext.connect(globals(),None)
 ```
 
 第二个参数 `None` 被修改成了 `Ray集群` 地址：
 
-```
+```python
 ray_context = RayContext.connect(globals(),"127.0.0.1:10001")
 ```
 
@@ -247,7 +247,7 @@ ray_context = RayContext.connect(globals(),"127.0.0.1:10001")
 
 具体代码如下：
 
-```
+```python
 #%python
 #%input=data
 #%schema=st(field(count,long))
@@ -283,13 +283,13 @@ context.build_result([{"count":final_count}])
 1. 这是一个远程方法
 2. 调度器需要找一个满足 cpu 核心为8, GPU数为1的节点 运行这个远程方法。
 
-```
-为了避免找不到足够资源的node，我们可以在启动时设置好资源，例如：ray start --head --num-cpus=8 --num-gpus=1
-```
 
-data_refs是一个数组,表示的是数据切片引用。假设数组长度是 4, 那么通过下面的语句：
+> 为了避免找不到足够资源的node，我们可以在启动时设置好资源，例如：ray start --head --num-cpus=8 --num-gpus=1
 
-```
+
+data_refs 是一个数组,表示的是数据切片引用。假设数组长度是 4, 那么通过下面的语句：
+
+```python
 job_refs = [count_worker.remote(data_ref) for data_ref in data_refs ]
 ```
 
@@ -302,7 +302,7 @@ Byzer-python 会启动四个满足资源要求的 python进程运行 `count_work
 2. 获取 Byzer-lang 任意视图的数据引用，可以精确到数据分片。
 3. 处理结果可以输出成一张表
 4. 提供了高阶 API 做数据处理
-5. 提供了分布式编程范式，只需要对 函数 或者 类 添加注解 @ray.remote 即可
+5. 提供了分布式编程范式，只需要对 `函数` 或者 `类` 添加注解 `@ray.remote` 即可
 6. 提供了硬件感知能力
 
 ## Byzer-python 原理
@@ -313,45 +313,45 @@ Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方�
 ![avatar](./images/byzer_archi2.png)
 
 
-在第一个 Hello World 例子中，  其实是在Java Executor节点执行的，然后会把 Byzer-python 代码传递给 Python Worker 执行。此时因为没有连接 Ray集群，所以逻辑处理工作是在 Python Worker 中完成的，并且是单机执行的。
+在第一个 Hello World 例子中，  其实是在Java Executor 节点执行的，然后会把 Byzer-python 代码传递给 Python Worker 执行。此时因为没有连接 Ray集群，所以逻辑处理工作是在 Python Worker 中完成的，并且是单机执行的。
 
-在分布式的 Hello World 示例中， 通过连接 Ray Cluster, Python Worker转化为 Ray Client,只负责把  Byzer-python 代码转化为任务提交个给 Ray Cluster, 所以Python Worker很轻量，除了基本的Ray，Pyjava等库以外，不需要安装额外的一些Python依赖库。
+在分布式的 Hello World 示例中， 通过连接 Ray Cluster, Python Worker 转化为 Ray Client,只负责把  Byzer-python 代码转化为任务提交个给 Ray Cluster, 所以Python Worker 很轻量，除了基本的 Ray，Pyjava 等库以外，不需要安装额外的一些 Python 依赖库。
 
-```
-在前面的示例中，当通过 #%env=source /opt/miniconda3/bin/activate ray1.8.0  设置环境时，本质上是设置 Python worker 的环境。
-```
+
+> 在前面的示例中，当通过 #%env=source /opt/miniconda3/bin/activate ray1.8.0  设置环境时，本质上是设置 Python worker 的环境。
+
 
 简单总结下：
 
-1. 如果用户没有使用Ray，那么需要在 Python worker(Byzer spark runtime的driver或者executor节点)配置Python环境。注解 ` #%runIn `可以控制python worker是运行在 `driver` 节点还是` executor`节点。 注解  `#%env` 可以控制使用节点上哪个虚拟环境。如果没有虚拟环境，配置为 `:` 即可。
-2. 如果用户使用了Ray,那么也需要配置Ray环境里的Python环境，并且需要和 Spark runtime里的 Ray/Pyjava 保持版本一致。
+1. 如果用户没有使用 Ray，那么需要在 Python worker (Byzer spark runtime的driver或者executor节点) 配置 Python 环境。注解 ` #%runIn `可以控制python worker 是运行在 `driver` 节点还是` executor`节点。 注解  `#%env` 可以控制使用节点上哪个虚拟环境。如果没有虚拟环境，配置为 `:` 即可。
+2. 如果用户使用了 Ray，那么也需要配置Ray环境里的Python环境，并且需要和 Spark runtime 里的 Ray/Pyjava 保持版本一致。
 
-考虑到 Java Executor节点很多，不易于管理，所以我们也支持让Driver 节点接受Python任务，从而简化Spark 侧的环境配置。
+考虑到 Java Executor 节点很多，不易于管理，所以我们也支持让 Driver 节点接受 Python 任务，从而简化 Spark 侧的环境配置。
 
 ## Byzer-python 环境配置
 
 当探讨  Byzer-python 环境安装时，会指两个部分，
-1. 第一个是 Byzer-lang Engine的Driver 节点 (Executor 很多，环境管理会复杂些，推荐 runIn 设置为 driver)
+1. 第一个是 Byzer-lang Engine 的 Driver 节点 (Executor 很多，环境管理会复杂些，推荐 runIn 设置为 driver)
 2. 第二个是 Ray 集群的 Python 依赖环境
 
-在 Driver  侧，用户可以使用 Conda 来进行环境管理。
+在 Driver 侧，用户可以使用 Conda 来进行环境管理。
 
 1. Conda 安装 python
     创建一个名字为 dev ，python 版本为3.6的一个python环境
 
-    ```
+    ```shell
     conda create -n dev python=3.6.13
     ```
 
     激活 dev 的 python 环境，并在 dev 环境下安装所需依赖包
 
-    ```
+    ```shell
     source actviate dev
     ```
 
-    当然，activate如果没有软连接或者设置环境变量，会出现 command not found: activate 的错误。 这个需要指定 activate 的绝对路径就可以解决。比如，我的 activate 的绝对路径是 /usr/local/Caskroom/miniconda/base/bin/activate , 所以激活命令可以是
+    当然，activate如果没有软连接或者设置环境变量，会出现 `command not found: activate` 的错误。 这个需要指定 activate 的绝对路径就可以解决。比如，我的 activate 的绝对路径是 `/usr/local/Caskroom/miniconda/base/bin/activate`, 所以激活命令可以是
 
-    ```
+    ```shell
     source /usr/local/Caskroom/miniconda/base/bin/activate dev
     ```
 
@@ -375,14 +375,14 @@ Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方�
 ### 基本注解
 
 ```
-3. #%python 表明这是一个描写 python script 的 cell. 
-4. #%input=table1 表明了这段 python script 的数据输入是table1
-5. #%output=b_output  表明这段 python script 的结果表表明是b_output，可以不指定，会随机产生一个结果表名.
-6. #%schema=st(field(a,long)) python 是一个弱类型的语言，因此我们需要告知系统 python 的结果数据结构.
-7. #%dataMode=model ，分别有 model|data 两种模式，如果你使用`ray_context.foreach`,`ray_context.map_iter` 那么需要设置dataMode为`data`，否则的话设置 dataMode 为`model`
-8. #%env=source xxx/anaconda3/bin/activate ray1.8.0` 选择 python 的环境，ray1.8.0是conda的python环境的名字.
-9. #%runIn=driver | executor 接着指定Python代码是在Driver还是在Executor端跑，推荐Driver跑.
-8 #%cache=true  因为Python产生的表只能消费一次。为了方便后续可能多次消费，可以开启cache 为true，从而缓存该表。
+1. #%python 表明这是一个描写 python script 的 cell. 
+2. #%input=table1 表明了这段 python script 的数据输入是table1
+3. #%output=b_output  表明这段 python script 的结果表表明是b_output，可以不指定，会随机产生一个结果表名.
+4. #%schema=st(field(a,long)) python 是一个弱类型的语言，因此我们需要告知系统 python 的结果数据结构.
+5. #%dataMode=model ，分别有 model|data 两种模式，如果你使用`ray_context.foreach`,`ray_context.map_iter` 那么需要设置dataMode为`data`，否则的话设置 dataMode 为`model`
+6. #%env=source xxx/anaconda3/bin/activate ray1.8.0` 选择 python 的环境，ray1.8.0是conda的python环境的名字.
+7. #%runIn=driver | executor 接着指定Python代码是在Driver还是在Executor端跑，推荐Driver跑.
+8. #%cache=true  因为Python产生的表只能消费一次。为了方便后续可能多次消费，可以开启cache 为true，从而缓存该表。
 ```
 
 注意：这些注解都是 session 级别有效。所以需要每次使用时指定。
@@ -412,25 +412,25 @@ Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方�
 
 定义示例：
 
-```
+```sql
 st(field(column1,map(string,string)))
 ```
 
 或者：
 
-```
+```sql
 st(field(column1,map(string,array(st(field(columnx,string))))))
 ```
 
-```
-在 Byzer-lang  2.2.0 版本以及以前的版本， map和date 数据类型的支持还有些问题。浮点数统一使用double类型，整数统一使用long类型。
-```
+
+> 在 Byzer-lang 2.2.0 版本以及以前的版本， map 和 date 数据类型的支持还有些问题。浮点数统一使用 double 类型，整数统一使用 long 类型。
+
 
 #### Json Schema 格式
 
 使用 Json  定义 schema 功能最全，但是写起来复杂,示例如下：
 
-```
+```sql
 #%schema={"type":"struct","fields":[{"name":"id","type":"integer","nullable":true,"metadata":{}},{"name":"diagnosis","type":"string","nullable":true,"metadata":{}},{"name":"radius_mean","type":"double","nullable":true,"metadata":{}}]}
 ```
 
@@ -442,7 +442,7 @@ st(field(column1,map(string,array(st(field(columnx,string))))))
 
 #### DDL Schema 格式
 
-用户也可以用标准的符合MySQL 的 create 语句来定义 schema格式。
+用户也可以用标准的符合 MySQL 的 create 语句来定义 schema 格式。
 
 ```
 #%schema=CREATE TABLE t1 (c1 INT,c2 INT) ENGINE NDB
@@ -457,7 +457,7 @@ st(field(column1,map(string,array(st(field(columnx,string))))))
 
 1. 创建RayContext:
 
-```
+```sql
 ray_context = RayContext.connect(globals(),None)
 ```
 
@@ -465,13 +465,13 @@ ray_context = RayContext.connect(globals(),None)
 
 获取所有数据：
 
-```
+```sql
 items = ray_context.collect()
 ```
 
 通过分片来获取数据：
 
-```
+```sql
 data_refs = ray_context.data_servers()
 data = [RayContext.collect_from([data_ref]) for data_ref in data_refs]
 ```
@@ -480,19 +480,19 @@ data = [RayContext.collect_from([data_ref]) for data_ref in data_refs]
 
 如果数据规模不大，也可以直接获取pandas格式数据。
 
-```
+```sql
 data = RayContext.to_pandas()
 ```
 
 如果数据规模大，可以转化为 Dask 数据集来进行操作：
 
-```
+```sql
 data = ray_context.to_dataset().to_dask()
 ```
 
 3. 构建新的结果数据输出
 
-```
+```sql
 context.build_result([])
 ```
 
@@ -502,7 +502,7 @@ context.build_result([])
 
 如果已经连接了Ray,那么可以直接使用高阶API `ray_context.foreach`
 
-```
+```sql
 set jsonStr='''
 {"Busn_A":114,"Busn_B":57},
 {"Busn_A":55,"Busn_B":134},
@@ -515,7 +515,7 @@ set jsonStr='''
 load jsonStr.`jsonStr` as data;
 ```
 
-```
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev2
 #%python
 #%input=data
@@ -541,7 +541,7 @@ foreach接受一个回调函数，函数的入参是一条记录。用户无需�
 
 系统会自动调度多个任务到Ray上并行运行。 map_iter会根据表的分片大小启动相应个数的task,如果你希望通过map_iter拿到所有的数据，而非部分数据，可以先对表做重新分区
 
-```
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev2
 #%python
 #%input=data
@@ -567,11 +567,11 @@ def echo(rows):
 ray_context.map_iter(echo)
 ```
 
-### 将表转化为分布式pandas
+### 将表转化为分布式 pandas
 
-如果用户喜欢使用Pandas API ,而数据集又特别大，也可以将数据转换为分布式Pandas(on Dask)来做进一步处理：
+如果用户喜欢使用 Pandas API ,而数据集又特别大，也可以将数据转换为分布式 Pandas(on Dask) 来做进一步处理：
 
-```
+```python
 #%python
 #%input=mockData
 #%schema=st(field(count,long))
@@ -591,7 +591,7 @@ c = df.shape[0].compute()
 context.build_result([{"count":c}])
 ```
 
-注意，该API需要使用功能Ray。
+注意，该 API 需要使用功能 Ray。
 
 ### 将目录转化为表
 
@@ -599,7 +599,7 @@ context.build_result([{"count":c}])
 
 第一步，通过 Byzer-python 读取目录，转化为表：
 
-```
+```python
 #%python
 #%input=final_cifar10
 #%output=cifar10_model
@@ -619,13 +619,13 @@ ray_context.build_result(model_binary)
 
 将 Byzer-python 产生的表保存到数据湖里去（delta）
 
-```
+```sql
 save overwrite cifar10_model as delta.`ai_model.cifar_model`;
 ```
 
 ## Ray 的介绍
 
-Ray的详细框架介绍,  下面这张图展示了 Ray 的主要架构。GCS 作为集中的服务端，是 Worker 之间传递消息的纽带。每个 Server 都有一个共用的 Object Store，通过 Apache Arrow/Plasma 的方式存储数据及数据通信。 Local Scheduler 是 Node 内部的调度，同时通过 GCS 来和其他 Node 上的 Worker 通信。
+Ray 的详细框架介绍,  下面这张图展示了 Ray 的主要架构。GCS 作为集中的服务端，是 Worker 之间传递消息的纽带。每个 Server 都有一个共用的 Object Store，通过 Apache Arrow/Plasma 的方式存储数据及数据通信。 Local Scheduler 是 Node 内部的调度，同时通过 GCS 来和其他 Node 上的 Worker 通信。
 
 ![avatar](./images/ray1.png)
 
@@ -639,60 +639,63 @@ Ray的详细框架介绍,  下面这张图展示了 Ray 的主要架构。GCS �
 
 通过 Ray 命令在机器上启动 Ray：
 
-```
-ray start --head # 该命令的意思是执行该命令的机器是ray集群的head节点（类似driver/master节点）
-```
+
+> ray start --head # 该命令的意思是执行该命令的机器是 ray 集群的 head 节点（类似 driver/master 节点）
+
 
 这样就可以在控制台上看到成功启动 ray 的结果
 
 ![avatar](./images/ray2.png)
 
-如果需要dashboard支持， 可以再加一个参数  `--include-dashboard true` 这样启动后就可以根据提示访问 Ray的管理页面。默认地址：  `http://127.0.0.1:8265`
+如果需要 dashboard 支持， 可以再加一个参数  `--include-dashboard true` 这样启动后就可以根据提示访问 Ray 的管理页面。默认地址：  `http://127.0.0.1:8265`
 
 ### 集群启动
 
 Master 机器
 
-```
+```shell
 ray start --head 
 ```
 
-Worker 机器 【每一个slave的节点都需要执行这个命令】
+Worker 机器 (每一个 slave 的节点都需要执行这个命令)
 
-```
+```shell
 ray start --address='<client ip address>:6379'
 ```
 
 在 Byzer-python 中，只需要在初始化语句中的第二个参数中指定 head 节点的 ip 地址，head 节点收到任务后 ray 的管理器会将任务分发到 server 节点。示例如下：
 
-```
+```python
 from pyjava.api.mlsql import RayContext,PythonContext
 ray_context = RayContext.connect(globals(), '<head_node_ip_address>:10001')  
 ```
 
 ### Byzer notebook 的使用
 
-```
-注意事项1： Byzer Notebook 中，  通常一个 Byzer-python Cell 就是一个独立的小黑盒
+
+> 注意事项1： Byzer Notebook 中，  通常一个 Byzer-python Cell 就是一个独立的小黑盒
 ，输入是表，产出也是表。不同的  Byzer-python Cell 之间的信息都是隔离的。如果希望两个
  Cell 的代码能实现交互，可以通过产出的表进行交互。这点和传统的 Python 类型的 Notebook
 不同。
-```
 
-```
-注意事项2： Byzer Notebook中， Byzer-python Cell 产出的表只能被消费使用一次。 如果
+> 注意事项2： Byzer Notebook中， Byzer-python Cell 产出的表只能被消费使用一次。 如果
 希望后续多次使用， 可以添加注解 %#cache=true  来进行缓存。 缓存会放在用户 主目录 中的
 临时目录中。
-```
+
 首先，在 Byzer 或者 Byzer-lang 的桌面版里， Cell 需要指定命令激活 python 环境， Byzer-lang 是通过识别注释代码感知。 代码如下 
-```
+
+```shell
 !python env "PYTHON_ENV= source activate dev"
 ```
+
+```shell
+source activate dev 
+#可以换成绝对路径 source /usr/local/Caskroom/miniconda/base/bin/activate dev
 ```
-source activate dev 可以换成绝对路径 source /usr/local/Caskroom/miniconda/base/bin/activate dev
-```
+
 OR
-```
+
+```python
 #%env=source activate dev
 #%python
 ```
@@ -703,19 +706,23 @@ OR
 下面是指定由 JAVA 端到 python 端的输入数据的定义，以及 python 端数据输出到 JAVA 端的结构定义
 下面代码 input 指定了输入数据表 data1 （P.S. 该输入数据必须是在 Byzer-lang 里执行产生过的）
 Schema 指定了输出数据以宽表的形式返回到 JAVA 端，第一列是 content 字段，第二列是 mime 字段
-```
+
+```python
 #%input=data1
 #%schema=st(field(content,string),field(mime,string))
 ```
 OR
-```
+
+```python
 !python conf "schema=st(field(content,string),field(mime,string))";
 ```
 
 ### 案例展示
 ##### 如何使用 Byzer-python 获取数据
+
 在下面的示例里，获取 python 库内置的 breast_cancer 数据集
-```
+
+```python
 #%python
 #%input=command
 #%output=b_output
@@ -734,11 +741,13 @@ rows = [{"features":row[0],"label":row[1]} for row in zip(train_x.tolist(),train
 context.build_result(rows)
 ```
 然后保存到数据湖里供下次使用。
-```
+
+```sql
 save overwrite b_output as delta.`data.breast_cancer`;
 ```
 在上面的示例，数据都是放到内存的，那么如何采用迭代器模式。详细的例子可以看用boto3 sdk 读取 Aws Athena 数据的例子（如何将Python代码包装成库）。
-```
+
+```python
 #%python
 #%input=command
 #%output=b_output
@@ -762,7 +771,8 @@ context.build_result(generate_rows())
 ```
 #### 数据处理
 ##### Step. 1  Byzer-lang 端构建数据表 data1
-```
+
+```sql
 set jsonStr='''
 {"features":[5.1,3.5,1.4,0.2],"label":0.0},
 {"features":[5.1,3.5,1.4,0.2],"label":1.0}
@@ -780,14 +790,15 @@ select features[0] as a ,features[1] as b from data
 as data1;
 ```
 ![avatar](./images/a1.png)
+
 ##### Step. 2 Byzer-python 做数据处理
-```
-Note. 从 java 端接受的数据格式也是list(dict)，也就是说，每一行的数据都以字典的数据结构
+
+> Note. 从 java 端接受的数据格式也是list(dict)，也就是说，每一行的数据都以字典的数据结构
 存储。比如data1的数据，在 python 端拿到的结构就是[{'a':'5.1','b':'3.5'}, {'a':'5.1'
 ,'b':'3.5'}, {'a':'5.1','b':'3.5'} ...] 基于这个数据结构，我们可以在 python 端对输
 入数据进行数据处理
-```
-```
+
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev
 #%python
 #%input=data1
@@ -830,8 +841,10 @@ res = [foo(row) for row in datas]
 context.build_result(res)
 ```
 ![avatar](./images/a2.png)
+
 #### 使用 Byzer-python  做分布式处理 (需要用户启动 Ray)
-```
+
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev
 #%python
 #%input=data1
@@ -869,12 +882,15 @@ res =  ray.get(foo.remote(data_servers))
 context.build_result(res)
 ```
 ![avatar](./images/a3.png)
+
 #### 模型训练（单机）
-```
- 需要 Driver 侧安装  tensorflow
-```
+
+
+> 需要 Driver 侧安装  tensorflow
+
 本例子对举了在 Byzer-lang 里利用 tensorflow 做最简单的线性回归的模型训练的例子，代码如下
-```
+
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev
 #%python
 #%input=data1
@@ -952,13 +968,16 @@ res = train()
 res = [{'epoch':item[0], 'k':item[1], 'b':item[2]} for item in res]
 context.build_result(res)
 ```
+
 结果展示了每一个 epoch 的斜率（k）和截距（b）的拟合数据
 ![avatar](./images/a4.png)
+
 #### 模型训练 （分布式）
-```
-需要在  Ray 侧 安装 tensorflow
-```
-```
+
+
+> 需要在  Ray 侧 安装 tensorflow
+
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev
 #%python
 #%input=data1
@@ -1019,8 +1038,9 @@ res = [{'epoch':item[0], 'k':item[1], 'b':item[2]} for item in res]
 context.build_result(res)
 ```
 ![avatar](./images/a5.png)
+
 #### 利用 Byzer-python 进行报表绘制
-```
+```sql
 set jsonStr='''
 {"Busn_A":114,"Busn_B":57},
 {"Busn_A":55,"Busn_B":134},
@@ -1032,7 +1052,8 @@ set jsonStr='''
 ''';
 load jsonStr.`jsonStr` as data;
 ```
-```
+
+```python
 #%env=source /usr/local/Caskroom/miniconda/base/bin/activate dev2
 #%python
 #%input=data
@@ -1066,14 +1087,14 @@ context.build_result([{"content":html,"mime":"html"}])
 #### 如何将Python代码包装成库
 
 
-下面以开发 Athena 数据读取插件开发作为例子，介绍如何基于boto3的SDK，用Byzer脚本开发ET。
+下面以开发 Athena 数据读取插件开发作为例子，介绍如何基于 boto3 的 SDK，用 Byzer 脚本开发 ET。
+
 首先，我们先展示最后的使用形式（如下）
-```
-其中set部分是lib-core里的save_data所需要的一些参数，schema是数据返回到 Byzer 
-端的schema设置。rayAddress，access_id，access_key，region，database，
-s3_bucket，s3_key，query分别是适用query_schema所必需的参数
-```
-```
+
+
+> 其中set部分是lib-core里的save_data所需要的一些参数，schema是数据返回到 Byzer 端的schema设置。rayAddress，access_id，access_key，region，database，s3_bucket，s3_key，query分别是适用query_schema所必需的参数
+
+```sql
 set schema="st(field(schemadef,string))";
 set rayAddress="127.0.0.1:10001"; -- The head node IP address in ray cluster
 set access_id = ' *** ';
@@ -1089,13 +1110,13 @@ where force="true"
 and alias="andielib";
 include local.`andielib.datasource.athena.query_schema`;
 ```
-从上面的 Byzer 脚本代码可以知道，我们把核心代码逻辑放在了lib-core这个库里，然后通过 Byzer 的 include 语法进行对 core-lib的 datasource/athena 目录下 query_schema 的引用，下面我们详细介绍一下 query_schema 的开发。
+从上面的 Byzer 脚本代码可以知道，我们把核心代码逻辑放在了 lib-core 这个库里，然后通过 Byzer 的 include 语法进行对 core-lib 的 datasource/athena 目录下 query_schema 的引用，下面我们详细介绍一下 query_schema 的开发。
 
-我们通过 context.conf 去获取 Byzer Engine下通过 set 语法设置的变量（包括 rayAddress，access_id，access_key，region，database，s3_bucket，s3_key，query）因此，在执行 query_schema 之前，这些参数是需要事先 set，执行的过程中才可能传到 context.conf 中
+我们通过 context.conf 去获取 Byzer Engine 下通过 set 语法设置的变量（包括 `rayAddress，access_id，access_key，region，database，s3_bucket，s3_key，query`）因此，在执行 query_schema 之前，这些参数是需要事先 set，执行的过程中才可能传到 context.conf 中
 
-接下来我们通过 conf 获取对应的参数，利用 boto3 的sdk 根据 query 去检查任务的状态，如果成功，我们去获取 query 语句下返回的数据的schema， 构造 Byzer 端可识别的 schema 格式（例如 st(field(** ,<type>),field(**,<type>))）返回。 比如，我们在 query_schema 中，我们只定义了返回数据只有一列，这一列就是 schemadef， 类型是string，因为我们会把 Athena 查询返回的数据 Schema 构造成 Byzer 可识别的 schema 格式，以 string 的格式返回
-```
+接下来我们通过 conf 获取对应的参数，利用 boto3 的sdk 根据 query 去检查任务的状态，如果成功，我们去获取 query 语句下返回的数据的schema， 构造 Byzer 端可识别的 schema 格式（例如 `st(field(** ,<type>),field(**,<type>))`）返回。 比如，我们在 query_schema 中，我们只定义了返回数据只有一列，这一列就是 schemadef， 类型是string，因为我们会把 Athena 查询返回的数据 Schema 构造成 Byzer 可识别的 schema 格式，以 string 的格式返回
 
+```python
 '''
 @FileName       :query_schema.py
 @Author         : andie.huang
@@ -1188,12 +1209,11 @@ if result['QueryExecution']['Status']['State'] == 'SUCCEEDED':
     except Exception as e:
         print(e)
 ```
-值得注意的是， 本例并未涉及到返回数据量比较大的情况。比如，从Athena 返回 Query 查询的结果量太大，导致内存会爆。 因此，我们需要用 iterator 的方式让 context 去构造返回结果给Byzer 端。 下面我们举一个🌰
+值得注意的是， 本例并未涉及到返回数据量比较大的情况。比如，从 Athena 返回 Query 查询的结果量太大，导致内存会爆。 因此，我们需要用 iterator 的方式让 context 去构造返回结果给 Byzer 端。 下面我们举一个🌰
 
-下面这段代码，athena 是一个通过 boto3 的 client， _id 是 athena 执行的任务 id， 如果athena的返回结果带 next_token， 就会从标记位开始继续往下读【具体可以参考 boto3 SDK的详细介绍】。脚本会在 while true 的循环里不断读取 batch_size 大小的 Athena 的数据，然后返回用 yiled 返回迭代器，直到数据中止。
+下面这段代码，athena 是一个通过 boto3 的 client， _id 是 athena 执行的任务 id， 如果athena的返回结果带 next_token， 就会从标记位开始继续往下读(具体可以参考 boto3 SDK的详细介绍)。脚本会在 while true 的循环里不断读取 batch_size 大小的 Athena 的数据，然后返回用 yiled 返回迭代器，直到数据中止。
 
-```
-
+```python
 def get_query_result(athena, _id, next_token=None, batch_size=512):
     final_data = None
     while True:
@@ -1210,8 +1230,10 @@ def get_query_result(athena, _id, next_token=None, batch_size=512):
         if next_token is None:
             break
 ```
-## FAQ:
-### Byzer Notebook 和Jupyter Notebook 区别
-Byzer Notebook是Byzer 团队完全自主开发的专为Byzer-lang设计的Notebook。 Jupyter Notebook则适合跑Python等语言。当然，经过适配，Jupyter 也可以跑Byzer语言。
-### Byzer中的Python和Jupyter 中的Python或者PySpark有啥区别么
-在Byzer中，Python只是一段脚本片段，他是运行在Byzer runtime 沙盒里的，所以他可以很好的访问Byzer代码中的表，并且产生的结果可以进一步被Byzer中其他代码访问。而且如果使用了Ray,他是分布式执行的。
+## FAQ
+
+### Byzer Notebook 和 Jupyter Notebook 区别
+Byzer Notebook 是 Byzer 团队完全自主开发的专为 Byzer-lang 设计的Notebook。 Jupyter Notebook 则适合跑 Python 等语言。当然，经过适配，Jupyter 也可以跑 Byzer 语言。
+
+### Byzer 中的 Python 和 Jupyter 中的 Python 或者 PySpark 有啥区别么
+在 Byzer 中，Python 只是一段脚本片段，他是运行在 Byzer runtime 沙盒里的，所以他可以很好的访问 Byzer 代码中的表，并且产生的结果可以进一步被 Byzer 中其他代码访问。而且如果使用了 Ray,他是分布式执行的。
