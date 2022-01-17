@@ -35,6 +35,7 @@
 
 - 附录
     * 发行声明
+      * [Byzer Notebook 1.0.1](/byzer-notebook/zh-cn/appendix/release-notes/1.0.1.md)
       * [Byzer Notebook 1.0.0](/byzer-notebook/zh-cn/appendix/release-notes/1.0.0.md)
     * [术语表](/byzer-notebook/zh-cn/appendix/terms.md)  
     * [Blog](/byzer-notebook/zh-cn/appendix/blog.md)   

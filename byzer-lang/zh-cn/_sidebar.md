@@ -159,6 +159,7 @@
 - 附录
   * 发行声明
     * [Byzer 版本管理策略](/byzer-lang/zh-cn/appendix/release-notes/version.md)
+    * [Byzer 2.2.1](/byzer-lang/zh-cn/appendix/release-notes/2.2.1.md)
     * [Byzer 2.2.0](/byzer-lang/zh-cn/appendix/release-notes/2.2.0.md)
     * [MLSQL Stack 2.1.0](/byzer-lang/zh-cn/appendix/release-notes/2.1.0.md)
     * [MLSQL Stack 2.0.1](/byzer-lang/zh-cn/appendix/release-notes/2.0.1.md)
