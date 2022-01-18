@@ -26,7 +26,7 @@ After verifying your account by clicking the link in your email, you will be dir
 
 ##### 1.1 Create a file
 
-![Workspace_create](image/Workspace_create.png)
+<img src="image/Workspace_create.png" alt="Workspace_create" style="zoom:50%;" />
 
 You can view all project files in the workspace list and create **notebook** files,**workflow** files and **folder** by clicking **+** on the right side of **Workspace**. You can also import local **notebook** files (.bznb) and **workflow** files (.bzwf) by clicking **Import**.
 
@@ -34,7 +34,7 @@ You can view all project files in the workspace list and create **notebook** fil
 
 ##### 1.2 Manage a file
 
-![Workspace_edit](image/Workspace_edit.png)
+<img src="image/Workspace_edit.png" alt="Workspace_edit" style="zoom:50%;" />
 
 
 
