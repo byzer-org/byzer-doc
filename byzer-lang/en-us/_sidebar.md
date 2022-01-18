@@ -11,14 +11,16 @@
   * [New Features](/byzer-lang/en-us/what's_new/new_features.md)
 
 - Installation
-  * [Byzer-lang](/byzer-lang/en-us/installation/binary-installation.md)
-  * [Byzer Desktop](/byzer-lang/en-us/installation/desktop-installation.md)    
-  * [Byzer CLI](/byzer-lang/en-us/installation/cli-installation.md)
+  
+  * [Byzer-lang deployment guidance](/byzer-lang/en-us/installation/readme.md)
   * [Containerized deployment operation](/byzer-lang/en-us/installation/containerized_deployment.md)
       * [Sandbox standalone deployment](/byzer-lang/en-us/installation/containerized_deployment/sandbox-standalone.md)
       * [Multi-container deployment](/byzer-lang/en-us/installation/containerized_deployment/muti-continer.md)
       * [K8S Image Deployment Guide](/byzer-lang/en-us/installation/containerized_deployment/K8S-deployment.md)
-
+  * [Byzer-lang](/byzer-lang/en-us/installation/binary-installation.md)
+  * [Byzer Desktop](/byzer-lang/en-us/installation/desktop-installation.md)    
+  * [Byzer CLI](/byzer-lang/en-us/installation/cli-installation.md)
+  
 - Byzer-lang Grammar Manual
   * [Byzer-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
   * [Data Load/Load](/byzer-lang/en-us/grammar/load.md)
@@ -172,5 +174,4 @@
       * [MLSQL Stack 2.0.0](/byzer-lang/en-us/appendix/release-notes/2.0.0.md)
     * [Terms](/byzer-lang/en-us/appendix/terms.md)  
     * [Blog](/byzer-lang/en-us/appendix/blog.md)   
-
 
