@@ -1,0 +1,4 @@
+# MLSQL-Cluster does not get updated for the time being. What is MLSQL-Cluster?
+The function of MLSQL Cluster is actually quite misleading. MLSQL Cluster is actually a proxy that can manage multiple MLSQL Engine instances. Its typical function is load balancing. MLSQL Cluster also has many load balancing strategies to choose from, such as forwarding the request to the most idle Engine instance as much as possible, sending the request to the instance with the most absolute resources remaining, or sending the request to all engines.
+
+At the same time, MLSQL Cluster has the ability to do read/write splitting. Although its features are powerful, we have temporarily stopped updating it due to the complexity of deployment. Now Console can manage multiple Engines and select the required engine when using it. It can meet most of the scenarios.

@@ -5,8 +5,10 @@
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
   * [FAQ](/byzer-lang/en-us/appendix/faq/README.md)
     * [mlsql-cluster](/byzer-lang/en-us/appendix/faq/mlsql-cluster.md)
+    * [MLSQL K8s](/byzer-lang/en-us/appendix/faq/mlsql-k8s-build.md)
+    * [loading jdbc](/byzer-lang/en-us/appendix/faq/jdbc.md)
   * [How to Contribute](/byzer-lang/en-us/appendix/contribute.md)  
-
+  
 - What's New
   * [New Features](/byzer-lang/en-us/what's_new/new_features.md)
 
@@ -171,5 +173,4 @@
       * [MLSQL Stack 2.0.0](/byzer-lang/en-us/appendix/release-notes/2.0.0.md)
     * [Terms](/byzer-lang/en-us/appendix/terms.md)  
     * [Blog](/byzer-lang/en-us/appendix/blog.md)   
-
 
