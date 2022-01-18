@@ -1,7 +1,7 @@
 - Byzer-Lang Introduction
   * [Byzer-Lang](/byzer-lang/en-us/introduction/byzer_lang_intro.md)
   * [Byzer-Lang Design](/byzer-lang/en-us/introduction/byzer_lang_design.md)
-  * [Online Trial](/byzer-lang/en-us/introduction/byzer_lab.md)
+  * [Online Trial](/byzer-lang/en-us/introduction/online_trial.md)
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
   * [FAQ](/byzer-lang/en-us/appendix/faq/README.md)
     * [mlsql-cluster](/byzer-lang/en-us/appendix/faq/mlsql-cluster.md)
