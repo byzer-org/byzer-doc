@@ -9,7 +9,7 @@ We believe that only the innovation at the **programming language level** can tr
 
 - SQL for AI^™️^, declarative + imperative language, with SQL-like simple and flexible syntax; 
 - Cloud native design, Byzer engine support K8s and other cloud deployment, make full use of cloud computing power and storage. In addition, deployment modes such as Yarn are supported as well.
-- One language + one engine,  offer one off-the-shelf feature to cover data + AI 
+- One language + one engine,  offer out-of-the-box feature to cover data + AI 
 
 ## About Byzer community
 

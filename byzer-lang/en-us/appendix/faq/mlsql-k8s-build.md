@@ -1,15 +1,17 @@
-# Byzer K8s deployment and how to create a mirror environment
-Usually I make two images:
+# How to create the mirror environment in Byzer K8s deployment mode?
+It is recommended to make two mirrors:
 
-The basic image needs to meet the following requirements:
+The basic image, which should be possessed with:
 
 1. JDK
 2. Conda (Python related environment)
 3. Spark distribution
 
-Let's take Spark 3.0 as an example, assuming our image name is: spark:v3.0.0-hadoop3.2.
+In this article, we will take Spark 3.0 as an example:
 
-Note: The image file needs to be executed in the root directory of the Spark distribution.
+Suppose the mirror environment name is: spark:v3.0.0-hadoop3.2.
+
+Note: The mirror file needs to be executed in the root directory of the Spark distribution.
 
 ```sql
 ARG java_image_tag=14.0-jdk-slim
@@ -82,7 +84,7 @@ ENTRYPOINT [ "/opt/entrypoint.sh" ]
 USER ${spark_uid}
 ```
 
-Next, we will package Byzer-related dependencies based on this image:
+Next, we will package all Byzer-related dependencies based on this mirror:
 
 ```sql
 FROM spark:v3.0.0-hadoop3.2
@@ -91,4 +93,4 @@ WORKDIR /opt/spark/work-dir
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
-Usually the basic image has few changes. Byzer may upgrade frequently.
+Usually basic mirror environment is quite stable. But Byzer will upgrade frequently.

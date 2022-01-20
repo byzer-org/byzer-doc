@@ -1,5 +1,5 @@
-# Common issues about loading JDBC (eg MySQL, Oracle) data
-Byzer can use Load syntax to load data sources such as MySQL and Oracle that support the JDBC protocol. Common usage methods are as follows (examples are from [official documentation](/byzer-lang/en-us/datasource/jdbc.md)):
+# Frequent issues when loading JDBC data, like MySQL, Oracle
+Byzer supports the JDBC data source (such as MySQL and Oracle) with Load syntax. Common usage methods are as follows. For more information, see chapter [JDBC](/byzer-lang/en-us/datasource/jdbc.md).
 
 ```sql
 set user="root";
@@ -15,27 +15,27 @@ load jdbc.`db_1.table1` as table1;
 select * from table1 as output;
 ```
 
-Among them, **connect** doesn't mean to connect to a database. The statement does not perform the real connection action, but only records connection information of the database, and assigns the real database (in the above example the real database is DB wow)  an alias db_1.
+Among them, **connect** doesn't mean to connect to a database. This statement will not trigger the real connection action. It only records the connection information of the database, and assigns an alias (db_1) to the real database (database wow in this example)  .
 
-After that, if you need to load the table of DB wow, you can use db_1 to cite directly.
+After that, if you need to load the table from database wow, you can use db_1directly.
 
-### Can data be loaded into the memory of Byzer engine when loading?
-The answer is no. The engine will pull data from MySQL in batches for calculation. At the same time, only part of the data is in the engine memory.
+### Can data be loaded into the memory of Byzer engine?
+No. The engine will pull data from MySQL in batches for calculation. At the same time, only part of the data will be loaded to the engine memory.
 
-### Can filter conditions be loaded when loading?
-Yes, but not necessary. Users can directly put conditions in subsequent select statements. Where conditions in select statements will be pushed down to the storage for filtering, avoiding data transmission.
+### Will filter conditions also be loaded when loading?
+Yes, but not necessarily. 用户可以把条件直接在后续接 select 语句中. `Where` conditions in `select` statements will be pushed down to the storage for filtering, to avoid large volume of data transmission.
 
 ### What should we do when counting is very slow?
-For example, users want to execute the following statements to check the number of data in the table below. If the table is relatively large, counting may be very slow and it may even cause some nodes in the Engine to unlink.
+For example, users want to execute the following statements to check the number of data in a table. If the table is relatively large, counting may be very slow and some Engine nodes may stop responding.
 
 ```sql
 load jdbc.`db_1.tblname` as tblname;
 select count(*) from tblname as newtbl;
 ```
 
-The reason is that the engine needs to pull entire data (batch pull, not all loaded into memory), and then count and it is a single thread by default. Generally, it is relatively slow for database to do a full table scan, so counting without where conditions may be very slow , and even cann't run out.
+The reason is that the engine needs to pull the entire data (in batch mode, not that all data will be loaded into the memory), and then start the counting.  And this is a single thread process by default. Generally speaking, it is relatively slow when the database need to do a full table scan, so counting when there is no `where` condition will be very slow , and even may cannot work at all.
 
-If users just want to see the size of the table, it is recommended to use the directQuery mode. DirectQuery will send the query directly to the database for execution, and then return the calculation result to the engine, so it is very fast. The specific operation method is as follows:
+If a user only wants to check the size of the table, it is recommended to use the `directQuery` mode. `DirectQuery` will send the query directly to the database for execution, and then return the calculation result to the Engine, so it is very fast. The specific operation method is as follows:
 
 ```sql
 load jdbc.`db_1.tblname` where directQuery='''
@@ -43,21 +43,21 @@ load jdbc.`db_1.tblname` where directQuery='''
 ''' as newtbl;
 ```
 
-### If you add where conditions to select statements, the count speed is also very slow. (Sometimes even the engine does not work.)
-Although you have added where conditions, the filtering effect may not be good, and the engine still needs to pull a large amount of data for calculation. The engine is single-threaded by default. We can configure multi-thread to pull data from the database, which can avoid single-thread's death.
+### Even if I add `where` condition to the `select` statement, the count speed is still very slow, the Engine may even stop responding.
+Although you have added the  `where` condition, the filtering effect may not be good, as the Engine still needs to pull a large amount of data for calculation. The Engine is single-threaded by default. To solve this, we can configure a multi-thread method to pull data from the database, avoiding single-thread's deadlocks.
 
 The core parameters are as follows:
 
-1. partitionColumn: which column to partition by
-2. lowerBound and upperBound: the minimum and maximum value of the partition field which can be obtained by using directQuery
-3. numPartitions: number of partitions. Generally, 8 threads are more suitable. The type of partition field should be the number, and it is recommended to use an auto-incrementing id field.
+1. `partitionColumn`: partition by which column
+2. `lowerBound` and `upperBound`: minimum and maximum value of the partition field (can be obtained by using `directQuery`)
+3. `numPartitions`: number of partitions. Generally, 8 threads are recommended. The type of partition field should be the number, and it is recommended to use an auto-incrementing id field.
 
-### If multi-threaded pulling is still slow, is there a way to speed it up further?
-You can save the data to delta/hive by using the above methods and use it later. This allows you to sync once and use it multiple times. If you can't accept the delay, you can use Byzer to synchronize MySQL to Delta in real time. Please refer to [MySQL Binlog synchronization](/byzer-lang/zh-cn/datahouse/mysql_binlog.md) for more information.
+### If multi-threaded pulling is still slow, is there a way to speed up?
+You can save the data to delta/hive before pull the data. Then you only need to  sync once. If you can't tolerant the delay, you can use Byzer to synchronize MySQL to Delta in real time. Please refer to [MySQL Binlog synchronization](/byzer-lang/zh-cn/datahouse/mysql_binlog.md) for more information.
 
-### Are there any articles about the concept of loading JDBC data?
+### Are there any articles about the principles?
 You can refer to [Depth analysis of Byzer loading JDBC data source](https://mp.weixin.qq.com/s/zaz8sRdIkQEUn65FPQfIQg) for more information.
 
-### Concluding remarks
-Whether it is JDBC data sources or traditional data warehouse data sources such as Hive, Byzer will provide indexing services for acceleration in the future, so stay tuned.
+### Conclusion
+Whether it is JDBC data sources or traditional data warehouse data sources such as Hive, Byzer will provide unified indexing services to accelerate, so stay tuned.
 
