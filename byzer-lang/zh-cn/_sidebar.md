@@ -17,10 +17,10 @@
   * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)
     * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
     * [多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md)
+    * [K8S 镜像部署指南](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
   * [Byzer 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
   * [Byzer 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
   * [Byzer 二进制包](/byzer-lang/zh-cn/installation/binary-installation.md)
-  * [K8S 镜像部署指南](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
 
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
