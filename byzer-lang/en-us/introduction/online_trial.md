@@ -1,12 +1,12 @@
 # Try online
 
-In this chapter, we will guide you to quickly experience Byzer Notebook, Byzer's IDE application platform on the cloud. You can reserve 5 minutes to experience whole process.
+In this chapter, we will guide you to quickly experience Byzer Notebook, that is, Byzer's IDE application platform on the cloud. It takes 5 minutes to experience the whole process.
 
 
 
-### Official website registration
+### Register
 
-Before starting the trial, please make sure that you have successfully registered on the [Byzer official website](https://www.byzer.org) and had a trial account.
+Before starting the trial, please make sure that you have successfully applied for a trial account on [Byzer website](https://www.byzer.org).
 
 Click **Try Online** on the homepage:
 
@@ -24,13 +24,17 @@ After verifying your account by clicking the link in your email, you will be dir
 
 #### 1. Login to Byzer Notebook and enter the workspace
 
+Click **Explore** to get started with a sample notebook. 
+
 ##### 1.1 Create a file
 
 <img src="image/Workspace_create.png" alt="Workspace_create" style="zoom:50%;" />
 
-You can view all project files in the workspace list and create **notebook** files,**workflow** files and **folder** by clicking **+** on the right side of **Workspace**. You can also import local **notebook** files (.bznb) and **workflow** files (.bzwf) by clicking **Import**.
+You can view all project files in the workspace list.
 
-> Tip: The maximum size of a single file in the online experience environment is 200M, and the total file size for a single user is up to 500M.
+To create **Notebook**, **Workflow** or **Folder**, clicking **+** on the right side of **Workspace**. You can also import local **Notebook** files (.bznb) and **workflow** files (.bzwf) by clicking **Import**.
+
+> Note: The maximum size of a single file supported in the online trial environment is 200M, and the total file size provided for a single user is 500M.
 
 ##### 1.2 Manage a file
 
@@ -38,7 +42,7 @@ You can view all project files in the workspace list and create **notebook** fil
 
 
 
-Click the icon on the right side of the project file to manage file such as **Duplicate**,**Move**,**Rename**,**Delete** and etc..
+Click the icon on the right side of the project file for file managements, you can **Duplicate**, **Move**, **Rename**, **Delete** the file.
 
 ##### 1.3 Export a file
 
@@ -48,38 +52,37 @@ Click **Export** under the icon on the right side of the project file to export 
 
 #### 2. Data Catalog
 
-Byzer Notebook supports many different types of data sources. The online trial environment currently only supports the import and storage of Delta Lake and HDFS data sources.
+Byzer Notebook supports different data source types. The online trial environment currently only supports Delta Lake and HDFS data source.
 
 ![catalog](image/catalog.png)
 
-> Tips: The online environment of Delta Lake is public, please do not upload important files.
+> Tips: The online trial environment of Delta Lake is public, please do not upload important files.
 
 #### 3. Byzer Notebook
 
-##### 3.1 Edit notebook
+##### 3.1 Edit Notebook
 
 ![toolbar](image/toolbar.png)
 
-In the **Workspace**, click **notebook** you want to edit to enter its own workspace.
-You can click the buttons in the **toolbar** at the top of the notebook workspace to manage cell such as **Run, Delete, and Clear All Results**.
+In **Workspace**, click the **Notebook** you want to edit to enter the corresponding workspace.You can click the buttons in the top **toolbar** to manage cell, such as **Run, Delete,** and **Clear All Results**.
 
-##### 3.2 Run notebook
+##### 3.2 Run Notebook
 
 ![run_button](image/run_button.png)
 
 
 
-You can run code by clicking **Run** in the upper right corner of a cell or the toolbar. You can also find the **Run All** button in the toolbar.
+You can run code by clicking **Run** in the upper right corner of a cell or on the toolbar. You can also find the **Run All** button in the toolbar.
 
-##### 3.3 Code mode VS Markdown mode
+##### 3.3 Code mode VS. Markdown mode
 
 ![markdown](image/markdown.png)
 
 
 
-You can switch cell to **Byzer code mode**,**Python code mode** or **Markdown text editing** mode.
+You can switch the cell to **Byzer code mode**, **Python code mode** or **Markdown text editing** mode.
 
-##### 3.4 Shortcut key and documentation manual
+##### 3.4 Shortcut key and user manual
 
 ![feedback](image/feedback.png)
 

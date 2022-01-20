@@ -1,2 +1,2 @@
 # FAQ
-This chapter will introduce some frequently asked questions in use.
+This chapter will list some of the most frequently asked questions.
