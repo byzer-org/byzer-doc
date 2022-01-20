@@ -1,4 +1,4 @@
-# Load
+# Data Load/Load
 
 Byzer-Lang's design philosophy is `Everything is a table `, so you can abstract various file data sources, databases, data warehouses, data lakes and even Rest APIs into a table in Byzer-Lang, and then process it in a two-dimensional table way. This is mainly achieved through the `load` statement.
 
