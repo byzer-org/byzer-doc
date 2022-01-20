@@ -1,5 +1,10 @@
 # Byzer-lang Cifar10 Deeplearning Demo
 
+| **Version** | **Author** | **Date** | **Comment** |
+| ------ | ------ | ------ |------ |
+| V 1.0 | William Zhu (hailin.zhu@byzer.org) <br> Andie Huang (ckeys1993@gmail.com) |2022/01/20 | first version|
+
+
 这篇文章分成五个部分:
 1. 准备Cifar10图片数据集 
 2. 分布式对图片预处理 
