@@ -9,21 +9,21 @@
 
 桌面版默认集成了mlsql-shell插件。如果你是自己部署的 Byzer Notebook 以及 Byzer-engine，那 么需要通过如下方式安装插件
 
-```
+```shell
  !plugin app remove "mlsql-shell-3.0"; 
  !plugin app add - "mlsql-shell-3.0";
 ```
 
 在拥有了如上插件后，我们就是使用功能 `!sh` 执行shell命令了。
 
-```
+```shell
 !sh wget "https://github.com/allwefantasy/spark-
 deep-learning-toy/releases/download/v0.01/cifar.tgz";
 ```
 
 通过上面的指令下载好图片后，接着进行解压，然后拷贝到我们的引擎的存储上：
 
-```
+```shell
 !sh mkdir -p /tmp/cifar10 /tmp/cifar10raw; 
 !sh tar -xf "cifar.tgz" "-C" "/tmp/cifar10raw";
 !copyFromLocal /tmp/cifar10raw /tmp/cifar10;
@@ -31,7 +31,7 @@ deep-learning-toy/releases/download/v0.01/cifar.tgz";
 
 此时，如果你使用如下命令应该就可以查看到数据集：
 
-```
+```shell
  !hdfs -ls /tmp/;
 ```
 
@@ -350,9 +350,7 @@ registerCode 部分，本质上我们只要提供一个预测函数即可，该�
 
 其中值得注意的是，
 
-```
-maxConcurrency="2"
-```
+>maxConcurrency="2"
 
 该参数配置了请求并发度。这无论在批还是流，或者API服务里都很重要。如果要满足不通场景，用户可以注册多次从而分别给不同场景提供合理的并发能力。
 
