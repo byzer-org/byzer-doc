@@ -158,6 +158,7 @@ train tmp_cifar10 as StringIndex.`/tmp/labelToIndex` where inputCol="labelName"
 and outputCol="label"
 as final_cifar10;
 ```
+
 现在，可以利用Tensorflow库进行分布式训练了：
 
 ```python
@@ -244,6 +245,7 @@ model_binary = ray.get(workers[0].get_final_model.remote())
 [worker.shutdown.remote() for worker in workers]
 ray_context.build_result(model_binary)
 ```
+
 请确保你在Ray集群里安装了 tensorflow 。
 
 我们仔细讲解下上面的Python代码。首先，
@@ -280,7 +282,7 @@ Python代码执行完成后，我们会把二进制流以目录结构的方式�
 现在，我们把模型保存到数据湖里去：
 
 ```python
-1 save overwrite cifar10_model as delta.`ai_model.cifar_model`;
+save overwrite cifar10_model as delta.`ai_model.cifar_model`;
 ```
 
 至此，我们以Parameter Server的模式完成了模型的分布式训练。
@@ -346,6 +348,7 @@ UDFBuilder.apply(ray_context)
 '''
 ;
 ```
+
 registerCode 部分，本质上我们只要提供一个预测函数即可，该函数系统会传递两个参数进来，一个是模型，一个是数据。用户要完成如何将两者结合的的逻辑。 第二段代码predictCode则完全是模板代码，复制黏贴就可以。
 
 其中值得注意的是，
