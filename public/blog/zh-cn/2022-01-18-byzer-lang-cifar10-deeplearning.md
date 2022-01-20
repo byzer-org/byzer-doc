@@ -384,7 +384,7 @@ select model_predict(array(byteArrayToUnsignedIntArray(content))) from final_cif
 
 输出结果如下：
 
-![avatar](../zh-cn/images/cifar_pic3.png.png)
+![avatar](../zh-cn/images/cifar_pic3.png)
 
 ## 总结
 
