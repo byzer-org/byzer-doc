@@ -1,4 +1,5 @@
-# Byzer-lang_Cifar10_Deeplearning_Demo
+# Byzer-lang Cifar10 Deeplearning Demo
+
 这篇文章分成五个部分:
 1. 准备Cifar10图片数据集 
 2. 分布式对图片预处理 
