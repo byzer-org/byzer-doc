@@ -2,7 +2,7 @@
 
 | **Version** | **Author** | **Date** | **Comment** |
 | ------ | ------ | ------ |------ |
-| V 1.0 | William Zhu (hailin.zhu@kyligence.io) | 2022/01/20 | first version|
+| V 1.0 | William Zhu (hailin.zhu@byzer.org) <br> Andie Huang (ckeys1993@gmail.com) |2022/01/20 | first version|
 
 
 这篇文章分成五个部分:
