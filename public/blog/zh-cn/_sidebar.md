@@ -1,7 +1,7 @@
 - Blog
-    - [2022-01-18 Byzer-lang Cifar10 Deeplearning Demo](/public/blog/zh-cn/2022-01-18-byzer-lang-cifar10-deeplearning.md)
-    - [2022-01-12 Byzer-lang Python Tutorial](/public/blog/zh-cn/2022-01-12-python-in-byzer-tutorial.md)
-    - [2021-12-18 Datafun 活动 Byzer 介绍](/public/blog/zh-cn/2021-12-18-datafun-byzer.md)
+    - [Byzer-lang Cifar10 Deeplearning Demo(2022.01.18 )](/public/blog/zh-cn/2022-01-18-byzer-lang-cifar10-deeplearning.md)
+    - [Byzer-lang Python Tutorial(2022.01.12)](/public/blog/zh-cn/2022-01-12-python-in-byzer-tutorial.md)
+    - [Datafun 活动 Byzer 介绍(2021.12.18)](/public/blog/zh-cn/2021-12-18-datafun-byzer.md)
 - Blog Archive 2021
     - [可编程的 SQL 是什么样的？](/public/blog_archive_2021/可编程的SQL是什么样的.md)
     - [SQL思维VS编程思维](/public/blog_archive_2021/SQL思维VS编程思维.md)
