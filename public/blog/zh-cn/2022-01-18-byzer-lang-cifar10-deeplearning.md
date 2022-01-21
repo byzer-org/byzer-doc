@@ -23,8 +23,7 @@
 在拥有了如上插件后，我们就是使用功能 `!sh` 执行shell命令了。
 
 ```shell
-!sh wget "https://github.com/allwefantasy/spark-
-deep-learning-toy/releases/download/v0.01/cifar.tgz";
+!sh wget "https://github.com/allwefantasy/spark-deep-learning-toy/releases/download/v0.01/cifar.tgz";
 ```
 
 通过上面的指令下载好图片后，接着进行解压，然后拷贝到我们的引擎的存储上：
@@ -55,8 +54,7 @@ deep-learning-toy/releases/download/v0.01/cifar.tgz";
 
 ```sql
  run cifar10 as TableRepartition.`` where partitionNum="4" as newCifar10;
- save overwrite newCifar10 as delta.`data.raw_cifar10` where mergeSchema="tru
-e";
+ save overwrite newCifar10 as delta.`data.raw_cifar10` where mergeSchema="true";
 ```
 
 现在可以看加载下数据湖里的数据，并且统计下图片数量：
@@ -81,7 +79,7 @@ select count(*) from raw_cifar10_table  as output;
 
 from pyjava.api.mlsql import RayContext
 
-ray_context = RayContext.connect(globals(),"127.0.0.1:10001") 13
+ray_context = RayContext.connect(globals(),"127.0.0.1:10001")
 def resize_image(row):
    import io,cv2,numpy as np
    new_row = {}
@@ -99,7 +97,7 @@ ray_context.foreach(resize_image)
 
 上面的代码，我们连接一个本地Ray集群（127.0.0.1:10001）,并且确保Ray集群安装了`opencv-python`。接着，我们定义了一个resize_image方法，该方法会被每条记录回调，从而实现对图片的处理。 实际上，用户完全可以用Ray API自己完成这些工作，但是Byzer提供了良好的API方便大家做相关的处理。
 
-现在，我们得到了一张表cifar10_resiz,现在开心的保存到数据湖里去：
+现在，我们得到了一张表 cifar10_resize,现在开心的保存到数据湖里去：
 
 ```sql
 save overwrite cifar10_resize as delta.`data.cifar10x28x28`;
@@ -111,7 +109,7 @@ save overwrite cifar10_resize as delta.`data.cifar10x28x28`;
 register ScriptUDF.`` as arrayLast where
 lang="scala"
 and code='''def apply(a:Seq[String])={
-a.last
+        a.last
 }'''
 and udfType="udf";
 ```
@@ -309,7 +307,7 @@ save overwrite cifar10_model as delta.`ai_model.cifar_model`;
 首先，加载模型：
 
 ```
-1 load delta.`ai_model.cifar_model` as cifar_model;
+load delta.`ai_model.cifar_model` as cifar_model;
 ```
 
 接着，我们将模型注册成UDF函数：
