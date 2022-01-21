@@ -6,9 +6,9 @@
 
 
 
-Byzer-lang 可以通过 Byzer-python 去拥抱Python生态。利用 Byzer-python, 用户不仅仅可以进行使用Python 进行 ETL 处理，比如可以将一个 Byzer 表转化成一个分布式 Pandas (base on Dask)来操作， 也可以使用 Byzer-python 高阶API 来完成数据处理。此外，用户还能实现对各种机器学习框架的支持 比如 Tensorflow, Sklearn, PyTorch。
+Byzer-lang 可以通过 Byzer-python 去拥抱 Python 生态。利用 Byzer-python, 用户不仅仅可以进行使用 Python 进行 ETL 处理，比如可以将一个 Byzer 表转化成一个分布式 Pandas (base on Dask)来操作， 也可以使用 Byzer-python 高阶 API 来完成数据处理。此外，用户还能实现对各种机器学习框架的支持 比如 Tensorflow, Sklearn, PyTorch。
 
-Byzer-python 核心在于，实现了 Byzer 表在Python中的无缝衔接， 用户可以通过 Byzer-python API 获取表，处理完成后输出表， 表的形态甚至支持模型目录。
+Byzer-python 核心在于，实现了 Byzer 表在 Python 中的无缝衔接， 用户可以通过 Byzer-python API 获取表，处理完成后输出表， 表的形态甚至支持模型目录。
 
 ## 体验环境
 
@@ -37,7 +37,7 @@ byzer/byzer-sandbox:${SPARK_VERSION}-lastest
 
 ## Hello World
 
-### 极简例子
+#### 极简例子
 
 ```python
 #%python
@@ -100,7 +100,7 @@ context.build_result([{"hello":"world"}])
 
 可以看到，写原生的 Byzer 代码会显得比较麻烦。如果是在 Notebook 环境下（Web 或者 桌面），推荐第一种写法。后面的例子也都会以第一种写法为准。
 
-### 加个输入吧
+#### 加个输入吧
 
 在上面的例子，没有输入（输入指定了一张空表 `command` ）。 这次尝试加点数据。
 
@@ -164,12 +164,12 @@ ray_context = RayContext.connect(globals(),None)
 
 为了能够实现给 `a`  字段加 `1` 的操作，定义一个函数 `add_one` 来对数据进行更改，并且重新生成一个 `generator` 传递给 `context.build_result` 实现将 Byzer-python处理的结果集返回给 Byzer 引擎。 `build_result` 函数接受包含 `Dict`的 `generator` 和 `list`。
 
-### 来个分布式的吧
+#### 来个分布式的吧
 
 上面的例子在初始化语句 `ray_context = RayContext.connect(globals(),None) ` 第二个参数都被设置为 `None` 了，所以是单机执行的。现在看看如何让 Byzer-python 分布式执行任务。
 
 
-> 该例子需要有Ray集群。请参考本文Ray部分看如何启动。
+> 该例子需要有Ray集群。请参考本文 Ray 部分看如何启动。
 
 
 第一步，制造一些数据：
@@ -241,7 +241,7 @@ ray_context = RayContext.connect(globals(),"127.0.0.1:10001")
 
 从上面的代码可以看到，用户可以随时使用一段  Byzer-python 代码处理表，然后输出成新表，衔接非常丝滑。
 
-### 硬件感知能力
+#### 硬件感知能力
 
 依然以上面的 `data` 数据集为例， 在这个例子里，我们使用 Byzer-python 做分布式 count。
 
@@ -295,7 +295,7 @@ job_refs = [count_worker.remote(data_ref) for data_ref in data_refs ]
 
 Byzer-python 会启动四个满足资源要求的 python进程运行 `count_worker` 方法，最后把结果进行 sum 返回。
 
-## Byzer-python 带来了什么
+### Byzer-python 带来了什么
 
 在前面的示例，Byzer-python 提供了如下的能力：
 1. 通过注解来完成环境设置
@@ -304,6 +304,56 @@ Byzer-python 会启动四个满足资源要求的 python进程运行 `count_work
 4. 提供了高阶 API 做数据处理
 5. 提供了分布式编程范式，只需要对 `函数` 或者 `类` 添加注解 `@ray.remote` 即可
 6. 提供了硬件感知能力
+
+
+## Ray 的介绍
+
+Ray 的详细框架介绍,  下面这张图展示了 Ray 的主要架构。GCS 作为集中的服务端，是 Worker 之间传递消息的纽带。每个 Server 都有一个共用的 Object Store，通过 Apache Arrow/Plasma 的方式存储数据及数据通信。 Local Scheduler 是 Node 内部的调度，同时通过 GCS 来和其他 Node 上的 Worker 通信。
+
+![avatar](./images/ray1.png)
+
+那么如何启动一个 ray 的 server 呢？首先要创建一个 python 环境 （具体看 Conda 安装 python 部分），然后在 python 环境中安装 ray （>=1.8.0）
+
+### 单机安装
+
+在本文 **环境** 部分我们已经安装好Ray了。
+
+### 单机启动 
+
+通过 Ray 命令在机器上启动 Ray：
+
+
+> ray start --head # 该命令的意思是执行该命令的机器是 ray 集群的 head 节点（类似 driver/master 节点）
+
+
+这样就可以在控制台上看到成功启动 ray 的结果
+
+![avatar](./images/ray2.png)
+
+如果需要 dashboard 支持， 可以再加一个参数  `--include-dashboard true` 这样启动后就可以根据提示访问 Ray 的管理页面。默认地址：  `http://127.0.0.1:8265`
+
+### 集群启动
+
+Master 机器
+
+```shell
+ray start --head 
+```
+
+Worker 机器 (每一个 slave 的节点都需要执行这个命令)
+
+```shell
+ray start --address='<client ip address>:6379'
+```
+
+在 Byzer-python 中，只需要在初始化语句中的第二个参数中指定 head 节点的 ip 地址，head 节点收到任务后 ray 的管理器会将任务分发到 server 节点。示例如下：
+
+```python
+from pyjava.api.mlsql import RayContext,PythonContext
+ray_context = RayContext.connect(globals(), '<head_node_ip_address>:10001')  
+```
+
+
 
 ## Byzer-python 原理
 
@@ -356,8 +406,8 @@ Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方�
     ```
 
 2. Python 依赖包安装
-    
-   ```
+   
+   ```python
    pyarrow==4.0.1
    ray[default]==1.8.0
    aiohttp==3.7.4
@@ -368,13 +418,15 @@ Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方�
    uuid~=1.30
    pyjava
    ```
-   Ray 侧也需要有这些基础依赖。考虑到Ray是可插拔的，除了这些依赖，用户可以自主安装其他依赖，然后在实际书写 Byzer-lang 的时候通过集群地址连接到适合自己环境要求的Ray集群上。
+   Ray 侧也需要有这些基础依赖。考虑到 Ray是可插拔的，除了这些依赖，用户可以自主安装其他依赖，然后在实际书写 Byzer-lang 的时候通过集群地址连接到适合自己环境要求的Ray集群上。
+   
+
 
 ## Byzer-python 注解
 
 ### 基本注解
 
-```
+```python
 1. #%python 表明这是一个描写 python script 的 cell. 
 2. #%input=table1 表明了这段 python script 的数据输入是table1
 3. #%output=b_output  表明这段 python script 的结果表表明是b_output，可以不指定，会随机产生一个结果表名.
@@ -385,13 +437,13 @@ Byzer-python 主要依赖于Hypebrid Runtime  中的Ray部分。通过如下方�
 8. #%cache=true  因为Python产生的表只能消费一次。为了方便后续可能多次消费，可以开启cache 为true，从而缓存该表。
 ```
 
-注意：这些注解都是 session 级别有效。所以需要每次使用时指定。
+> 注意：这些注解都是 session 级别有效。所以需要每次使用时指定。
 
-### schema 定义
+### Schema 定义
 
 用户需要对 Byzer-python 的输出表进行 schema 定义。 这个应该是当前 Byzer-python 最繁琐的地方。 Schema 定义一共支持三种方式。
 
-#### Simple Schema 格式
+### Simple Schema 格式
 
 这是 Byzer-lang 为了简化 schema 书写而单独定义的一套 schema 语法。比如 `st(field(count,long))` 最外层一定是 `st()`  st 表示 struct type.  st 里面是 字段的罗列，在这个例子里，`field(count,long)` 表示有一个字段叫  `count` 类型是 long 类型。
 
@@ -476,7 +528,7 @@ data_refs = ray_context.data_servers()
 data = [RayContext.collect_from([data_ref]) for data_ref in data_refs]
 ```
 
-注意，`data_refs` 是字符串数组，每个元素是一个 `ip:port` 的形态.  可以使用 `RayContext.collect_from` 单独获取每个数据分片。
+> 注意，`data_refs` 是字符串数组，每个元素是一个 `ip:port` 的形态.  可以使用 `RayContext.collect_from` 单独获取每个数据分片。
 
 如果数据规模不大，也可以直接获取pandas格式数据。
 
@@ -581,7 +633,7 @@ ray_context.map_iter(echo)
 
 from pyjava.api.mlsql import PythonContext,RayContext
 
-# type hint
+#type hint
 context:PythonContext = context
 
 ray_context = RayContext.connect(globals(),"127.0.0.1:10001")
@@ -591,7 +643,7 @@ c = df.shape[0].compute()
 context.build_result([{"count":c}])
 ```
 
-注意，该 API 需要使用功能 Ray。
+> 注意，该 API 需要使用功能 Ray。
 
 ### 将目录转化为表
 
@@ -623,64 +675,12 @@ ray_context.build_result(model_binary)
 save overwrite cifar10_model as delta.`ai_model.cifar_model`;
 ```
 
-## Ray 的介绍
-
-Ray 的详细框架介绍,  下面这张图展示了 Ray 的主要架构。GCS 作为集中的服务端，是 Worker 之间传递消息的纽带。每个 Server 都有一个共用的 Object Store，通过 Apache Arrow/Plasma 的方式存储数据及数据通信。 Local Scheduler 是 Node 内部的调度，同时通过 GCS 来和其他 Node 上的 Worker 通信。
-
-![avatar](./images/ray1.png)
-
-那么如何启动一个 ray 的 server 呢？首先要创建一个 python 环境 （具体看 Conda 安装 python 部分），然后在 python 环境中安装 ray （>=1.8.0）
-
-### 单机安装
-
-在本文 **环境** 部分我们已经安装好Ray了。
-
-### 单机启动 
-
-通过 Ray 命令在机器上启动 Ray：
+## Byzer Notebook 的使用
 
 
-> ray start --head # 该命令的意思是执行该命令的机器是 ray 集群的 head 节点（类似 driver/master 节点）
+> 注意事项1： Byzer Notebook 中，通常一个 Byzer-python Cell 就是一个独立的小黑盒，输入是表，产出也是表。不同的 Byzer-python Cell 之间的信息都是隔离的。如果希望两个 Cell 的代码能实现交互，可以通过产出的表进行交互。这点和传统的 Python 类型的 Notebook不同。
 
-
-这样就可以在控制台上看到成功启动 ray 的结果
-
-![avatar](./images/ray2.png)
-
-如果需要 dashboard 支持， 可以再加一个参数  `--include-dashboard true` 这样启动后就可以根据提示访问 Ray 的管理页面。默认地址：  `http://127.0.0.1:8265`
-
-### 集群启动
-
-Master 机器
-
-```shell
-ray start --head 
-```
-
-Worker 机器 (每一个 slave 的节点都需要执行这个命令)
-
-```shell
-ray start --address='<client ip address>:6379'
-```
-
-在 Byzer-python 中，只需要在初始化语句中的第二个参数中指定 head 节点的 ip 地址，head 节点收到任务后 ray 的管理器会将任务分发到 server 节点。示例如下：
-
-```python
-from pyjava.api.mlsql import RayContext,PythonContext
-ray_context = RayContext.connect(globals(), '<head_node_ip_address>:10001')  
-```
-
-### Byzer notebook 的使用
-
-
-> 注意事项1： Byzer Notebook 中，  通常一个 Byzer-python Cell 就是一个独立的小黑盒
-，输入是表，产出也是表。不同的  Byzer-python Cell 之间的信息都是隔离的。如果希望两个
- Cell 的代码能实现交互，可以通过产出的表进行交互。这点和传统的 Python 类型的 Notebook
-不同。
-
-> 注意事项2： Byzer Notebook中， Byzer-python Cell 产出的表只能被消费使用一次。 如果
-希望后续多次使用， 可以添加注解 %#cache=true  来进行缓存。 缓存会放在用户 主目录 中的
-临时目录中。
+> 注意事项2： Byzer Notebook中， Byzer-python Cell 产出的表只能被消费使用一次。 如果希望后续多次使用， 可以添加注解 %#cache=true  来进行缓存。 缓存会放在用户 主目录 中的临时目录中。
 
 首先，在 Byzer 或者 Byzer-lang 的桌面版里， Cell 需要指定命令激活 python 环境， Byzer-lang 是通过识别注释代码感知。 代码如下 
 
@@ -793,7 +793,7 @@ as data1;
 
 ##### Step. 2 Byzer-python 做数据处理
 
-> Note. 从 java 端接受的数据格式也是list(dict)，也就是说，每一行的数据都以字典的数据结构
+> Note：从 java 端接受的数据格式也是list(dict)，也就是说，每一行的数据都以字典的数据结构
 存储。比如data1的数据，在 python 端拿到的结构就是[{'a':'5.1','b':'3.5'}, {'a':'5.1'
 ,'b':'3.5'}, {'a':'5.1','b':'3.5'} ...] 基于这个数据结构，我们可以在 python 端对输
 入数据进行数据处理
@@ -826,7 +826,7 @@ res = []
 #     res.append(new_row)
 
 
-# 也可以这么写
+#也可以这么写
 def foo(row):
     new_row = {}
     new_row['content'] = 'hello' + str(row['a']) # content 对应定义的 content 列
@@ -837,7 +837,7 @@ def foo(row):
 res = [foo(row) for row in datas]
 
 
-## 构造结果数据返回
+##构造结果数据返回
 context.build_result(res)
 ```
 ![avatar](./images/a2.png)
@@ -857,12 +857,12 @@ from pyjava.api.mlsql import RayContext,PythonContext
 
 
 context:PythonContext = context
-## 获取ray_context,如果需要使用Ray，那么第二个参数填写Ray地址
-## 否则设置为None就好。
+##获取ray_context,如果需要使用Ray，那么第二个参数填写Ray地址
+##否则设置为None就好。
 ray_context = RayContext.connect(globals(), url="127.0.0.1:10001")
-# 从 java 端获取数据，数据格式是 list(dict())
+#从 java 端获取数据，数据格式是 list(dict())
 res = []
-## 对数据基于Ray进行分布式处理
+##对数据基于Ray进行分布式处理
 @ray.remote
 @rayfix.last
 def foo(servers):
@@ -878,7 +878,7 @@ def foo(servers):
 
 data_servers = ray_context.data_servers()
 res =  ray.get(foo.remote(data_servers))
-## 构造结果数据返回
+##构造结果数据返回
 context.build_result(res)
 ```
 ![avatar](./images/a3.png)
@@ -900,10 +900,10 @@ context.build_result(res)
 import ray
 from pyjava import rayfix
 from pyjava.api.mlsql import RayContext,PythonContext
-# import tensorflow as tf
+#import tensorflow as tf
 ray_context = RayContext.connect(globals(), url="127.0.0.1:10001")
 
-# 上面导包找不到placeholder模块时，换下面导入方式
+#上面导包找不到placeholder模块时，换下面导入方式
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
@@ -912,8 +912,8 @@ import matplotlib.pyplot as plt  # Python的一种绘图库
 
 np.random.seed(5)  # 设置产生伪随机数的类型
 sx = np.linspace(-1, 1, 100)  # 在-1到1之间产生100个等差数列作为图像的横坐标
-# 根据y=2*x+1+噪声产生纵坐标
-# randn(100)表示从100个样本的标准正态分布中返回一个样本值，0.4为数据抖动幅度
+#根据y=2*x+1+噪声产生纵坐标
+#randn(100)表示从100个样本的标准正态分布中返回一个样本值，0.4为数据抖动幅度
 sy = 2 * sx + 1.0 + np.random.randn(100) * 0.4
 
 
@@ -987,7 +987,7 @@ context.build_result(res)
 import ray
 from pyjava import rayfix
 from pyjava.api.mlsql import RayContext,PythonContext
-# import tensorflow as tf
+#import tensorflow as tf
 ray_context = RayContext.connect(globals(), url="127.0.0.1:10001")
 
 @ray.remote
@@ -1062,17 +1062,17 @@ from pyjava.api.mlsql import RayContext,PythonContext
 from pyecharts import options as opts
 import os
 from pyecharts.charts import Bar
-# 这句是为了代码提示
+#这句是为了代码提示
 context:PythonContext = context
 ray_context = RayContext.connect(globals(),None)
 data = ray_context.to_pandas()
 data_a = data['Busn_A']
 data_b = data['Busn_B']
-# 基本柱状图
+#基本柱状图
 bar = Bar()
 bar.add_xaxis(["衬衫", "毛衣", "领带", "裤子", "风衣", "高跟鞋", "袜子"])
-# bar.add_yaxis("商家A", data_a)
-# bar.add_yaxis("商家B", data_b)
+#bar.add_yaxis("商家A", data_a)
+#bar.add_yaxis("商家B", data_b)
 bar.add_yaxis("商家A", list(data_a))
 bar.add_yaxis("商家B", list(data_b))
 bar.set_global_opts(title_opts=opts.TitleOpts(title="某商场销售情况"))
@@ -1230,10 +1230,3 @@ def get_query_result(athena, _id, next_token=None, batch_size=512):
         if next_token is None:
             break
 ```
-## FAQ
-
-### Byzer Notebook 和 Jupyter Notebook 区别
-Byzer Notebook 是 Byzer 团队完全自主开发的专为 Byzer-lang 设计的Notebook。 Jupyter Notebook 则适合跑 Python 等语言。当然，经过适配，Jupyter 也可以跑 Byzer 语言。
-
-### Byzer 中的 Python 和 Jupyter 中的 Python 或者 PySpark 有啥区别么
-在 Byzer 中，Python 只是一段脚本片段，他是运行在 Byzer runtime 沙盒里的，所以他可以很好的访问 Byzer 代码中的表，并且产生的结果可以进一步被 Byzer 中其他代码访问。而且如果使用了 Ray,他是分布式执行的。
