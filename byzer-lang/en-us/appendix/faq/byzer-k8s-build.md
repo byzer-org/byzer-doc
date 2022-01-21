@@ -4,7 +4,7 @@ It is recommended to make two mirrors:
 The basic image, which should be possessed with:
 
 1. JDK
-2. Conda (Python related environment)
+2. Conda (Python-related environment)
 3. Spark distribution
 
 In this article, we will take Spark 3.0 as an example:
@@ -93,4 +93,4 @@ WORKDIR /opt/spark/work-dir
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
 
-Usually basic mirror environment is quite stable. But Byzer will upgrade frequently.
+Usually, basic mirror environment is quite stable. But Byzer will upgrade frequently.

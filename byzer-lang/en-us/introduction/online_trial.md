@@ -32,7 +32,7 @@ Click **Explore** to get started with a sample notebook.
 
 You can view all project files in the workspace list.
 
-To create **Notebook**, **Workflow** or **Folder**, clicking **+** on the right side of **Workspace**. You can also import local **Notebook** files (.bznb) and **workflow** files (.bzwf) by clicking **Import**.
+To create **Notebook**, **Workflow** or **Folder**, click **+** on the right side of **Workspace**. You can also import local **Notebook** files (.bznb) and **workflow** files (.bzwf) by clicking **Import**.
 
 > Note: The maximum size of a single file supported in the online trial environment is 200M, and the total file size provided for a single user is 500M.
 
@@ -42,7 +42,7 @@ To create **Notebook**, **Workflow** or **Folder**, clicking **+** on the right 
 
 
 
-Click the icon on the right side of the project file for file managements, you can **Duplicate**, **Move**, **Rename**, **Delete** the file.
+Click the icon on the right side of the project file for file management. You can **Duplicate**, **Move**, **Rename**, **Delete** the file.
 
 ##### 1.3 Export a file
 
@@ -52,7 +52,7 @@ Click **Export** under the icon on the right side of the project file to export 
 
 #### 2. Data Catalog
 
-Byzer Notebook supports different data source types. The online trial environment currently only supports Delta Lake and HDFS data source.
+Byzer Notebook supports different data source types. The online trial environment currently only supports Delta Lake and HDFS data sources.
 
 ![catalog](image/catalog.png)
 
@@ -64,7 +64,7 @@ Byzer Notebook supports different data source types. The online trial environmen
 
 ![toolbar](image/toolbar.png)
 
-In **Workspace**, click the **Notebook** you want to edit to enter the corresponding workspace.You can click the buttons in the top **toolbar** to manage cell, such as **Run, Delete,** and **Clear All Results**.
+In **Workspace**, click the **Notebook** you want to edit to enter the corresponding workspace.You can click the buttons in the top **toolbar** to manage cells, such as **Run, Delete,** and **Clear All Results**.
 
 ##### 3.2 Run Notebook
 

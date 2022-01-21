@@ -5,7 +5,7 @@
   * [Get Started](/byzer-lang/en-us/introduction/get_started.md)
   * [FAQ](/byzer-lang/en-us/appendix/faq/README.md)
     * [mlsql-cluster](/byzer-lang/en-us/appendix/faq/mlsql-cluster.md)
-    * [MLSQL K8s](/byzer-lang/en-us/appendix/faq/mlsql-k8s-build.md)
+    * [Byzer K8s](/byzer-lang/en-us/appendix/faq/byzer-k8s-build.md)
     * [loading jdbc](/byzer-lang/en-us/appendix/faq/jdbc.md)
   * [How to Contribute](/byzer-lang/en-us/appendix/contribute.md)  
   
