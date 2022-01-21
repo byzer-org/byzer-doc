@@ -1,6 +1,6 @@
 # Quick Start
 
-This chapter will introduce how to use the Docker mirror environment to quickly experience Byzer's IDE application platform-Byzer Notebook.
+This chapter will introduce using the Docker mirror environment to quickly experience Byzer's IDE application platform-Byzer Notebook.
 
 ### Prerequisites
 
@@ -35,7 +35,7 @@ This chapter will introduce how to use the Docker mirror environment to quickly 
 
 ### Example
 
-We will use an example to illustrate the entire installation process. The command line parameters are as follows：
+We will use an example to illustrate the entire installation process. The command-line parameters are as follows：
 
 - tag: 3.1.1-2.2.0
 - container_name: byzer-sandbox
