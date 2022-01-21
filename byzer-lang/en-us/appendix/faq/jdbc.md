@@ -23,7 +23,7 @@ After that, if you need to load the table from database wow, you can use db_1dir
 No. The engine will pull data from MySQL in batches for calculation. At the same time, only part of the data will be loaded to the engine memory.
 
 ### Will filter conditions also be loaded when loading?
-Yes, but not necessarily. 用户可以把条件直接在后续接 select 语句中. `Where` conditions in `select` statements will be pushed down to the storage for filtering, to avoid large volume of data transmission.
+Yes, but not necessarily. 户可以将过滤条件（filter condition）直接写在 select 语句的 where 中，这样where条件就可以被下推至底层存储，在扫描数据时就可以提前在底层存储中做过滤从而减少数据传输的开销.  `Where` conditions in `select` statements will be pushed down to the storage for filtering, to avoid large volume of data transmission.
 
 ### What should we do when counting is very slow?
 For example, users want to execute the following statements to check the number of data in a table. If the table is relatively large, counting may be very slow and some Engine nodes may stop responding.
