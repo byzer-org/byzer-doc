@@ -44,7 +44,7 @@
       * [jsonStr/script/ByzerAPI/ByzerConf](/byzer-lang/en-us/datasource/built_in_source.md)
       * [Kafka](/byzer-lang/en-us/datasource/kafka.md)
       * [MockStreaming](/byzer-lang/en-us/datasource/mock_streaming.md)
-      * [Others](/byzer-lang/zh-cn/datasource/other.md)
+      * [Others](/byzer-lang/en-us/datasource/other.md)
 
     - [Data Warehouse / DataLake](/byzer-lang/en-us/datahouse/README.md)
         * [Load/Save in Hive](/byzer-lang/en-us/datahouse/hive.md)
@@ -138,7 +138,7 @@
     * [DataSource Extension](/byzer-lang/en-us/extension/datasource/README.md)
         * [Excel](/byzer-lang/en-us/extension/datasource/excel.md)
         * [HBase](/byzer-lang/en-us/extension/datasource/hbase.md)
-        * [Use byzer-lang to access REST API](/byzer-lang/zh-cn/extension/datasource/MLSQLRest.md)
+        * [Use byzer-lang to access REST API](/byzer-lang/en-us/extension/datasource/rest.md)
 
 
 - Security 
