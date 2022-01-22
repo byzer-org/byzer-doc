@@ -95,7 +95,7 @@ and idCols="id";
 ```
 我们看到 id 为 1 的数据已经被更新为。
 
-![](http://docs.mlsql.tech/upload_images/WX20190819-192447.png)
+![](images/data_lake_1.png)
 
 
 ### 流式更新支持
@@ -206,7 +206,7 @@ and checkpointLocation="/tmp/rate-1" partitionBy key;
 
 内容如下：
 
-![](http://docs.mlsql.tech/upload_images/1063603-e43fba9ba7a22149.png)
+![](images/data_lake_2.png)
 
 现在我们可以对指定版本之前的数据做合并了：
 
@@ -218,11 +218,11 @@ and checkpointLocation="/tmp/rate-1" partitionBy key;
 
 我们看下合并前每个分区下面文件情况：
 
-![](http://docs.mlsql.tech/upload_images/1063603-98a05bf000790a02.png)
+![](images/data_lake_3.png)
 
 合并后文件情况：
 
-![](http://docs.mlsql.tech/upload_images/1063603-ba9292b2146633f1.png)
+![](images/data_lake_4.png)
 
 我们删除了16个文件，生成了两个新文件。另外在compaction的时候，并不影响读和写。所以是非常有用的。
 
