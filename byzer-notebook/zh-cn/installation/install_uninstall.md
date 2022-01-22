@@ -10,7 +10,7 @@ Byzer-Notebook-<byzer_notebook_version>.tar.gz
 
 ### 源码编译(可选)
 
-若您想手动编译，请按照 [README.md](https://github.com/byzer-org/byzer-notebook#build) 步骤即可完成编译。
+若您想手动编译，请按照 [README.md](https://github.com/byzer-org/byzer-notebook) 步骤即可完成编译。
 
 ### 解压缩
 

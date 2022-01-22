@@ -198,7 +198,7 @@ select explode(content.data) as article from cnodejs_articles as articles;
 
 结果如下：
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 我们可以看到，我们很容易将表展开，从而实现更复杂的需求。
 
@@ -284,7 +284,7 @@ select count(article.id) from articles as output;
 
 结果如下，可以看到有 6 条数据，一共进行了三次分页
 
-![img_1.png](img_1.png)
+![img_1.png](images/img_1.png)
 
 
 对于那种需要从结果集获取分页参数的，则可以使用 jsonpath 进行抽取并且进行渲染，相关配置如下：
