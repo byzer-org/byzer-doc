@@ -4,9 +4,6 @@
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
-    * [听说 mlsql-cluster 暂时不更新了，mlsql-cluster 是个啥？](/byzer-lang/zh-cn/appendix/faq/mlsql-cluster.md)
-    * [MLSQL K8s 部署，镜像环境如何制作](/byzer-lang/zh-cn/appendix/faq/mlsql-k8s-build.md)
-    * [加载 JDBC(如 MySQL，Oracle)数据常见困惑](/byzer-lang/zh-cn/appendix/faq/jdbc.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
 
 - 全新功能
@@ -132,7 +129,7 @@
     * [DataSource 插件](/byzer-lang/zh-cn/extension/datasource/README.md)
         * [Excel 数据源插件](/byzer-lang/zh-cn/extension/datasource/excel.md)
         * [HBase 数据源](/byzer-lang/zh-cn/extension/datasource/hbase.md)
-        * [使用byzer-lang访问 REST API](/byzer-lang/zh-cn/extension/datasource/MLSQLRest.md)
+        * [使用byzer-lang访问 REST API](/byzer-lang/zh-cn/extension/datasource/rest.md)
 
 
 - 安全与权限
