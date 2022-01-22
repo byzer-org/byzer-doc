@@ -1,4 +1,5 @@
 - Blog
+    - [Python-Daemon-troubleshooting(2022.01.23 )](/public/blog/zh-cn/2022-01-23-Python-Daemon-troubleshooting.md)
     - [Byzer-lang Cifar10 Deeplearning Demo(2022.01.18 )](/public/blog/zh-cn/2022-01-18-byzer-lang-cifar10-deeplearning.md)
     - [Byzer-lang Python Tutorial(2022.01.12)](/public/blog/zh-cn/2022-01-12-python-in-byzer-tutorial.md)
     - [Datafun 活动 Byzer 介绍(2021.12.18)](/public/blog/zh-cn/2021-12-18-datafun-byzer.md)
