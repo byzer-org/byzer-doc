@@ -1,69 +1,69 @@
-# 多容器部署
+# Multi-container deployment
 
-### 前置条件
+### Prerequisites
 
-#### 安装 Docker Desktop
+#### Install Docker Desktop
 
-需要安装 Docker Desktop，操作步骤 [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md) 中有介绍，不再赘述。
+Please install Docker Desktop. For more information, read [Sandbox standalone deployment](/byzer-lang/en-us/installation/containerized_deployment/sandbox-standalone.md).
 
-#### 下载构建项目
+#### Download the build project
 
-多容器部署需要一个docker-compose.yaml定义构成应用程序的服务,这样它们可以在隔离环境中一起运行。 为了方便使用，请下载 byzer-build 这个开源项目，在项目中提供了完整的 docker compose 配置，下面将演示具体的操作流程。
+Multi-container deployment requires a service to define the services that make up the application so that they can run together in an isolated environment. For ease of use, please download the open source project — byzer-build, which provides a complete docker compose configuration. The specific operation process will be demonstrated below.
 
-下载并获取主干的代码：
+Download and get the code of trunk:
 
 ```shell
 git clone https://github.com/byzer-org/byzer-build.git byzer-build
 cd byzer-build && git checkout main && git pull -r origin main
 ```
 
-#### 设置环境变量
+#### Set environment variables
 
 ```
-## 指定 mysql root 用户密码
+## specify the mysql root user password
 export MYSQL_ROOT_PASSWORD=root
-## mysql 端口号
+## mysql port number
 export MYSQL_PORT=3306
-## byzer 引擎后台管理服务的端口
+## Byzer engine background management service port
 export KOLO_LANG_PORT=9003
-## byzer notebook 客户端端口
+## byzer notebook client port
 export BYZER_NOTEBOOK_PORT=9002
-## 当前 byzer 使用的 spark 版本（用于生成 container name）
+## spark version used by byzer (for generating container name)
 export SPARK_VERSION=3.1.1
-## byzer lang 使用的版本（用于生成 container name）
+## byzer lang version (for generating container name)
 export KOLO_LANG_VERSION=2.2.0-SNAPSHOT
-## byzer notebook 使用的版本（用于生成 container name）
+## byzer notebook version (for generating the container name)
 export BYZER_NOTEBOOK_VERSION=0.0.1-SNAPSHOT
 ```
 
-> 注意，上述所有的环境变量我们都提供了默认值，如果您不需要单独定制配置，可以不用设置。
+> Note: we have provided default values ​​for all the above environment variables. If you do not need to customize the configuration, you can leave them alone.
 
 
-### 使用脚本构建 Byzer Images
+### Build Byzer Images with scripts
 
-运行下面脚本将会构建 images 到本地仓库，方便后面启动容器使用。
+Running the following script will build images to the local repository, which is convenient for running container later.
 
 ```
 sh -x dev/bin/build-images.sh
 ```
 
-### 使用多个容器部署 Byzer
+### Deploy Byzer with multiple containers
 
-多容器部署区别于我们前面介绍的 sandbox 独立部署方式，本质上是将多个服务每一个构建为一个镜像，然后使用统一的方式一起启动。这几个服务分别是：
+Multi-container deployment is different from the sandbox standalone deployment method. In essence, each of multiple services is built as an image, and then started together in a unified way. These services are as follows:
 
-- mysql:8.0-20.04_beta：mysql 数据库，用于存储 byzer-notebook 中的元数据和数据
+- mysql:8.0-20.04_beta: mysql database for storing metadata and data in byzer-notebook
 
-- byzer-lang：Byzer 的运行时引擎
+- byzer-lang: Byzer's runtime engine
 
-- byzer-notebook：Byzer 的可视化管理平台
+- byzer-notebook: Byzer's visual management platform
 
-### 执行脚本进行多容器部署
+### Execute scripts for multi-container deployment
 
 ```
 sh -x dev/bin/docker-compose-up.sh
 ```
 
-上面的脚本内部是通过 `docker-compose up` 命令启动服务：
+The service inside the above script is started through the `docker-compose up` command:
 
 ```shell
 cd dev/docker
