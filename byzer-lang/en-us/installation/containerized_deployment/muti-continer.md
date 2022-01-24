@@ -4,13 +4,13 @@
 
 #### Install Docker Desktop
 
-Please install Docker Desktop. You can view operating steps in [Sandbox standalone deployment](/byzer-lang/en-us/installation/containerized_deployment/sandbox-standalone.md).
+Install Docker Desktop. You can find the detailed steps in [Sandbox standalone deployment](/byzer-lang/en-us/installation/containerized_deployment/sandbox-standalone.md).
 
 #### Download the build project
 
-Multi-container deployment requires a service to define the services that make up the application so that they can run together in an isolated environment. For ease of use, please download the open source project — byzer-build, which provides a complete docker compose configuration. The specific operation process will be demonstrated below.
+Multi-container deployment requires a `docker-compose.yaml`  to define the services of the application, so that they can run together in a segregated environment. To facilitate the operation, please download the open source project — byzer-build, which provides the complete docker compose configuration. The operation process will be demonstrated below.
 
-Download and get the code of trunk:
+Clone the code from the main branch:
 
 ```shell
 git clone https://github.com/byzer-org/byzer-build.git byzer-build
@@ -20,28 +20,28 @@ cd byzer-build && git checkout main && git pull -r origin main
 #### Set environment variables
 
 ```
-## specify the mysql root user password
+## specify the MySQL root user password
 export MYSQL_ROOT_PASSWORD=root
-## mysql port number
+## MySQL port number
 export MYSQL_PORT=3306
-## Byzer engine background management service port
+## Background management service port of Byzer engine
 export KOLO_LANG_PORT=9003
-## byzer notebook client port
+## Byzer Notebook client port
 export BYZER_NOTEBOOK_PORT=9002
-## spark version used by byzer (for generating container name)
+## spark version used by Byzer (for generating container name)
 export SPARK_VERSION=3.1.1
-## byzer lang version (for generating container name)
+##Byzer-lang version (for generating container name)
 export KOLO_LANG_VERSION=2.2.0-SNAPSHOT
-## byzer notebook version (for generating the container name)
+## Byzer Notebook version (for generating the container name)
 export BYZER_NOTEBOOK_VERSION=0.0.1-SNAPSHOT
 ```
 
-> Note: we have provided default values ​​for all the above environment variables. If you do not need to customize the configuration, you can leave them alone.
+> Note: All the above environment variables are configured with default values. You can skip this step if you do not need customization. 
 
 
 ### Build Byzer Images with scripts
 
-Running the following script will build images to the local repository, which is convenient for running container later.
+Run the following script to build images in local repository, to facilitate the starting of the container.
 
 ```
 sh -x dev/bin/build-images.sh
@@ -49,21 +49,21 @@ sh -x dev/bin/build-images.sh
 
 ### Deploy Byzer with multiple containers
 
-Multi-container deployment is different from the sandbox standalone deployment method. In essence, each of multiple services is built as an image, and then started together in a unified way. These services are as follows:
+Multi-container deployment is different from the sandbox standalone deployment method. Basically, it is to build multiple services in one image, so they can be started together in a unified way. These services are:
 
-- mysql:8.0-20.04_beta: mysql database for storing metadata and data in byzer-notebook
+- `mysql:8.0-20.04_beta`: MySQL database for storing metadata and data in Byzer Notebook
 
-- byzer-lang: Byzer's runtime engine
+- `byzer-lang`: Byzer runtime engine
 
-- byzer-notebook: Byzer's visual management platform
+- `byzer-notebook`: Byzer visualized management platform
 
-### Execute scripts for multi-container deployment
+### Run scripts for multi-container deployment
 
 ```
 sh -x dev/bin/docker-compose-up.sh
 ```
 
-The service inside the above script is started through the `docker-compose up` command:
+The above script uses  `docker-compose up`  to start the service:
 
 ```shell
 cd dev/docker
