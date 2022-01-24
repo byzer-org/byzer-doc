@@ -1,18 +1,18 @@
 # Sandbox standalone deployment
 
-Sandbox has Byzer's two major parts, Byzer Notebook and Byzer Lang, you can quickly experience Byzer's functions.
+In Sandbox standalone deployment, we have added the 2 major Byzer components: Byzer Notebook and Byzer Lang in one image, to help you quickly experience Byzer functionalities.
 
 ### Prerequisites
 
 #### Install Docker Desktop
 
-Docker Desktop is an application for MacOS and Windows for building and sharing containerized applications and microservices. It provides a management platform, which is convenient for us to quickly deploy and manage Sandbox images and containers.
+Docker Desktop is an application for MacOS and Windows for building and sharing containerized applications and microservices. It provides a management platform, which is very convenient for us to quickly deploy and manage Sandbox images and containers.
 
-Download the installation package suitable for your operating system from [Docker official website](https://www.docker.com/products/docker-desktop).
+Download the installation package based on your operating system from [Docker official website](https://www.docker.com/products/docker-desktop).
 
-The Docker desktop community for Linux is still under development, you can refer to [Docker official website installation documentation](https://docs.docker.com/engine/install/ubuntu/) to install Docker engine on Linux.
+The Community for the Linux version of Docker Desktop is still under development, you can refer to [the installation documentation](https://docs.docker.com/engine/install/ubuntu/) when installing the Docker engine on Linux.
 
-### Sandbox independently deploys Byzer
+### Standalone deployment of Byzer
 
 Download the latest image of the byzer docker repo (based on Spark 3):
 
@@ -20,13 +20,7 @@ Download the latest image of the byzer docker repo (based on Spark 3):
 docker pull byzer/byzer-sandbox:3.1.1-2.2.0-SNAPSHOT
 ```
 
-If you need to experience the byzer spark2, please download the latest image of the byzer docker repo:
-
-```shell
-docker pull byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
-```
-
-Run the Sandbox container of Spark 3.1.1 by using docker command:
+Run the Sandbox container of Spark 3.1.1 with the following docker command:
 
 ```shell
 docker run -d \
@@ -40,7 +34,7 @@ docker run -d \
 byzer/byzer-sandbox:3.1.1-2.2.0-SNAPSHOT
 ```
 
-Run the Sandbox container of Spark 2.4.3 by using docker command:
+Run the Sandbox container of Spark 2.4.3 with the following docker command:
 
 ```shell
 docker run -d \
@@ -54,16 +48,16 @@ docker run -d \
 byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
 ```
 
-> Note: if pulling image times out when running container, you only need to run a Sandbox image.
+> Note: if pulling image request times out when yo start the container, you only need to run one Sandbox image.
 
 
-### Experience Byzer's functions
+### Byzer test drive
 
-In the browser, click to [Login](http://localhost:9002), and enter your user name and password in the user registration page. In the next page, click Create a New Notebook - >Create to enter the Notebook interface and enter the code as shown below.
+[Login](http://localhost:9002) with the browser. Enter your user name and password to register. Then click **Create a New Notebook - >Create** to enter the Notebook interface and paste the followings codes:
 
-#### Process JSON data by using Python and Ray
+#### Process JSON data with Python and Ray
 
-Please execute the code:
+Please run the code below:
 
 ```sql
 -- Build test data
@@ -83,7 +77,7 @@ load jsonStr.`mockData` as data;
 !python conf "schema=st(field(title,string),field(body,string))";
 !python conf "dataMode=data";
 
--- Python code is executed on Sandbox built-in Ray
+-- Python code is run on Sandbox built-in Ray
 !ray on data '''
 
 import ray
@@ -119,7 +113,7 @@ and user="root"
 and password="root"
 as table1;
 
--- Query 100
+-- Query 100 pieces
 select * from table1 limit 100 as table2;
 
 -- Save to DeltaLake
