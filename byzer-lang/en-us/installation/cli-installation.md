@@ -1,33 +1,31 @@
-# Byzer-lang command line installation and configuration
+# Byzer-Lang command line installation and configuration
 
-We provide the ability to execute scripts with the command line to Byzer-lang, which is convenient for users to make byzer-lang have more automation capabilities. This article describes how to install and use Byzer-lang command line.
+Byzer supports running Byzer scripts with command line tools, to provide users with more self-service automation capabilities. This article describes how to install and use this feature.
 
-### Installation process
+### Installation
 
-#### 1. Set up Byzer-lang environment
+#### 1. Set up Byzer-Lang environment
 
-The following will introduce the meaning and installation processes of the environment variables in the Byzer-lang command line.
+The following part will introduce the environment variables in Byzer-lang command line and how to install them.
 
 1. Environment variables
 
-First you need to set two environment variables: `MLSQL_LANG_HOME` and `PATH`.
+First, you need to set two environment variables: `MLSQL_LANG_HOME` and `PATH`.
 
-- **MLSQL_LANG_HOME**: The directory where the Byzer-lang command line is located. When setting `PATH`, you can use this variable for convenience.
+- **MLSQL_LANG_HOME**: The directory where the Byzer-lang command line is located. When setting `PATH`, you can use this variable to facilitate future settings.
 
-- **PATH**: A list of paths to search for executable files. When executing an executable file, if the file cannot be found in the current path, each path in `PATH` will be searched in turn until the executable file is found.
+- **PATH**: A list of paths to search for executable files. For example, if one executable file is to be executed, but the system could not locate the file in the current path, it will search all paths defined in `PATH` till the executable file is found.
 
-   > The execution command (byzer) of the Byzer-lang command line is located in the bin directory under the installation path, so this directory should also be added to the PATH variable.
+   > The execution command (byzer) of the Byzer-Lang command line is located in the `bin` directory of the installation path, so this directory should also be added to the `PATH` variable.
 
-2. Download the byzer-lang command line.
-
-Download the byzer-lang command line package from the following address:
+2. Download the byzer-lang command line based on your operating system:
 
 - [Mac](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz)
 - [Linux](https://download.byzer.org/byzer/2.2.1/byzer-lang-linux-amd64-3.0-2.2.1.tar.gz)
 
 3. Directory structure
 
-It takes the mac environment as an example. After downloading the [compressed package adapted to the mac environment](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz), decompress the tar package. The internal directory structure is as follows:
+This section takes the Mac environment as an example. After downloading the [compressed package for Mac environment](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz), unzip the tar package. The internal directory structure is as follows:
 
 ```
 |-- bin
@@ -41,24 +39,24 @@ It takes the mac environment as an example. After downloading the [compressed pa
 
 4. Introduce environment variables
 
-Next, you need to place the decompressed files in a fixed directory and configure environment variables, where `MLSQL_LANG_HOME` is the upper-level directory including the `bin` directory, as shown below:
+Next, place the unzipped files in a fixed directory and configure environment variables, where `MLSQL_LANG_HOME` is the upper-level directory with the `bin` directory as its child directory, as shown below:
 
 ```
 export MLSQL_LANG_HOME=/opt/byzer-lang-darwin-amd64-3.0-2.2.1
 export PATH=${MLSQL_LANG_HOME}/bin:$PATH
 ```
 
-> **Note** : this example places the package in the /opt directory, and users can specify other convenient locations.
+> **Note**: The example package will be placed in the `/opt` directory, you can choose other directories. 
 
-5. View the user manual
+5. Check the version
 
-After modifying the environment variables, you can use `version` to verify whether the installation is successful and the current byzer command line version. The specific commands are as follows:
+After modifying the environment variables, you can use `version` to verify whether the installation succeeds and the version information. The specific commands are as follows:
 
 ```shell
 byzer --version
 ```
 
-If you configure successfully, the following log will be displayed:
+If successfully configured, you will see the log as below:
 
 ```
 mlsql lang cli version 0.0.4-dev (2021-09-29 51f8d6a)
@@ -68,22 +66,22 @@ mlsql lang cli version 0.0.4-dev (2021-09-29 51f8d6a)
 
 ##### Example
 
-Let's take a look at a complete example. We create a `hello.mlsql` script file with the following content:
+Let's  see an example. Create a `hello.mlsql` script file with the following codes:
 
 ```
 !hdfs -ls /tmp;
 ```
 
-Execute the byzer-lang script with one line:
+Execute the Byzer-Lang script with one command line:
 
 ```shell
 byzer run ./hello.mlsql
 ```
 
-Note: if you are a Mac user, you will be reminded about the security of the app. You need to click **System Preferences - Security and Privacy - Allow App Downloads from the Following Locations** and choose to still allow.
+Note: if you are a Mac user, you will be prompted about the security warning. To allow the app for running, click **System Preferences -> Security and Privacy -> Allow App Downloads from the Following Locations** and choose to still allow.
 
 
-Then we can execute the script through the command line and view the effect. The execution log is as follows:
+Then we can execute the script through the command line. The execution log is as follows:
 ```
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |fileSystem                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -116,4 +114,4 @@ Found 1 items
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
-> Now you have completed the installation and use of Byzer command line.
+> Now you have completed the installation and can begin to use Byzer command line.
