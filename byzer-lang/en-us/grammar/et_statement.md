@@ -1,6 +1,6 @@
-# Extension/Train|Run|Predict
+# Extension: Train|Run|Predict
 
-Train/Run/Predict are all unique and extensible statements in Byzer-lang.
+Train/Run/Predict are unique statements in Byzer-lang.
 
 ## Basic grammar
 

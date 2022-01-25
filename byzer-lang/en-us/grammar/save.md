@@ -34,7 +34,7 @@ save overwrite table1 as json.`/tmp/jack` where fileNum="10";
 1. overwrite: to overwrite the file
 2. append: append write
 3. ignore: if file exits, skip it and do not overwrite
-4. errorIfExists: if file exits, report an error
+4. errorIfExists: if file exists, report an error
 
 ## Support to `connect`
 `save` also supports citing of `connect` statements.
