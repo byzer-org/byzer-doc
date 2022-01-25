@@ -1,6 +1,6 @@
-# Byzer-Lang command line installation and configuration
+# Byzer-Lang command-line installation and configuration
 
-Byzer supports running Byzer scripts with command line tools, to provide users with more self-service automation capabilities. This article describes how to install and use this feature.
+Byzer supports running Byzer scripts with commandline tools, to provide users with more self-service automation capabilities. This article describes how to install and use this feature.
 
 ### Installation
 
