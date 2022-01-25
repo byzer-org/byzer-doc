@@ -1,4 +1,4 @@
-# Byzer-lang Kafka小工具集锦
+# Byzer-lang Kafka 小工具集锦
 
 流式程序的一大特点就是调试没有批那么方便。为此，我们提供一些工具方便用户探索 Kafka 里的数据：
 
@@ -11,7 +11,7 @@
 
 ![kafka-SampleData](./kafka-sampleData.PNG)
 
-## 自动推测Kafka的Schema
+## 自动推测 Kafka 的 Schema
 
 ```sql
 !kafkaTool schemaInfer 10 records from "127.0.0.1:9092" my-topic;
