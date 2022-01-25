@@ -1,6 +1,6 @@
 # Macro Function
 
-The macro function in Byzer-lang is different from the function in the `select` statement. Macro functions are mainly used to reuse Byzer-lang code.
+The macro function in Byzer-Lang is different from the function in the `select` statement. Macro functions are mainly used to reuse Byzer-Lang code.
 
 ## Basic usage
 
@@ -14,7 +14,7 @@ as hello_world;
 select hello from hello_world as output;
 ```
 
-If you write the complete `load` statement every time, it may be cumbersome. At this point users can encapsulate it into a macro function:
+If you need to write the complete `load` statement every time, it may be very time-consuming. At this point users can encapsulate it into a macro function:
 
 ```sql
 set loadExcel = '''
@@ -27,8 +27,8 @@ as {1}
 
 ```
 
-In the sample code above, it is divided into two steps. The first step is to define a variable whose value is a Byzer-lang code. `{0}` , `{1}`in the code are positional parameters and will be replaced when called.
-The second step is to use `!` to implement macro function calls, and use a command-line-like way to pass parameters.
+The sample code above is divided into two steps. The first step is to define a variable whose value is a Byzer-Lang code. `{0}`, `{1}` in the code are positional parameters and will be replaced when called.
+The second step is to use `!` to implement macro function calls, and a command-line-like method is used to pass parameters.
 
 If the parameter contains special characters such as spaces, you can enclose the parameter:
 
@@ -54,20 +54,20 @@ as ${tableName}
 !loadExcel _ -path ./example-data/excel/hello_world.xlsx -tableName helloTable;
 ```
 
-The parameters after `-path` correspond to `${path}` in the `loadExcel` function body. The same is true for `tableName` .
+The parameters after `-path` correspond to `${path}` in the `loadExcel` function body, the same as for `tableName`.
 
-Note: in order to recognize named arguments, the macro function requires that the first argument be `_` .
+Note: To recognize named arguments, the macro function requires that the first argument be `_` .
 
 ## Scope
 
-After the macro function is declared, the scope can be used. The declaration can be repeated and the later declaration will override the previous declaration.
+The macro function can be used after declaration. This declaration can be redefined, and the later declaration will override the previous one.
 
-## Limitations of macro functions
+## Limitations
 
 The use of macro functions currently has several limitations:
 
-1. In the macro function body, the last statement does not need a semicolon
-2. Macro functions cannot be nested within macro functions
+1. In the macro function body, the last statement does not need a semicolon;
+2. Macro functions cannot be nested within macro functions.
 
 The first limitation is easier to understand.
 
