@@ -1,8 +1,8 @@
-# Extension: Train|Run|Predict
+# Estimator/Transformer: Train|Run|Predict
 
-Train/Run/Predict are unique statements in Byzer-lang.
+Train/Run/Predict are unique Byzer statements that support extension.
 
-## Basic grammar
+## Basic syntax
 
 ### Train
 
@@ -24,12 +24,11 @@ and fitParam.0.numTrees="4"
 
 
 
+The first line of code means to load the data located in the `/tmp/train` directory, the data format is JSON, and will name this table as `trainData`,
+The second line of code means to use  `trainData` as the dataset, RandomForest as the algorithm, and save the model under `/tmp/rf`, and the training parameters are those specified with `fitParam. 0.*`.
 
-The first line of code means: load the data located in the `/tmp/train` directory, the data format is JSON, and name this table `trainData`,
-The second line of code means: provide `trainData` as the dataset, use the algorithm RandomForest, save the model under `/tmp/rf`, and the training parameters are those `fitParam. 0.*` specified.
 
-
-Among them, `fitParam.0` represents the first group of parameters, users can set N groups incrementally, Byzer-lang will automatically run multiple groups, and finally return the result list.
+Among them, `fitParam.0` represents the first group of parameters, users can add more groups of parameters, Byzer-lang will automatically run these groups, and return the result list.
 
 ### Run
 
@@ -41,12 +40,12 @@ Here's an example:
 run testData as TableRepartition.`` where partitionNum="5" as newdata;
 ```
 
-The format is the same as that of `train`. It means: run the `testData` dataset and use ET TableRepartition to repartition it, the processed parameter is `partitionNum="5"`, and the final processed table is called `newdata`.
+The format is the same as that of `train`. It means to run the `testData` dataset and use `ET TableRepartition` to do the repartition, the processed parameter is `partitionNum="5"`, and the processed table is called `newdata`.
 
 
 ### Predict
 
-`predict` is related to machine learning predictions. For example, in the train example above, users place the random forest model under the`/tmp/rf` directory. Users can load the model through the `predict` statement and predict the table `testData`.
+`predict` is related to machine learning predictions. For example, in the train example above, users place the random forest model under the`/tmp/rf` directory. Users can load the model through the `predict` statement to predict the table `testData`.
 
 The sample code is as follows:
 
@@ -55,16 +54,16 @@ predict testData as RandomForest.`/tmp/rf`;
 ```
 
 
-## ET concept
+## Estimator/Transformer
 
-Whether it is Train/Run/Predict, its core is the corresponding algorithm or processing tool, which realizes table input and table output (there may be file output in the middle process) and makes up for the shortcomings of traditional SQL.
-In Byzer-lang, they are called `ET`, which is the abbreviation of Estimator/Transformer.
+Whether it is Train/Run/Predict, the kernel part is to realize **table in and table out** (there may be some process files) with the corresponding algorithm or processing tool, to rectify the shortcomings of traditional SQL.
+In Byzer-Lang, they are called Estimator/Transformer (ET). 
 
-`ET` are all extensible, users can complete their own `ET` components. In the developer guide, there is a more detailed introduction on how to develop your own `ET`.
+ET are all extensible, users can compile their own ET components. In Developer Guide, you can find more information on how to develop your own ET.
 
-## View ET available to the system
+## Check available ETs
 
-All available `ET` can be viewed with the following command:
+All available ETs can be viewed with the following command:
 
 ```
 !show et;
@@ -72,7 +71,7 @@ All available `ET` can be viewed with the following command:
 
 ## Query ET with fuzzy matching
 
-To implement fuzzy matching of the name of a `ET`, please use the following methods:
+Byzer also supports approximate string matching for ETs, you can use the following commands:
 
 ```sql
 !show et;
@@ -80,19 +79,19 @@ To implement fuzzy matching of the name of a `ET`, please use the following meth
 select * from ets where name like "%Random%" as output;
 ```
 
-In the same way, you can also implement fuzzy retrieval of `doc` fields based on keywords.
+Similarly, you can also implement fuzzy retrieval of `doc` fields with keywords.
 
-## View ET sample code and usage documentation
+## Check ET code sample and documentation
 
-With the name of `ET`, you can view the usage example of the `ET` and other information:
+After you obtain the  name of the ET, you can check the usage example and other information with the code below:
 
 ```
 !show et/RandomForest;
 ```
 
-## View ET optional parameters
+## Check optional ET parameters
 
-If you want to see very detailed parameter information, you can use the following command:
+To check the detailed ET parameters,  you can use the following command:
 
 ```
 !show et/params/RandomForest;
