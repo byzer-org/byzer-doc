@@ -8,7 +8,7 @@ This article describes how to deploy and use the Byzer-Lang K8S image. There are
 
 Download and install Go 1.16.7 from the [Go official website](https://golang.org/dl/), as this version has been tested.
 
-> We have not tested Go 1.17 yet, please use with caution.
+> We have not tested Go 1.17 yet, please use it with caution.
 
 Clone the deployment tool code from [Github](https://github.com/byzer-org/byzer-k8s), configure [Goproxy](https://github.com/goproxy/goproxy.cn), and execute the command in the project root directory to start compiling:
 
@@ -28,7 +28,7 @@ The result is as follows:
 
 #### Install and configure K8S
 
-If you are using your personal computer, it is recommended to use [Minikube](https://minikube.sigs.k8s.io/docs/). Because you only need to run 1 command to start the standalone version of K8S and it supports Linux/MacOS/Windows. We have successfully deployed Ubuntu 20.04 minikube 1.23.0. After downloading and installing Minikube, execute the following command to start K8S. Note: You can configure a proxy to accelerate the image download speed.
+If you are using your personal computer, it is recommended to use [Minikube](https://minikube.sigs.k8s.io/docs/). Because you only need to run one command to start the standalone version of K8S and it supports Linux/macOS/Windows. We have successfully deployed Ubuntu 20.04 minikube 1.23.0. After downloading and installing Minikube, execute the following command to start K8S. Note: You can configure a proxy to accelerate the image download speed.
 
 ```shell
 minikube start

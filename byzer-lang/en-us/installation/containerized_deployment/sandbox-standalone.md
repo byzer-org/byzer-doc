@@ -103,7 +103,7 @@ The result is as follows:
 
 <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray results"/>
 
-#### Porcess MySQL data
+#### Process MySQL data
 
 ```sql
 -- Load mlsql_console.mlsql_job table data

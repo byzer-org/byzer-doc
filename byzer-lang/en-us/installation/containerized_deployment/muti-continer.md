@@ -8,7 +8,7 @@ Install Docker Desktop. You can find the detailed steps in [Sandbox standalone d
 
 #### Download the build project
 
-Multi-container deployment requires a `docker-compose.yaml`  to define the services of the application, so that they can run together in a segregated environment. To facilitate the operation, please download the open source project — byzer-build, which provides the complete docker compose configuration. The operation process will be demonstrated below.
+Multi-container deployment requires a `docker-compose.yaml`  to define the services of the application, so that they can run together in a segregated environment. To facilitate the operation, please download the open-source project — byzer-build, which provides the complete docker compose configuration. The operation process will be demonstrated below.
 
 Clone the code from the main branch:
 
@@ -41,7 +41,7 @@ export BYZER_NOTEBOOK_VERSION=0.0.1-SNAPSHOT
 
 ### Build Byzer Images with scripts
 
-Run the following script to build images in local repository, to facilitate the starting of the container.
+Run the following script to build images in the local repository, to facilitate the starting of the container.
 
 ```
 sh -x dev/bin/build-images.sh
