@@ -9,7 +9,7 @@ Byzer has the ability to load and store multiple data sources. The supported dat
 - Solr
 - HBase
 - MongoDB
-- HDFS/Local storage
+- HDFS/local storage
 - Special data sources
 
 In this chapter we will give descriptions and usage examples of these data sources.
