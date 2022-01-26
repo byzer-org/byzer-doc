@@ -1,19 +1,19 @@
 # Build-in macro functions
 
 
-Byzer-lang has a lot of built-in macro functions, which can help users have better interaction.
+Byzer-Lang has a lot of built-in macro functions, which can help users to have better interaction.
 
 - `!show`
 
-This command can display a lot of information about the system.
+Use this command to check system information.
 
-Check out the current engine version:
+Check the current engine version:
 
 ```
 !show version;
 ```
 
-Show all subcommands supported by `show`:
+Show all subcommands of `show`:
 
 ```
 !show commands;
@@ -38,7 +38,7 @@ List all currently running tasks:
 !show jobs;
 ```
 
-List task information :
+List task related information :
 
 ```
 !show "jobs/v2/[jobGroupId]";
@@ -46,7 +46,7 @@ List task information :
 !show "jobs/get/[jobGroupId]";
 ```
 
-The content displayed by the three is different and users can try the results themselves.
+The contents returned by the three command are different, you can try and see the difference. 
 
 List all available data sources:
 
@@ -54,13 +54,13 @@ List all available data sources:
 !show datasources;
 ```
 
-List all Rest interfaces:
+List all REST interfaces:
 
 ```
 !show "api/list";
 ```
 
-List all supported configuration parameters (incomplete, based on documentation):
+List all supported configuration parameters (for a complete list, see the documentation):
 
 ```
 !show "conf/list";
@@ -90,7 +90,7 @@ List all ET components:
 !show et;
 ```
 
-List information about an ET component:
+List information about certain ET component:
 
 ```
 !show "et/[ET component name]";
@@ -110,7 +110,7 @@ List a function:
 
 - `!hdfs`
 
-`!hdfs` is mainly used to view the file system. Most HDFS viewing commands are supported.
+`!hdfs` is mainly used to view the file system, it supports most HDFS viewing commands.
 
 View help:
 
