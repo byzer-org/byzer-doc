@@ -6,9 +6,6 @@
   * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
 
-- 全新功能
-  * [新功能](/byzer-lang/zh-cn/what's_new/new_features.md)
-
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
   * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)

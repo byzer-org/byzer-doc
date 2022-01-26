@@ -6,8 +6,8 @@
 
 ## 安装
 
-> 如果byzer Meta Store 采用了MySQL存储，那么你需要使用 https://github.com/byzer-org/byzer-extension/blob/master/stream-persist/db.sql
-> 中的表创建到该MySQL存储中。
+> 如果 Byzer Meta Store 采用了 MySQL 存储，那么你需要使用 https://github.com/byzer-org/byzer-extension/blob/master/stream-persist/db.sql
+> 中的表创建到该 MySQL 存储中。
 
 完成如上操作之后，通过如下命令安装插件：
 

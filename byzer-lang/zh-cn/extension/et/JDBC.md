@@ -1,6 +1,6 @@
-## 直接操作MySQL
+# 直接操作 MySQL
 
-通过前面介绍的jdbc数据源，其实我们可以完成对MySQL数据的读取和写入。但是如果我们希望删除或者创建表呢？这个时候可以使用
+通过前面介绍的 jdbc 数据源，其实我们可以完成对 MySQL 数据的读取和写入。但是如果我们希望删除或者创建表呢？这个时候可以使用
 JDBC ET。
 
 ### 如何使用
@@ -28,4 +28,4 @@ CREATE TABLE test1
 );''';
 ```
 
-我们先用connect语法获得数据连接，然后通过JDBC transformer完成删除和创建表的工作。 driver-statement-[number]  中的number表示执行的顺序。
+我们先用 connect 语法获得数据连接，然后通过 JDBC transformer 完成删除和创建表的工作。 driver-statement-[number] 中的 number 表示执行的顺序。

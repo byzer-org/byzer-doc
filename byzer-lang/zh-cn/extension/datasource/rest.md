@@ -1,6 +1,6 @@
-## 使用 byzer-lang 访问*REST API*
+### 使用 Byzer-lang 访问*REST API*
 
-Rest 数据源可以让 byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的 REST API 交互。Rest 数据源支持简单的 REST API 调用，也支持直接在 Rest 数据源中实现分页数据的读取。
+Rest 数据源可以让 Byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的 REST API 交互。Rest 数据源支持简单的 REST API 调用，也支持直接在 Rest 数据源中实现分页数据的读取。
 
 
 
