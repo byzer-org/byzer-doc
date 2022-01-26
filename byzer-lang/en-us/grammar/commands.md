@@ -1,19 +1,19 @@
 # Build-in macro functions
 
 
-Byzer-Lang has a lot of built-in macro functions, which can help users to have better interaction.
+Byzer-lang has a lot of built-in macro functions, which can help users have better interaction.
 
 - `!show`
 
-Use this command to check system information.
+This command can display a lot of information about the system.
 
-Check the current engine version:
+Check out the current engine version:
 
 ```
 !show version;
 ```
 
-Show all subcommands of `show`:
+Show all subcommands supported by `show`:
 
 ```
 !show commands;
@@ -25,7 +25,7 @@ List all tables:
 !show tables;
 ```
 
-List all tables from specified `db`
+ List all tables from specified `db`
 
 ```
 !show tables from [DB name];
@@ -38,7 +38,7 @@ List all currently running tasks:
 !show jobs;
 ```
 
-List task related information :
+List task information :
 
 ```
 !show "jobs/v2/[jobGroupId]";
@@ -46,7 +46,7 @@ List task related information :
 !show "jobs/get/[jobGroupId]";
 ```
 
-The contents returned by the three command are different, you can try and see the difference. 
+The content displayed by the three is different and users can try the results themselves.
 
 List all available data sources:
 
@@ -54,13 +54,13 @@ List all available data sources:
 !show datasources;
 ```
 
-List all REST interfaces:
+List all Rest interfaces:
 
 ```
 !show "api/list";
 ```
 
-List all supported configuration parameters (for a complete list, see the documentation):
+List all supported configuration parameters (incomplete, based on documentation):
 
 ```
 !show "conf/list";
@@ -90,7 +90,7 @@ List all ET components:
 !show et;
 ```
 
-List information about certain ET component:
+List information about an ET component:
 
 ```
 !show "et/[ET component name]";
@@ -110,7 +110,7 @@ List a function:
 
 - `!hdfs`
 
-`!hdfs` is mainly used to view the file system, it supports most HDFS viewing commands.
+`!hdfs` is mainly used to view the file system. Most HDFS viewing commands are supported.
 
 View help:
 
@@ -249,7 +249,7 @@ Execute native SQL:
 !profiler sql ''' select 1 as a ''' ;
 ```
 
-View the configuration of all spark coreness:
+View the configuration of all spark cores:
 
 ```
 !profiler conf;
@@ -264,7 +264,7 @@ View the execution plan of a table:
 
 - `!python`
 
-Some Python runtime environments can be set up with this command.
+This command can be used to set Python runtime environments.
 
 
 - `!delta`
@@ -281,13 +281,13 @@ List all delta tables:
 !delta show tables;
 ```
 
-Version history:
+Check version history:
 
 ```
 !delta history [db/table];
 ```
 
-Table information:
+Check table information:
 
 ```
 !delta info [db/table];
@@ -300,7 +300,7 @@ File merge:
 !delta compact db/tablename 100 3 background;
 ```
 
-The above code means that the files of the version before `db/table 100` are merged and only three files are kept in each directory.
+The above code will merge all files before version `db/table 100`,  only three files will be kept in each directory.
 
 
 - `!plugin`
