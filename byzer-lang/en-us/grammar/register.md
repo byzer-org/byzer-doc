@@ -1,14 +1,14 @@
-# UDF Register, Model/Register
+# Register: Functions and Model
 
-Using the Register statement can mainly complete three types of work in Byzer-lang:
+In Byzer-Lang, the `register` statement can complete three types of work:
 
-1. Dynamically register UDF/UDAF written in Java/Scala.
-2. Register built-in or Python models as UDF.
-3. In streaming computing, register wartermark/window.
+1. Dynamically register UDF/UDAF function written in Java/Scala.
+2. Register built-in models or Python models as UDF function.
+3. In streaming computing, register watermark/window.
 
 ## Register SQL functions
 
-The most powerful thing in SQL is functions. Byzer-lang supports dynamic creation of UDF/UDAF.
+The most powerful feature of SQL is its functions. Byzer-Lang supports dynamic creation of UDF/UDAF functions.
 
 Sample code:
 
@@ -23,9 +23,9 @@ def apply(a:Double,b:Double)={
 ''';
 ```
 
-The meaning of the above code is to register a function called `plusFun` with ET ScriptUDF. This function uses the Scala language, the function type is UDF, and the corresponding implementation code is in the code parameter.
+The meaning of the above code is to register a function called `plusFun` with ET ScriptUDF. This function uses the Scala language with function type of UDF, and the corresponding implementation code is in the code parameter.
 
-In Byzer-lang, after executing the above code, users can use the `plusFun` function directly in the `select` statement:
+In Byzer-Lang, after executing the above code, users can use the `plusFun` function directly in the `select` statement:
 
 ```sql
 -- create a data table.
@@ -43,12 +43,12 @@ In Byzer-lang, after executing the above code, users can use the `plusFun` funct
 
 Note:
 
-1. lang supports java/scala.
+1. Byzer-Lang supports java/scala.
 2. udfType supports udf/udaf.
 
-### Holding code snippets via variables
+### Quote code segments via variables
 
-Code snippets can also be held using variables and then referenced in ScriptUDF:
+You can also quote the code segments in ScriptUDF via variables:
 
 ```sql
 set plusFun='''
@@ -80,7 +80,7 @@ load jsonStr.`data` as dataTable;
 select plusFun(1,2) as res from dataTable as output;
 ```
 
-A variable can hold multiple methods, which are then registered separately:
+A variable can refer to multiple methods, and then register separately:
 
 ```sql
 set plusFun='''
@@ -106,7 +106,7 @@ methodName="hello"  and className="A";
 select plusFun(1,2) as plus, helloFun("jack") as jack as output;
 ```
 
-### Sample Scala UDAF
+### Scala UDAF sample
 
 ```ruby
 set plusFun='''
@@ -156,7 +156,7 @@ load jsonStr.`data` as dataTable;
 select a,plusFun(a) as res from dataTable group by a as output;
 ```
 
-### Java Language UDF Example
+### Java UDF Example
 
 
 ```sql
@@ -188,10 +188,10 @@ load jsonStr.`data` as dataTable;
 select funx(a) as res from dataTable as output;
 ```
 
-Due to the particularity of the Java language, the following points should be noted:
+Due to the feature of the Java language, the following points should be noted:
 
-> 1. The class name of the passed code must be Java, and the default system will look for `UDF.apply()` as the running udf. If you need special class names and method names, you need to declare the necessary `options` when `register`. You can refer to example 2.
-> 2. Package names (package declaration) are not supported
+> 1. The passed code must be of Java class, and by default,  the system will look for `UDF.apply()` as the running udf. If you need special class names and method names, you need to declare necessary `options` in `register`. You can refer to the below example for more information.
+> 2. Package names (package declaration) are not supported.
 
 Example 2:
 
@@ -236,9 +236,9 @@ select rf_predict(features) as predict_label from trainData
 as output;
 ```
 
-The meaning of the register statement is: register the RandomForest model in `/tmp/rf ` as a function named rf_predict.
+The meaning of the register statement is to register the RandomForest model in `/tmp/rf ` as a function, named as `rf_predict`.
 
-The register statement can also be followed by where/options clauses:
+The register statement can also be followed by `where/options` clauses:
 
 ```sql
 register  RandomForest.`/tmp/rf` as rf_predict
@@ -249,15 +249,15 @@ options algIndex="0"
 
 If multiple models are trained at the same time:
 
-1. algIndex allows users to manually specify which model to select
-2. autoSelectByMetric allows the system to automatically select a model through some metrics. The optional metrics for the built-in algorithm are: f1|weightedPrecision|weightedRecall|accuracy.
+1. `algIndex` allows users to manually specify which model to select
+2. `autoSelectByMetric` allows the system to automatically select a model via some indexes. The available indexes of the built-in algorithm are: f1|weightedPrecision|weightedRecall|accuracy.
 
-If neither parameter is specified, the `f1` metric will be used by default.
+If neither parameter is specified, the `f1` index will be used by default.
 
 
 ## Register Watermark in streaming program
 
-In stream computing, there are the concepts of wartermark and window. We can use the `Register` statement to meet this requirement:
+Watermark and window are concepts of stream computing. We can use the `Register` statement to meet this requirement:
 
 ```sql
 -- register watermark for table1

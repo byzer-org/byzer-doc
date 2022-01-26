@@ -1,22 +1,22 @@
 # Data transform/Select
 
-The `select` syntax is one of the most important ways of processing data in Byzer-lang. `ET` syntax (applied to run/train/predict ) is also important.
+`ET` syntax (applied to run/train/predict ) and  `select` syntax are the most important ways for processing data in Byzer-Lang.
 
-> The `select` syntax in Byzer-lang is fully compatible with Spark SQL except for the last `as tablename`.
+> The `select` syntax in Byzer-Lang is fully compatible with Spark SQL except for the last `as tablename`.
 
-## Basic grammar
+## Basic syntax
 
-The simplest `select` statement is as follows:
+The simplest  `select` statement is as follows:
 
 ```sql
 select 1 as col1
 as table1;
 ```
 
-From the above code, you can see the only difference between the `select` syntax in Byzer-lang and the traditional SQL `select` syntax is that there is an additional `as tableName`.
-This minor improvement helps reference the results of this SQL processing later.
+From the above code, we can see the only difference between the `select` syntax in Byzer-Lang and the traditional SQL  is that there is an extra  `as tableName`.
+This change is to facilitate the SQL processing.
 
-For example, for `table1`, users can refer to it in the new `select` statement:
+For example, for `table1`, users can cite it in the new `select` statement:
 
 ```sql
 select 1 as col1
@@ -26,11 +26,11 @@ select * from table1 as output;
 ```
 
 
-## Template functions in select syntax
+## Templates in `select` syntax
 
-Actually a `select` statement can be quite verbose. Byzer-lang provides some methods to help you simplify your code.
+The  `select` statement can be quite long. Byzer-Lang provides some templates to simplify your coding experience.
 
-For the following codes example:
+For the following example codes:
 
 ```sql
 select "" as features, 1 as label as mockData;
@@ -41,9 +41,9 @@ SUM( case when label is null or label='' then 1 else 0 end ) as label,
 1 as a from mockData as output;
 ```
 
-If there are too many fields and users use these codes to do similar things, users need to write a lot of SUM statements.
+If there are many fields with similar functions, users may need to write a lot of `SUM` statements.
 
-Users can make improvements with the following syntax:
+The following syntax can help to simplify this process:
 
 ```sql
 select "" as features, 1 as label as mockData;
@@ -56,10 +56,9 @@ select
  1 as a from mockData as output;
 ```
 
-Among them, `#set` sets a template variable `$columns`, and then `#foreach` is used to loop over the variable, and the SUM inside the codes becomes a template in essential.
-When the system executes the `select` statements, it will automatically expand into code similar to the previous handwritten code according to these instructions.
+Among them, `#set` sets a template variable `$columns`, and then use `#foreach` to loop the variable. By doing this, the `SUM` of the codes actually servers as a template. When the system executes the `select` statement, it will automatically write the syntax following the instructions, the same as the syntax written in the above manual coding.
 
-Byzer-lang also provides an easier-to-use template:
+Byzer-Lang also provides a more easier-to-use template:
 
 ```sql
  set sum_tpl = '''
@@ -71,6 +70,5 @@ ${template.get("sum_tpl","label")}
 from mockData as output;
 ```
 
-Set up a template via variable declaration, which is held by a variable named `sum_tpl` and supports positional parameters. Next, the template is rendered by using `${template.get}` in the `select` clause.
-The first parameter is the template name and the following parameters are the parameters of the template.
+Set up a template via variable declaration, and the template will be managed by  `sum_tpl`, which also supports positional parameters. Next, render the template by `${template.get}` in the `select` statement. The first parameter is the template name and the following parameters are the parameters of the template.
 
