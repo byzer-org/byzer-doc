@@ -8,10 +8,5 @@
     - [Byzer 解决了什么问题（一）](/public/blog_archive_2021/Byzer解决了什么问题.md)
     - [Byzer 解决了什么问题（二）](/public/blog_archive_2021/Byzer解决了什么问题2.md)
     - [2021年教你尝鲜 Byzer 的 N 种方式](/public/blog_archive_2021/2021年教你尝鲜Byzer的N种方式.md)
-<<<<<<< HEAD
-    - [如何实现Spark过载保护](/public/blog_archive_2021/overload_protection.md)
-    - [Byzer 是如何集成 TensorFlow Cluster 的](/public/blog_archive_2021/Byzer是如何集成TensorFlow_Cluster的.md)
-=======
     - [Byzer 支持 JDBC 聚合下推](/public/blog_archive_2021/Byzer支持JDBC聚合下推.md)
 
->>>>>>> 0fc9d87 (fix byzerlangFAQ)
