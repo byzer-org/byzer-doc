@@ -1,6 +1,6 @@
 # Sandbox 独立部署
 
-Sandbox 包含了 Byzer 两大组件 Byzer Notebook 和 Byzer Lang，您可以快速体验 Byzer 功能。
+Sandbox 包含了两大组件 Byzer Notebook 和 Byzer-lang，您可以快速体验 Byzer 功能。
 
 ### 前置条件
 
@@ -31,9 +31,9 @@ docker run -d \
 -p 9003:9003 \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
---name sandbox-3.1.1-2.2.0-SNAPSHOT \
+--name sandbox-3.1.1-latest \
 --restart=always \
-byzer/byzer-sandbox:3.1.1-2.2.0-SNAPSHOT
+byzer/byzer-sandbox:3.1.1-latest
 ```
 
 使用 docker 命令启动 Spark 2.4.3版 Sandbox 容器:
@@ -43,11 +43,11 @@ docker run -d \
 -p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
---name sandbox-2.4.3-2.2.0-SNAPSHOT \
+--name sandbox-2.4.3-latest \
 --restart=always \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
-byzer/byzer-sandbox:2.4.3-2.2.0-SNAPSHOT
+byzer/byzer-sandbox:2.4.3-latest
 ```
 
 > 请注意，若启动容器时，拉取镜像超时，您只需启动一个 Sandbox 镜像。
