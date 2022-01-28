@@ -3,7 +3,7 @@
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
-  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
+  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/byzerlang_FAQ.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
 
 - 安装与配置
