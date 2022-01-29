@@ -105,7 +105,7 @@ select * from newdata as output;
 
   <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray 结果"/>
 
-#### 处理MySQL 数据
+#### 处理 MySQL 数据
 
  ```sql
 -- 加载 mlsql_console.mlsql_job 表数据
