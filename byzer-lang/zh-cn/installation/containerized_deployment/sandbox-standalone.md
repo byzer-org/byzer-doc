@@ -16,13 +16,27 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 
 ### Sandbox 独立部署 Byzer
 
-下载 Byzer docker repo 最新的image（基于 Spark 3）：
+#### Byzer on spark3
+
+下载 Byzer docker repo 中的稳定版本（基于 Spark 3）：
+
+```shell
+docker pull byzer/byzer-sandbox:3.1.1-<Byzer Relase版本号>
+```
+
+> 注意：`Byzer Relase版本号`请参考Byzer的Release Tags：https://github.com/byzer-org/byzer-lang/tags
+
+> 获取方式：e.g. tag为v2.2.1，则使用版本号2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
+
+如果需要体验最新Byzer的image：
 
 ```shell
 docker pull byzer/byzer-sandbox:3.1.1-latest
 ```
 
-使用 docker 命令启动 Spark 3.1.1版 Sandbox 容器:
+> 该版本为非稳定版本，包含最新研发但尚未release的特性。
+
+使用 docker 命令启动 Spark 3.1.1 版 Sandbox 容器:
 
 ```shell
 docker run -d \
@@ -31,9 +45,17 @@ docker run -d \
 -p 9003:9003 \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
---name sandbox-3.1.1-latest \
+--name sandbox-3.1.1-<Byzer Relase版本号> \
 --restart=always \
-byzer/byzer-sandbox:3.1.1-latest
+byzer/byzer-sandbox:3.1.1-<Byzer Relase版本号>
+```
+
+#### Byzer on spark2
+
+如果需要体验 spark2.4 版本的 Byzer， 下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
+
+```shell
+docker pull byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
 ```
 
 使用 docker 命令启动 Spark 2.4.3版 Sandbox 容器:
@@ -43,14 +65,14 @@ docker run -d \
 -p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
---name sandbox-2.4.3-latest \
+--name sandbox-2.4.3-<Byzer Relase版本号> \
 --restart=always \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
-byzer/byzer-sandbox:2.4.3-latest
+byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
 ```
 
-> 请注意，若启动容器时，拉取镜像超时，您只需启动一个 Sandbox 镜像。
+> 注意：docker启动命令中映射了mysql的端口号，如果本地安装了mysql的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
 
 
 ### 体验 Byzer 功能
@@ -116,7 +138,7 @@ load jdbc.`usage_template` where url="jdbc:mysql://localhost:3306/notebook?chara
  as table1;
  
 -- 查询100条
-select * from table1 limit 100 as table2;
+select * from table1 limit 10 as table2;
 
 -- 保存到DeltaLake
 save append table2 as delta.`dt1`;
