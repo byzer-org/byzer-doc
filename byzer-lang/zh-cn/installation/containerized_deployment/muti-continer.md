@@ -4,13 +4,13 @@
 
 #### 安装 Docker Desktop
 
-需要安装 Docker Desktop，操作步骤 [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md) 中有介绍，不再赘述。
+更多信息请参考 [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)。
 
 #### 下载构建项目
 
-多容器部署需要一个docker-compose.yaml定义构成应用程序的服务,这样它们可以在隔离环境中一起运行。 为了方便使用，请下载 byzer-build 这个开源项目，在项目中提供了完整的 docker compose 配置，下面将演示具体的操作流程。
+多容器部署需要一个docker-compose.yaml定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。 为了方便使用，请下载 byzer-build 这个开源项目，在项目中提供了完整的 docker compose 配置，下面将演示具体的操作流程。
 
-下载并获取主干的代码：
+下载并获取 main 的代码：
 
 ```shell
 git clone https://github.com/byzer-org/byzer-build.git byzer-build
@@ -36,7 +36,7 @@ export KOLO_LANG_VERSION=2.2.0-SNAPSHOT
 export BYZER_NOTEBOOK_VERSION=0.0.1-SNAPSHOT
 ```
 
-> 注意，上述所有的环境变量我们都提供了默认值，如果您不需要单独定制配置，可以不用设置。
+> 注意：上述所有的环境变量我们都提供了默认值，如果您不需要单独定制配置，可以不用设置。
 
 
 ### 使用脚本构建 Byzer Images

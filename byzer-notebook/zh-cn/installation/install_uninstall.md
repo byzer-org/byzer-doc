@@ -14,6 +14,8 @@ Byzer-Notebook-<byzer_notebook_version>.tar.gz
 
 ### 解压缩
 
+通过cd命令进入下载的 Byzer Notebook 的路径中。
+
 解压：
 
 ```shell
