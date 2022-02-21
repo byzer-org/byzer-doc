@@ -1,4 +1,5 @@
 - Blog
+    - [如何通过 Github PR 贡献白泽社区 (2022.02.21 )](/public/blog/zh-cn/2022-02-21-github-submit-pr.md)
     - [Byzer-SendMessage(2022.02.07 )](/public/blog/zh-cn/2022-02-07-Byzer-SendMessage.md)
     - [介绍 Byzer-lang 文件系统插件(2022.01.28)](/public/blog/zh-cn/2022-01-28-Introduction-into-CustomFS.md)
     - [Python-Daemon-troubleshooting(2022.01.23 )](/public/blog/zh-cn/2022-01-23-Python-Daemon-troubleshooting.md)
