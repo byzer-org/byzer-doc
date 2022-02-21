@@ -93,7 +93,7 @@ as table1;
 select * from test1 where a = "b"
 ''' AS newtable;
 
-> SELECT * FROM newtable;
+> SELECT * FROM newtable AS newtable_1;
 ```
 
 这种情况要求加载的数据集不能太大。 
@@ -158,7 +158,7 @@ and `driver-statement-1`="create table test1.....";
 
 ## Upsert
 
-目前只支持对 MySQL 执行 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
+MySQL 支持数据的 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
 
 `idCol` 的作用
 - 标记数据需要执行 `Upsert` 操作 
