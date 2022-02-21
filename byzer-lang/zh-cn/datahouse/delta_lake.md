@@ -28,7 +28,7 @@ set rawText='''
 
 load jsonStr.`rawText` as orginal_text_corpus;
 
-save append orginal_text_corpus as delta.`/tmp/delta/table10`;
+save append orginal_text_corpus as delta.`test_demo.table1`;
 ```
 
 执行上面的语句，我们就能成功的将相关数据写入 Delta 数据湖了。
@@ -36,7 +36,7 @@ save append orginal_text_corpus as delta.`/tmp/delta/table10`;
 加载的方式如下：
 
 ```sql
-load delta.`/tmp/delta/table10` as output;
+load delta.`test_demo.table1` as output;
 ```
 
 ### 按数据库表模式使用
