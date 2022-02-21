@@ -1,7 +1,7 @@
 # 环境依赖
 
 在使用 Byzer-python 前，需要 Driver 的节点上配置好 Python 环境 ( Executor 节点可选) 。如果您使用 yarn 做集群管理，推荐使用 Conda 管理 Python
-环境（参考[Conda环境安装](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)）。而如果您使用K8s，则可直接使用镜像管理。
+环境（参考[Conda 环境安装](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)）。而如果您使用 K8s，则可直接使用镜像管理。
 
 接下来，我们以 Conda 为例，介绍创建 Byzer-python 环境的流程。
 
@@ -58,7 +58,7 @@ ray.init(address="ray://<head_node_ip_address>:10001")
 <img src="/byzer-lang/zh-cn/python/image/image-ray-test.png" title="ray-test" width="800"/>
 </p>
 
-> 如果出现下方报错可能是Conda 虚拟环境版本问题，建议重新安装，更多信息见[Ray Issue #19938](https://github.com/ray-project/ray/issues/19938)。
+> 如果出现下方报错可能是 Conda 虚拟环境版本问题，建议重新安装，更多信息见[Ray Issue #19938](https://github.com/ray-project/ray/issues/19938)。
 >
 > <img alt="image-ray-error" src="/byzer-lang/zh-cn/python/image/image-ray-error.png" width="800"/>
 

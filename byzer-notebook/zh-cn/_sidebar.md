@@ -5,9 +5,6 @@
   * [常见问题 FAQ](/byzer-notebook/zh-cn/appendix/faq.md)
   * [如何贡献](/byzer-notebook/zh-cn/appendix/contribute.md)  
 
-- 全新功能
-  * [新功能](/byzer-notebook/zh-cn/what's_new/new_features.md)
-
 - 安装与配置
   * [安装前置条件](/byzer-notebook/zh-cn/installation/prerequisites.md)
   * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)    
@@ -38,4 +35,3 @@
       * [Byzer Notebook 1.0.1](/byzer-notebook/zh-cn/appendix/release-notes/1.0.1.md)
       * [Byzer Notebook 1.0.0](/byzer-notebook/zh-cn/appendix/release-notes/1.0.0.md)
     * [术语表](/byzer-notebook/zh-cn/appendix/terms.md)  
-    * [Blog](/byzer-notebook/zh-cn/appendix/blog.md)   

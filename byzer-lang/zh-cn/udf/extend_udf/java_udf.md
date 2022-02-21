@@ -30,7 +30,7 @@ public class Test {
 > SET data='''{"a":"a"}''';
 > LOAD jsonStr.`data` AS dataTable;
 a
-> SELECT funx(a) AS res FROM dataTable AS output;
+> SELECT echoFun(a) AS res FROM dataTable AS output;
 { "a": "a" }
 ```
 **例子二**
@@ -57,6 +57,6 @@ public class Test {
 > SET data='''{"a":"a"}''';
 > LOAD jsonStr.`data` AS dataTable;
 a
-> SELECT funx(a) AS res FROM dataTable AS output;
+> SELECT echoFun(a) AS res FROM dataTable AS output;
 { "a": "a" }
 ```

@@ -25,11 +25,9 @@ as output;
 得到结果如下：
 
 
-```
-title
-
-hello world
-```
+|title|
+|----|
+|hello world|
 
 通常， 变量可以用于任何语句的任何部分。甚至可以是结果输出表名，比如下面的例子
 
@@ -54,9 +52,9 @@ select * from world as output;
 
 通常在 Byzer-lang 中，生命周期分成三个部分：
 
-1. request （当前执行请求有效）
-2. session  （当前会话周期有效）
-3. application （全局应用有效）
+1. request （当前执行请求有效/ Notebook 中实现为 Cell 等级）
+2. session  （当前会话周期有效 /Notebook 的用户等级）
+3. application （全局应用有效，暂不支持）
 
 
 `request` 级别表示什么含义呢？ 如果你先执行
@@ -146,11 +144,9 @@ select "${date}" as dt as output;
 
 输出结果为：
 
-```sql
-dt
-
-Mon Aug 19 10:28:10 CST 2019
-```
+|dt|
+|----|
+|Mon Aug 19 10:28:10 CST 2019|
 
 第四种是 `sql` 类型，这意味着 `set` 后的 key 最后是由 sql 引擎执行生成的。下面的例子可以看出其特点和用法：
 
@@ -163,11 +159,9 @@ select "${date}" as dt as output;
 
 注意这里也需要使用反引号括住命令。 最后结果输出为：
 
-```
-dt
-
-2019-08-18
-```
+|dt|
+|----|
+|2019-08-18|
 
 最后一种是defaultParam。
 

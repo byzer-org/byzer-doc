@@ -19,13 +19,10 @@ load jsonStr.`abc` as table1;
 
 运行结果如下：
 
-```
-dataType  x         y   z
-
-A         group	100	200	200
-B         group	120	100	260
-
-```
+|dataType|x|y|z|
+|----|----|----|----|
+|A group|100|200|200|
+|B group|120|100|260|
 
 仔细看该语句，第一个关键词是 `load`，紧接着接一个数据源或者格式名称，比如上面的例子是 `jsonStr` ，这表示加载一个 Json 的字符串。
 数据源后面接 `.` 和 `abc` 。 通常反引号内是个路径。

@@ -11,9 +11,9 @@ Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据�
 下面是一个使用 `connect` 语法的例子：
 
 ```sql
-> SET user="root";
-> SET password="root";
-> CONNECT jdbc WHERE
+SET user="root";
+SET password="root";
+CONNECT jdbc WHERE
  url="jdbc:mysql://127.0.0.1:3306/wow?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
  and driver="com.mysql.jdbc.Driver"
  and user="${user}"
@@ -27,7 +27,7 @@ Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据�
 同样，我们也可以使用 `load` 语法加载数据源：
 
 ```sql
-> LOAD jdbc.`db.table` OPTIONS
+LOAD jdbc.`db.table` OPTIONS
 and driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:3306/...."
 and user="..."
@@ -37,11 +37,11 @@ AS table1;
 
 在这之后，可以使用 db_1 加载数据库中的任意表：
 
-```
-> LOAD jdbc.`db_1.table1` as table1;
-> LOAD jdbc.`db_1.table2` as table2;
+```sql
+LOAD jdbc.`db_1.table1` as table1;
+LOAD jdbc.`db_1.table2` as table2;
 
-> SELECT * from table1 as output;
+SELECT * from table1 as output;
 ```
 
 ### 可选参数列表
@@ -75,7 +75,7 @@ AS table1;
 
 **预分区使用样例**
 
-```
+```sql
 > LOAD jdbc.`db.table` OPTIONS
 and driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:3306/...."
@@ -93,7 +93,7 @@ as table1;
 select * from test1 where a = "b"
 ''' AS newtable;
 
-> SELECT * FROM newtable;
+> SELECT * FROM newtable AS newtable_1;
 ```
 
 这种情况要求加载的数据集不能太大。 
@@ -101,9 +101,29 @@ select * from test1 where a = "b"
 如果你希望对这个语句也进行权限控制，如果是到表级别，那么只要系统开启授权即可。
 如果是需要控制到列，那么启动时需要添加如下参数：
 
-```
+```shell
 --conf "spark.mlsql.enable.runtime.directQuery.auth=true" 
 ```
+
+
+
+## 删除或创建表
+
+具体用法如下：
+
+```sql
+run command as JDBC.`db_1._` where 
+`driver-statement-0`="drop table if exists test1"
+and `driver-statement-1`='''
+CREATE TABLE test1
+(
+    id CHAR(200) PRIMARY KEY NOT NULL,
+    name CHAR(200)
+);''';
+```
+
+我们先用 connect 语法获得数据连接，然后通过 JDBC transformer 完成删除和创建表的工作。 driver-statement-[number] 中的 number 表示执行的顺序。
+
 
 
 ## 保存数据
@@ -138,7 +158,7 @@ and `driver-statement-1`="create table test1.....";
 
 ## Upsert
 
-目前只支持对 MySQL 执行 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
+MySQL 支持数据的 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
 
 `idCol` 的作用
 - 标记数据需要执行 `Upsert` 操作 

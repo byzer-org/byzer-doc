@@ -1,7 +1,5 @@
-# 语法解析SyntaxAnalyzeExt使用
-我们知道 byzer 支持语法解析接口，我们可以通过设置参数`executeMode`为 analyze，
-实现 byzer 语法的解析。语法解析接口对 set/load 语法解析比较充分，但是select语句解析的比较粗糙，只有 raw,sql,tableName 三个部分。在很多场景里面，我
-们其实需要解析出 SQL 中所有的表，而不仅仅是这条 SQL 中生成的表，我们可以通过`SyntaxAnalyzeExt`来完成表的抽取。
+# 语法解析插件 SyntaxAnalyzeExt
+我们知道 Byzer 支持语法解析接口，我们可以通过设置参数 `executeMode` 为 analyze，实现 Byzer 语法的解析。语法解析接口对 set/load 语法解析比较充分，但是 select 语句解析的比较粗糙，只有 raw，sql，tableName 三个部分。在很多场景里面，我们其实需要解析出 SQL 中所有的表，而不仅仅是这条 SQL 中生成的表，我们可以通过 `SyntaxAnalyzeExt` 来完成表的抽取。
 
 使用场景示例：
 - 我们需要知道一个 select 语句的所有输入源表
@@ -16,7 +14,8 @@ select a from table1 as output;
 ```
 
 下面给一个完整的例子：
-首先生成两个表，table1和table2。然后执行`SyntaxAnalyzeExt`抽取一个嵌套的 SQL 的所有的表。 如下：
+首先生成两个表，table1 和 table2。然后执行`SyntaxAnalyzeExt`抽取一个嵌套的 SQL 的所有的表。 如下：
+
 ```sql
  select "stub" as table1;
  
@@ -39,8 +38,8 @@ select a from table1 as output;
  |table2    |
  +----------+
 ```
- 
-另外，我们也支持把sql通过变量方式传入，方式如下：
+
+另外，我们也支持把 SQL 通过变量方式传入，方式如下：
 ```
 select "test" as col1 as table1;
 

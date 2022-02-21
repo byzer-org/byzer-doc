@@ -3,11 +3,8 @@
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
-  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/README.md)
+  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/byzerlang_FAQ.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
-
-- 全新功能
-  * [新功能](/byzer-lang/zh-cn/what's_new/new_features.md)
 
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
@@ -111,14 +108,13 @@
         * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
       * 内置ET
-        * [如何缓存表](/byzer-lang/zh-cn/extension/et/CacheExt.md)
-        * [直接操作MySQL](/byzer-lang/zh-cn/extension/et/JDBC.md)
-        * [Json展开插件使用](/byzer-lang/zh-cn/extension/et/JsonExpandExt.md)
-        * [Byzer-Watcher 插件使用](/byzer-lang/zh-cn/extension/et/byzer-watcher.md)
-        * [如何发送邮件](/byzer-lang/zh-cn/extension/et/SendMessage.md)
-        * [语法解析工具](/byzer-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
-        * [改变表的分区数](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
-        * [计算复杂的父子关系](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
+        * [缓存表插件 CacheExt](/byzer-lang/zh-cn/extension/et/CacheExt.md)
+        * [Json 展开插件 JsonExpandExt](/byzer-lang/zh-cn/extension/et/JsonExpandExt.md)
+        * [Byzer-Watcher 插件](/byzer-lang/zh-cn/extension/et/byzer-watcher.md)
+        * [发送邮件插件 SendMessage](/byzer-lang/zh-cn/extension/et/SendMessage.md)
+        * [语法解析插件 SyntaxAnalyzeExt](/byzer-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
+        * [表分区插件 TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
+        * [计算表父子关系插件 TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
       * 外置ET
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [mlsql 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)

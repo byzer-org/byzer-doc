@@ -6,10 +6,10 @@
 
 
 这篇文章分成五个部分:
-1. 准备Cifar10图片数据集 
+1. 准备 Cifar10 图片数据集 
 2. 分布式对图片预处理 
-3. 使用Tenforflow进行分布式模型训练 
-4. 将模型转化为UDF函数，从而能够应用在批，流，API等场景中
+3. 使用 Tenforflow 进行分布式模型训练 
+4. 将模型转化为 UDF 函数，从而能够应用在批，流，API 等场景中
 
 ## 准备Cifar10 图片数据集
 
@@ -386,7 +386,7 @@ select model_predict(array(byteArrayToUnsignedIntArray(content))) from final_cif
 
 ## 总结
 
-通过上面这个案例，通过使用Byzer-lang,我们仅仅需要少量的python代码，就可以完成较为复杂的数据加载，汇总，预处理，分布式训练，模型部署等整个AI的pipeline。 SQL和Python之间无缝衔接，并且无论SQL还是Python都实现了分布式，这个能力是非常强大的。
+通过上面这个案例，通过使用 Byzer-lang，我们仅仅需要少量的 python 代码，就可以完成较为复杂的数据加载，汇总，预处理，分布式训练，模型部署等整个 AI 的 pipeline。 SQL 和 Python 之间无缝衔接，并且无论 SQL 还是 Python 都实现了分布式，这个能力是非常强大的。
 
 ## 附录1 环境安装
 

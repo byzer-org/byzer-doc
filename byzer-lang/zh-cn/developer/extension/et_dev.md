@@ -1,10 +1,10 @@
-## 自定义 ET 插件开发
+### 自定义 ET 插件开发
 
 Byzer具备足够灵活的扩展性，能够同时解决 Data + AI 领域的问题。我们提供了大量的插件，方便用户在数据处理、商业分析和机器学习的不同场景中使用 Byzer。这些插件类型包括: DataSource、ET、Script、App，我们都可以灵活的通过离线或者线上的方式注册到 Byzer Engine 中使用。
 
 
 
-在 Byzer 中，ET（Estimator/Transformer的简称）是一个非常重要的概念。通过 ET，我们可以完成非常多的复杂任务。包括：
+在 Byzer 中，ET（Estimator/Transformer 的简称）是一个非常重要的概念。通过 ET，我们可以完成非常多的复杂任务。包括：
 
 1. 无法用 SQL 实现的特定的数据处理
 2. 实现各种可复用的复杂的算法模型以及特征工程工具

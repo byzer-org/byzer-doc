@@ -32,7 +32,7 @@ save overwrite b as excel.`/tmp/b.xlsx` where header="true";
 
 现在我们来看看如何进行开发。
 
-## Excel数据源开发
+## Excel 数据源开发
 
 要实现一个数据源的开发，需要实现如下接口：
 
