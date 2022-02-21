@@ -6,9 +6,9 @@
 
 ### 官网注册 
 
-在开始试用之前，请确认您已在 [Byzer 白泽官网](https://www.byzer.org) 成功注册试用账号。
+在开始试用之前，请先前往 [Byzer 官网](https://www.byzer.org) 注册试用账号。
 
-点击官网主页上的 **在线试用**：
+首先点击官网主页上的 **在线试用**：
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/introduction/images/online_trial.png" alt="name"  width="800"/>

@@ -6,13 +6,11 @@ Sandbox 包含了两大组件 Byzer Notebook 和 Byzer-lang，您可以快速体
 
 #### 安装 Docker Desktop
 
-Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用于构建和共享容器化应用程序和微服务。它提供
-了非常丰富便捷的管理平台，方便我们快速部署、管理 Sandbox 镜像和容器。
+Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用于构建和共享容器化应用程序和微服务。它为用户提供了非常丰富便捷的管理平台，方便用户快速部署、管理 Sandbox 镜像和容器。
 
-从 [Docker 官网](https://www.docker.com/products/docker-desktop) 下载适配您操作系统的安装包，安装并使用。
+首先请从 [Docker 官网](https://www.docker.com/products/docker-desktop) 下载适配您操作系统的安装包，安装并使用。
 
-适用于 Linux 的 Docker 桌面社区还在开发中，可以参考 [Docker 官网安装文档](https://docs.docker.com/engine/install/ubuntu/)
-在 Linux 上安装 Docker 引擎。
+适用于 Linux 的 Docker 桌面社区还在开发。若您需要在 Linux 上安装 Docker 引擎，请参考 [Docker 官网安装文档](https://docs.docker.com/engine/install/ubuntu/)。
 
 ### Sandbox 独立部署 Byzer
 
@@ -77,11 +75,11 @@ byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
 
 ### 体验 Byzer 功能
 
-浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，点击 **Create a New Notebook - Create**，进入 Notebook 使用界面，贴入如下代码：
+浏览器[登录](http://localhost:9002)，在用户登陆界面，输入用户名和密码: admin/admin 进入Byzer Notebook 首页。点击 **创建新笔记本 - 创建** 并在弹窗中为笔记本起名，点击 **创建** 进入 Notebook 使用界面开始体验 Byzer 功能。
 
 #### 使用 Python 和 Ray 处理 JSON 数据
 
-请执行代码:
+在单元格中输入以下代码，并点击上方工具栏中的单箭头标志（**运行**）执行代码:
 
 ```sql
 -- 构造测试数据
@@ -128,6 +126,8 @@ select * from newdata as output;
   <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray 结果"/>
 
 #### 处理MySQL 数据
+
+点击上方工具栏中的 **+** 新增单元格，并在单元格中输入以下代码，点击工具栏中的单箭头标志（**运行**）执行代码：
 
  ```sql
 -- 加载 mlsql_console.mlsql_job 表数据

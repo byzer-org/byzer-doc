@@ -15,8 +15,9 @@ Byzer-lang 针对大数据领域的流程抽象出了如下几个句法结构：
 2. 模型注册/Register
 3. 模型预测/Select|Predict
 
-
 此外，在代码复用上，Byzer-lang 支持脚本和包的管理。 
+
+下面将简单介绍 Byzer-lang 的句法结构，并提供了示例代码。您可以在 Byzer Notebook 中输入以下代码进行尝试。
 
 ### 加载数据
 
@@ -89,18 +90,20 @@ libMirror="gitee.com"
 and alias="libCore";
 ```
 
-接着，引入 `hello` 脚本，最后就可以在 `select` 句式中使用 `hello` 函数了：
+接着，引入 `hello` 脚本：
 
 ```sql
 include local.`libCore.udf.hello`;
 select hello() as name as output;
 ```
 
+结果为：name: hello world，最后就可以在 `select` 句式中使用 `hello` 函数了。
+
 ### 宏函数
 
 标准 SQL 中也有函数，Byzer-lang 的宏函数则是 SQL 层级的。
 
-譬如每次都写完整的 `load` 语句是一件沮丧的事情。可以将其进行封装：
+譬如每次都写完整的 `load` 语句是一件比较麻烦的事情。可以将其进行封装：
 
 ```sql
 set loadExcel = '''
@@ -142,6 +145,8 @@ and udfType="udf";
 select arrayLast(array("a","b")) as lastChar as output;
 ```
 
+结果为：lastChar: b
+
 在上面的代码中定义了一个 `arrayLast` 的函数，该函数的逻辑是获取数组中最后一个值。通过 `register` 句式注册完成后，
 就可以在 select 句式中直接使用，效果和内置的函数一样。
 
@@ -160,6 +165,8 @@ set a="b";
 ```sql
 select "${a}" as a as output;
 ```
+
+结果为：a
 
 在 Byzer-lang 中，变量引用主要以 `${}` 的方式进行，分支条件表达式则是特例，它以  `:VariableName` 形式进行引用。
 
@@ -195,6 +202,8 @@ set b_count=`select count(*) from mockTable ` where type="sql" and mode="runtime
 
 select * from final_table as output;
 ```
+
+结果为：a: 1
 
 ### 机器学习
 
@@ -300,7 +309,6 @@ Byzer-lang 是解释型语言。 变量，宏函数， UDF 注册，`select` 临
 
 > request , 仅在当前执行阶段有效，不能跨 Cell 使用。
 > session , 和用户生命周期绑定，可跨 Cell 使用。 默认 1 小时没有发生任何访问，用户 session 会被释放。
-
 
 
 

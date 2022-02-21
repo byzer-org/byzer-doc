@@ -76,14 +76,14 @@
 </p>
 
 ### 工作流和笔记本的转换
-点击 workflow 页面右上角的 notebook 就会将工作流转化为 notebook，只是预览哦
+点击工作流页面右上角的**笔记本**就会将工作流转化为笔记本，您可以对其进行预览。
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/workspace/images/workflow_notebook.png" alt="name"  width="500"/>
 </p>
 
 
-如果需要进一步编辑笔记本，点击 `另存为笔记本` 就可以保存成一个笔记本了
+若需要进一步编辑，请点击页面上方工具栏中的**另存为笔记本**。
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/workspace/images/save_as_notebook.png" alt="name"  width="500"/>

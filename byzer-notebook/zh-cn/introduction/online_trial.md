@@ -8,13 +8,13 @@
 
 在开始试用之前，请确认您已在 [Byzer 白泽官网](https://www.byzer.org) 成功注册试用账号。
 
-点击官网主页上的 **在线试用**：
+点击官网主页上的 **在线试用** 并选择注册站点：
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/introduction/images/online_trial.png" alt="name"  width="800"/>
 </p>
 
-填写基本信息注册并点击 **创建账号**：
+填写基本信息并点击 **创建账号**：
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/introduction/images/register.png" alt="name"  width="800"/>
@@ -36,7 +36,7 @@
     <img src="/byzer-notebook/zh-cn/introduction/images/Workspace_create.png" alt="name"  width="250"/>
 </p>
 
-您可在工作区列表查看所有项目文件。您可通过点击 **工作区** 右侧的 ➕  创建 **笔记本** 文件、**工作流** 文件和 **文件夹**。也可通过 **导入** 导入本地的 **笔记本** 文件（.bznb）和 **工作流** 文件（.bzwf）。
+您可在工作区列表查看所有项目文件。您可通过点击 **工作区** 右侧的 ➕  创建 **笔记本** 文件、**工作流** 文件和 **文件夹**。也可点击 **导入** 导入本地的 **笔记本** 文件（.bznb）和 **工作流** 文件（.bzwf）。
 
 > 提示：在线体验环境支持上传的单个文件最大不超过200M，单用户总文件不超过500M.
 
@@ -75,7 +75,7 @@ Byzer Notebook 支持多种数据源类型的一站式接入。
 
 
 在  **工作区**  中，点击对应的 **笔记本** 可进入该项目文件的专属工作区。
-您可通过笔记本工作区上方 **工具栏** 中的按钮，对cell 执行 **运行、删除、清除结果**等操作。
+您可通过笔记本工作区上方 **工具栏** 中的按钮，对cell 执行 **运行、删除、清除所有结果**等操作。
 
 ##### 3.2 运行 笔记本
 

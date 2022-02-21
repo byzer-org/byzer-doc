@@ -12,7 +12,7 @@
 
    `docker pull allwefantasy/mlsql-sandbox:<tag>`
    
-   > tag 对应着镜像的版本号，[这里](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags)可以查看所有可用的 tag
+   > tag 对应着镜像的版本号，您可点击 [mlsql-sandbox](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags) 页面，查看所有可用的 tag。
    
 2. 运行容器
 
