@@ -1,48 +1,14 @@
 # JDBC 数据源
 
-Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server等。
+Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL， Oracle，Hive thrift server等。
 
 本节会以 MySQL 为主要例子进行介绍。
 
-## 加载数据
+## 添加数据源
 
-Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
+进入 Byzer Notebook **设置**页面，点击**外部数据源**下方的**新增**按钮，在弹窗中填写相关信息即可添加 JDBC 数据源。
 
-下面是一个使用 `connect` 语法的例子：
-
-```sql
-> SET user="root";
-> SET password="root";
-> CONNECT jdbc WHERE
- url="jdbc:mysql://127.0.0.1:3306/wow?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
- and driver="com.mysql.jdbc.Driver"
- and user="${user}"
- and password="${password}"
- AS db_1;
-```
-
-> 这条语句表明，Byzer 连接的是 JDBC 数据源。WHERE 语句中包含连接相关的参数，指定驱动是 MySQL 的驱动，设置用户名/密码为 root。
-最后将这个链接的别名设置为 db_1.
-
-同样，我们也可以使用 `load` 语法加载数据源：
-
-```sql
-> LOAD jdbc.`db.table` OPTIONS
-and driver="com.mysql.jdbc.Driver"
-and url="jdbc:mysql://127.0.0.1:3306/...."
-and user="..."
-and password="...."
-AS table1;
-```
-
-在这之后，可以使用 db_1 加载数据库中的任意表：
-
-```
-> LOAD jdbc.`db_1.table1` as table1;
-> LOAD jdbc.`db_1.table2` as table2;
-
-> SELECT * from table1 as output;
-```
+<p><img src="/byzer-notebook/zh-cn/datasource/images/settings_add.png"></p>
 
 ### 可选参数列表
 
@@ -213,7 +179,7 @@ load jdbc.`db_1.tblname` where directQuery='''
 3. numPartitions 分区数目。一般8个线程比较合适。
 能够进行分区的字段要求是数字类型，推荐使用自增id字段。
 
-#### 多线程拉取还是慢，有办法进一步加速么
+#### 多线程拉取还是慢，有办法进一步加速么?
 你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
 
 

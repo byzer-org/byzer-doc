@@ -1,19 +1,18 @@
 - Introduction
   * [Byzer Notebook 简介](/byzer-notebook/zh-cn/introduction/notebook_intro.md)
   * [在线试用](/byzer-notebook/zh-cn/introduction/online_trial.md)
-  * [快速开始](/byzer-notebook/zh-cn/introduction/get_started.md)
   * [常见问题 FAQ](/byzer-notebook/zh-cn/appendix/faq.md)
   * [如何贡献](/byzer-notebook/zh-cn/appendix/contribute.md)  
 - 安装与配置
   * [安装前置条件](/byzer-notebook/zh-cn/installation/prerequisites.md)
-  * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)    
-- 加载数据源
-  * [数据源](/byzer-notebook/zh-cn/datasource/README.md)
-  * [Hive](/byzer-notebook/zh-cn/datasource/hive.md)
-  * [DeltaLake](/byzer-notebook/zh-cn/datasource/deltalake.md)
-  * [文件数据源](/byzer-notebook/zh-cn/datasource/file.md)
+  * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)
+  * [Sandbox 安装](../../byzer-notebook/zh-cn/installation/sandbox.md)    
+- [数据源](../../byzer-notebook/zh-cn/datasource/README.md)
+  * [Hive](../../byzer-notebook/zh-cn/datasource/hive.md)
+  * [DeltaLake](../../byzer-notebook/zh-cn/datasource/deltalake.md)
+  * [文件数据源](../../byzer-notebook/zh-cn/datasource/file.md)
+  * [JDBC](../../byzer-notebook/zh-cn/datasource/jdbc.md)
   * [外部数据源](../../byzer-notebook/zh-cn/datasource/external_ds/README.md)
-    * [JDBC](../../byzer-notebook/zh-cn/datasource/external_ds/jdbc.md)
     * [RestApi](../../byzer-notebook/zh-cn/datasource/external_ds/restapi.md)
     * [ElasticSearch](../../byzer-notebook/zh-cn/datasource/external_ds/es.md)
     * [Solr](../../byzer-notebook/zh-cn/datasource/external_ds/solr.md)
@@ -29,9 +28,7 @@
 - 运维
   * [任务历史](/byzer-notebook/zh-cn/operation/job_history.md)
   * [任务调度](/byzer-notebook/zh-cn/operation/scheduler.md)
-  * [引擎设置](/byzer-notebook/zh-cn/operation/engine.md)
-- Demo 示例
-  * [案例1](/byzer-notebook/zh-cn/use_case/case_1.md)
+  * [引擎设置](../../byzer-notebook/zh-cn/operation/engine.md)
 
 
 - 附录
