@@ -11,6 +11,7 @@
 - Install / Uninstall
   * [Prerequisites](/byzer-notebook/en-us/installation/prerequisites.md)
   * [Install / Uninstall](/byzer-notebook/en-us/installation/install_uninstall.md)    
+  * [Start from Docker image](/byzer-notebook/en-us/installation/start_from_docker_image.md)
 
 - Load DataSource
   * [DataSource](/byzer-notebook/en-us/datasource/README.md)
