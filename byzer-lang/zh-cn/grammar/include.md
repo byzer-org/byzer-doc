@@ -7,7 +7,7 @@ Byzer-lang 支持复杂的代码组织结构，这赋予了 Byzer-lang 强大的
 
 ## 引入第三方依赖库
 
-`lib-core` 是 allwefantasy 维护的一个 Byzer-lang Lib库，里面有很多用 Byzer-lang 写成的一些功能。Byzer-lang 使用 Github 来作为 Lib 管理工具。
+`lib-core` 是 @allwefantasy 维护的一个 Byzer-lang Lib库，里面有很多用 Byzer-lang 写成的一些功能。Byzer-lang 使用 Github 来作为 Lib 管理工具。
 
 如果需要引入 `lib-core`,可以通过如下方式：
 

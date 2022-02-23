@@ -229,7 +229,7 @@ select "${__last_table_name__}" as tableName as output;
 
 - !saveFile
 
-如果一个表只有一条记录，并且该记录只有一列，并且该列是 binary 格式，那么我们可以将该列的内容保存成一个文件。比
+如果一个表只有一条记录，并且该记录只有一列，并且该列是 binary 格式，那么我们可以将该列的内容保存成一个文件。
 
 ```
 !saveFile _ -i [表名] -o [保存路径];

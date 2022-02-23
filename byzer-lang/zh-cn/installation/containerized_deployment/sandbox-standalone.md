@@ -24,7 +24,7 @@ docker pull byzer/byzer-sandbox:3.1.1-<Byzer Relase版本号>
 
 > 注意：`Byzer Relase版本号`请参考Byzer的Release Tags：https://github.com/byzer-org/byzer-lang/tags
 
-> 获取方式：e.g. tag为v2.2.1，则使用版本号2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
+> 获取方式：e.g. tag 为 v2.2.1，则使用版本号 2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
 
 如果需要体验最新Byzer的image：
 
@@ -50,7 +50,7 @@ byzer/byzer-sandbox:3.1.1-<Byzer Relase版本号>
 
 #### Byzer on spark2
 
-如果需要体验 spark2.4 版本的 Byzer， 下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
+如果需要体验 spark2.4 版本的 Byzer，下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
 
 ```shell
 docker pull byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
@@ -70,7 +70,7 @@ docker run -d \
 byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
 ```
 
-> 注意：docker启动命令中映射了mysql的端口号，如果本地安装了mysql的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
+> 注意：docker启动命令中映射了 MySQL 的端口号，如果本地安装了 MySQL 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
 
 
 ### 体验 Byzer 功能
