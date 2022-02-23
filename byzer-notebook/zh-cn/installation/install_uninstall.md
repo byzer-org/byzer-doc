@@ -92,3 +92,34 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 rm -rf Byzer-Notebook-<byzer_notebook_version>
 ```
 
+## Docker 镜像启动
+
+
+
+### 1. 拉取 Byzer Notebook 镜像
+
+```shell
+docker pull byzer/byzer-notebook:版本号
+```
+
+> `版本号` 请参考 Byzer Notebook 的 Release Tags：https://github.com/byzer-org/byzer-notebook/tags
+>
+> 获取方式：e.g. tag 为 v1.0.1，则使用版本号 1.0.1，执行 `docker pull byzer/byzer-notebook:1.0.1`
+
+如果需要体验最新版本 Byzer Notebook 的镜像：
+
+```shell
+docker pull byzer/byzer-notebook:latest
+```
+
+> 该版本为非稳定版本，包含最新研发但尚未 release 的特性。
+
+
+### 2. 启动
+
+> 启动时可通过挂载目录 `-v /path/to/conf_dir:/home/deploy/byzer-notebook/conf  ` 使用自定义的配置文件，详见上文**配置文件**小节。
+
+```shell
+docker run -itd -v /path/to/conf_dir:/home/deploy/byzer-notebook/conf -p 9002:9002 --name=byzer-notebook byzer/byzer-notebook:版本号
+```
+

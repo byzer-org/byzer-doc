@@ -7,7 +7,6 @@
 - 安装与配置
   * [安装前置条件](/byzer-notebook/zh-cn/installation/prerequisites.md)
   * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)
-  * [Docker 镜像启动](/byzer-notebook/zh-cn/installation/start_from_docker_image.md)
 - 加载数据源
   * [数据源](/byzer-notebook/zh-cn/datasource/README.md)
   * [Hive](/byzer-notebook/zh-cn/datasource/hive.md)
