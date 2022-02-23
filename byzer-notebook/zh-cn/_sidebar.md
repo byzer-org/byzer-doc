@@ -6,7 +6,7 @@
   * [如何贡献](/byzer-notebook/zh-cn/appendix/contribute.md)  
 - 安装与配置
   * [安装前置条件](/byzer-notebook/zh-cn/installation/prerequisites.md)
-  * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)    
+  * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)
 - 加载数据源
   * [数据源](/byzer-notebook/zh-cn/datasource/README.md)
   * [Hive](/byzer-notebook/zh-cn/datasource/hive.md)
