@@ -37,9 +37,7 @@ byzer/byzer-sandbox:3.1.1-<Byzer Relase版本号>
 ```
 
 > 注意：`Byzer Relase版本号`请参考Byzer的Release Tags：https://github.com/byzer-org/byzer-lang/tags
-
 > 获取方式：e.g. tag为v2.2.1，则使用版本号2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
-
 
 
 #### Byzer on spark2
