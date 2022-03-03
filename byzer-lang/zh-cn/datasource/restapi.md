@@ -1,8 +1,8 @@
-# Rest Api
+# REST API
 
-Byzer 创造性地支持将 rest api 作为数据源，并将返回值注册为一张表。
+Byzer 创造性地支持将 REST API 作为数据源，并将返回值注册为一张表。
 
-RestApi 支持重试机制，支持取返回值中的字段进行多次请求，并将所有返回值组合成一张表。
+REST API 支持重试机制，支持取返回值中的字段进行多次请求，并将所有返回值组合成一张表。
 
 下面是一个简单的例子：
 ```sql
@@ -27,7 +27,7 @@ as token_1;
 
 在这个例子中，首先我们通过 SET 语法运行时执行 Byzer 的语法获取 3 个参数，详细这个语法了解请翻看 [set 语法](/byzer-lang/zh-cn/grammar/set.md)。
 
-在 load 语句中，我们使用 `Rest` 关键字标志数据源是 rest api，引号內填写访问 URL，当然也可以引用 SET 变量。
+在 load 语句中，我们使用 `Rest` 关键字标志数据源是 REST API，引号內填写访问 URL，当然也可以引用 SET 变量。
 
 在 load 语句中 使用 `where` 从句设置参数。
 `config.connect-timeout` 代表设置超时时间为 10s，
@@ -111,7 +111,7 @@ config.page.next="{0}"
 ## 返回值
 
 load 语句将请求的返回值设置为一张表。其中有两列：
-- content：base64编码的返回体
+- content：base64 编码的返回体
 - status：http 状态码
 
 如下所示：

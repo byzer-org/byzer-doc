@@ -16,7 +16,7 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 
 ### Sandbox 独立部署 Byzer
 
-下载 Byzer docker repo 最新的image（基于 Spark 3）：
+下载 Byzer docker repo 最新的 image（基于 Spark 3）：
 
 ```shell
 docker pull byzer/byzer-sandbox:3.1.1-latest
@@ -36,7 +36,7 @@ docker run -d \
 byzer/byzer-sandbox:3.1.1-latest
 ```
 
-使用 docker 命令启动 Spark 2.4.3版 Sandbox 容器:
+使用 docker 命令启动 Spark 2.4.3 版 Sandbox 容器:
 
 ```shell
 docker run -d \
@@ -105,7 +105,7 @@ select * from newdata as output;
 
   <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray 结果"/>
 
-#### 处理MySQL 数据
+#### 处理 MySQL 数据
 
  ```sql
 -- 加载 mlsql_console.mlsql_job 表数据

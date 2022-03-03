@@ -4,7 +4,7 @@ Register 句式在 Byzer-lang 中主要可以完成三类工作：
 
 1. 动态注册 Java/Scala 写的 UDF/UDAF 函数
 2. 将内置或者 Python 模型注册成 UDF 函数
-3. 在流式计算中，注册 wartermark/window
+3. 在流式计算中，注册 watermark/window
 
 ## 注册 SQL 函数
 
@@ -257,7 +257,7 @@ options algIndex="0"
 
 ## 流式程序中注册 Watermark
 
-在流式计算中，有 wartermark 以及 window 的概念。我们可以使用 `Register` 句式来完成这个需求：
+在流式计算中，有 watermark 以及 window 的概念。我们可以使用 `Register` 句式来完成这个需求：
 
 ```sql
 -- register watermark for table1
