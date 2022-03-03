@@ -46,7 +46,7 @@ byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
 如果需要体验 Spark2.4 版本的 Byzer， 下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
 
 ```shell
-docker pull byzer/byzer-sandbox:2.4.3-<Byzer Relase 版本号>
+docker pull byzer/byzer-sandbox:2.4.3-<Byzer Release 版本号>
 ```
 
 使用 docker 命令启动 Spark 2.4.3 版 Sandbox 容器:
@@ -56,11 +56,11 @@ docker run -d \
 -p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
---name sandbox-2.4.3-<Byzer Relase 版本号> \
+--name sandbox-2.4.3-<Byzer Release 版本号> \
 --restart=always \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
-byzer/byzer-sandbox:2.4.3-<Byzer Relase 版本号>
+byzer/byzer-sandbox:2.4.3-<Byzer Release 版本号>
 ```
 
 > 注意：docker 启动命令中映射了 mysql 的端口号，如果本地安装了 mysql 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
