@@ -19,8 +19,9 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 ```shell
 docker pull byzer/byzer-sandbox:3.1.1-latest
 ```
+> 该版本为非稳定版本，包含最新研发但尚未 release 的特性。
 
-> 该版本为非稳定版本，包含最新研发但尚未release的特性。
+#### Byzer on Spark3
 
 使用 docker 命令启动 Spark 3.1.1 版 Sandbox 容器:
 
@@ -31,21 +32,21 @@ docker run -d \
 -p 9003:9003 \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
---name sandbox-3.1.1-<Byzer Relase版本号> \
+--name sandbox-3.1.1-<Byzer Release 版本号> \
 --restart=always \
-byzer/byzer-sandbox:3.1.1-<Byzer Relase版本号>
+byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
 ```
 
-> 注意：`Byzer Relase版本号`请参考Byzer的Release Tags：https://github.com/byzer-org/byzer-lang/tags
-> 获取方式：e.g. tag为v2.2.1，则使用版本号2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
+> 注意：`Byzer Release 版本号`请参考 Byzer 的 Release Tags：https://github.com/byzer-org/byzer-lang/tags
+> 获取方式：e.g. tag 为 v2.2.1，则使用版本号 2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
 
 
-#### Byzer on spark2
+#### Byzer on Spark2
 
-如果需要体验 spark2.4 版本的 Byzer， 下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
+如果需要体验 Spark2.4 版本的 Byzer， 下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
 
 ```shell
-docker pull byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
+docker pull byzer/byzer-sandbox:2.4.3-<Byzer Relase 版本号>
 ```
 
 使用 docker 命令启动 Spark 2.4.3 版 Sandbox 容器:
@@ -55,14 +56,14 @@ docker run -d \
 -p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
---name sandbox-2.4.3-<Byzer Relase版本号> \
+--name sandbox-2.4.3-<Byzer Relase 版本号> \
 --restart=always \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
-byzer/byzer-sandbox:2.4.3-<Byzer Relase版本号>
+byzer/byzer-sandbox:2.4.3-<Byzer Relase 版本号>
 ```
 
-> 注意：docker启动命令中映射了mysql的端口号，如果本地安装了mysql的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
+> 注意：docker 启动命令中映射了 mysql 的端口号，如果本地安装了 mysql 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
 
 
 ### 体验 Byzer 功能
