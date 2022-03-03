@@ -1,6 +1,6 @@
 # 数据加载/Load
 
- Byzer-Lang 的设计哲学是 `Everything is a table`，那么就可以在 Byzer-Lang 中抽象各种文件数据源，数据库，数据仓库，数据湖甚至 Rest API 成一个表，然后使用二维表的操作方式来处理它。 这主要通过 `load` 句式来达成。
+ Byzer-Lang 的设计哲学是 `Everything is a table`，那么就可以在 Byzer-Lang 中将各种文件抽象成一个表，例如数据源，数据库，数据仓库，数据湖甚至 Rest API。然后使用二维表的操作方式来处理它。 这主要通过 `load` 句式来达成。
 
 
 ## 基本使用
@@ -19,18 +19,14 @@ load jsonStr.`abc` as table1;
 
 运行结果如下：
 
-```
-dataType  x         y   z
+|dataType|x|y|z|
+|----|----|----|----|
+|A group|100|200|200|
+|B group|120|100|260|
 
-A         group	100	200	200
-B         group	120	100	260
-
-```
 
 仔细看该语句，第一个关键词是 `load`，紧接着接一个数据源或者格式名称，比如上面的例子是 `jsonStr` ，这表示加载一个 Json 的字符串。
-数据源后面接 `.` 和 `abc` 。 通常反引号内是个路径。
-
-比如:
+数据源后面接 `.` 和 `abc` 。 通常反引号内是个路径，比如:
 
 ```
 csv.`/tmp/csvfile`
@@ -57,7 +53,7 @@ select * from table1 as output;
 !show datasources;
 ```
 
-用户可以通过模糊匹配来定位某个数据源是否存在：
+用户可以通过模糊匹配来定位某个数据源（如 `csvStr`）是否存在：
 
 ```sql
 !show datasources;

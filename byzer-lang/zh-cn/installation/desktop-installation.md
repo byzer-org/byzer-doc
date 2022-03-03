@@ -12,7 +12,7 @@
   - [Linux 版](https://download.byzer.org/byzer/2.2.1/byzer-lang-linux-0.0.7.vsix)
   - [Mac 版](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-0.0.7.vsix)
 
-  2. 打开 VSCode， 在左侧面板选择`拓展` -> 选择 `从 VSIX 安装`，选择刚下载的 vsix 进行安装。
+  2. 打开 VSCode， 在侧边栏点击 **扩展**，并在上方工具栏中点击 **...** -> **从 VSIX 安装...** ，选择刚下载的 vsix 进行安装。
 
      ![img.png](images/img_local_install.png)
 
@@ -26,17 +26,18 @@
 
 如希望为每个项目进行不同的配置，你可以通过添加 `.mlsql.config` 到你的 Byzer-lang 项目根目录实现。
 
-1. 在 `.mlsql.config` 里配置变量 *engine.home*（从市场安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载：
-   - [Linux](https://download.byzer.org/byzer-lang-linux-amd64-2.3.0-preview.tar.gz)
-   - [Mac](https://download.byzer.org/byzer-lang-mac-amd64-2.3.0-preview.tar.gz)
+
+1. 在 `.mlsql.config` 里配置变量 *engine.home*（从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=allwefantasy.mlsql) 安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载：
+   - [Linux](https://download.byzer.org/byzer/2.2.1/byzer-lang-linux-amd64-3.0-2.2.1.tar.gz)
+   - [Mac](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz)
    
-   解压缩。engine.home 指向该目录。（P.S. bin目录无需配置在 engin.home 里，只需要配置 bin 所在的目录）
+2. 解压缩。engine.home 指向该目录。（P.S. bin目录无需配置在 engin.home 里，只需要配置 bin 所在的目录）
    
-3. 如果你是第一次创建该文件，为了使配置生效，在 VSCode 里按住 `shift+command+p`，先选择【开发人员：重新加载窗口】确保 mlsql.config 文件生效，然后再选择 MLSQL RUN 即可编译和执行 `.mlsql` 文件
+3. 如果你是第一次创建该文件，为了使配置生效，在 VSCode 里按住 `shift+command+p`，输入 **开发人员：重新加载窗口** 确保 mlsql.config 文件生效，然后再按住 `shift+command+p`，输入 **MLSQL RUN** 即可编译和执行 `.mlsql` 文件
 
 ### 示例
 
-您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 Byzer-lang VSCode 插件的样例项目
+接下来我们将通过示例演示Byzer-lang VSCode 插件，您可以从 [此处](https://github.com/allwefantasy/mlsql-lang-example-project) 下载 Byzer-lang VSCode 插件的样例项目。
 在执行之前，可以先执行 `./src/common/PyHeader.mlsql`  启用 conda env 
 
 1. **ExcelExample**

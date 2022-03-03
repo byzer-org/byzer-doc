@@ -1,11 +1,11 @@
-# byzer-Watcher 插件使用
+# Byzer-Watcher 插件
 
-byzer-Watcher 可以收集一些关键数据到MySQL,然后可以通过byzer代码计算对应的指标从而判别 一个MLSQL脚本是不是危险。
+Byzer-Watcher 可以收集一些关键数据到 MySQL，然后可以通过 Byzer 代码计算对应的指标从而判别 一个 MLSQL 脚本是不是危险。
 具体的文章参考：[如何实现Spark过载保护](/public/blog_archive_2021/overload_protection.md)
 
-## 开启方式
+### 开启方式
 
-注册一个MySQL数据库即相当于开启收集功能:
+注册一个 MySQL 数据库即相当于开启收集功能:
 
 ```shell
 !watcher db add "app_runtime_full" '''
@@ -23,11 +23,11 @@ app_runtime_full:
 ''';
 ```
 
-此时byzer会连接该数据库，并且每两秒收集一次数据写入MySQL.
+此时 Byzer 会连接该数据库，并且每两秒收集一次数据写入 MySQL.
 
 
-## 设置日志保留时间
-我们还需要设置MySQL的清理时间，避免MySQL数据集过大：
+### 设置日志保留时间
+我们还需要设置 MySQL 的清理时间，避免 MySQL 数据集过大：
 
 ```shell
 !watcher cleaner 7d;
@@ -35,9 +35,9 @@ app_runtime_full:
 
 比如我这里设置保留七天的记录。支持秒(s),分钟(m),小时(h)等后缀。
 
-## 加载数据表
+### 加载数据表
 
-你可以加载相关MySQL库表到你的byzer notebook里：
+你可以加载相关 MySQL 库表到你的 Byzer Notebook 里：
 
 ```sql
 connect jdbc where
@@ -53,7 +53,7 @@ load jdbc.`app_runtime_full.w_executor_job` as w_executor_job;
 
 之后就可以查询统计这些信息了。
 
-下面一段脚本是针对每个executor计算一个特定byzer脚本的危险指数：
+下面一段脚本是针对每个 executor 计算一个特定 Byzer 脚本的危险指数：
 
 ```sql
 -- 规整数据

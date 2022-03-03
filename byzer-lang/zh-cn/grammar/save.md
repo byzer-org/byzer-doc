@@ -6,9 +6,9 @@
 ## 基本语法
 
 ```sql
-set rawData=''' 
-{"jack":1,"jack2":2}
-{"jack":2,"jack2":3}
+set rawData='''
+  {"jack":1,"jack2":2}
+  {"jack":2,"jack2":3}
 ''';
 load jsonStr.`rawData` as table1;
 save overwrite table1 as json.`/tmp/jack`;
@@ -45,7 +45,7 @@ save overwrite table1 as json.`/tmp/jack` where fileNum="10";
 
 ```sql
 
-select 1 as a as tmp_article_table
+select 1 as a as tmp_article_table;
 
 connect jdbc where
 url="jdbc:mysql://127.0.0.1:3306/wow?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"

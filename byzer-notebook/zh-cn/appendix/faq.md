@@ -94,7 +94,7 @@ Byzer Notebook 是现在 Byzer 项目主推的一种产品形态，也是开源�
 
 - **Notebook**
 
-白泽目前已经拥有相对成熟的Notebook 交互界面，具体参考如下图：
+Byzer 目前已经拥有相对成熟的Notebook 交互界面，具体参考如下图：
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/appendix/images/mainpage.png" alt="name"  width="800"/>

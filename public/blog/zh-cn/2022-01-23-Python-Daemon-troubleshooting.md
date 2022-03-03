@@ -1,10 +1,10 @@
-## 背景
+# Byzer-python Daemon进程暴增问题排查
 
 | **Version** | **Author** | **Date** | **Comment** |
 | ------ | ------ | ------ |------ |
 | V 1.0 | hellozepp (lin.zhang@byzer.org) |2022/01/23 | first version|
 
-### Byzer 介绍
+## Byzer 介绍
 
 Byzer 作为一门面向 Data 和 AI 的新一代编程语言。具体信息可以点击下面链接了解：https://docs.byzer.org/#/byzer-lang/zh-cn/introduction/byzer_lang_design
 
@@ -14,7 +14,7 @@ https://github.com/byzer-org/byzer-lang/issues/1652
 
 
 
-### 问题描述
+## 问题描述
 
 后台发现 daemon 进程增长很快！而正常情况是一个`python env` 应该只有一个进程。
 

@@ -31,14 +31,14 @@ def apply(a:Double,b:Double)={
 -- create a data table.
  set data='''
  {"a":1}
- {"a":1}
- {"a":1}
- {"a":1}
+ {"a":2}
+ {"a":3}
+ {"a":4}
  ''';
  load jsonStr.`data` as dataTable;
 
  -- using echoFun in SQL.
- select plusFun(1,2) as res from dataTable as output;
+ select plusFun(a,2) as res from dataTable as output;
 ```
 
 其中：
@@ -52,32 +52,26 @@ def apply(a:Double,b:Double)={
 
 ```sql
 set plusFun='''
-
-def apply(a:Double,b:Double)={
-   a + b
-}
-
+    def apply(a:Double,b:Double)={
+       a + b
+    }
 ''';
 
 -- load script as a table, every thing in mlsql should be table which 
 -- can be process more convenient.
 load script.`plusFun` as scriptTable;
-
 -- register `apply` as UDF named `plusFun` 
-register ScriptUDF.`scriptTable` as plusFun
-;
-
+register ScriptUDF.`scriptTable` as plusFun;
 -- create a data table.
 set data='''
-{"a":1}
-{"a":1}
-{"a":1}
-{"a":1}
+  {"a":1}
+  {"a":2}
+  {"a":3}
+  {"a":4}
 ''';
 load jsonStr.`data` as dataTable;
-
 -- using echoFun in SQL.
-select plusFun(1,2) as res from dataTable as output;
+select plusFun(a,2) as res from dataTable as output;
 ```
 
 一个变量可以持有多个方法，然后分别进行注册：
