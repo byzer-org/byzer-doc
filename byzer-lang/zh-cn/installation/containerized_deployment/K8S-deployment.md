@@ -15,7 +15,7 @@
 
 ```shell
 make all
-``` 
+```
 
 完成后, 执行命令:
 
@@ -29,9 +29,7 @@ make all
 
 #### 安装并配置 K8S
 
-若您使用个人电脑，推荐使用 [Minikube](https://minikube.sigs.k8s.io/docs/)，仅需 1 条命令就能启动单机版 K8S，它支持 Linux/MacOS/Windows。我们团队小伙伴已经成功
-
-部署至 Ubuntu 20.04 minikube 1.23.0。下载后，执行以下命令启动 K8S，配置代理能大大加速下载镜像速度。
+若您使用个人电脑，推荐使用 [Minikube](https://minikube.sigs.k8s.io/docs/)，仅需 1 条命令就能启动单机版 K8S，它支持 Linux/MacOS/Windows。我们团队小伙伴已经成功部署至 Ubuntu 20.04 minikube 1.23.0。下载后，执行以下命令启动 K8S，配置代理能大大加速下载镜像速度。
 
 ```shell
 minikube start
@@ -95,5 +93,4 @@ kubectl create secret docker-registry regcred \
 | engine-jar-path-in-container | byzer-lang jar 在容器内路径，请不要修改。启动 Spark Driver 需要它。 |
 | storage-name                 | 执行 juicefs format命令时，指定的名称                     |
 | storage-meta-url             | JuiceFS 的元数据库连接串                               |
-
 

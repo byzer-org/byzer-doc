@@ -33,10 +33,10 @@ save overwrite table1 as json.`/tmp/jack` where fileNum="10";
 
 `save` 支持四种存储方式：
 
-1. overwrite  覆盖写
-2. append     追加写
-3. ignore     文件存在跳过不写
-4. errorIfExists 文件存在则报错
+1. overwrite：覆盖写
+2. append：追加写
+3. ignore：文件存在跳过不写
+4. errorIfExists：文件存在则报错
 
 ## Save Connect 支持
 `save` 也支持 `connect` 语句的引用。
