@@ -1,16 +1,18 @@
 # Delta 加载和存储以及流式支持
 
-Delta 本质就是 HDFS 上一个目录。这就意味着你可以在自己的主目录里欢快的玩耍。我们会分如下几个部分介绍 Delta 的使用：
+Delta 本质就是 HDFS 上一个目录。我们会分如下几个部分介绍 Delta 的使用：
 
 1. 基本使用
 2. 按数据库表模式使用
-3. Upsert语义的支持
+3. Upsert 语义的支持
 4. 流式更新支持
 5. 小文件合并
 6. 同时加载多版本数据为一个表
 7. 查看表的状态(如文件数等)
 
-### 基本使用
+
+
+### 1. 基本使用
 
 ```sql
 set rawText='''
@@ -39,7 +41,7 @@ save append orginal_text_corpus as delta.`test_demo.table1`;
 load delta.`test_demo.table1` as output;
 ```
 
-### 按数据库表模式使用
+### 2. 按数据库表模式使用
 
 很多用户并不希望使用路径，他们希望能够像使用 Hive 那样使用数据湖。Byzer-lang 对此也提供了支持。在启动时，加上参数
 
@@ -76,7 +78,9 @@ load delta.`default.table_1` as output;
 !delta show tables;
 ```
 
-### Upsert 语义的支持
+
+
+### 3. Upsert 语义的支持
 
 Delta 支持数据的 Upsert 操作，对应的语义为： 如果存在则更新，不存在则新增。
 
@@ -98,9 +102,9 @@ and idCols="id";
 ![](images/data_lake_1.png)
 
 
-### 流式更新支持
+### 4. 流式更新支持
 
-这里，我们会简单涉及到流式程序的编写。大家可以先有个感觉，不用太关注细节。我们后续专门的流式章节会提供更详细的解释和说明。
+这里，我们会简单涉及到流式程序的编写，在后续专门的 [流式章节](/byzer-lang/zh-cn/streaming/README.md) 会提供更详细的解释和说明。
 
 为了完成这个例子，用户可能需要在本机启动一个 Kafka，并且版本是 0.10.0 以上。
 
@@ -144,7 +148,7 @@ and duration="5"
 and checkpointLocation="/tmp/s-cpl6";
 ```
 
-这里，我们指定x,y为联合主键。
+这里，我们指定 x,y 为联合主键。
 
 现在可以查看了：
 
@@ -153,11 +157,13 @@ load delta.`/tmp/delta/wow-0` as show_table1;
 select * from show_table1 where x=100 and z=204 as output;
 ```
 
-### 小文件合并
 
-Byzer-lang 对 Delta 的小文件合并的要求比较苛刻，要求必须是 append 模式，不能发生更新已有记录的的表才能进行小文件合并。
 
-我们在示例中模拟一些Kafka的数据：
+### 5. 小文件合并
+
+Byzer-lang 对 Delta 的小文件合并的要求比较苛刻，要求必须是追加（append ）模式，Upsert 模式不能进行小文件合并。
+
+我们在示例中模拟一些 Kafka 的数据：
 
 ```sql
 set data='''
@@ -198,7 +204,7 @@ and checkpointLocation="/tmp/rate-1" partitionBy key;
 
 这里注意一下是流里面 Delta 叫 rate。
 
-现在我们利用工具 !delta 查看已有的版本：
+现在我们利用宏命令  `!delta` 查看已有的版本：
 
 ```sql
 !delta history /tmp/delta/rate-2-table;
@@ -226,7 +232,9 @@ and checkpointLocation="/tmp/rate-1" partitionBy key;
 
 我们删除了16个文件，生成了两个新文件。另外在compaction的时候，并不影响读和写。所以是非常有用的。
 
-### 同时加载多版本数据为一个表
+
+
+### 6. 同时加载多版本数据为一个表
 
 Delta 支持多版本，我们也可以一次性加载一个范围内的版本，比如下面的例子，我们说，将[12-14) 的版本的数据按
 一个表的方式加载。接着用户可以比如可以按 id 做 group by，在一行得到多个版本的数据。
@@ -243,7 +251,9 @@ select __delta_version__, collect_list(key), from table1 group by __delta_versio
 as table2;
 ```
 
-### 查看表的状态
+
+
+### 7. 查看表的状态
 
 ```sql
 !delta info scheduler.time_jobs;
