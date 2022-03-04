@@ -27,7 +27,7 @@
 如希望为每个项目进行不同的配置，你可以通过添加 `.mlsql.config` 到你的 Byzer-lang 项目根目录实现。
 
 
-1. 在 `.mlsql.config` 里配置变量 *engine.home*（从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=allwefantasy.mlsql) 安装的才需要 engine.home）。根据您的操作系统(mac，linux win) 下载：
+1. 在 `.mlsql.config` 里配置变量 *engine.home*（从 [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=allwefantasy.mlsql) 安装的才需要 engine.home）。根据您的操作系统(mac，linux，win) 下载：
    - [Linux](https://download.byzer.org/byzer/2.2.1/byzer-lang-linux-amd64-3.0-2.2.1.tar.gz)
    - [Mac](https://download.byzer.org/byzer/2.2.1/byzer-lang-darwin-amd64-3.0-2.2.1.tar.gz)
    

@@ -6,13 +6,13 @@ Register 句式在 Byzer-lang 中主要可以完成三类工作：
 2. 将内置或者 Python 模型注册成 UDF 函数
 3. 在流式计算中，注册 watermark/window
 
-## 注册 SQL 函数
+## 1. 注册 SQL 函数
 
 在 SQL 中，最强大的莫过于函数了。Byzer-lang 支持动态创建 UDF/UDAF 函数。
 
 示例代码：
 
-```ruby
+```sql
 register ScriptUDF.`` as plusFun where
 lang="scala"
 and udfType="udf"
@@ -46,7 +46,7 @@ def apply(a:Double,b:Double)={
 1. lang 支持 java/scala
 2. udfType 支持 udf/udaf 
 
-### 通过变量持有代码片段
+### 1）通过变量持有代码片段
 
 代码片段也可以使用变量持有，然后在 ScriptUDF 中引用：
 
@@ -100,9 +100,9 @@ methodName="hello"  and className="A";
 select plusFun(1,2) as plus, helloFun("jack") as jack as output;
 ```
 
-### Scala UDAF示例
+### 2）Scala UDAF 示例
 
-```ruby
+```sql
 set plusFun='''
 import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
 import org.apache.spark.sql.types._
@@ -150,7 +150,7 @@ load jsonStr.`data` as dataTable;
 select a,plusFun(a) as res from dataTable group by a as output;
 ```
 
-### Java 语言 UDF 示例
+### 3）Java 语言 UDF 示例
 
 
 ```sql
@@ -219,7 +219,9 @@ load jsonStr.`data` as dataTable;
 select funx(a) as res from dataTable as output;
 ```
 
-## 注册模型
+
+
+## 2. 注册模型
 
 具体使用方式如下：
 
@@ -230,7 +232,7 @@ select rf_predict(features) as predict_label from trainData
 as output;
 ```
 
-register语句的含义是： 将 `/tmp/rf ` 中的 RandomForest 模型注册成一个函数，函数名叫 rf_predict.
+register 语句的含义是： 将 `/tmp/rf ` 中的 RandomForest 模型注册成一个函数，函数名叫 rf_predict.
 
 register 后面也能接 where/options 子句：
 
@@ -249,7 +251,9 @@ options algIndex="0"
 如果两个参数都没有指定话的，默认会使用 `f1` 指标。
 
 
-## 流式程序中注册 Watermark
+
+
+## 3. 流式程序中注册 Watermark
 
 在流式计算中，有 watermark 以及 window 的概念。我们可以使用 `Register` 句式来完成这个需求：
 

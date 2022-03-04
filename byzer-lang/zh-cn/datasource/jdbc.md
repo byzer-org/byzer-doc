@@ -1,10 +1,12 @@
 # JDBC 数据源
 
-Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server等。
+Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server 等。
 
 本节会以 MySQL 为主要例子进行介绍。
 
-## 加载数据
+
+
+## 1. 加载数据
 
 Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
 
@@ -64,7 +66,7 @@ SELECT * from table1 as output;
 
 其中
 - `partitionColumn`, `lowerBound`, `upperBound`,`numPartitions` 用来控制加载表的并行度。你可以调整这几个参数提升加载速度。
-- 当 `driver` 为 MySQL 时，`url` 默认设置参数 useCursorFetch=true，并且 `fetchsize` 默认为-2147483648（在 spark2 中不支持设置 `fetchsize` 为负数，默认值为1000），用于支持数据库游标的方式拉取数据，避免全量加载导致 OOM。
+- 当 `driver` 为 MySQL 时，`url` 默认设置参数 `useCursorFetch=true`，并且 `fetchsize` 默认为-2147483648（在 spark2 中不支持设置 `fetchsize` 为负数，默认值为 1000），用于支持数据库游标的方式拉取数据，避免全量加载导致 OOM。
 
 **Byzer内置参数**
 
@@ -85,7 +87,10 @@ and prePtnArray = "age<=10 | age > 10"
 and prePtnDelimiter = "\|"
 as table1;
 ```
+
+
 ### MySQL 原生 SQL 加载
+
 值得注意的是，Byzer 还支持使用 MySQL 原生 SQL 的方式加载数据。比如：
 
 ```sql
@@ -107,7 +112,7 @@ select * from test1 where a = "b"
 
 
 
-## 删除或创建表
+## 2. 删除或创建表
 
 具体用法如下：
 
@@ -122,11 +127,11 @@ CREATE TABLE test1
 );''';
 ```
 
-我们先用 connect 语法获得数据连接，然后通过 JDBC transformer 完成删除和创建表的工作。 driver-statement-[number] 中的 number 表示执行的顺序。
+我们先用 `connect` 语法获得数据连接，然后通过 JDBC transformer 完成删除和创建表的工作。 driver-statement-[number] 中的 number 表示执行的顺序。
 
 
 
-## 保存数据
+## 3. 保存数据
 
 建立 JDBC 数据连接后，你可以使用 `save` 语句对得到的数据进行保存。Byzer 支持 `append`/`overwrite` 方式保存数据。
 
@@ -156,7 +161,9 @@ and `driver-statement-1`="create table test1.....";
 
 **注意**： `JDBC.`后面的路径要写成 `db_1._`,表示忽略表名。
 
-## Upsert
+
+
+## 4. Upsert
 
 MySQL 支持数据的 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
 
@@ -176,7 +183,8 @@ WHERE idCol="a,b,c";
 >如果数据库层面没有定义联合约束主键，将不会执行 `update` 操作，数据会不断增加。
 
 
-## 流式数据写入 MySQL
+
+## 5. 流式数据写入 MySQL
 
 举个简单的例子：
 
@@ -197,23 +205,24 @@ and checkpointLocation="/tmp/cpl3";
 **注意**：`insert` 语句中的占位符顺序需要和 table_1 中的列顺序保持一致。
 
 
+
 ### FAQ
 
-#### load 会把数据都加载到 Byzer 引擎的内存里么？
+#### 1). load 会把数据都加载到 Byzer 引擎的内存里么？
 答案是不会。引擎会批量到 MySQL 拉取数据进行计算。同一时刻，只有一部分数据在引擎内存里。
 
-#### load 的时候可以加载过滤条件么
-可以，但是没有必要。用户可以把条件直接在后续接 select 语句中，select 语句里的 where 条件会被下推给存储做过滤，避免大量数据传输。
+#### 2). load 的时候可以加载过滤条件么
+可以，但是没有必要。用户可以把条件直接写在后续的 `select` 语句中，`select` 语句里的 where 条件会被下推给存储做过滤，避免大量数据传输。
 
-#### count 非常慢，怎么办？
-比如用户执行如下语句想查看下表的数据条数,如果表比较大，可能会非常慢，甚至有可能导致 Engine 有节点挂掉
+#### 3). count 非常慢，怎么办？
+比如用户执行如下语句想查看下表的数据条数,如果表比较大，可能会非常慢，甚至有可能导致 Engine 有节点挂掉。
 
 ```sql
 load jdbc.`db_1.tblname` as tblname;
 select count(*) from tblname as newtbl;
 ```
 
-原因是引擎需要拉取全量数据（批量拉取，并不是全部加载到内存），然后计数，而且默认是单线程，一般数据库对全表扫描都比较慢，所以 没有 where 条件的 count 可能会非常慢，甚至跑不出来。
+原因是引擎需要拉取全量数据（批量拉取，并不是全部加载到内存），然后计数，而且默认是单线程，一般数据库对全表扫描都比较慢，所以没有 where 条件的 count 可能会非常慢。
 
 如果用户仅仅是为了看下表的大小，推荐用 directQuery 模式，directQuery 会把查询直接发给数据库执行，然后把得到的计算结果返回给引擎,所以非常快。 具体操作方式如下：
 
@@ -223,17 +232,17 @@ load jdbc.`db_1.tblname` where directQuery='''
 ''' as newtbl;
 ```
 
-#### 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
+#### 4). 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
 虽然你加了 where 条件，但是过滤效果可能并不好，引擎仍然需要拉取大量的数据进行计算，引擎默认是单线程的。我们可以配置多线程的方式去数据库拉取数据，可以避免单线程僵死。
 
 核心参数有如下：
 
-1. partitionColumn 按哪个列进行分区
-2. lowerBound, upperBound, 分区字段的最小值，最大值（可以使用 directQuery 获取）
-3. numPartitions 分区数目。一般8个线程比较合适。
-能够进行分区的字段要求是数字类型，推荐使用自增id字段。
+1. `partitionColumn` 按哪个列进行分区
+2. `lowerBound`, `upperBound`, 分区字段的最小值，最大值（可以使用 `directQuery` 获取）
+3. `numPartitions` 分区数目。一般8个线程比较合适。
+能够进行分区的字段要求是数字类型，推荐使用自增 id 字段。
 
-#### 多线程拉取还是慢，有办法进一步加速么
+#### 5). 多线程拉取还是慢，有办法进一步加速么
 你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
 
 

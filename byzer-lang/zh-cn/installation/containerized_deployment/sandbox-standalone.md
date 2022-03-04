@@ -1,6 +1,8 @@
 # Sandbox 独立部署
 
-Sandbox 包含了两大组件 Byzer Notebook 和 Byzer-lang，您可以快速体验 Byzer 功能。
+Sandbox 镜像统一将 Byzer-lang、Byzer Notebook 和 MySQL 打包到一个镜像中，用于快速的在本地体验 Byzer。
+
+如果您需要将多个组件分开部署，可以使用  [Sandbox 多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md) 方式。
 
 ### 前置条件
 
@@ -63,12 +65,19 @@ docker run -d \
 byzer/byzer-sandbox:2.4.3-<Byzer Release 版本号>
 ```
 
-> 注意：docker 启动命令中映射了 mysql 的端口号，如果本地安装了 mysql 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
+> 注意：docker 启动命令中映射了 MySQL 的端口号，如果本地安装了 MySQL 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
 
 
 ### 体验 Byzer 功能
 
-浏览器[登录](http://localhost:9002)，在用户登陆界面，输入用户名和密码: admin/admin 进入Byzer Notebook 首页。点击 **创建新笔记本 - 创建** 并在弹窗中为笔记本起名，点击 **创建** 进入 Notebook 使用界面开始体验 Byzer 功能。
+在用户登陆界面，输入用户名和密码: admin/admin 进入Byzer Notebook 首页。
+
+<p align="center">
+    <img src="/byzer-lang/zh-cn/installation/images/login.png" alt="name"  width="800"/>
+</p>
+
+
+点击 **创建新笔记本 - 创建** 并在弹窗中为笔记本起名，点击 **创建** 进入 Notebook 使用界面开始体验 Byzer 功能。
 
 #### 使用 Python 和 Ray 处理 JSON 数据
 
