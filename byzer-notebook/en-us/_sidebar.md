@@ -23,6 +23,13 @@
   * [Notebook](/byzer-notebook/en-us/workspace/notebook.md)
   * [Workflow](/byzer-notebook/en-us/workspace/workflow.md)
 
+- Schedule
+  * [Schedule Intro](/byzer-notebook/en-us/schedule/intro.md)
+  * [Create/Join Schedule](/byzer-notebook/en-us/schedule/create_join.md)
+  * [Edit Task](/byzer-notebook/en-us/schedule/edit_task.md)
+  * [Edit Schedule](/byzer-notebook/en-us/schedule/edit.md)
+  * [Schedule Instances](/byzer-notebook/en-us/schedule/instance.md)
+
 - Operation
   * [Job History](/byzer-notebook/en-us/operation/job_history.md)
   * [Job Scheduler](/byzer-notebook/en-us/operation/scheduler.md)

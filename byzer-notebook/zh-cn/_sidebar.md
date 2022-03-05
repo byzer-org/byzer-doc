@@ -26,6 +26,14 @@
   * [工作区介绍](/byzer-notebook/zh-cn/workspace/intro.md)
   * [使用笔记本](/byzer-notebook/zh-cn/workspace/notebook.md)
   * [使用工作流](/byzer-notebook/zh-cn/workspace/workflow.md)
+
+- 调度
+  * [调度介绍](/byzer-notebook/zh-cn/schedule/intro.md)
+  * [创建/加入调度](/byzer-notebook/zh-cn/schedule/create_join.md)
+  * [编辑任务](/byzer-notebook/zh-cn/schedule/edit_task.md)
+  * [设置调度](/byzer-notebook/zh-cn/schedule/edit.md)
+  * [调度实例](/byzer-notebook/zh-cn/schedule/instance.md)
+
 - 运维
   * [任务历史](/byzer-notebook/zh-cn/operation/job_history.md)
   * [任务调度](/byzer-notebook/zh-cn/operation/scheduler.md)

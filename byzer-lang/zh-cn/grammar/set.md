@@ -146,7 +146,7 @@ select "${date}" as dt as output;
 
 |dt|
 |----|
-|Mon Aug 19 10:28:10 CST 2019|
+|`Mon Aug 19 10:28:10 CST 2019`|
 
 第四种是 `sql` 类型，这意味着 `set` 后的 key 最后是由 sql 引擎执行生成的。下面的例子可以看出其特点和用法：
 
