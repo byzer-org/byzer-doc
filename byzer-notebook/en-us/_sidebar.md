@@ -42,6 +42,7 @@
 
 - Appendix
     * ReleaseNote
+      * [Byzer Notebook 1.1.0](/byzer-notebook/en-us/appendix/release-notes/1.1.0.md)
       * [Byzer Notebook 1.0.1](/byzer-notebook/en-us/appendix/release-notes/1.0.1.md)
       * [Byzer Notebook 1.0.0](/byzer-notebook/en-us/appendix/release-notes/1.0.0.md)
     * [Terms](/byzer-notebook/en-us/appendix/terms.md)  
