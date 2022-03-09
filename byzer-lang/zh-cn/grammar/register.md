@@ -57,8 +57,8 @@ set plusFun='''
     }
 ''';
 
--- load script as a table, every thing in mlsql should be table which 
--- can be process more convenient.
+-- load script as a table, every thing in byzer should be table which 
+-- can be processed more conveniently.
 load script.`plusFun` as scriptTable;
 -- register `apply` as UDF named `plusFun` 
 register ScriptUDF.`scriptTable` as plusFun;

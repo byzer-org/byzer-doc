@@ -13,6 +13,8 @@ select 1 as col1
 as table1;
 ```
 
+结果为：col1: 1。
+
 从上面代码可以看到，Byzer-lang 中的 `select` 语法和传统 SQL `select` select 语法唯一的差别就是后面多了一个 `as tableName`。
 这也是为了方便后续对该 SQL 处理的结果进行引用引入的微小改良。
 
@@ -28,7 +30,7 @@ select * from table1 as output;
 
 ## Select 句式中的模板功能
 
-实际在书写 `select` 语句可能会非常冗长。Byzer-lang 提供了一些手段帮助大家简化代码。
+实际在书写 `select` 语句可能会非常冗长。Byzer-lang 提供了两种方法帮助大家简化代码。
 
 对于如下代码示例：
 

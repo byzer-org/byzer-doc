@@ -42,6 +42,12 @@ as `${hello}`;
 select * from world as output;
 ```
 
+结果如下：
+
+| title         |
+| ------------- |
+| hello William |
+
 在上面代码中，并没有显式的定义 `world` 表，但用户依然可以在 `select` 语句中使用 `world` 表。
 
 > 表名需要使用反引号将其括起来，避免语法解析错误
@@ -107,13 +113,13 @@ set hello="abc" where scope="session";
 
 Byzer-lang 的变量被分为五种类型：
 
-1. text
-2. conf
-3. shell
-4. sql
-5. defaultParam
+1. `text`
+2. `conf`
+3. `shell`
+4. `sql`
+5. `defaultParam`
 
-第一种text， 前面演示的代码大部分都是这种变量类型。
+第一种 `text`， 前面演示的代码大部分都是这种变量类型。
 
 示例：
 
@@ -121,7 +127,7 @@ Byzer-lang 的变量被分为五种类型：
 set hello="world";
 ```
 
-第二种conf表示这是一个配置选项，通常用于配置系统的行为，比如 
+第二种 `conf` 表示这是一个配置选项，通常用于配置系统的行为，比如：
 
 ```sql
 set spark.sql.shuffle.partitions=200 where type="conf";
@@ -130,7 +136,7 @@ set spark.sql.shuffle.partitions=200 where type="conf";
 该变量表示将底层 Spark 引擎的 shuffle 默认分区数设置为 200。 
 
 
-第三种是 shell，也就是 `set` 后的 key 最后是由 shell 执行生成的。 
+第三种是 `shell`，也就是 `set` 后的 key 最后是由 shell 执行生成的。 
 
 > 不推荐使用该方式， 安全风险较大
 
@@ -140,7 +146,7 @@ set spark.sql.shuffle.partitions=200 where type="conf";
 set date=`date` where type="shell";
 select "${date}" as dt as output;
 ```
-注意，这里需要使用反引号括住该命令。
+注意：这里需要使用反引号括住该命令。
 
 输出结果为：
 
@@ -163,7 +169,7 @@ select "${date}" as dt as output;
 |----|
 |2019-08-18|
 
-最后一种是defaultParam。
+最后一种是 `defaultParam`。
 
 示例：
 
@@ -174,16 +180,13 @@ set hello="bar";
 select "${hello}" as name as output;
 ```
 
-结果输出是
+结果输出是：
 
-```
-name
+| name |
+| ---- |
+| bar  |
 
-bar
-```
-
-这符合大家直觉，下面的会覆盖上面的。那如果用户想达到这么一种效果，如果变量已经设置了，新变量声明就失效，如果变量没有被设置过，则生效。
-为了达到这个效果，Byzer-lang 引入了 `defaultParam` 类型的变量：
+上述代码中后面的`"bar"` 会覆盖前面的 `"foo"`。而 Byzer-lang 引入了 `defaultParam` 类型的变量来达到一种效果：如果变量已经设置了，新变量声明就失效，如果变量没有被设置过，则生效。 
 
 ```sql
 set hello="foo";
@@ -194,11 +197,9 @@ select "${hello}" as name as output;
 
 最后输出结果是：
 
-```
-name
-
-foo
-```
+| name |
+| ---- |
+| foo  |
 
 如果前面没有设置过 `hello="foo"`,
 
@@ -209,13 +210,11 @@ set hello="bar" where type="defaultParam";
 select "${hello}" as name as output;
 ```
 
-则输出结果为
+则输出结果为：
 
-```
-name
-
-bar
-```
+| name |
+| ---- |
+| bar  |
 
 ## 编译时和运行时变量
 

@@ -17,7 +17,9 @@ set a = "wow,jack";
 select * from b as output;
 ```
 
-`!if/!else`  在 Byzer-lang 中并非关键字,都是 [宏函数](/byzer-lang/zh-cn/grammar/macro.md)。因为宏函数的调用非常像命令行，所以其实学习门槛也会更低。
+结果为：a：2。
+
+`!if/!else`  在 Byzer-lang 中并非关键字,都是 [宏函数](/byzer-lang/zh-cn/grammar/macro.md)。
 
 在上面的示例中， 先通过变量申明得到一个变量 `a`。 然后在宏函数 `!if` 只接受一个位置参数，因为是一个宏函数，调用的最后必须加上分号 `;` 。
 
@@ -158,7 +160,7 @@ select * from b as output;
 
 ## 结合 defaultParam 变量
 
-条件分支语句结合强大的变量声明语法，其实可以做很多有意思的事情。
+条件分支语句可以与强大的变量声明语法结合。
 
 这里主要介绍和 [defaultParam 变量](/byzer-lang/zh-cn/grammar/set.md) 的结合。
 

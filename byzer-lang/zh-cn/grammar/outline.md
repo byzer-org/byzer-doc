@@ -17,8 +17,6 @@ Byzer-lang 针对大数据领域的流程抽象出了如下几个句法结构：
 
 此外，在代码复用上，Byzer-lang 支持脚本和包的管理。 
 
-下面将简单介绍 Byzer-lang 的句法结构，并提供了示例代码。您可以在 Byzer Notebook 中输入以下代码进行尝试。
-
 ### 加载数据
 
 
@@ -31,10 +29,10 @@ as hello_world;
 在上面的语句中，通过 `load` 关键字进行加载申明。加载的数据格式为 `excel` , 路径为 `./example-data/excel/hello_world.xlsx`,
 加载的过程中配置参数在 `where/options` 子语句中。加载后的结果是一张表，使用 `as 语法` 进行命名，名称为 `hello_world`。
 
-Byzer-lang 几乎可以加载市面上主流的
+Byzer-lang 几乎可以加载市面上主流的数据源和数据格式：
 
-1. 数据源， 比如 JDBC 协议的数据库， 多种云上对象存储，HDFS。
-2. 数据格式，比如文件格式如 text， image， csv， json， xml等。
+1. 数据源： JDBC 协议的数据库， 多种云上对象存储，HDFS...
+2. 数据格式：例如 text， image， csv， json， xml 等文件格式
 
 
 ### 数据处理
