@@ -2,7 +2,7 @@
 
 目前版本的 Byzer Notebook 只支持接入 **1.3.9** 版本的 **DolphinScheduler** 系统，未来会增加对其他调度系统的支持。
 
-### 接入 DolpinScheduler
+### 接入 DolphinScheduler
 
 > 在执行以下操作前，您需要安装 1.3.9 版本的 DolphinScheduler，点击前往 [DolphinScheduler 下载页面](https://dolphinscheduler.apache.org/en-us/download/download.html) 获取安装包和安装部署指引。
 >
@@ -24,7 +24,7 @@ Byzer Notebook 通过调用 DolphinScheduler 的 API 接口进行调度的创建
 
 ```properties
 notebook.scheduler.enable=true
-notebook.scheduler.scheduler-name=DolpinScheduler
+notebook.scheduler.scheduler-name=DolphinScheduler
 notebook.scheduler.scheduler-url=http://localhost:12345/dolphinscheduler
 notebook.scheduler.auth-token=6bb923731815757b71e87920be033797
 notebook.scheduler.callback-token=localNotebook-token-for-localDolphin
@@ -37,7 +37,7 @@ notebook.scheduler.callback-token=localNotebook-token-for-localDolphin
 | 配置项                               | 描述                                                                                                                                                                      |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | notebook.scheduler.enable         | 调度功能开关，默认：`false`。                                                                                                                                                      |
-| notebook.scheduler.scheduler-name | 外接调度系统类型，目前只支持 `DolpinScheduler`。                                                                                                                                       |
+| notebook.scheduler.scheduler-name | 外接调度系统类型，目前只支持 `DolphinScheduler`。                                                                                                                                      |
 | notebook.scheduler.scheduler-url  | 外接调度系统 url。                                                                                                                                                             |
 | notebook.scheduler.auth-token     | 外接调度系统提供的 auth-token，供 Byzer Notebook 调用其 API。                                                                                                                          |
 | notebook.scheduler.callback-token | 外接调度系统执行任务时，回调 Byzer Notebook 用的鉴权验证 token。                                                                                                                             |
@@ -49,7 +49,7 @@ notebook.scheduler.callback-token=localNotebook-token-for-localDolphin
 |--------------------------------------|--------------------------------------------------------------------------------------------------------|
 | notebook.scheduler.project-name      | 指定项目，Byzer Notebook 只会在此项目下创建调度任务，默认：`ByzerScheduler`。                                                 |
 | notebook.scheduler.warning-type      | DolphinScheduler 中调度执行结束时，根据执行状态发送告警，包含成功或失败都发、成功发、失败发、任何状态都不发，可选：`ALL/SUCCESS/FAILURE/NONE`，默认：`ALL`。 |
-| notebook.scheduler.warning-group-id  | DolpinScheduler 中的告警组 ID，默认：`1`。                                                                       |
+| notebook.scheduler.warning-group-id  | DolphinScheduler 中的告警组 ID，默认：`1`。                                                                      |
 | notebook.scheduler.failure-strategy  | 当某一个任务节点执行失败时，其他并行的任务节点需要执行的策略。可选：`CONTINUE/END`，默认：`END`，意为终止所有正在执行的任务，并终止整个流程。                       |
 | notebook.scheduler.instance-priority | DolphinScheduler 中调度运行的优先级，可选：`HIGHEST/HIGH/MEDIUM/LOW/LOWEST`，默认：`MEDIUM`。                            |
 | notebook.scheduler.worker            | 指定任务在哪个 Worker 机器组运行，默认：`default`，意为可在任一 Worker 上运行。                                                   |
