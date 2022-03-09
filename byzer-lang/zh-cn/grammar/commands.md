@@ -170,7 +170,7 @@ Byzer-lang 内置了非常多的宏函数，可以帮助用户实现更好的交
 
 1. script
 2. session
-3. application
+3. application（暂不支持）
 
 手动释放缓存：
 

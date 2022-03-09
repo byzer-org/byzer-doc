@@ -20,7 +20,7 @@
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
   * [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)
   * [数据转换/Select](/byzer-lang/zh-cn/grammar/select.md)
-  * [保存数据/save](/byzer-lang/zh-cn/grammar/save.md)  
+  * [保存数据/Save](/byzer-lang/zh-cn/grammar/save.md)  
   * [扩展/Train|Run|Predict](/byzer-lang/zh-cn/grammar/et_statement.md)
   * [注册函数，模型/Register](/byzer-lang/zh-cn/grammar/register.md)  
   * [变量/Set](/byzer-lang/zh-cn/grammar/set.md)

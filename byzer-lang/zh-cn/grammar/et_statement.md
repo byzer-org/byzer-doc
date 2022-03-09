@@ -25,7 +25,7 @@ and fitParam.0.numTrees="4"
 
 
 
-第一行代码，含义是加载位于 `/tmp/train` 目录下的，数据格式为 JSON 的数据，并且给着这样表取名为 `trainData`, 
+第一行代码，含义是加载位于 `/tmp/train` 目录下的，数据格式为 JSON 的数据，并且给该表取名为 `trainData`, 
 第二行代码，则表示提供 `trainData` 为数据集，使用算法 RandomForest，将模型保存在 `/tmp/rf` 下，训练的参数为 `fitParam.0.*` 指定的那些。
 
 

@@ -20,8 +20,8 @@ where
 alias="libCore";
 ```
 
-> 1. 如果熟悉编程的同学，可以理解为这是 Maven 中的 Jar 包声明，亦或是 Go 语言中的 Module 声明
-> 2. 同传统语言不同的是，Byzer-lang 是纯解释型语言，所以引入库可以变成语言运行时的一部分
+> 1. 如果您了解编程，可以将其理解为Maven 中的 Jar 包声明，或是 Go 语言中的 Module 声明。
+> 2. 同传统语言不同的是，Byzer-lang 是纯解释型语言，所以引入库可以变成语言运行时的一部分。
 
 在上面的代码示例中，通过 `include` 引入了 `lib-core` 库，为了方便使用它，用户可以给其取了一个别名叫 `libCore`。
 
@@ -54,13 +54,13 @@ select hello() as name as output;
 
 ### Lib 内脚本依赖
 
-Lib 下所有脚本互相引用引用都需要下面的语法进行引用： 
+Lib下所有脚本的互相引用都需要使用以下语法进行：
 
 ```sql
 include local.`[PATH]`; 
 ```
 
-这里的 Path 要求是全路径。如果在 `libCore` 里有个脚本需要引入了本 Lib 中的 `hello` 函数，那么需要使用如下写法：
+这里的 Path 要求是全路径。如果在 `libCore` 里有个脚本需要引入本 Lib 中的 `hello` 函数，那么需要使用如下写法：
 
 ```sql
 include local.`github.com/allwefantasy/lib-core.udf.hello`;
