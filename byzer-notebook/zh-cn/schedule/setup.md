@@ -18,6 +18,7 @@ Byzer Notebook 通过调用 DolphinScheduler 的 API 接口进行调度的创建
 <p align="center">
     <img src="/byzer-notebook/zh-cn/schedule/images/dolphin_token.png" alt="dolphin_token"  width="800"/>
 </p>
+
 #### 修改 Byzer Notebook 配置项
 
 找到 `conf` 目录下 `notebook.properties` 文件，您可参考下方配置项说明，更改或增加配置。例如，在配置文件中新增以下几行记录，即可让 Byzer Notebook 服务接入其同主机的 DolphinScheduler：
