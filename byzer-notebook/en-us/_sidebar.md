@@ -33,7 +33,6 @@
 
 - Operation
   * [Job History](/byzer-notebook/en-us/operation/job_history.md)
-  * [Job Scheduler](/byzer-notebook/en-us/operation/scheduler.md)
   * [Engine Setting](/byzer-notebook/en-us/operation/engine.md)
 
 - Use Cases

@@ -37,7 +37,6 @@
   
 - 运维
   * [任务历史](/byzer-notebook/zh-cn/operation/job_history.md)
-  * [任务调度](/byzer-notebook/zh-cn/operation/scheduler.md)
   * [引擎设置](/byzer-notebook/zh-cn/operation/engine.md)
 - Demo 示例
   * [案例1](/byzer-notebook/zh-cn/use_case/case_1.md)
