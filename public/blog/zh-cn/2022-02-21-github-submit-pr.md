@@ -87,7 +87,7 @@ Fork 工作流是一种分布式工作流，可以接受不信任贡献者的提
 </p>
 
 <p align="center">
-    <img src="/public/blog/zh-cn/images/fork_stream.png" alt="drawing" width="500"/>
+    <img src="/public/blog/zh-cn/images/fork_stream.jpg" alt="drawing" width="500"/>
 </p>
 
 
