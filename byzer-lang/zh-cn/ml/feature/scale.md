@@ -1,9 +1,9 @@
 # 特征平滑 ScalerInPlace
 
-ScalerInPlace 支持 min-max, log2, logn 方法对数据进行特征平滑。
+ScalerInPlace 支持 min-max， log2，logn 方法对数据进行特征平滑。
 不同于 NormalizeInPlace，ScalerInPlace 针对的是列。
 
-### 数据准备
+### 1. 数据准备
 
 ```sql
 -- create test data
@@ -17,7 +17,7 @@ set jsonStr='''
 load jsonStr.`jsonStr` as data;
 ```
 
-### 平滑
+### 2. 平滑
 
 接着我们对第一列数据a,b两列数据都进行平滑。
 
@@ -35,18 +35,18 @@ as featurize_table;
 结果如下：
 
 ```
-a                    b   label
-0	                 0.5	0
-0.0990990990990991	 0.5	1
-1	                 0.5	0
-0.009009009009009009 0.5	0
-0	                 0.5	1
+a                        b     label
+0	                      0.5	     0
+0.0990990990990991	    0.5	     1
+1	                      0.5	     0
+0.009009009009009009    0.5	     0
+0	                      0.5	     1
 ```
 
-`removeOutlierValue` 设置为true，会自动用中位数填充异常值。
+如果将上述代码中的`removeOutlierValue` 设置为true，会自动用中位数填充异常值。
 
 
-### API 预测
+### 3. API 预测
 
 > API 预测的相关原理及示例，详见 [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
 
