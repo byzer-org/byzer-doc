@@ -5,7 +5,7 @@
 
 ## 如何安装
 
-Execute following command in web console:
+在 web 控制台执行以下命令：
 
 ```
 !plugin app add - "mlsql-assert-3.0";

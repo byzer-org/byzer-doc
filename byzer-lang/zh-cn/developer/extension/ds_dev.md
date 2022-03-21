@@ -5,7 +5,7 @@
 通常，为了达成此目标，用户大体需要实现两个步骤：
 
 1. 按 Spark DataSource 标准封装对应的数据源。因为 Spark 良好的生态储备，一般而言大部分数据源都会有 Spark 的Connector(DataSource)。 所以这一步实际上仅仅是引入相应的 Connector Jar 包即可。
-2. 按 byzer DataSource 标准进一步封装 Spark DataSource 数据源（或者原生的数据源）。比如我么常用的jsonStr，csvStr 等就没有使用 Spark DataSource Connector，而是职级使用 byzer DataSource 标准实现的。
+2. 按 byzer DataSource 标准进一步封装 Spark DataSource 数据源（或者原生的数据源）。比如我们常用的jsonStr，csvStr 等就没有使用 Spark DataSource Connector，而是职级使用 byzer DataSource 标准实现的。
 
 在这篇教程中，我们不会介绍 Spark DataSource 的开发，而是介绍 byzer DataSource 的标准。
 

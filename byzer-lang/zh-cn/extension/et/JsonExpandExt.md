@@ -1,9 +1,9 @@
 # Json 展开插件 JsonExpandExt 
-数据处理中，JSON 数据很常见的，例如埋点数据。Hive Spark 均提供了 JSON 处理函数，
+数据处理中，JSON 数据很常见的，例如埋点数据。Hive 和 Spark 均提供了 JSON 处理函数，
 使用 Byzer 插件，可以方便地将一个 JSON 字段展开为多个字段。
 下面以例子介绍其使用方式。
 
-### 使用例子
+### 示例
 - 查看帮助
 
 ```sql

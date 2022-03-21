@@ -199,15 +199,15 @@ and password="---"
 
 #### **Step2、**上传数据
 
-下面会通过 Byzer Notebook 的 Data Catalog 中的上传功能，上传我们的 `access_log.txt` 日志文件。
+下面会通过 Byzer Notebook 的数据目录中的上传功能，上传我们的 `access_log.txt` 日志文件。
 
 > Byzer Notebook 注册试用入口：https://www.byzer.org/home
 
-通过 `Home -> Upload` 进行上传：
+点击顶栏中的**主页**，再点击**上传**：
 
   <img src="/byzer-lang/zh-cn/extension/et/images/demo1.png" alt="qq_mail_indentify_code.png"/>
 
-将文件拖拽到上传框后，点击 `Submit` 就可以了。系统提示你上传成功，你可以通过命令行或者Notebook的文件系统查看。使用文件系统，可以到` Data Catalog -> File System` 查看：
+将文件拖拽到上传框后，点击**提交**就可以了。上传成功后，您可以通过命令行查看上传的文件，也可以进入**工作区**，找到侧边栏中的**数据目录**模块，在 **File System** 中查看：
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/extension/et/images/demo2.png" alt="qq_mail_indentify_code.png" alt="name"  width="250"/>
