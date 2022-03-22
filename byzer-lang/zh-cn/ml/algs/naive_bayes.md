@@ -1,4 +1,4 @@
-# NaiveBayes
+# 朴素贝叶斯法 NaiveBayes
 
 NaiveBayes 是一个分类算法。
 

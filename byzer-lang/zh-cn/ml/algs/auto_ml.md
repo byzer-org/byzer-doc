@@ -1,8 +1,8 @@
-#  AutoML
+#  自动机器学习 AutoML
 
 AutoML 是将机器学习应用于现实问题的端到端流程自动化的过程。
 
-本次发布的 AutoML 将插件集市的分类算法进行遍历训练的功能，包含 NaiveBayes， LogisticRegression，LinearRegression， RandomForest 以及 GBT 分类算法。AutoML 插件会对用户的输入数据进行多模型训练，然后针对模型表现指标， 进行模型排序，给用户返回表现最优的算法模型。
+AutoML 可以提供将分类算法进行遍历训练的功能，这些算法包含 NaiveBayes， LogisticRegression，LinearRegression， RandomForest 以及 GBT 分类算法。AutoML 插件会对用户的输入数据进行多模型训练，然后针对模型表现指标， 进行模型排序，给用户返回表现最优的算法模型。
 
 ```sql
 -- create test data

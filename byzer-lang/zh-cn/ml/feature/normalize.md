@@ -3,7 +3,7 @@
 特征归一化本质上是为了统一量纲，让一个向量里的元素变得可以比较。
 它应用于任何依赖于距离的算法，比如 KMeans, nearest neighbors methods, RBF kernels 等等。
 
-### 数据准备
+### 1. 数据准备
 
 ```sql
 -- create test data
@@ -17,8 +17,8 @@ set jsonStr='''
 load jsonStr.`jsonStr` as data;
 ```
 
-### 训练
-对第一列数据a,b两列数据按照行的方式进行归一化。
+### 2. 训练
+对a,b两列数据进行归一化操作。
 
 ```sql
 train data as NormalizeInPlace.`/tmp/model`
@@ -34,12 +34,12 @@ as output;
 结果如下：
 
 ```
-a                   b   label
--0.5069956180959223	0	0
--0.2802902604107538	0	1
-1.7806675367271416	0	0
--0.48638604012454334	0	0
--0.5069956180959223	0	1
+a                       b    label
+-0.5069956180959223	    0	     0
+-0.2802902604107538	    0	     1
+1.7806675367271416	    0	     0
+-0.48638604012454334	  0	     0
+-0.5069956180959223	    0	     1
 ```
 
 `removeOutlierValue` 设置为 true，会自动用中位数填充异常值。
@@ -48,7 +48,7 @@ a                   b   label
 >如果 `inputCols` 只有一列，那么该列可以为 double 数组 
 
 
-### API 预测
+### 3. API 预测
 
 > API 预测的相关原理及示例，详见 [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
 

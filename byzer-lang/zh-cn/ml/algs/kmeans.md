@@ -1,4 +1,4 @@
-# KMeans
+# K 均值聚类算法 KMeans
 
 KMeans 属于聚类算法。
 
@@ -51,6 +51,5 @@ select kcluster(features) as catagory from data1 as output;
 <p align="center">
     <img src="/byzer-lang/zh-cn/ml/algs/images/kmeans_result2.png" alt="name"  width="800"/>
 </p>
-
 
 

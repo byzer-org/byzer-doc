@@ -3,9 +3,8 @@
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
-  * [常见问题 FAQ](/byzer-lang/zh-cn/appendix/faq/byzerlang_FAQ.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
-
+  
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
   * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)
@@ -77,31 +76,31 @@
     
 - 机器学习
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
-        * [特征平滑](/byzer-lang/zh-cn/ml/feature/scale.md)
-        * [归一化](/byzer-lang/zh-cn/ml/feature/normalize.md)
-        * [混淆矩阵](/byzer-lang/zh-cn/ml/feature/confusion_matrix.md)
-        * [数据集切分](/byzer-lang/zh-cn/ml/feature/rate_sample.md)
+        * [特征平滑 ScalerPlace](/byzer-lang/zh-cn/ml/feature/scale.md)
+        * [归一化 NormalizeInPlace](/byzer-lang/zh-cn/ml/feature/normalize.md)
+        * [混淆矩阵 ConfusionMatrix](/byzer-lang/zh-cn/ml/feature/confusion_matrix.md)
+        * [数据集切分 RateSample](/byzer-lang/zh-cn/ml/feature/rate_sample.md)
         
     * [内置算法](/byzer-lang/zh-cn/ml/algs/README.md)
-        * [AutoML](/byzer-lang/zh-cn/ml/algs/auto_ml.md) 
-        * [KMeans](/byzer-lang/zh-cn/ml/algs/kmeans.md)
-        * [NaiveBayes](/byzer-lang/zh-cn/ml/algs/naive_bayes.md)
-        * [ALS](/byzer-lang/zh-cn/ml/algs/als.md)
-        * [RandomForest](/byzer-lang/zh-cn/ml/algs/random_forest.md) 
-        * [LogisticRegression](/byzer-lang/zh-cn/ml/algs/logistic_regression.md)
-        * [LinearRegression](/byzer-lang/zh-cn/ml/algs/linear_regression.md)
-        * [LDA](/byzer-lang/zh-cn/ml/algs/lda.md)
+        * [自动机器学习 AutoML](/byzer-lang/zh-cn/ml/algs/auto_ml.md) 
+        * [K 均值聚类算法 KMeans](/byzer-lang/zh-cn/ml/algs/kmeans.md)
+        * [朴素贝叶斯法 NaiveBayes](/byzer-lang/zh-cn/ml/algs/naive_bayes.md)
+        * [交替最小二乘法 ALS](/byzer-lang/zh-cn/ml/algs/als.md)
+        * [随机森林 RandomForest](/byzer-lang/zh-cn/ml/algs/random_forest.md) 
+        * [逻辑回归 LogisticRegression](/byzer-lang/zh-cn/ml/algs/logistic_regression.md)
+        * [线性回归 LinearRegression](/byzer-lang/zh-cn/ml/algs/linear_regression.md)
+        * [隐含狄利克雷分布 LDA](/byzer-lang/zh-cn/ml/algs/lda.md)
     
     * [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
         * [设计和原理](/byzer-lang/zh-cn/ml/api_service/design.md)
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
     
-- 深度学习
-    * [基于 Java 的深度学习框架集成](/byzer-lang/zh-cn/dl/README.md)
-        * [加载图片数据](/byzer-lang/zh-cn/dl/load_image.md)
-        * [Cifar10 示例](/byzer-lang/zh-cn/dl/cifar10.md)
-
 - 插件系统
+    * 插件开发
+        * [自定义 ET 插件开发](../../byzer-lang/zh-cn/extension/extension/et_dev.md)
+        * [自定义数据源插件开发](../../byzer-lang/zh-cn/extension/extension/ds_dev.md)
+        * [命令行开发](../../byzer-lang/zh-cn/extension/extension/et_command.md)
+        * [参数自省机制介绍](../../byzer-lang/zh-cn/extension/extension/et_params_dev.md)
     * [插件与安装](/byzer-lang/zh-cn/extension/README.md)
         * [插件商店](/byzer-lang/zh-cn/extension/installation/store.md)
         * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
@@ -123,21 +122,10 @@
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
     * [DataSource 插件](/byzer-lang/zh-cn/extension/datasource/README.md)
-        * [Excel 数据源插件](/byzer-lang/zh-cn/extension/datasource/excel.md)
-        * [HBase 数据源](/byzer-lang/zh-cn/extension/datasource/hbase.md)
         * [使用byzer-lang访问 REST API](/byzer-lang/zh-cn/extension/datasource/rest.md)
 
 
-- 安全与权限
-  * [接口访问控制](/byzer-lang/zh-cn/security/interface_acl/README.md)
-  * [数据访问权限管理](/byzer-lang/zh-cn/security/data_acl/README.md)
-
 - 开发者指南   
-    * 插件开发
-      * [自定义 ET 插件开发](/byzer-lang/zh-cn/developer/extension/et_dev.md)
-      * [自定义数据源插件开发](/byzer-lang/zh-cn/developer/extension/ds_dev.md)
-      * [命令行开发](/byzer-lang/zh-cn/developer/extension/et_command.md)
-      * [参数自省机制介绍](/byzer-lang/zh-cn/developer/extension/et_params_dev.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
     * API
       * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
@@ -149,14 +137,15 @@
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
 
+- [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
+- [术语表](../../byzer-lang/zh-cn/terms/terms.md)
+- 发行声明
+  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/version.md)
+  * [Byzer 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
+  * [Byzer 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
+  * [MLSQL Stack 2.1.0](../../byzer-lang/zh-cn/release-notes/2.1.0.md)
+  * [MLSQL Stack 2.0.1](../../byzer-lang/zh-cn/release-notes/2.0.1.md)
+  * [MLSQL Stack 2.0.0](../../byzer-lang/zh-cn/release-notes/2.0.0.md)
 - 附录
-  * 发行声明
-    * [Byzer 版本管理策略](/byzer-lang/zh-cn/appendix/release-notes/version.md)
-    * [Byzer 2.2.1](/byzer-lang/zh-cn/appendix/release-notes/2.2.1.md)
-    * [Byzer 2.2.0](/byzer-lang/zh-cn/appendix/release-notes/2.2.0.md)
-    * [MLSQL Stack 2.1.0](/byzer-lang/zh-cn/appendix/release-notes/2.1.0.md)
-    * [MLSQL Stack 2.0.1](/byzer-lang/zh-cn/appendix/release-notes/2.0.1.md)
-    * [MLSQL Stack 2.0.0](/byzer-lang/zh-cn/appendix/release-notes/2.0.0.md)
-  * [术语表](/byzer-lang/zh-cn/appendix/terms.md)  
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
