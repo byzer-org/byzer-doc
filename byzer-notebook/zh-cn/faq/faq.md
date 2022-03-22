@@ -97,8 +97,9 @@ Byzer Notebook 是现在 Byzer 项目主推的一种产品形态，也是开源�
 Byzer 目前已经拥有相对成熟的Notebook 交互界面，具体参考如下图：
 
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/mainpage.png" alt="name"  width="800"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/mainpage.png" alt="name"  width="800"/>
 </p>
+
 
 - **Workflow**
 
@@ -106,16 +107,18 @@ Byzer Notebook 将 Byzer 提供的 ET 能力 按照类别和功能拆分成了�
 同时，Byzer Notebook 也支持 Workflow 一键转码 Notebook，并支持二次编辑，省去了复杂的编码过程。
 
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/workflow.png" alt="name"  width="800"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/workflow.png" alt="name"  width="800"/>
 </p>
+
 
 ### Q2.2: Byzer Notebook 是否支持语法提示和代码的高亮
 
 Byzer **语法提示** 和 **代码高亮** 的功能都具备。
 
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/codehint.png" alt="name"  width="800"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/codehint.png" alt="name"  width="800"/>
 </p>
+
 
 > 代码提示教学视频 refer：
 https://www.bilibili.com/video/BV1V54y1U7kz?spm_id_from=333.999.0.0
@@ -129,8 +132,9 @@ https://www.bilibili.com/video/BV1V54y1U7kz?spm_id_from=333.999.0.0
 用户可以随时随地使用 Python 的图表库进行图标的绘制。比如下面图片就是使用 Byzer Notebook 绘制的：
 
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/view.png" alt="name"  width="800"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/view.png" alt="name"  width="800"/>
 </p>
+
 
 
 **具体代码如下:**
@@ -237,16 +241,18 @@ data = ray_context.to_dataset().to_dask()
 从语言角度来讲， Byzer-lang 是支持自解释的。举个例子，以数据源为例，我想知道系统支持哪些数据源，每个数据源都有哪些参数，这些可以通过 宏函数 来进行查看。
 
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/showfunc1.png" alt="name"  width="600"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/showfunc1.png" alt="name"  width="600"/>
 </p>
 
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/showfunc2.png" alt="name"  width="600"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/showfunc2.png" alt="name"  width="600"/>
 </p>
+
 
 对于ET 还可以查看文档和代码示例等：
 <p align="center">
-    <img src="/byzer-notebook/zh-cn/appendix/images/showfunc3.png" alt="name"  width="600"/>
+    <img src="/byzer-notebook/zh-cn/faq/images/showfunc3.png" alt="name"  width="600"/>
 </p>
+
 
 
