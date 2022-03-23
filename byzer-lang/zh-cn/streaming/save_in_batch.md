@@ -6,11 +6,11 @@ Byzer-lang 提供了一个 'custom' 流式数据源，可以方便的让你用�
 我们来看看具体的示例代码：
 
 ```sql
--- the stream name, should be unique.
+-- 为流式数据源取名，不可重名
 set streamName="streamExample";
 
 
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -20,15 +20,15 @@ set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;
 
--- aggregation 
+-- 聚合
 select cast(value as string) as k  from newkafkatable1
 as table21;
 
@@ -113,7 +113,7 @@ set streamName="streamExample-hive27";
 set hive.exec.dynamic.partition=true where type="conf";
 set hive.exec.dynamic.partition.mode=nostrict  where type="conf";
 
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -123,15 +123,15 @@ set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;
 
--- aggregation 
+-- 聚合
 select cast(value as string) as k  from newkafkatable1
 as table21;
 

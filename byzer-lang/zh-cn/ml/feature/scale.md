@@ -1,4 +1,4 @@
-# 特征平滑 ScalerInPlace
+# 特征平滑/ScalerInPlace
 
 ScalerInPlace 支持 min-max， log2，logn 方法对数据进行特征平滑。
 不同于 NormalizeInPlace，ScalerInPlace 针对的是列。
