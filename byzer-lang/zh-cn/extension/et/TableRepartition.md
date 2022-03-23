@@ -1,4 +1,4 @@
-# 表分区插件 TableRepartition 
+# 表分区插件/TableRepartition 
 
 很多时候，我们需要改变分区数，比如保存文件之前，或者我们使用 python，我们希望 python worker 尽可能的并行运行,这个时候就需要 TableRepartition 的帮助了。
 

@@ -28,7 +28,7 @@ def apply(a:Double,b:Double)={
 在 Byzer-lang 中， 执行完上面代码后，用户可以直接在 `select` 语句中使用 `plusFun` 函数：
 
 ```sql
--- create a data table.
+-- 创建数据表
  set data='''
  {"a":1}
  {"a":2}
@@ -37,7 +37,7 @@ def apply(a:Double,b:Double)={
  ''';
  load jsonStr.`data` as dataTable;
 
- -- using echoFun in SQL.
+ -- 在 SQL 中使用 echofun
  select plusFun(a,2) as res from dataTable as output;
 ```
 
@@ -57,12 +57,12 @@ set plusFun='''
     }
 ''';
 
--- load script as a table, every thing in byzer should be table which 
--- can be processed more conveniently.
+-- 将脚本加载成表，在 byzer 中一切皆可成表 
+-- 这样处理起来就十分方便
 load script.`plusFun` as scriptTable;
--- register `apply` as UDF named `plusFun` 
+-- 将 `apply` 注册成名为 `plusFun` 的 UDF 函数 
 register ScriptUDF.`scriptTable` as plusFun;
--- create a data table.
+-- 创建数据表
 set data='''
   {"a":1}
   {"a":2}
@@ -70,7 +70,7 @@ set data='''
   {"a":4}
 ''';
 load jsonStr.`data` as dataTable;
--- using echoFun in SQL.
+-- 在 SQL 中使用 echofun
 select plusFun(a,2) as res from dataTable as output;
 ```
 
@@ -96,7 +96,7 @@ register ScriptUDF.`scriptTable` as plusFun where methodName="apply" and classNa
 register ScriptUDF.`scriptTable` as helloFun options
 methodName="hello"  and className="A";
 
--- using echoFun in SQL.
+-- 在 SQL 中使用 echofun
 select plusFun(1,2) as plus, helloFun("jack") as jack as output;
 ```
 
@@ -173,7 +173,7 @@ register ScriptUDF.`scriptTable` as funx
 options lang="java"
 ;
 
--- create a data table.
+-- 创建数据表
 set data='''
 {"a":"a"}
 ''';
@@ -210,7 +210,7 @@ and className = "Test"
 and methodName = "test"
 ;
 
--- create a data table.
+-- 创建数据表
 set data='''
 {"a":"a"}
 ''';
@@ -258,7 +258,7 @@ options algIndex="0"
 在流式计算中，有 watermark 以及 window 的概念。我们可以使用 `Register` 句式来完成这个需求：
 
 ```sql
--- register watermark for table1
+-- 为 table1 注册 watermark
 register WaterMarkInPlace.`table1` as tmp1
 options eventTimeCol="ts"
 and delayThreshold="10 seconds";

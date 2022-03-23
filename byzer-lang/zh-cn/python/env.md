@@ -85,7 +85,7 @@ ray start --address='<head_node_ip_address>:6379' --redis-password='<password>'
 执行分布式用例：
 
 ```sql
--- distribute python hello world
+-- 分布式获取 python hello world
 
 set jsonStr='''
 {"Busn_A":114,"Busn_B":57},

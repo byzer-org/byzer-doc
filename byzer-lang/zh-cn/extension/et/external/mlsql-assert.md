@@ -1,4 +1,4 @@
-# byzer 断言
+# Byzer 断言
 
 [byzer 断言](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-assert) 插件提供了在表中使用 `assert` 断言命令，用于判断 byzer 的结果表中数据是否符合预期。
 

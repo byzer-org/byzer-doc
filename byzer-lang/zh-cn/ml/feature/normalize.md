@@ -1,4 +1,4 @@
-# 归一化 NormalizeInPlace
+# 归一化/NormalizeInPlace
 
 特征归一化本质上是为了统一量纲，让一个向量里的元素变得可以比较。
 它应用于任何依赖于距离的算法，比如 KMeans, nearest neighbors methods, RBF kernels 等等。

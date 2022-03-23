@@ -1,4 +1,4 @@
-# 语法解析插件 SyntaxAnalyzeExt
+# 语法解析插件/SyntaxAnalyzeExt
 我们知道 Byzer 支持语法解析接口，我们可以通过设置参数 `executeMode` 为 analyze，实现 Byzer 语法的解析。语法解析接口对 set/load 语法解析比较充分，但是 select 语句解析的比较粗糙，只有 raw，sql，tableName 三个部分。在很多场景里面，我们其实需要解析出 SQL 中所有的表，而不仅仅是这条 SQL 中生成的表，我们可以通过 `SyntaxAnalyzeExt` 来完成表的抽取。
 
 使用场景示例：

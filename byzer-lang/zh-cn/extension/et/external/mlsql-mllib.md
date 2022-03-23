@@ -1,4 +1,4 @@
-# byzer mllib
+# Byzer mllib
 
 [byzer mllib](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-mllib) 插件将 spark-mllib 包装为 byzer ET 使用。
 

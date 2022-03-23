@@ -9,7 +9,7 @@ Byzer 显示的支持 MockStream。它可以用来模拟数据源，广泛应用
 下面是个简单的例子：
 
 ```sql
--- mock some data.
+-- 模拟数据
 > SET data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -19,10 +19,10 @@ Byzer 显示的支持 MockStream。它可以用来模拟数据源，广泛应用
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 > LOAD jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化成流式数据源
 > LOAD mockStream.`datasource` options
   stepSizeRange="0-3"
   AS newkafkatable1;

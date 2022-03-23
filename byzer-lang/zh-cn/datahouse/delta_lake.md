@@ -124,22 +124,22 @@ kafka.bootstrap.servers="127.0.0.1:9092";
 接着启动一个流式程序消费：
 
 ```sql
--- the stream name, should be uniq.
+-- 为流式数据源取名，不可重名
 set streamName="kafkaStreamExample";
 
 !kafkaTool registerSchema 2 records from "127.0.0.1:9092" wow;
 
--- convert table as stream source
+-- 将表转换为流式数据源
 load kafka.`wow` options 
 kafka.bootstrap.servers="127.0.0.1:9092"
 and failOnDataLoss="false"
 as newkafkatable1;
 
--- aggregation 
+-- 聚合
 select *  from newkafkatable1
 as table21;
 
--- output the the result to console.
+-- 将结果输出至 console
 save append table21  
 as rate.`/tmp/delta/wow-0` 
 options mode="Append"
@@ -179,13 +179,13 @@ set data='''
 接着流式写入：
 
 ```sql
--- the stream name, should be uniq.
+-- 为流式数据源取名，不可重名
 set streamName="streamExample";
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化成流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;
@@ -194,7 +194,7 @@ as newkafkatable1;
 select *  from newkafkatable1 
 as table21;
 
--- output the the result to console.
+-- 将结果输出至 console.
 save append table21  
 as rate.`/tmp/delta/rate-1-table`
 options mode="Append"

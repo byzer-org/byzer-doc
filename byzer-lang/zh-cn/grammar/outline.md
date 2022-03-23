@@ -240,10 +240,10 @@ Byzer 通过 Byzer-python 支持 Python 脚本。 如果用户在  Byzer Noteboo
 ```sql
 select 1 as a as mockTable;
 
--- specify the output schema of python
+-- 设置 python 输出模式
 !python conf "schema=st(field(a,long))";
 
--- specify the python code will be executed in which virtual env.
+-- 设置执行 python 代码的虚拟环境
 !python env "PYTHON_ENV=source /opt/miniconda3/bin/activate ray1.8.0";
 
 run command as Ray.`` where 

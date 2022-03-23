@@ -36,7 +36,7 @@ as patientKafkaData;
 接着连接 MySQL 数据库：
 
 ```sql
--- Update user and password
+-- 更新用户名和密码
 connect jdbc where
 url="jdbc:mysql://localhost:3306/notebook?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false"
 and driver="com.mysql.jdbc.Driver"
