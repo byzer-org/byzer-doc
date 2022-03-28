@@ -6,7 +6,7 @@
 
 在工作区左侧导航栏中，我们以文件的形式组织笔记本和工作流，您可以创建不同的主题或用户的文件夹及子文件夹，然后将笔记本或工作流放置在文件夹下。
 
-工作区右侧是笔记本或工作流的编辑页面，您可以在左侧导航栏中打开笔记本或工作流进行编辑。更多信息，请参考[使用笔记本](/byzer-notebook/zh-cn/workspace/notebook.md)，[使用工作流](/byzer-notebook/zh-cn/workspace/workflow.md) 
+工作区右侧是笔记本或工作流的编辑页面，您可以在左侧导航栏中打开笔记本或工作流进行编辑。更多信息，请参考[使用笔记本](/byzer-notebook/zh-cn/workspace/notebook.md)，[工作流](/byzer-notebook/zh-cn/workflow/workflow.md) 
 
 + **创建/导入文件夹、笔记本、工作流**
 

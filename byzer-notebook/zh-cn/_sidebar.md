@@ -24,7 +24,6 @@
 - 工作区
   * [工作区介绍](/byzer-notebook/zh-cn/workspace/intro.md)
   * [使用笔记本](/byzer-notebook/zh-cn/workspace/notebook.md)
-  * [使用工作流](/byzer-notebook/zh-cn/workspace/workflow.md)
 - 工作流
   * [工作流](../../byzer-notebook/zh-cn/workflow/workflow.md)
 - 调度
@@ -43,5 +42,4 @@
     * [Byzer Notebook 1.1.0](../../byzer-notebook/zh-cn/release-notes/1.1.0.md)
     * [Byzer Notebook 1.0.1](../../byzer-notebook/zh-cn/release-notes/1.0.1.md)
     * [Byzer Notebook 1.0.0](../../byzer-notebook/zh-cn/release-notes/1.0.0.md)
-- [术语表](../../byzer-notebook/zh-cn/terms/terms.md)
 - [常见问题 FAQ](../../byzer-notebook/zh-cn/faq/faq.md)
