@@ -1,4 +1,4 @@
-## 安装
+# 安装与卸载
 
 ### 下载二进制包
 
@@ -54,7 +54,7 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 | notebook.job.history.max-size | 定时清理任务记录时，最多保留 N 条记录，默认：`2000000` |
 | notebook.job.history.max-time | 定时清理任务记录时，删除 N 天前的记录，默认：`30`（自动 30 天前的任务记录） |
 
-## 启动
+### 启动
 
 > 需要首先启动 Byzer-lang, 它的部署安装请翻看 [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
 
@@ -74,7 +74,7 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 <img src="/byzer-notebook/zh-cn/installation/image/image-started.png" title="image-ray-started"/>
 </p>
 
-## 停止
+### 停止
 
 进入 `Byzer-Notebook-<byzer_notebook_version>` 目录，执行：
 
@@ -82,7 +82,7 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 ./shutdown.sh
 ```
 
-## 卸载
+### 卸载
 
 请在卸载之前，确保服务已停止。
 
@@ -92,11 +92,11 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 rm -rf Byzer-Notebook-<byzer_notebook_version>
 ```
 
-## Docker 镜像启动
+### Docker 镜像启动
 
 
 
-### 1. 拉取 Byzer Notebook 镜像
+#### 1. 拉取 Byzer Notebook 镜像
 
 ```shell
 docker pull byzer/byzer-notebook:版本号
@@ -115,7 +115,7 @@ docker pull byzer/byzer-notebook:latest
 > 该版本为非稳定版本，包含最新研发但尚未 release 的特性。
 
 
-### 2. 启动
+#### 2. 启动
 
 > 启动时可通过挂载目录 `-v /path/to/conf_dir:/home/deploy/byzer-notebook/conf  ` 使用自定义的配置文件，详见上文**配置文件**小节。
 
