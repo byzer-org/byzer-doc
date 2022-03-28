@@ -4,7 +4,7 @@
 
 <img src="/byzer-lang/zh-cn/extension/et/external/mlsql-shell.png" alt="mlsql-shell.png"/>
 
-## 如何安装
+### 如何安装
 
 在 Web 控制台中执行以下命令：
 
@@ -20,7 +20,7 @@
 !sh echo "yes";
 ```
 
-## 如何使用
+### 如何使用
 
 ```sql
 !sh pip install pyjava;

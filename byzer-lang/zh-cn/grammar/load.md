@@ -6,7 +6,7 @@ Byzer-Lang 的 [设计理念](/byzer-lang/zh-cn/introduction/byzer_lang_design) 
 
 
 
-## 1. 基本语法
+### 1. 基本语法
 
 先来看一个最简单的 load 语句：
 
@@ -54,7 +54,7 @@ select * from table1 as output;
 
 
 
-## 2. 如何获取可用数据源
+### 2. 如何获取可用数据源
 
 1）既然 `load` 句式是用来获取数据源的，用户如何知道当前实例中支持的数据源有哪些呢？
 
@@ -86,7 +86,7 @@ select * from datasources where name like "%csv%" as output;
 
 
 
-## 3. Load 和 Connect 句式的配合使用
+### 3. Load 和 Connect 句式的配合使用
 
 `load` 支持 `connect` 语句的引用。
 
@@ -111,7 +111,7 @@ load jdbc.`db_1.crawler_table` as output;
 
 
 
-## 4. 直接查询模式(DirectQuery)
+### 4. 直接查询模式(DirectQuery)
 
 有部分数据源支持直接查询模式，目前官方内置了 JDBC 数据源直接查询模式的支持。
 

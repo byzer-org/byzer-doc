@@ -32,7 +32,7 @@ select features[0] as a ,features[1] as b from example_data
 as sample_data;
 ```
 
-## Byzer-python 处理数据
+### 1. Byzer-python 处理数据
 
 如果想在虚拟环境中运行 Byzer-python 代码，那么可以用下面的指令指定需要使用的 Python 虚拟环境:
 
@@ -109,7 +109,7 @@ context.build_result(result)
 <img src="/byzer-lang/zh-cn/python/image/image-etl-1.png" title="image-etl-1" height="400"/>
 </p>
 
-## Byzer-python 代码说明
+### 2. Byzer-python 代码说明
 
 注意到 Python 脚本以字符串参数形式出现在代码中，这是 Byzer-Python 代码的一个模版。其中参数 `inputTable` 指定需要处理的表，没有需要处理的表时，可设置为 `command`
 ；参数 `outputTable` 指定输出表的表名；参数 `code` 为需要执行的 Python 脚本。
@@ -189,7 +189,7 @@ result = map(handle_record, datas)
 context.build_result(result)
 ```
 
-## Byzer-python 读写 Excel 文件
+### 3. Byzer-python 读写 Excel 文件
 
 Python 有很多处理 Excel 文件的库，功能成熟完善，您可以在 Byzer-python 环境中安装相应的库来处理您的 Excel 文件。这里以 `pandas` 为例来读取和保存 Excel 文件（需要安装 `xlrd/xlwt`
 包，`pip install xlrd==1.2.0 xlwt`）：
@@ -254,7 +254,7 @@ context.build_result(data)
 ''';
 ```
 
-## Byzer-python 分布式计算
+### 4. Byzer-python 分布式计算
 
 分布式处理依赖 Ray 环境，您可以参考[Ray 环境搭建](/byzer-lang/zh-cn/python/env.md) 搭建 Ray 集群。这里我们简单介绍下如何使用 Pyjava 高阶 API 使用 Ray 完成分布式计算：
 
@@ -302,7 +302,7 @@ context.build_result(res)
 <img height="400" src="/byzer-lang/zh-cn/python/image/image-etl-ray.png" title="image-etl-ray"/>
 </p>
 
-## Byzer-python 图表绘制
+### 5. Byzer-python 图表绘制
 
 您可以在 Byzer 桌面版 和 Bzyer Notebook 中使用 Python 绘图包（`matplotlib`、`plotly`、`pyecharts` 等，需要提前安装）绘制精美的图表，并用 Byzer-python 提供的
 API 输出图片：

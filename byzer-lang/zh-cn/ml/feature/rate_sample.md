@@ -4,7 +4,7 @@
 但是如果有些分类数据特别少，可能出现切分不均的情况。
 RateSample 支持对每个分类的数据按比例切分。
 
-### 数据准备
+### 1. 数据准备
 
 ```sql
 -- create test data
@@ -23,7 +23,7 @@ set jsonStr='''
 load jsonStr.`jsonStr` as data;
 ```
 
-### 切分
+### 2. 切分
 
 现在我们使用 RateSample 进行切分：
 
@@ -66,7 +66,7 @@ as validateTable;
 默认 RateSampler 采用估算算法。
 如果数据集较小，可以通过设置 `isSplitWithSubLabel="true"` 获得非常精确的划分。
 
-### API 预测
+### 3. API 预测
 
 > API 预测的相关原理及示例，详见 [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
 

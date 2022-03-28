@@ -4,9 +4,9 @@ Rest 数据源可以让 Byzer-lang 脚本更加灵活，可以使用该数据源
 
 
 
-## 如何使用
+### 1. 如何使用
 
-### 使用 POST 发起 Json 请求
+#### 1) 使用 POST 发起 Json 请求
 
 ```SQL
 SET ENGINE_URL="http://127.0.0.1:9003/run/script"; 
@@ -53,7 +53,7 @@ from table1 as output;
 
 
 
-### 使用 GET 发起 Form 表单请求
+#### 2) 使用 GET 发起 Form 表单请求
 
 ```SQL
 SET ENGINE_URL="https://cnodejs.org/api/v1/topics"; 
@@ -68,7 +68,7 @@ load Rest.`$ENGINE_URL` where
 
  and `config.retry`="3"
 
- -- The following `form` is the request line parameter, which supports setting dynamic rendering parameters
+ -- 以下 `form` 是请求行参数，它支持设置动态渲染参数
 
  and `form.page`="1"
 
@@ -94,7 +94,7 @@ select status from cnodejs_articles as output;
 
 
 
-### 设置动态渲染参数
+#### 3) 设置动态渲染参数
 
 动态渲染参数可以在 `:{....}` 中执行代码。其语法和 if/else 里的条件表达式相同，用于返回一个变量，该变量会以字符串形式返回。所以可以写的更复杂，比如：
 
@@ -115,7 +115,7 @@ load Rest.`$ENGINE_URL` where
 
  and `config.method`="get"
 
- -- The following `form` is the request line parameter, which supports setting dynamic rendering parameters
+ -- 以下 `form` 是请求行参数，它支持设置动态渲染参数
 
  and `form.page`=''':{select 1 as :b;:b}'''
 
@@ -151,7 +151,7 @@ from cnodejs_articles as output;
 
 
 
-### 如何解析结果集
+#### 4) 如何解析结果集
 
 下面演示一个结果集解析的 demo，为了方便处理JSON结果集，我们结合 JsonExpandExt ET 和 explode 函数，代码示例如下所示：
 
@@ -180,7 +180,7 @@ select status, string(content) as content
 from raw_cnodejs_articles as temp_cnodejs_articles;
 
 
--- Extract the JSON structure of content (which is cnodejs list page content) and save it as a struct field for us to use JSON data
+-- 提取 JSON 结构内容（也就是 condejs 列表页面内容）并将其保存为 struct field 以便我们使用 JSON 数据
 
 run temp_cnodejs_articles as JsonExpandExt.``
 
@@ -189,8 +189,7 @@ where inputCol="content" and structColumn="true"
 as cnodejs_articles;
 
 
--- Convert one line of data on the list page to multiple lines (that is, expand the nested JSON data data)
-
+-- 转换列表页上的一行数据来操控行（即展开嵌套的 JSON 数据）
 select explode(content.data) as article from cnodejs_articles as articles;
 ```
 
@@ -203,7 +202,8 @@ select explode(content.data) as article from cnodejs_articles as articles;
 我们可以看到，我们很容易将表展开，从而实现更复杂的需求。
 
 
-### *分页数据的读取*
+
+#### 5) 分页数据的读取
 
 我们以 Node.js 专业中文社区的列表页为例，代码如下所示：
 
@@ -229,7 +229,7 @@ and `config.page.next`="https://cnodejs.org/api/v1/topics?page={0}"
 
 and `config.page.skip-params`="false"
 
--- auto-increment is special config which designed for simple auto increment page num. `:1` means the value starts from 1.
+-- 自动增量这项特殊配置是为了自动增加页数而设计。`:1` 意味着页数值从1开始。
 
 and `config.page.values`="auto-increment:1"
 
@@ -247,7 +247,7 @@ set status= `select status from raw_cnodejs_articles` where type="sql" and mode=
 
 
 
--- mock a new table without data if the status is not 200
+-- 如果状态不是200，则模拟不带数据的新表
 
 !if ''' :status != 200 '''; 
 
@@ -290,27 +290,27 @@ select count(article.id) from articles as output;
 对于那种需要从结果集获取分页参数的，则可以使用 jsonpath 进行抽取并且进行渲染，相关配置如下：
 
 ```Lua
--- Use dynamic parameters in page.next to get `cursor` and `wow`
+-- 为了得到 `cursor` 和 `wow` 在 page.next 中使用动态参数。
 
 and `config.page.next`="https://cnodejs.org/api/v1/topics?page={0}"
 
--- Do not carry the request parameters carried in the form
+-- 不能携带表单中携带的请求参数。
 
 and `config.page.skip-params`="true"
 
--- We use JsonPath to parse the pagination information in the results. For more information about how to use it, please refer to: https://github.com/json-path/JsonPath
+-- 使用 JsonPath 来解析请求中的分页信息。更多信息，请参考: https://github.com/json-path/JsonPath。
 
 and `config.page.values`="$.path1;$.path2"
 
--- Set the interval time for each paging request
+-- 为每个分页请求设置间隔时间。
 
 and `config.page.interval`="10ms"
 
--- Set the number of failed retries for each paging request
+-- 为每个分页请求设置设置失败重试次数。
 
 and `config.page.retry`="3"
 
--- Set the number of requested pages
+-- 设置请求页面的数量。
 
 and `config.page.limit`="2"
 ```
@@ -319,7 +319,7 @@ and `config.page.limit`="2"
 
 
 
-### 使用POST请求上传文件
+#### 6) 使用POST请求上传文件
 
 ```JavaScript
 save overwrite command as Rest.`http://lab.mlsql.tech/api/upload_file` where
@@ -349,14 +349,14 @@ and `config.method`="post"
 
 
 
-### 忽略请求结果异常
+#### 7) 忽略请求结果异常
 
 对于 http 服务端响应的状态码不是 200 的情况，如果不想报错，可以结合分支加空表的模式：
 
 ```SQL
--- here the url is wrong, so the status == 404
+-- 这里的 url 是错误的, 因此状态是404。
 
--- it will throws exception in later script
+-- 它将在之后的脚本中抛出异常。
 
 SET ENGINE_URL="https://cnodejs.org/api/v1/topics1"; 
 
@@ -382,7 +382,7 @@ set status= `select status from raw_cnodejs_articles` where type="sql" and mode=
 
 
 
--- mock a new table without data if the status is not 200
+-- 如果状态不是200，则模拟一个不带数据的新表。
 
 !if ''' :status != 200 '''; 
 
@@ -408,16 +408,16 @@ as cnodejs_articles;
 
 
 
--- here we should mock table again since there no field data in content.
+-- 因为这段内容中没有字段数据，应再次模拟表。
 
--- select explode(content.data) as article from cnodejs_articles as articles;
+-- 从 condejs_articles 中选择 explode(content.data) 作为 article；
 
--- select article.id, article from articles as output;
+-- 从 articles 中选择 article.id, article 作为输出；
 ```
 
 
 
-## **配置参数**
+### 2. **配置参数**
 
 | 参数名                  | 参数含义                                                     |
 | ----------------------- | ------------------------------------------------------------ |

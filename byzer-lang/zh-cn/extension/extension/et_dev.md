@@ -1,4 +1,4 @@
-### 自定义 ET 插件开发
+# 自定义 ET 插件开发
 
 Byzer具备足够灵活的扩展性，能够同时解决 Data + AI 领域的问题。我们提供了大量的插件，方便用户在数据处理、商业分析和机器学习的不同场景中使用 Byzer。这些插件类型包括: DataSource、ET、Script、App，我们都可以灵活的通过离线或者线上的方式注册到 Byzer Engine 中使用。
 
@@ -26,7 +26,7 @@ ET 也是实现将算法的特征工程从训练复用到预测时的核心，�
 
 
 
-## **ET 使用语法**
+### **ET 使用语法**
 
 以 ET 插件`SyntaxAnalyzeExt`为例，其功能是用来解析SQL中的输入、输出表。我们需要使用 run 语法对数据进行处理，其中语法解析的类型 `action` 为 extractTables，表示抽取表名，sql为待解析的sql语句，如下：
 
@@ -73,7 +73,7 @@ select a from table1 as output;
 
 ## 
 
-## **ET 开发**
+### **ET 开发**
 
 要实现一个 ET 的开发，需要实现如下接口：
 
@@ -84,7 +84,7 @@ select a from table1 as output;
 
 最后，将开发好的 ET 注册到 ETRegister 中，启动我们的 Byzer Engine 即可使用了。下面我们来一起看一下如何实现一个 ET，用于抽取 SQL 语句中所有的表名功能。
 
-### Class definition
+#### Class definition
 
 首先，介绍一个目前 Byzer 里已经提供了一个工具类，可以让我们复用 Spark SQL 解析器来进行解析抽取表名：
 
@@ -155,7 +155,7 @@ def batchPredict(df: DataFrame, path: String, params: Map[String, String]): Data
 
 
 
-### **Override train**
+#### **Override train**
 
 我们看到，train 其实接受了很多参数。这些参数都是 train 里的 params 传递的。我们看到 params 的签名是 `Map[String, String]` ， 所以在 Byzer 中，所有的属性配置都是字符串。我们先对方法做个解释：
 
@@ -247,7 +247,7 @@ override def train(df: DataFrame, path: String, params: Map[String, String]): Da
 
 
 
-### **ET 参数定义和一些需要重写的函数**
+#### **ET 参数定义和一些需要重写的函数**
 
 上面说到我们可以定义 where 里面的参数定义、参数默认值等信息，具体如下：
 
@@ -371,11 +371,11 @@ load modelParams.`SyntaxAnalyzeExt` as output;
 
 paramdescriptionactionRequired. action for syntax analysis Optional parameter: extractTables Notice: Currently, the only supported action is `extractTables`, and other parameters of the action are under construction. e.g. action = "extractTables" (default: extractTables)sqlRequired. SQL to be analyzed e.g. sql = "select * from table" (default: )
 
-在上面的示例中，参数的定义还是比较复杂的，我们也非常建议完成的定义该数据结构，因为在代码自动补全、workflow中插件可视化、了解参数原信息和参数间依赖关系等方面都非常有用。如需了解更多参数机制，请访问[开发插件自省参数](/byzer-lang/zh-cn/developer/extension/et_params_dev.md)
+在上面的示例中，参数的定义还是比较复杂的，我们也非常建议完成的定义该数据结构，因为在代码自动补全、workflow中插件可视化、了解参数原信息和参数间依赖关系等方面都非常有用。如需了解更多参数机制，请访问[开发插件自省参数](../../../../byzer-lang/zh-cn/extension/extension/et_params_dev.md)
 
 
 
-### **ET组件的权限**
+#### **ET组件的权限**
 
 > Byzer 将一切资源都抽象成了表，最细粒度可以控制到列级别。
 
@@ -603,7 +603,7 @@ MLSQLConsoleClient会在auth函数中请求到我们Console中内置的权限服
 
 
 
-### 注册到Byzer引擎
+#### 注册到Byzer引擎
 
 到目前为止，我们就实现了一个抽取表名称的 ET 插件了。那么如何注册到 Byzer 引擎中呢？如果是作为内置插件，我们只要添加如下一行代码到`tech.mlsql.ets.register.ETRegister`即可：
 
@@ -617,7 +617,7 @@ register("SyntaxAnalyzeExt", "tech.mlsql.plugins.ets.SyntaxAnalyzeExt")
 
 
 
-我们开发好的 ET 可以很简单的封装为宏命令，简化交互上的使用。比如 ET `SQLShowTableExt`，就是我们常用的命令 !`desc`，我们可以参考文章: [命令行开发](/byzer-lang/zh-cn/developer/extension/et_command.md)
+我们开发好的 ET 可以很简单的封装为宏命令，简化交互上的使用。比如 ET `SQLShowTableExt`，就是我们常用的命令 !`desc`，我们可以参考文章: [命令行开发](../../../../byzer-lang/zh-cn/extension/extension/et_command.md)
 
 
 
@@ -632,7 +632,7 @@ register("SyntaxAnalyzeExt", "tech.mlsql.plugins.ets.SyntaxAnalyzeExt")
 
 ![img](images/image15.jpeg)
 
-### 另一个模型ET的示例
+#### 另一个模型ET的示例
 
 我们已经知道如何实现一个 run 语法的 ET，并投入使用，那么如果是一个算法插件，除了 train 外，其他的几个函数的功能我们应该怎么实现呢？
 
@@ -832,13 +832,13 @@ override def predict(sparkSession: SparkSession, _model: Any, name: String, para
 
 
 
-## 独立成模块作为内置插件使用
+### 独立成模块作为内置插件使用
 
 上面我们介绍了直接修改 Byzer 源码的方式添加 ET，如果你希望这个插件是一个独立的模块，并且内置在 Byzer 中，那么你需要在 external 目录下新建一个模块，然后在`tech.mlsql.runtime.PluginHook` 添加该内置插件。另外，你还需要在 streamingpro-mlsql 添加该该模块依赖。通常添加在profile/streamingpro-spark-2.4.0-adaptor 和 profile/streamingpro-spark-3.0.0-adaptor 中都要添加。如果你这个模块只兼容其中一个，添加一个即可。
 
 
 
-## 作为外置插件使用
+### 作为外置插件使用
 
 如果你想作为外置插件使用，也就是单独做成一个项目开发和维护，可以参考项目: [byzer-extension](https://github.com/byzer-org/byzer-extension)
 

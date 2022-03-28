@@ -6,7 +6,7 @@
 
 同样也是很简单的。 下面的例子来源于[用户讨论](https://github.com/allwefantasy/streamingpro/issues/919).
 
-## 场景
+### 场景
 
 有一个 patient 的主题 ( Kafka topic )，里面包含了
 * name string
@@ -16,7 +16,7 @@
 
 我们要求根据 addr, arriveTime 作为unique key，如果存在更新否则 insert, 并且把数据存储在 MySQL 里。
 
-## 流程
+### 流程
 
 我们可以通过 load 语法把 Kafka 的 topic 加载成一张表：
 

@@ -1,4 +1,4 @@
-# 随机森林 RandomForest
+# 随机森林/RandomForest
 
 RandomForest 是一个分类算法。
 

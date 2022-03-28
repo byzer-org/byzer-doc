@@ -1,8 +1,8 @@
 # Byzer-lang FAQ
 
-## 基本概念与问答
+### 基本概念与问答
 
-### Q1.1 ：什么是 Byzer
+#### Q1.1 ：什么是 Byzer
 
 Byzer : 一门面向 Data 和 AI 的低代码、云原生的开源编程语言。
 
@@ -11,12 +11,12 @@ Byzer 是一门结合了声明式编程和命令式编程的**混合编程语言
 Byzer 希望能够提供**一套语言、一个引擎，就能覆盖整个数据链路，同时可以提供各种算法、模型训练等开箱即用的能力。**
 
 
-### Q1.2：Byzer 的技术方向和核心能力是什么？
+#### Q1.2：Byzer 的技术方向和核心能力是什么？
 
 通过一个语言来帮助用户获取 Data + AI 工作所需要的所有能力。
 
 
-### Q1.3：Byzer 要帮企业解决的痛点是什么？
+#### Q1.3：Byzer 要帮企业解决的痛点是什么？
 
 **企业痛点：**
 
@@ -30,7 +30,7 @@ Byzer 希望能够提供**一套语言、一个引擎，就能覆盖整个数据
 
 **Goal: 降低企业落地 Data + AI 的门槛和成本**
 
-### Q 1.4 什么是 Byzer 的 ET？
+#### Q 1.4 什么是 Byzer 的 ET？
 
 **ET** 是 Byzer 语言内置 Estimator/Transformer 的简称。
 
@@ -48,9 +48,9 @@ ET主要涵盖：
 
 
 
-## 和其他编程语言对比
+### 和其他编程语言对比
 
-### Q2.1：Byzer与 SQL/Python/PySpark 之类的什么不同呢？
+#### Q2.1：Byzer与 SQL/Python/PySpark 之类的什么不同呢？
 
 1. **和 SQL 相比**
 
@@ -90,9 +90,9 @@ PySpark 是 Spark 为 Python 开发者提供的 API。但 Pyspark 自身能力�
 
 
 
-## Byzer 引擎相关
+### Byzer 引擎相关
 
-### Q3.1 Byzer 与 spark 如何交互，比如 load \ select \ save 的处理过程 
+#### Q3.1 Byzer 与 spark 如何交互，比如 load \ select \ save 的处理过程 
 
 Byzer-lang 提供了 Rest 接口执行 Byzer 代码的能力。 入口为 `streaming.rest.RestController.script` 方法，该方法的接口为  `/run/script`
 
@@ -255,7 +255,7 @@ analyze方法 实现语法解析，抽取出必要的信息， parse 根据这�
 对于条件分支语句中的表达式，则是单独实现，参考 streamingpro-core 模块中的 `tech.mlsql.lang.cmd.compile.internal.gc` 包下的文件。
 
 
-### Q3.2：Byzer 如何屏蔽不同数据库的语法差异？
+#### Q3.2：Byzer 如何屏蔽不同数据库的语法差异？
 
 首先，在默认情况下，引擎仅仅会下推 filter 算子,其他部分都是在引擎中进行计算，所以一般只要数据库是遵循 JDBC 标准或者实现 Spark Datasource 接口即可。
 
@@ -271,7 +271,7 @@ analyze方法 实现语法解析，抽取出必要的信息， parse 根据这�
 
 
 
-### Q3.3：当返回大量数据时，前端如何处理？引擎本身是否提供批量获取？
+#### Q3.3：当返回大量数据时，前端如何处理？引擎本身是否提供批量获取？
 
 引擎端默认是返回 5000 条记录，可以通过 http 请求参数控制（也就是比如 Byzer Notebook 每次请求时都可以设置返回的结果数据最大限制条数）。
 

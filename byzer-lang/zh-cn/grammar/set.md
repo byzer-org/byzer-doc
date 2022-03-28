@@ -2,7 +2,7 @@
 
 Byzer-lang 支持变量。
 
-## 基础应用
+### 1. 基础应用
 
 ```sql
 set hello="world";
@@ -52,7 +52,7 @@ select * from world as output;
 
 > 表名需要使用反引号将其括起来，避免语法解析错误
 
-### 生命周期
+#### 生命周期
 
 值得一提的是，`set` 语法当前的生命周期是 `request` 级别的，也就是每次请求有效。
 
@@ -109,7 +109,7 @@ set hello="abc" where scope="session";
 变量默认生命周期是 `request`。 也就是当前脚本或者当前 cell 中有效。 
 
 
-## 变量类型
+### 2. 变量类型
 
 Byzer-lang 的变量被分为五种类型：
 
@@ -216,7 +216,7 @@ select "${hello}" as name as output;
 | ---- |
 | bar  |
 
-## 编译时和运行时变量
+### 3. 编译时和运行时变量
 
 Byzer-lang 有非常完善的权限体系，可以轻松控制任何数据源到列级别的访问权限，而且创新性的提出了预处理时权限，
 也就是通过静态分析 Byzer-lang 脚本从而完成表级别权限的校验（列级别依然需要运行时完成）。
@@ -246,7 +246,7 @@ set hello=`select 1 as foo ` where type="sql" and mode="runtime";
 此时，Byzer-lang 在预处理阶段不会进行该变量的创建。
 
 
-## 内置变量
+### 4. 内置变量
 
 Byzer-lang 提供了一些内置变量，看下面的代码：
 

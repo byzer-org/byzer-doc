@@ -3,9 +3,9 @@
 [byzer 断言](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-assert) 插件提供了在表中使用 `assert` 断言命令，用于判断 byzer 的结果表中数据是否符合预期。
 
 
-## 如何安装
+### 如何安装
 
-Execute following command in web console:
+在 web console 中执行以下命令：
 
 ```
 !plugin app add - "mlsql-assert-3.0";
@@ -13,7 +13,7 @@ Execute following command in web console:
 
 > 注意：示例中 byzer 的 spark 版本为 3.0 ，如果需要在 spark 2.4 的版本运行，请将安装的插件设置为 `mlsql-assert-2.4`
 
-## 如何使用
+### 如何使用
 
 ```sql
 -- 创建测试数据

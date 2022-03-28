@@ -1,4 +1,4 @@
-# Window / watermark 的使用
+# 使用 window / watermark 
 
 Window/watermark 是流式计算里特有的概念，下面是一个具体的使用模板：
 

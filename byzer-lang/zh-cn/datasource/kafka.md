@@ -5,7 +5,7 @@ Byzer 显示的支持 Kafka 作为流式数据源，也支持将其作为普通�
 本章只介绍数据加载，想了解更多流式编程细节，请查看 [使用 Byzer 处理流数据](/byzer-lang/zh-cn/streaming/README.md)。
 
 
-## 流式加载
+### 1. 流式加载
 
 >**注意：** Byzer 支持 `0.10` 以上 Kafka 版本
 
@@ -17,7 +17,7 @@ Byzer 显示的支持 Kafka 作为流式数据源，也支持将其作为普通�
   AS kafka_post_parquet;
 ```
 
-## AdHoc加载
+### 2. AdHoc加载
 
 AdHoc 加载数据源，需要使用 `AdHoc` 关键字，并通过 `kafka.bootstrap.servers` 参数指定服务器地址，如下示例：
 
