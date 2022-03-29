@@ -1,4 +1,4 @@
-# K8S 镜像部署指南
+# 通过 Byzer-K8S 工具部署
 
 本文描述了如何部署 Byzer-lang K8S 镜像，并体验基本功能。总体分为三步，环境搭建，部署，体验功能。
 
@@ -27,7 +27,7 @@ make all
 
 结果如下图:
 
-  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/byzer-k8s_help.PNG" alt="mlsql-deploy_help"/>
+  ![](images/byzer-k8s_help.PNG)
 
 #### 2. 安装并配置 K8S
 

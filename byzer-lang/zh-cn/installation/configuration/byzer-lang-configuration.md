@@ -1,5 +1,6 @@
+# Byzer 引擎参数配置说明
 
-## 接口权限控制
+### 接口权限控制
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
@@ -8,7 +9,7 @@
 
 用户可以将实现 `{def auth(params: Map[String, String]): (Boolean, String)` 的类使用 `--jars` 带上，然后通过 `--conf spark.mlsql.auth.custom= YOUR CLASS NAME` 来设置自定义的接口权限访问。
 
-## 二层通讯参数
+### 二层通讯参数
 
 Byzer-lang 会在 Spark 之上构建一个二层通讯，方便 driver 直接控制 executor.
 
@@ -19,14 +20,14 @@ Byzer-lang 会在 Spark 之上构建一个二层通讯，方便 driver 直接控
 |  streaming.ps.ask.timeout |  通讯超时 |  默认为 3600 秒   |
 |  streaming.ps.network.timeout |  通讯超时 |  默认为 28800 秒   |
 
-## Hive支持参数
+### Hive支持参数
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
 | streaming.enableHiveSupport  |  是否开启 hive 支持  |  默认为 false   |
 |  streaming.hive.javax.jdo.option.ConnectionURL  | 用来配置 hive.javax.jdo.option.ConnectionURL|  默认为空   |
 
-## 自定义UDF jar包注册
+### 自定义UDF jar包注册
 
 如果我们将自己的 UDF 打包进 Jar 包里，我们需要在启动的时候告诉系统对应的 UDF 类名称。
 UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console 里动态编写 UDF/UDAF。
@@ -35,7 +36,7 @@ UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console �
 |----|------------------|-----|
 | streaming.udf.clzznames  | 支持多个 class, 用逗号分隔 |     |
 
-## 离线插件安装
+### 离线插件安装
 
 确保插件的jar包都是用`--jars`带上。并且目前只支持 app 插件。
 
@@ -44,7 +45,7 @@ UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console �
 | streaming.plugin.clzznames  |  支持多个 class，用逗号分隔  |     |
 
 
-## Session设置
+### Session设置
 
 Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session，如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](../developer/api/run_script_api.md)。
 
@@ -54,7 +55,7 @@ Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相
 | spark.mlsql.session.idle.timeout  |  session 一直不使用的超时时间  |  30 分钟   |
 | spark.mlsql.session.check.interval  |  session 超时检查周期  |  5 分钟   |
 
-## 分布式日志收集
+### 分布式日志收集
 
 Byzer-lang 支持将部分任务的日志发送到Driver。
 
@@ -62,7 +63,7 @@ Byzer-lang 支持将部分任务的日志发送到Driver。
 |----|----|-----|
 | streaming.executor.log.in.driver  |  是否在 driver 启动日志服务  | 默认为 true|
 
-## 权限校验
+### 权限校验
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
