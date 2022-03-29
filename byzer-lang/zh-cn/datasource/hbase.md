@@ -9,19 +9,19 @@ HBase Jar包：
    (暂不支持)
 2. 访问 [spark-hbase](https://github.com/allwefantasy/spark-hbase) ,然后手动进行编译；
 
-##  安装及使用
+###  1. 安装及使用
 
-### ~~插件安装~~(暂不支持)
+#### 1) ~~插件安装~~(暂不支持)
 
 通过如下指令安装 `ds-hbase-2x` ：
 
 ```sql
 > !plugin ds add tech.mlsql.plugins.ds.MLSQLHBase2x ds-hbase-2x;
-```                                                           
+```
 
 因为 HBase 依赖很多，大概 80 多 M,下载会比较慢。
 
-### 在 Byzer 中执行
+#### 2) 在 Byzer 中执行
 
 **例子:**
 
@@ -83,9 +83,9 @@ val df = spark.read.format("org.apache.spark.sql.execution.datasources.hbase2x")
     "field.type.col8" -> "ByteType"
   )
 ).load() 
-```         
+```
 
-## 配置参数
+### 2. 配置参数
 
 ds-hbase-2x 的配置参数如下表：
 

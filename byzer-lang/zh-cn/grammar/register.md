@@ -6,7 +6,7 @@ Register 句式在 Byzer-lang 中主要可以完成三类工作：
 2. 将内置或者 Python 模型注册成 UDF 函数
 3. 在流式计算中，注册 watermark/window
 
-## 1. 注册 SQL 函数
+### 1. 注册 SQL 函数
 
 在 SQL 中，最强大的莫过于函数了。Byzer-lang 支持动态创建 UDF/UDAF 函数。
 
@@ -46,7 +46,7 @@ def apply(a:Double,b:Double)={
 1. lang 支持 java/scala
 2. udfType 支持 udf/udaf 
 
-### 1）通过变量持有代码片段
+#### 1）通过变量持有代码片段
 
 代码片段也可以使用变量持有，然后在 ScriptUDF 中引用：
 
@@ -100,7 +100,7 @@ methodName="hello"  and className="A";
 select plusFun(1,2) as plus, helloFun("jack") as jack as output;
 ```
 
-### 2）Scala UDAF 示例
+#### 2）Scala UDAF 示例
 
 ```sql
 set plusFun='''
@@ -150,7 +150,7 @@ load jsonStr.`data` as dataTable;
 select a,plusFun(a) as res from dataTable group by a as output;
 ```
 
-### 3）Java 语言 UDF 示例
+#### 3）Java 语言 UDF 示例
 
 
 ```sql
@@ -221,7 +221,7 @@ select funx(a) as res from dataTable as output;
 
 
 
-## 2. 注册模型
+### 2. 注册模型
 
 具体使用方式如下：
 
@@ -253,7 +253,7 @@ options algIndex="0"
 
 
 
-## 3. 流式程序中注册 Watermark
+### 3. 流式程序中注册 Watermark
 
 在流式计算中，有 watermark 以及 window 的概念。我们可以使用 `Register` 句式来完成这个需求：
 

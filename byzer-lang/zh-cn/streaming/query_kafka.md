@@ -1,11 +1,11 @@
-# 消费 Kafka 数据
+# Kafka 数据应用
 
 Byzer-lang 目前显式支持 Kafka 以及 MockStream. MockStream 主要用于模拟数据源，测试场景中应用的比较多。
 
 > 值得注意的是，Byzer-lang 支持 Kafka 0.10 及以上版本，而原生的 Structured Streaming 只支持0.10版本的    Kafka.
 
 
-## 消费 Kafka 数据
+### 1. 消费 Kafka 数据
 开始之前，先准备 Kafka 数据。您可以先创建一个名为 my-topic 的 topic 。
 > 请参考 [Kafka 开发环境搭建](./kafka_local_install.md) 安装 Kafka 。
 
@@ -78,7 +78,7 @@ and checkpointLocation="/tmp/cpl3";
 2. checkpointLocation 流重启后恢复用
 3. mode， 三种模式，Update，Append，Complete，请参考 structured streaming 里这三种模式的区别。
 
-## 模拟输入数据源
+### 2. 模拟输入数据源
 
 为了方便测试，我们提供了一个 Mock 输入，来模拟 Kafka 输入。
 

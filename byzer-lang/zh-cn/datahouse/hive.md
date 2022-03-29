@@ -1,4 +1,4 @@
-# Byzer-lang 读写 Hive 数据
+# Hive 加载和存储
 
 Hive 在 Byzer-lang 中使用极为简单。 加载 Hive 表只需要一句话：
 
@@ -27,7 +27,7 @@ and driver="org.apache.hadoop.hive.jdbc.HiveDriver"
 and user="" 
 and password="" 
 and fetchsize="100";
-```  
+```
 
 说明:
 - `jdbc:hive2://127.0.0.1:10000 ` 是 HiveServer2 地址
@@ -55,12 +55,12 @@ select cast(id as String)  as rowkey,content,label from orginal_text_corpus as o
 save overwrite orginal_text_corpus1 as hive.`public.orginal_text_corpus1`;
 
 load hive.`public.orginal_text_corpus1` as output ;
-```    
+```
 
 在你访问 Hive 时，如果数据湖里没有，则会穿透数据湖，返回 Hive 结果。如果你希望在写入的时候一定要写入到 Hive 而不是数据湖里，可以这样：
 
 ```
 save overwrite orginal_text_corpus1 as hive.`public.orginal_text_corpus1` where storage="hive"; 
-```                                                                                             
+```
 
 强制指定存储为 Hive.

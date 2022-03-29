@@ -1,4 +1,4 @@
-#  逻辑回归 Logistic Regression
+#  逻辑回归/Logistic Regression
 
 Logistic Regression 一种广义的线性回归分析模型，常用于数据挖掘，疾病自动诊断，经济预测等领域。
 

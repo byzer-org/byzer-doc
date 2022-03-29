@@ -35,7 +35,7 @@ as token_1;
 `body` 设置 post 请求的 body，
 最后把返回值注册为一张名为 token_1 的表。
 
-## 参数设置
+### 1. 参数设置
 
 参数可以分为3类：
 - config：设置 rest 请求信息，如 `method`/`timeout` 等
@@ -56,7 +56,7 @@ as token_1;
 
 > **注意：**所有参数值都必须是字符串，也就是必须用 `""` 或者 `'''` 括起来。参数值可以使用 `SET` 得到的变量
 
-## 高级参数设置
+### 2. 高级参数设置
 
 Byzer 支持取返回值中的字段进行多次请求，并将所有返回值组合成一张表。
 下面是一个简单的例子：
@@ -76,13 +76,13 @@ Byzer 支持取返回值中的字段进行多次请求，并将所有返回值�
  AS worklog_del;
 ```
 
-在这个例子中，我们首先通过 `SET` 语法将上个例子中获取到的 token 设置为变量。这里利用了[SparkSQL Build-in Function](https://spark.apache.org/docs/latest/api/sql/)。
+在这个例子中，我们首先通过 `SET` 语法将上个例子中获取到的 token 设置为变量。这里利用了 [SparkSQL Build-in Function](https://spark.apache.org/docs/latest/api/sql/)。
 紧接着我们使用 `load` 语法 `Rest` 工具进行多次请求。
 下面详细讲解用到的参数：
 
 **`config.page.values`**
 
-是返回结构中下一页的关键信息，使用[JsonPath语法](https://github.com/json-path/JsonPath)。
+是返回结构中下一页的关键信息，使用 [JsonPath语法](https://github.com/json-path/JsonPath)。
 你可以指明多个关键信息，并在`config.page.next`中使用他们。
 
 **`config.page.next`**
@@ -106,9 +106,7 @@ config.page.next="{0}"
 
 表示请求次数/页数，默认为 `1` 次。
 
-
-
-## 返回值
+### 3. 返回值
 
 load 语句将请求的返回值设置为一张表。其中有两列：
 - content：base64 编码的返回体

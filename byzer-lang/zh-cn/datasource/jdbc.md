@@ -6,7 +6,7 @@ Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift
 
 
 
-## 1. 加载数据
+### 1. 加载数据
 
 Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
 
@@ -46,7 +46,7 @@ LOAD jdbc.`db_1.table2` as table2;
 SELECT * from table1 as output;
 ```
 
-### 可选参数列表
+#### 1) 可选参数列表
 
 | Property Name  |  Meaning |
 |---|---|
@@ -89,7 +89,7 @@ as table1;
 ```
 
 
-### MySQL 原生 SQL 加载
+#### 2) MySQL 原生 SQL 加载
 
 值得注意的是，Byzer 还支持使用 MySQL 原生 SQL 的方式加载数据。比如：
 
@@ -112,7 +112,7 @@ select * from test1 where a = "b"
 
 
 
-## 2. 删除或创建表
+### 2. 删除或创建表
 
 具体用法如下：
 
@@ -131,7 +131,7 @@ CREATE TABLE test1
 
 
 
-## 3. 保存数据
+### 3. 保存数据
 
 建立 JDBC 数据连接后，你可以使用 `save` 语句对得到的数据进行保存。Byzer 支持 `append`/`overwrite` 方式保存数据。
 
@@ -163,7 +163,7 @@ and `driver-statement-1`="create table test1.....";
 
 
 
-## 4. Upsert
+### 4. Upsert
 
 MySQL 支持数据的 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
 
@@ -184,7 +184,7 @@ WHERE idCol="a,b,c";
 
 
 
-## 5. 流式数据写入 MySQL
+### 5. 流式数据写入 MySQL
 
 举个简单的例子：
 
@@ -208,13 +208,13 @@ and checkpointLocation="/tmp/cpl3";
 
 ### FAQ
 
-#### 1). load 会把数据都加载到 Byzer 引擎的内存里么？
+#### 1) load 会把数据都加载到 Byzer 引擎的内存里么？
 答案是不会。引擎会批量到 MySQL 拉取数据进行计算。同一时刻，只有一部分数据在引擎内存里。
 
-#### 2). load 的时候可以加载过滤条件么
+#### 2) load 的时候可以加载过滤条件么
 可以，但是没有必要。用户可以把条件直接写在后续的 `select` 语句中，`select` 语句里的 where 条件会被下推给存储做过滤，避免大量数据传输。
 
-#### 3). count 非常慢，怎么办？
+#### 3) count 非常慢，怎么办？
 比如用户执行如下语句想查看下表的数据条数,如果表比较大，可能会非常慢，甚至有可能导致 Engine 有节点挂掉。
 
 ```sql
@@ -232,7 +232,7 @@ load jdbc.`db_1.tblname` where directQuery='''
 ''' as newtbl;
 ```
 
-#### 4). 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
+#### 4) 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
 虽然你加了 where 条件，但是过滤效果可能并不好，引擎仍然需要拉取大量的数据进行计算，引擎默认是单线程的。我们可以配置多线程的方式去数据库拉取数据，可以避免单线程僵死。
 
 核心参数有如下：
@@ -242,7 +242,7 @@ load jdbc.`db_1.tblname` where directQuery='''
 3. `numPartitions` 分区数目。一般8个线程比较合适。
 能够进行分区的字段要求是数字类型，推荐使用自增 id 字段。
 
-#### 5). 多线程拉取还是慢，有办法进一步加速么
+#### 5) 多线程拉取还是慢，有办法进一步加速么
 你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
 
 

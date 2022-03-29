@@ -4,7 +4,7 @@
 
 > Byzer-lang 中的 `select` 句式除了最后 `as 表名` 以外，完全兼容 Spark SQL。
 
-## 基本语法
+### 1. 基本语法
 
 最简单的一个 `select` 语句：
 
@@ -28,7 +28,7 @@ select * from table1 as output;
 ```
 
 
-## Select 句式中的模板功能
+### 2. Select 句式中的模板功能
 
 实际在书写 `select` 语句可能会非常冗长。Byzer-lang 提供了两种方法帮助大家简化代码。
 

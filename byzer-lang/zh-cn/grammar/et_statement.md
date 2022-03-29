@@ -2,9 +2,9 @@
 
 Train/Run/Predict 都属于 Byzer-lang 里独有的，并且可扩展的句式。
 
-## 基础语法
+### 1. 基础语法
 
-### Train
+#### Train
 
 `train` 顾名思义，就是进行训练，主要是对算法进行训练时使用。下面是一个比较典型的示例：
 
@@ -31,7 +31,7 @@ and fitParam.0.numTrees="4"
 
 其中 `fitParam.0` 表示第一组参数，用户可以递增设置 N 组，Byzer-lang 会自动运行多组，最后返回结果列表。
 
-### Run
+#### Run
 
 `run` 的语义是对数据进行处理，而不是训练。
 
@@ -45,7 +45,7 @@ run testData as TableRepartition.`` where partitionNum="5" as newdata;
 处理的参数是 `partitionNum="5"`，最后处理后的表叫 `newdata`。
 
 
-### Predict
+#### Predict
 
 `predict` 顾名思义，应该和机器学习相关预测相关。比如上面的 train 示例中，用户将随机森林的模型放在了
 `/tmp/rf` 目录下，用户可以通过 `predict` 语句加载该模型，并且对表 `testData` 进行预测。
@@ -57,14 +57,14 @@ predict testData as RandomForest.`/tmp/rf`;
 ```
 
 
-## ET 概念
+### ET 概念
 
 无论是 Train/Run/Predict, 他的核心都是对应的算法或者处理工具，实现表进表出（中间可能会有文件输出），弥补传统 SQL 的不足。
 在 Byzer-lang 中把他们统一称为 `ET`, 也就是 Estimator/Transformer 的缩写。
 
 `ET` 都是可扩展的，用户可以完成自己的 `ET` 组件。在开发者指南中，有更详细的关于如何开发自己 `ET` 的介绍。
 
-## 查看系统可用 ET
+### 查看系统可用 ET
 
 可使用功能如下命令查看所有可用的 `ET`：
 
@@ -72,7 +72,7 @@ predict testData as RandomForest.`/tmp/rf`;
 !show et;
 ```
 
-## 模糊匹配查询 ET
+### 模糊匹配查询 ET
 
 需要模糊匹配某个 `ET` 的名字，可以使用如下方式：
 
@@ -84,7 +84,7 @@ select * from ets where name like "%Random%" as output;
 
 同理，你也可以实现根据关键字模糊检索 `doc` 字段。
 
-## 查看 ET 代码示例和使用文档
+### 查看 ET 代码示例和使用文档
 
 通过上面的方式，知道 `ET` 具体名字后，你可以查看该 `ET` 的使用示例等信息：
 
@@ -92,7 +92,7 @@ select * from ets where name like "%Random%" as output;
 !show et/RandomForest;
 ```
 
-## 查看 ET 可选参数
+### 查看 ET 可选参数
 
 此外，如果你想看到非常详尽的参数信息，可以通过如下命令：
 

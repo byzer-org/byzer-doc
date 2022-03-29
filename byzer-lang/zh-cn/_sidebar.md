@@ -2,7 +2,6 @@
   * [Byzer-Lang](/byzer-lang/zh-cn/introduction/byzer_lang_intro.md)
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
-  * [快速开始](/byzer-lang/zh-cn/introduction/get_started.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
   
 - 安装与配置
@@ -39,7 +38,7 @@
       * [MongoDB](/byzer-lang/zh-cn/datasource/mongodb.md)
       * [本地文件/HDFS](/byzer-lang/zh-cn/datasource/file.md)
       * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
-      * [MockStreaming](/byzer-lang/zh-cn/datasource/mock_streaming.md)
+      * [MockStream](/byzer-lang/zh-cn/datasource/mock_streaming.md)
       * [其他](/byzer-lang/zh-cn/datasource/other.md)
     - [使用数仓/数据湖](/byzer-lang/zh-cn/datahouse/README.md)
         * [Hive 加载和存储](/byzer-lang/zh-cn/datahouse/hive.md)
@@ -64,10 +63,10 @@
           * [Scala UDF](/byzer-lang/zh-cn/udf/extend_udf/scala_udf.md)
           * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)
-    
     * [Byzer 流编程](/byzer-lang/zh-cn/streaming/README.md)
-      * [Byzer Kafka Tools](/byzer-lang/zh-cn/streaming/kafka_tool.md)
-      * [查询 Kafka 数据](/byzer-lang/zh-cn/streaming/query_kafka.md)
+      * [Kafka 开发环境搭建](../../byzer-lang/zh-cn/streaming/kafka_local_install.md)
+      * [Kafka 小工具集锦](/byzer-lang/zh-cn/streaming/kafka_tool.md)
+      * [Kafka 数据应用](/byzer-lang/zh-cn/streaming/query_kafka.md)
       * [设置流式计算回调](/byzer-lang/zh-cn/streaming/callback.md)
       * [对流的结果以批的形式保存](/byzer-lang/zh-cn/streaming/save_in_batch.md)
       * [使用 window/watermark](/byzer-lang/zh-cn/streaming/window_watermark.md)
@@ -100,8 +99,7 @@
         * [自定义数据源插件开发](../../byzer-lang/zh-cn/extension/extension/ds_dev.md)
         * [命令行开发](../../byzer-lang/zh-cn/extension/extension/et_command.md)
         * [参数自省机制介绍](../../byzer-lang/zh-cn/extension/extension/et_params_dev.md)
-    * [插件与安装](/byzer-lang/zh-cn/extension/README.md)
-        * [插件商店](/byzer-lang/zh-cn/extension/installation/store.md)
+    * [插件安装](/byzer-lang/zh-cn/extension/README.md)
         * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
@@ -127,17 +125,15 @@
     * API
       * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
         * [脚本执行 API](/byzer-lang/zh-cn/developer/api/run_script_api.md)
-        * [代码提示 API](/byzer-lang/zh-cn/developer/api/code_suggest.md)
         * [Byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/byzer-lang/zh-cn/developer/api/liveness.md)
-      * [Readness API](/byzer-lang/zh-cn/developer/api/readiness.md)
+      * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
 
 - [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)
 - 发行声明
-  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/version.md)
   * [Byzer 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
   * [Byzer 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
   * [MLSQL Stack 2.1.0](../../byzer-lang/zh-cn/release-notes/2.1.0.md)

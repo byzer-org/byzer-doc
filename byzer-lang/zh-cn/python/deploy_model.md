@@ -3,7 +3,7 @@
 在 Byzer 中，我们可以使用和内置算法一样的方式将一个基于 Byzer-python 训练出的 AI 模型注册成一个 UDF 函数，这样可以将模型应用于批、流，以及 Web 服务中。接下来我们将展示 Byzer-python 基于
 Ray 从模型训练再到模型部署的全流程 demo。
 
-#### 数据准备
+### 1. 数据准备
 
 首先，安装 `tensorflow` 和 `keras`:
 ```shell
@@ -42,7 +42,7 @@ save overwrite mnist_data as delta.`ai_datasets.mnist`;
 
 上面的 Byzer-python 脚本，获取keras自带的 mnist 数据集，再将数据集保存到数据湖中。
 
-#### 训练模型
+### 2. 训练模型
 
 接着就开始拿测试数据 minist 进行训练，下面是模型训练代码：
 
@@ -105,7 +105,7 @@ ray_context.build_result(model_binary)
 save overwrite mnist_model as delta.`ai_model.mnist_model`;
 ```
 
-#### 将模型注册成 UDF 函数
+### 3. 将模型注册成 UDF 函数
 
 训练好模型之后，我们就可以用 Byzer-lang 的 Register 语法将模型注册成基于 Ray 的服务了，下面是模型注册的代码：
 
@@ -159,7 +159,7 @@ UDFBuilder.apply(ray_context)
 
 > 这里 `UDFBuilder` 与 `UDFBuildInFunc` 都是 Pyjava 提供的高阶 API，用来将 Python 脚本注册成 UDF 函数。
 
-#### 使用模型做预测
+### 4. 使用模型做预测
 
 Byzer 提供了类 SQL 语句做批量（Batch）查询，加载您的数据集，即可对数据进行预测。
 

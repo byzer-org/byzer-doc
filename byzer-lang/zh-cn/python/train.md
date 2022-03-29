@@ -1,6 +1,6 @@
 # 模型训练
 
-## 单机训练
+### 1. 单机训练
 
 > 这里用到 `tensorflow`，运行前需要在 Driver 端安装
 
@@ -88,7 +88,7 @@ context.build_result(res)
 <img alt="img" src="/byzer-lang/zh-cn/python/image/image-train-result.png"/>
 </p>
 
-## 分布式训练
+### 2. 分布式训练
 
 > 运行前需要在 Ray 环境中安装 `tensorflow`
 

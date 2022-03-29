@@ -5,7 +5,7 @@
 
 接下来，我们以 Conda 为例，介绍创建 Byzer-python 环境的流程。
 
-## Python 环境搭建
+### 1. Python 环境搭建
 
 创建一个名字为 dev 的 Python 3.6.13 环境
 
@@ -16,7 +16,7 @@ conda create -n dev python=3.6.13
 激活 dev 环境
 
 ```shell
-source actviate dev
+source activate dev
 ```
 
 安装以下依赖包
@@ -33,11 +33,11 @@ uuid~=1.30
 pyjava
 ```
 
-## Ray 环境搭建（可选）
+### 2. Ray 环境搭建（可选）
 
 Ray 依赖 Python 环境，这里使用前文创建的 Python 3.6 环境部署 Ray。
 
-### 单机启动
+#### 1) 单机启动
 
 ```shell
 ray start --head
@@ -62,7 +62,7 @@ ray.init(address="ray://<head_node_ip_address>:10001")
 >
 > <img alt="image-ray-error" src="/byzer-lang/zh-cn/python/image/image-ray-error.png" width="800"/>
 
-### 集群启动
+#### 2) 集群启动
 
 在 Head 节点上运行
 
@@ -125,7 +125,7 @@ ray_context.foreach(echo)
 ''';
 ```
 
-## Byzer-python 与 Ray
+### 3. Byzer-python 与 Ray
 
 <p align="center">
 <img alt="image-infra" src="/byzer-lang/zh-cn/python/image/image-infra.png" width="800"/>

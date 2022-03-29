@@ -4,7 +4,7 @@
 
 Byzer-python 代码编写三步走：
 
-#### 1. 初始化 `RayContext`
+### 1. 初始化 `RayContext`
 
 ```Python
 ray_context = RayContext.connect(globals(), "192.168.1.7:10001")
@@ -12,7 +12,7 @@ ray_context = RayContext.connect(globals(), "192.168.1.7:10001")
 
 其中第二个参数是可选的，用来设置 Ray 集群 Master 节点地址和端口。如果不需要连接 Ray 集群，则设置为 `None` 即可。
 
-#### 2. 获取数据
+### 2. 获取数据
 
 获取所有数据：
 
@@ -43,7 +43,7 @@ data = [RayContext.collect_from([data_ref]) for data_ref in data_refs]
 data = ray_context.to_dataset().to_dask()
 ```
 
-#### 3. 构建新的结果数据输出
+### 3. 构建新的结果数据输出
 
 ```Python
 context.build_result(data) 
@@ -53,7 +53,7 @@ context.build_result(data)
 
 现在引入下面两个 API 用来做数据分布式处理：
 
-#### RayContext.foreach
+#### 1) RayContext.foreach
 
 如果已经连接了 Ray，那么可以直接使用高阶 API `RayContext.foreach`
 
@@ -104,7 +104,7 @@ buffer = ray_context.foreach(echo)
 
 `RayContext.foreach` 接收一个回调函数，函数的入参是单条记录。无需显示的申明如何获取数据，只要实现回调函数即可。
 
-#### RayContext.map_iter
+#### 2) RayContext.map_iter
 
 我们也可以获得一批数据，可以使用 `RayContext.map_iter`。
 
@@ -141,7 +141,7 @@ ray_context.map_iter(echo)
 ''';
 ```
 
-#### 将表转化为分布式 `DataFrame`
+#### 3) 将表转化为分布式 `DataFrame`
 
 如果用户喜欢使用 Pandas API，而数据集又特别大，也可以将数据转换为分布式 DataFrame on Dask 来做进一步处理：
 
@@ -168,7 +168,7 @@ context.build_result([{"count":c}])
 > 1. 使用该 API 需要连接到 Ray，需要配置节点地址。
 > 2. 对应的 Python 环境需要预先安装好 dask ，`pip install "dask[complete]"`
 
-#### 将目录转化为表
+#### 4) 将目录转化为表
 
 这个功能在做算法训练的时候特别有用。比如模型训练完毕后，一般是保存在训练所在的节点上的。我们需要将其转化为表，并且保存到数据湖里去。具体操作如下：
 

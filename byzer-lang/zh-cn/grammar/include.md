@@ -5,7 +5,7 @@ Byzer-lang 支持复杂的代码组织结构，这赋予了 Byzer-lang 强大的
 1. 可以将一个 Byzer 脚本引入到另外一个 Byzer 脚本
 2. 也可以将一堆 Byzer 脚本组装成一个功能集，然后以 Lib 的方式提供给其他用户使用
 
-## 引入第三方依赖库
+### 1. 引入第三方依赖库
 
 `lib-core` 是 @allwefantasy 维护的一个 Byzer-lang Lib 库，里面有很多用 Byzer-lang 写成的一些功能。Byzer-lang 使用 Github 来作为 Lib 管理工具。
 
@@ -45,14 +45,14 @@ include local.`libCore.udf.hello`;
 select hello() as name as output;
 ```
 
-## 项目内脚本引用
+### 2. 项目内脚本引用
 
 为了完成一个复杂项目的开发，往往需要将功能代码拆解成多个脚本，实现代码的复用和交互组织。在 Byzer-lang 中，分成两种情况。
 
 1. 项目作为第三方 Lib 提供给其他用户用，就像 `libCore` 一样
 2. 本项目内 Byzer 脚本之间的互相引用
 
-### Lib 内脚本依赖
+#### 1）Lib 内脚本依赖
 
 Lib下所有脚本的互相引用都需要使用以下语法进行：
 
@@ -66,7 +66,7 @@ include local.`[PATH]`;
 include local.`github.com/allwefantasy/lib-core.udf.hello`;
 ```
 
-### 普通项目内 Byzer 脚本依赖
+#### 2）普通项目内 Byzer 脚本依赖
 
 具体引用方式，取决于你是使用 Web （比如 Byzer Notebook ）还是桌面（比如 Byzer-desktop）。
 
@@ -77,7 +77,7 @@ include project.`src/algs/b.byzer`;
 ```
 
 
-## Byzer-lang 对 Python 脚本的引用
+### 3. Byzer-lang 对 Python 脚本的引用
 
 Byzer-lang 支持直接引用 Python 脚本文件。 不过对于 Python 脚本的引用是使用内置宏函数 `!pyInclude` 来完成的，而不是使用 `include` 句式来完成。
 
@@ -129,7 +129,7 @@ set inModule="true" where type="defaultParam";
 
 > 注意到,如果是 Python 文件,是需要后缀名 `.py` 的。
 
-## 限制
+### 4. 限制
 
 Byzer-lang 不支持循环引用。
 

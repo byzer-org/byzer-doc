@@ -1,4 +1,4 @@
-# K 均值聚类算法 KMeans
+# K 均值聚类算法/KMeans
 
 KMeans 属于聚类算法。
 

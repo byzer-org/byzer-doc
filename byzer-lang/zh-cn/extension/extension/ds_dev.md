@@ -9,7 +9,7 @@
 
 在这篇教程中，我们不会介绍 Spark DataSource 的开发，而是介绍 byzer DataSource 的标准。
 
-## byzer Excel 数据源介绍
+### byzer Excel 数据源介绍
 
 加载或者保存 Excel 会是一个较为常见的操作，我们在[mlsql-plugins](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了 excel 在 byzer 中的读取和保存。
 
@@ -32,7 +32,7 @@ save overwrite b as excel.`/tmp/b.xlsx` where header="true";
 
 现在我们来看看如何进行开发。
 
-## Excel 数据源开发
+### Excel 数据源开发
 
 要实现一个数据源的开发，需要实现如下接口：
 
@@ -198,6 +198,6 @@ override def save(writer: DataFrameWriter[Row], config: DataSinkConfig): Unit = 
   }
 ```
 
-## 使用
+### 使用
 
 开发完成后，就可以打包了了。你可以选择 [在线或者离线安装](/byzer-lang/zh-cn/extension/installation/offline_install.md)。因为是自己开发的，一般都选择离线安装。
