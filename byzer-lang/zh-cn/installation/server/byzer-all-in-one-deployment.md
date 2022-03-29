@@ -9,7 +9,7 @@ Byzer All In One 提供了两种交互的方式：
 
 > 注意：
 > 1. 当前 Byzer 引擎支持的 Byzer 脚本的文件后缀名为 `.mlsql`
-> 2. 
+> 2. Byzer All In One 的默认出场配置是以 Local 方式进行任务执行的
 
 ### 下载 Byzer All In One
 
