@@ -8,8 +8,8 @@
 
 Byzer Server 二进制包的安装需要用户自行下载部署 JDK 以及 Spark，并且只提供了 **REST 服务交互模式（Server Mode）** 来允许用户通过 REST API 的方式调用 Byzer API 来执行 Byzer 脚本。
 
-> 1.**推荐在 Hadoop 集群上使用 Byzer 时，下载此版本进行安装**
-> 2.如果您对 Linux Server 运维不熟悉，推荐使用 [Byzer All In One](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) 进行部署
+> 1. **推荐在 Hadoop 集群上使用 Byzer 时，下载此版本进行安装**
+> 2. 如果您对 Linux Server 运维不熟悉，推荐使用 [Byzer All In One](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) 进行部署
 > 3. 推荐的操作系统为 CentOS7.x 以及 Ubuntu 18.04 +
 > 4. **我们计划在 2.3.0 版本中, 重构 Byzer 引擎的部署方式来降低部署的复杂性**
 
