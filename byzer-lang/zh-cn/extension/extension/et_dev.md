@@ -1,8 +1,8 @@
 # 自定义 ET 插件开发
 
+### ET 概念
+
 Byzer具备足够灵活的扩展性，能够同时解决 Data + AI 领域的问题。我们提供了大量的插件，方便用户在数据处理、商业分析和机器学习的不同场景中使用 Byzer。这些插件类型包括: DataSource、ET、Script、App，我们都可以灵活的通过离线或者线上的方式注册到 Byzer Engine 中使用。
-
-
 
 在 Byzer 中，ET（Estimator/Transformer 的简称）是一个非常重要的概念。通过 ET，我们可以完成非常多的复杂任务。包括：
 
@@ -11,8 +11,45 @@ Byzer具备足够灵活的扩展性，能够同时解决 Data + AI 领域的问�
 3. 提供各种便利工具，比如发送邮件、生成图片等各种必需的工具
 
 
-
 ET 也是实现将算法的特征工程从训练复用到预测时的核心，即大部分特征工程训练完成后都可以转化为一个函数，从而供给预测时使用。比如 `train,register,predict` 语法去抽象机器学习流程，通过 ET 一站式解决模型的训练、注册、预测的语法定制。本节，我们会以表抽取插件为例，来介绍如何用包装 Spark 内置的工具应用 于 Byzer 中。
+
+
+
+### 查看系统可用 ET
+
+可使用功能如下命令查看所有可用的 `ET`：
+
+```
+!show et;
+```
+
+### 模糊匹配查询 ET
+
+需要模糊匹配某个 `ET` 的名字，可以使用如下方式：
+
+```sql
+!show et;
+!lastCommand named ets;
+select * from ets where name like "%Random%" as output;
+```
+
+同理，你也可以实现根据关键字模糊检索 `doc` 字段。
+
+### 查看 ET 代码示例和使用文档
+
+通过上面的方式，知道 `ET` 具体名字后，你可以查看该 `ET` 的使用示例等信息：
+
+```
+!show et/RandomForest;
+```
+
+### 查看 ET 可选参数
+
+此外，如果你想看到非常详尽的参数信息，可以通过如下命令：
+
+```
+!show et/params/RandomForest;
+```
 
 
 
@@ -44,12 +81,7 @@ select a from table1 as output;
 
 ```Ruby
  select "stub" as table1;
-
- 
-
  select "stub" as table2;
-
-
 
  run command as SyntaxAnalyzeExt.`` where
 
@@ -58,8 +90,6 @@ select a from table1 as output;
  select * from (select * from table1 as c) as d left join table2 as e on d.id=e.id
 
  ''' as extractedTables;
-
-
 
  select * from extractedTables as output;
 ```
@@ -70,8 +100,6 @@ select a from table1 as output;
 | --------- |
 | table1    |
 | table2    |
-
-## 
 
 ### **ET 开发**
 
@@ -92,8 +120,6 @@ select a from table1 as output;
 object MLSQLAuthParser {
 
   val parser = new AtomicReference[WowSparkSqlParser]()
-
-
 
   def filterTables(sql: String, session: SparkSession) = {
 
@@ -124,16 +150,9 @@ class SyntaxAnalyzeExt extends SQLAlg  {
 
 ```Scala
 def train(df: DataFrame, path: String, params: Map[String, String]): DataFrame
-
-
-
 def load(sparkSession: SparkSession, path: String, params: Map[String, String]): Any
 
-
-
 def predict(sparkSession: SparkSession, _model: Any, name: String, params: Map[String, String]): UserDefinedFunction
-
-
 
 def batchPredict(df: DataFrame, path: String, params: Map[String, String]): DataFrame = {
 
