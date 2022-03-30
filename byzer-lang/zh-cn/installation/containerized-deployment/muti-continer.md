@@ -4,7 +4,7 @@
 
 #### 安装 Docker Desktop
 
-更多信息请参考 [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)。
+更多信息请参考 [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized-deployment/sandbox-standalone.md)。
 
 #### 下载构建项目
 

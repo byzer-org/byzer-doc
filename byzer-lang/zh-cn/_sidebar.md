@@ -3,16 +3,23 @@
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
-  
+  * [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
-  * [容器化部署操作](/byzer-lang/zh-cn/installation/containerized_deployment.md)
-    * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
-    * [多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md)
-  * [Byzer 桌面版](/byzer-lang/zh-cn/installation/desktop-installation.md)    
-  * [Byzer 命令行](/byzer-lang/zh-cn/installation/cli-installation.md)
-  * [Byzer 二进制包](/byzer-lang/zh-cn/installation/binary-installation.md)
-  * [K8S 镜像部署指南](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)
+  * [Byzer All In One 版本部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
+  * [Byzer Server 版本部署](/byzer-lang/zh-cn/installation/server/binary-installation.md)
+  * [容器化部署](/byzer-lang/zh-cn/installation/containerized-deployment/containerized-deployment.md)
+    * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized-deployment/sandbox-standalone.md)
+    * [多容器部署](/byzer-lang/zh-cn/installation/containerized-deployment/muti-continer.md)
+  * [K8S 部署指南](/byzer-lang/zh-cn/installation/k8s/k8s-deployment.md)
+    * [Minikube 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-minikube.md)
+    * [Byzer-K8S 工具部署](/byzer-lang/zh-cn/installation/k8s/byzer-k8s-tool.md)
+    * [AWS K8S 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-aws.md)
+    * [Azure K8S 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-azure.md)
+    * [腾讯云 K8S 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-tecent-cloud.md)
+  * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
+  * [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md)
+  
 
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
@@ -123,14 +130,12 @@
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
 
-- [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)
 - 发行声明
+  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/README.md)
   * [Byzer 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
   * [Byzer 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
-  * [MLSQL Stack 2.1.0](../../byzer-lang/zh-cn/release-notes/2.1.0.md)
-  * [MLSQL Stack 2.0.1](../../byzer-lang/zh-cn/release-notes/2.0.1.md)
-  * [MLSQL Stack 2.0.0](../../byzer-lang/zh-cn/release-notes/2.0.0.md)
+
 - 附录
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
