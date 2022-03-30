@@ -87,4 +87,5 @@ docker-compose up -d
 浏览器[登录](http://localhost:9002)，在用户注册界面，输入用户名和密码，点击 **Create a New Notebook - Create**，进入 Notebook 使用界面，
 我们提供了一些快速入门的 demo，方便您一览 Byzer 的基础功能。
 
-<img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/img.png" alt="Byzer notebook workspace"/>
+
+![](/byzer-lang/zh-cn/installation/containerized-deployment/images/img.png)

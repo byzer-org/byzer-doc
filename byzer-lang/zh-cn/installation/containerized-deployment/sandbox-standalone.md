@@ -73,7 +73,7 @@ byzer/byzer-sandbox:2.4.3-<Byzer Release 版本号>
 在用户登陆界面，输入用户名和密码: admin/admin 进入Byzer Notebook 首页。
 
 <p align="center">
-    <img src="/byzer-lang/zh-cn/installation/images/login.png" alt="name"  width="800"/>
+    <img src="/byzer-lang/zh-cn/installation/server/images/login.png" alt="name"  width="800"/>
 </p>
 
 
@@ -125,7 +125,7 @@ select * from newdata as output;
 
 结果如下:
 
-  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/python-ray-result.PNG" alt="Python-Ray 结果"/>
+  <img src="/byzer-lang/zh-cn/installation/containerized-deployment/images/python-ray-result.PNG" alt="Python-Ray 结果"/>
 
 #### 处理 MySQL 数据
 
@@ -153,4 +153,4 @@ select * from table3 as table4;
 
 结果如下:
 
-  <img src="/byzer-lang/zh-cn/installation/containerized_deployment/images/mysql-deltalake.PNG" alt="MySQL-deltalake"/>
+  <img src="/byzer-lang/zh-cn/installation/containerized-deployment/images/mysql-deltalake.PNG" alt="MySQL-deltalake"/>
