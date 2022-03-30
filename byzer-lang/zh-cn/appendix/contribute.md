@@ -1,4 +1,4 @@
-## 贡献白泽社区
+# 贡献白泽社区
 
 如果 Byzer-Lang 和 Byzer Notebook 对您有帮助，或您有兴趣想要贡献自己的一份力量，白泽社区（[Byzer Org](https://github.com/byzer-org)）非常期待您的加入，大家一起来共创一个面向数据以及 AI 的社区。
 

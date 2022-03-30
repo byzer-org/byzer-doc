@@ -63,14 +63,6 @@
           * [Scala UDF](/byzer-lang/zh-cn/udf/extend_udf/scala_udf.md)
           * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
           * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)
-    * [Byzer 流编程](/byzer-lang/zh-cn/streaming/README.md)
-      * [Kafka 开发环境搭建](../../byzer-lang/zh-cn/streaming/kafka_local_install.md)
-      * [Kafka 小工具集锦](/byzer-lang/zh-cn/streaming/kafka_tool.md)
-      * [Kafka 数据应用](/byzer-lang/zh-cn/streaming/query_kafka.md)
-      * [设置流式计算回调](/byzer-lang/zh-cn/streaming/callback.md)
-      * [对流的结果以批的形式保存](/byzer-lang/zh-cn/streaming/save_in_batch.md)
-      * [使用 window/watermark](/byzer-lang/zh-cn/streaming/window_watermark.md)
-      * [使用 Byzer 流式更新 MySQL 数据](/byzer-lang/zh-cn/streaming/stream_update_mysql.md)
     
 - 机器学习
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
