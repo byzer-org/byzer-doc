@@ -26,6 +26,7 @@ docker pull byzer/byzer-lang-k8s:3.1.1-latest
 > 注意：
 > 1. 当前 K8S 部署只支持 Spark 3 版本的 Byzer 镜像，Spark 2.+ 不支持
 > 2. 一般情况我们推荐使用已发布的正式版本，如 tag 为`3.1.1-2.2.2`，该镜像为正式发布版本 `2.2.2`，如果是测试使用，您也可以使用 Nightly Build 版本，如 `3.1.1-latest`  
+> 3. 该镜像内置了 JDK，SPARK 以及 Byzer 的插件
 
 
 ### 支持的 K8S 版本

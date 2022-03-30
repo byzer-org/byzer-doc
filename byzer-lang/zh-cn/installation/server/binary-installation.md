@@ -1,12 +1,14 @@
 # Byzer Server 二进制版本安装和部署
 
 
-区别于 Byzer All In One 版本的部署，Byzer Server 二进制包不包含如下的依赖：
-- Byzer CLI
+区别于 Byzer All In One 版本的部署，Byzer Server 二进制包**不包含**如下的组件：
+- Byzer CLI 命令行交互插件，源码 [byzer-org/byzer-cli](https://github.com/byzer-org/byzer-cli)
 - JDK 1.8
 - Spark 
+- Byzer 插件集合，源码 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-cli) 
 
 Byzer Server 二进制包的安装需要用户自行下载部署 JDK 以及 Spark，并且只提供了 **REST 服务交互模式（Server Mode）** 来允许用户通过 REST API 的方式调用 Byzer API 来执行 Byzer 脚本。
+
 
 > 1. **推荐在 Hadoop 集群上使用 Byzer 时，下载此版本进行安装**
 > 2. 如果您对 Linux Server 运维不熟悉，推荐使用 [Byzer All In One](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) 进行部署
@@ -63,13 +65,15 @@ $ wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2
 2. 设置环境变量 `$BYZER_HOME`
     - 通过 `export BYZER_HOME=/path/to/byzer-engine` 来设置临时环境变量
     - 或将上述环境变量加入至 `~/.bash_profile` 
+3. 可执行脚本位于 `{BYZER_HOME}/bin` 目录下，分别为 `start-local.sh` 和 `stop-local.sh`
 
 
-#### 通过 Spark-Submit 命令启动 Byzer 引擎
+#### Byzer 引擎启动命令说明
 Byzer 引擎本质就是一个 Spark Application， 可以通过 `spark-submit` 命令来启动。
+
 在 `spark-submit` 命令中，可以通过 `--class ${class_name}` 来指定应用的入口类以及一系列的参数。
 
-下面是一个典型的启动命令示例：
+下面是在 `${BZYER_HOME}/bin/start-local.sh`中的一个典型的启动命令示例：
 
 ```shell
 $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
@@ -94,6 +98,7 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 - 对于 Byzer 引擎，Driver 内存一般推荐 8 GB 及以上
 
 通过在这种方式，我们可以将 Byzer-lang 运行在 K8s, Yarn, Mesos 以及 Local 等各种环境之上。
+
 
 
 #### 常用参数
@@ -162,3 +167,24 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 其中 Driver 和 Executor 的资源大小，根据实际情况来进行设置，然后执行 `bin/start-on-yarn.sh` 之后即可将 Byzer 引擎部署至 Yarn 上。
 
 更多的配置信息请参考 [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 
+
+
+### FAQ
+
+1. 由于历史原因，在 2.3.0 版本之前，使用的环境变量是 `${MLSQL_HOME}`，而不是 `${BYZER_HOME}`
+
+
+2. 如何在 Server 版本中安装 Byzer 的插件？
+
+如果需要在该版本中安装 byzer 相关的插件，可以前往 [Byzer Extension Download](https://download.byzer.org/byzer-extensions/) 下载 jar 包，将其放在 Byzer 安装目录的 `libs` 文件夹下
+
+3. 如何在 Server 版本中安装 Byzer 命令行交互工具？
+
+如果需要在该版本中安装 byzer cli 工具，可以前往 [Byzer Engine Misc](https://download.byzer.org/byzer/misc/) 下载 Byzer CLI 插件，Byzer CLI 命名规范如下：
+
+- 在 Byzer 2.3.0 版本之前，命名为
+    - `mlsql-darwin-amd64`
+    - `mlsql-linux-amd64`
+    - `mlsql-windows-amd64.exe`
+
+下载对应版本的 Byzer CLI 插件后，安装至 `${BYZER_HOME}/bin` 目录下，并重命名为 `byzer`, 你可以选择将  `${BYZER_HOME}/bin` 目录加入到 系统的 `PATH` 环境变量中，这样你可以在命令行中直接使用 `byzer run script.byzer` 来执行 byzer 脚本了。

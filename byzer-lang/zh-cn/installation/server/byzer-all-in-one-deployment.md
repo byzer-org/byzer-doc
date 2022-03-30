@@ -1,6 +1,10 @@
 # Byzer All In One 安装与配置
 
-Byzer All In One 版本除了提供 Byzer 引擎外，还集成了 Byzer CLI 命令行交互、内置了 JDK 以及 Spark。
+Byzer All In One 版本除了提供 Byzer 引擎外，还**内置集成了如下组件**：
+- Byzer CLI 命令行交互插件，源码 [byzer-org/byzer-cli](https://github.com/byzer-org/byzer-cli)
+- JDK 1.8
+- Spark 
+- Byzer 插件集合，源码 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-cli) 
 
 
 Byzer All In One 提供了两种交互的方式：
@@ -8,7 +12,7 @@ Byzer All In One 提供了两种交互的方式：
 2. **REST 服务交互模式（Server Mode）**: 允许用户通过 REST API 的方式调用 Byzer API 来执行 Byzer 脚本
 
 > 注意：
-> 1. 当前 Byzer 引擎支持的 Byzer 脚本的文件后缀名为 `.mlsql`
+> 1. 当前 Byzer 引擎支持的 Byzer 脚本的文件后缀名为 `.byzer` 和 `.mlsql`
 > 2. Byzer All In One 的默认出场配置是以 Local 方式进行任务执行的
 
 ### 下载 Byzer All In One
@@ -110,7 +114,7 @@ mlsql lang cli version 0.0.4-dev (2021-12-20 61a87d8)
 
 #### 创建 Byzer 测试脚本
 
-我们创建一个名为 `hello_byzer.mlsql` 的 Byzer 测试脚本，在脚本中写入
+我们创建一个名为 `hello_byzer.byzer` 的 Byzer 测试脚本，在脚本中写入
 
 ```sql
 load Everything.`` as table;
@@ -120,7 +124,7 @@ load Everything.`` as table;
 执行后这个脚本，可以看到结果输出为
 
 ```shell
-$ byzer run /home/byzer/hello_byzer.mlsql
+$ byzer run /home/byzer/hello_byzer.byzer
 ...
 ...
 ...
