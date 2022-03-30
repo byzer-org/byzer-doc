@@ -6,4 +6,4 @@ Byzer 提供了多种部署方式，方便您在不同的场景下灵活构建�
 
   - [多容器部署](/byzer-lang/zh-cn/installation/containerized_deployment/muti-continer.md)：多容器部署方式会将 Byzer-lang、Byzer-notebook 和 mysql 三个镜像通过 docker-compose 统一编排、部署，支持了健康检查、生命周期管理等特性。
 
-  - [K8S 部署](/byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md)：Sandbox K8S 提供了一个 CLI 来在 K8S 上部署 MLSQL 引擎。
+
