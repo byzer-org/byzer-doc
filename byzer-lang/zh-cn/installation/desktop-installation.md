@@ -18,7 +18,7 @@
 
 > 注意：
 >
-> 1. 插件源码参考： [mlsql-lang-vscode-plugin/github](https://github.com/allwefantasy/mlsql-lang-vscode-plugin)
+> 1. 插件源码参考： [byzer-desktop/github](https://github.com/byzer-org/byzer-desktop)
 >
 > 2. 只有打开了`.mlsql`结尾的文件，插件才会被初始化。
 
