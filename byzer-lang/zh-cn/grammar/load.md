@@ -56,7 +56,7 @@ select * from table1 as output;
 
 ### 2. 如何获取可用数据源
 
-1）既然 `load` 句式是用来获取数据源的，用户如何知道当前实例中支持的数据源有哪些呢？
+1）既然 `load` 句式是用来获取数据源的，用户如何知道当前实例中支持的数据源（例如上述的 jsonStr） 有哪些呢？
 
 可以通过如下指令来查看当前实例支持的数据源（内置或者通过插件安装的）：
 
@@ -105,7 +105,9 @@ as db_1;
 load jdbc.`db_1.crawler_table` as output;
 ```
 
-`connect` 语句并不是真的去连接数据库，而仅仅是方便后续记在同一数据源，避免在 `load/save` 句式中反复填写相同的参数。
+在这个例子中，我们通过`connect` 语句去连接了一个 jdbc 数据源，再通过 Load 语句读取该数据源中对应的库表。
+
+此处`connect` 语句并不是真的去连接数据库，而仅仅是方便后续记在同一数据源，避免在 `load/save` 句式中反复填写相同的参数。
 
 对于示例中的 `connect` 语句， jdbc + db_1 为唯一标记。 当系统遇到下面 `load` 语句中jdbc.`db_1.crawler_table` 时，他会通过 jdbc 以及 db_1 找到所有的配置参数， 如 driver， user, url, 等等，然后自动附带上到 `load` 语句中。
 
@@ -133,7 +135,7 @@ select * from newtable as output;
 ```
 
 在 JDBC 数据源的 `where/options` 参数里，用户可以配置一个 `directQuery` 参数。
-该参数可以写数据源原生支持的语法。比如对于 ClickHouse 可能就是一段合乎 ClickHouse 的 SQL, 而对于 MySQL 则可能是合乎 MySQL 语法的 SQL。
+该参数可以写数据源原生支持的语法。比如对于 ClickHouse 可能就是一段合乎 ClickHouse 用法的 SQL, 而对于 MySQL 则可能是合乎 MySQL 语法的 SQL。
 
 Byzer-lang 会将 `directQuery` 的查询下推到底层引擎，并且将执行的结果作为注册成新的表。 
 在上面的例子中，新表名称为 `newtable`。 这个表可以被后续的 Byzer-lang 代码引用。

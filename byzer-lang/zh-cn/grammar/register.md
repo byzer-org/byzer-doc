@@ -232,9 +232,9 @@ select rf_predict(features) as predict_label from trainData
 as output;
 ```
 
-register 语句的含义是： 将 `/tmp/rf ` 中的 RandomForest 模型注册成一个函数，函数名叫 rf_predict.
+`register` 语句的含义是： 将 `/tmp/rf ` 中的 RandomForest 模型注册成一个函数，函数名叫 rf_predict.
 
-register 后面也能接 where/options 子句：
+`register` 后面也能接 `where/options` 子句：
 
 ```sql
 register  RandomForest.`/tmp/rf` as rf_predict
@@ -245,8 +245,8 @@ options algIndex="0"
 
 如果训练时同时训练了多个模型的话：
 
-1. algIndex 可以让用户手动指定选择哪个模型
-2. autoSelectByMetric 则可以通过一些指标，让系统自动选择一个模型。内置算法可选的指标有： f1|weightedPrecision|weightedRecall|accuracy。
+1. `algIndex` 可以让用户手动指定选择哪个模型
+2. `autoSelectByMetric` 则可以通过一些指标，让系统自动选择一个模型。内置算法可选的指标有： f1|weightedPrecision|weightedRecall|accuracy。
 
 如果两个参数都没有指定话的，默认会使用 `f1` 指标。
 

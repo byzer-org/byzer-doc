@@ -19,12 +19,12 @@
   * [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)
   * [数据转换/Select](/byzer-lang/zh-cn/grammar/select.md)
   * [保存数据/Save](/byzer-lang/zh-cn/grammar/save.md)  
-  * [扩展/Train|Run|Predict](/byzer-lang/zh-cn/grammar/et_statement.md)
+  * [机器学习/Train|Run|Predict](/byzer-lang/zh-cn/grammar/train.md)
   * [注册函数，模型/Register](/byzer-lang/zh-cn/grammar/register.md)  
-  * [变量/Set](/byzer-lang/zh-cn/grammar/set.md)
+  * [变量设置/Set](/byzer-lang/zh-cn/grammar/set.md)
   * [宏函数/Macro Function](/byzer-lang/zh-cn/grammar/macro.md)
   * [代码引入/Include](/byzer-lang/zh-cn/grammar/include.md)
-  * [分支/If|Else](/byzer-lang/zh-cn/grammar/branch_statement.md)
+  * [分支语句/!If|!Else](/byzer-lang/zh-cn/grammar/branch_statement.md)
   * [内置宏函数/build-in Macro Functions](/byzer-lang/zh-cn/grammar/commands.md)
 
 - 数据处理和分析
