@@ -39,6 +39,7 @@
 
 
 - 发行声明
+    * [Byzer Notebook 1.1.1](../../byzer-notebook/zh-cn/release-notes/1.1.1.md)
     * [Byzer Notebook 1.1.0](../../byzer-notebook/zh-cn/release-notes/1.1.0.md)
     * [Byzer Notebook 1.0.1](../../byzer-notebook/zh-cn/release-notes/1.0.1.md)
     * [Byzer Notebook 1.0.0](../../byzer-notebook/zh-cn/release-notes/1.0.0.md)
