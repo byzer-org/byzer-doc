@@ -165,12 +165,12 @@
 - Appendix
     * Release
       * [Byzer Version Management](/byzer-lang/en-us/appendix/release-notes/version.md)
-      * [Byzer 2.2.1](/byzer-lang/en-us/appendix/release-notes/2.2.1.md)
-      * [Byzer 2.2.0](/byzer-lang/en-us/appendix/release-notes/2.2.0.md)
+      * [Byzer-lang 2.2.2](/byzer-lang/en-us/appendix/release-notes/2.2.2.md)
+      * [Byzer-lang 2.2.1](/byzer-lang/en-us/appendix/release-notes/2.2.1.md)
+      * [Byzer-lang 2.2.0](/byzer-lang/en-us/appendix/release-notes/2.2.0.md)
       * [MLSQL Stack 2.1.0](/byzer-lang/en-us/appendix/release-notes/2.1.0.md)
       * [MLSQL Stack 2.0.1](/byzer-lang/en-us/appendix/release-notes/2.0.1.md)
       * [MLSQL Stack 2.0.0](/byzer-lang/en-us/appendix/release-notes/2.0.0.md)
     * [Terms](/byzer-lang/en-us/appendix/terms.md)  
     * [Blog](/byzer-lang/en-us/appendix/blog.md)   
-
 

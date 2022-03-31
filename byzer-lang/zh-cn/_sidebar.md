@@ -20,7 +20,6 @@
   * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md)
   
-
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
   * [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)
@@ -133,9 +132,10 @@
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)
 - 发行声明
   * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
-  * [Byzer 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
-
+  * [Byzer-lang 2.2.2](../../byzer-lang/zh-cn/release-notes/2.2.2.md)
+  * [Byzer-lang 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
+  * [Byzer-lang 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
+  
 - 附录
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
