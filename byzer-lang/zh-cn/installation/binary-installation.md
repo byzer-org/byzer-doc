@@ -23,9 +23,9 @@ rm jdk-8u151-linux-x64.tar.gz
 
 byzer-lang 支持两个版本Spark：
 
-mlsql-engine_3.0-2.1.0 及 byzer-lang_3.0-2.2.0：Spark-3.1.1-hadoop3.2
+Spark-3.1.1-hadoop3.2
 
-mlsql-engine_2.4-2.1.0 及 byzer-lang_2.4-2.2.0：Spark-2.4.3-hadoop2.7
+Spark-2.4.3-hadoop2.7
 
 根据您的版本，下载解压 [Spark tgz](https://spark.apache.org/downloads.html)，再设置 SPARK_HOME 环境变量。
 

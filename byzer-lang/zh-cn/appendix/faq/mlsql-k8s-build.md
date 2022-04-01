@@ -85,8 +85,8 @@ USER ${spark_uid}
 接着，我们会基于该镜像，打包 Byzer 相关的依赖：
 
 ```sql
-FROM spark:v3.0.0-hadoop3.2
-COPY streamingpro-mlsql-spark_3.0_2.12-2.0.1-SNAPSHOT.jar /opt/spark/work-dir/
+FROM spark:v3.1.1-hadoop3.2
+COPY byzer-lang-3.1.1-2.12-2.3.0-SNAPSHOT.jar /opt/spark/work-dir/
 WORKDIR /opt/spark/work-dir
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 ```
