@@ -158,7 +158,7 @@ echo $ip
             --conf spark.kryoserializer.buffer.max=200m \
             --conf spark.executor.extraJavaOptions="-XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+UseContainerSupport  -Dio.netty.tryReflectionSetAccessible=true" \
             --conf spark.driver.extraJavaOptions="-XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+UseContainerSupport  -Dio.netty.tryReflectionSetAccessible=true -DREALTIME_LOG_HOME=/tmp/__mlsql__/logs" \
-            /opt/mlsql/streamingpro-mlsql-spark_3.0_2.12-2.1.0-SNAPSHOT.jar \
+            /opt/mlsql/byzer-lang-3.1.1-2.12-2.1.0-SNAPSHOT.jar \
             -streaming.name mlsql \
             -streaming.rest true  \
             -streaming.thrift false  \
@@ -174,7 +174,7 @@ EOF
 ```shell
 
 ls /root/k8s/mlsql/test-mount
-ingress.yaml  MLSQLDockerfile  mlsql-start.sh  service.yaml  streamingpro-mlsql-spark_3.0_2.12-2.1.0-SNAPSHOT.jar  test.yaml
+ingress.yaml  MLSQLDockerfile  mlsql-start.sh  service.yaml  byzer-lang-3.1.1-2.12-2.1.0-SNAPSHOT.jar  test.yaml
  
  
 kubectl create -f test.yaml
@@ -302,7 +302,7 @@ cat > MLSQLDockerfile << EOF
 FROM 172.16.2.66:5000/spark:3.0-j14-mlsql
 USER root
 RUN useradd -ms /bin/sh  hdfs
-COPY streamingpro-mlsql-spark_3.0_2.12-2.1.0-SNAPSHOT.jar /opt/spark/work-dir/
+COPY byzer-lang-3.1.1-2.12-2.1.0-SNAPSHOT.jar /opt/spark/work-dir/
 WORKDIR /opt/spark/work-dir
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 EOF
@@ -363,7 +363,7 @@ spec:
             --conf spark.kryoserializer.buffer.max=200m
             --conf "\"spark.executor.extraJavaOptions=-XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+UseContainerSupport  -Dio.netty.tryReflectionSetAccessible=true\""  
             --conf "\"spark.driver.extraJavaOptions=-XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+UseContainerSupport  -Dio.netty.tryReflectionSetAccessible=true -DREALTIME_LOG_HOME=/tmp/__mlsql__/logs\"" 
-            local:///opt/spark/work-dir/streamingpro-mlsql-spark_3.0_2.12-2.1.0-SNAPSHOT.jar
+            local:///opt/spark/work-dir/byzer-lang-3.1.1-2.12-2.1.0-SNAPSHOT.jar
             -streaming.name mlsql
             -streaming.rest true 
             -streaming.thrift false 
