@@ -139,10 +139,10 @@ $ byzer run /home/byzer/hello_byzer.byzer
 
 ### 启动 Byzer 服务
 
-除了命令行的交互外， Byzer All In One 也可以启动服务，你可以执行 `bin/bootstrap.sh` 脚本，来启动服务。
+除了命令行的交互外， Byzer All In One 也可以启动服务，你可以执行 `bin/bootstrap.sh start` 脚本，来启动服务。
 
 ```shell
-sh bin/bootstrap.sh 
+sh bin/bootstrap.sh start
 ```
 
 
@@ -154,7 +154,9 @@ sh bin/bootstrap.sh
 
 > 注意:
 > 1. `bootstrap.sh` 脚本默认不是自动在后台执行的
-> 2. 通过 `CTRL－Ｃ` 就可以停止当前 Byzer 服务
+> 2. 通过 `sh bin/bootstrap.sh stop` 就可以停止当前 Byzer 服务
+
+
 
 #### 后台运行 Byzer 引擎
 
