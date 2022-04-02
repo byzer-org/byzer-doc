@@ -139,11 +139,12 @@ $ byzer run /home/byzer/hello_byzer.byzer
 
 ### 启动 Byzer 服务
 
-除了命令行的交互外， Byzer All In One 也可以启动服务，你可以执行 `bin/start-mlsql-app.sh` 脚本，来启动服务。
+除了命令行的交互外， Byzer All In One 也可以启动服务，你可以执行 `bin/bootstrap.sh` 脚本，来启动服务。
 
 ```shell
-sh bin/start-mlsql-app.sh
+sh bin/bootstrap.sh 
 ```
+
 
 等服务正常启动后，你可以在通过浏览器访问 `http://{host}:9003` 来访问到 Byzer Web Console，如下图所示
 
@@ -152,7 +153,7 @@ sh bin/start-mlsql-app.sh
 点击运行可以查看到上述 SQL 执行的结果，说明服务正常启动。
 
 > 注意:
-> 1. `start-mlsql-app.sh` 脚本默认不是自动在后台执行的
+> 1. `bootstrap.sh` 脚本默认不是自动在后台执行的
 > 2. 通过 `CTRL－Ｃ` 就可以停止当前 Byzer 服务
 
 #### 后台运行 Byzer 引擎
