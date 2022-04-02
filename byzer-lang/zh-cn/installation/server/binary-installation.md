@@ -176,7 +176,11 @@ $SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
 
 2. 如何在 Server 版本中安装 Byzer 的插件？
 
-如果需要在该版本中安装 byzer 相关的插件，可以前往 [Byzer Extension Download](https://download.byzer.org/byzer-extensions/) 下载 jar 包，将其放在 Byzer 安装目录的 `libs` 文件夹下
+安装插件有两种方式：
+- 一种是网络安装，引擎启动后，通过 byzer 封装的宏命令进行网络安装，另一种是在
+- 一种是离线安装，是在引擎启动前，就将插件的 jar 包放到安装目录的 plugin 目录下，然后在启动命令中输入指定 plugin 的入口类即可
+
+详情请参考 [插件与安装](/byzer-lang/zh-cn/extension/README.md) 一节
 
 3. 如何在 Server 版本中安装 Byzer 命令行交互工具？
 
