@@ -22,21 +22,21 @@ load jsonStr.`jsonStr` as data;
 ```sql
 train data as ALSInPlace.`/tmp/model` where
 
--- the first group of parameters
+-- 第一组参数
 `fitParam.0.maxIter`="5"
 and `fitParam.0.regParam` = "0.01"
 and `fitParam.0.userCol` = "a"
 and `fitParam.0.itemCol` = "i"
 and `fitParam.0.ratingCol` = "rate"
 
--- the sencond group of parameters    
+-- 第二组参数   
 and `fitParam.1.maxIter`="1"
 and `fitParam.1.regParam` = "0.1"
 and `fitParam.1.userCol` = "a"
 and `fitParam.1.itemCol` = "i"
 and `fitParam.1.ratingCol` = "rate"
 
--- compute rmse     
+-- 计算 rmse     
 and evaluateTable="data"
 and ratingCol="rate"
 
