@@ -1,18 +1,25 @@
 # 安装与卸载
 
-### 下载二进制包
+安装前请查看 [安装前置条件](/byzer-notebook/zh-cn/installation/prerequisites.md)
 
-[下载站点](https://download.byzer.org/byzer-notebook/) , 选择版本子目录例如 1.0.0 下载。二进制包名遵循以下规约:
+### 下载 Byzer Notebook
 
-```
-Byzer-Notebook-<byzer_notebook_version>.tar.gz    
-```
+社区提供了三种下载渠道
+- [Byzer 社区官方下载站点](https://download.byzer.org/byzer-notebook/)
+- [Byzer Notebook Github Release](https://github.com/byzer-org/byzer-notebook/releases)
+- [Docker Hub](https://hub.docker.com/r/byzer/byzer-notebook)
 
-### 源码编译(可选)
+Byzer Notebook 产品包的命名遵从以下规约： `Byzer-Notebook-<byzer_notebook_version>.tar.gz`    
 
-若您想手动编译，请按照 [README.md](https://github.com/byzer-org/byzer-notebook) 步骤即可完成编译。
+`<byzer_notebook_version>` 对应着 Byzer Notebook 的两种版本：
+- nightly build 版本，是基于最新开发分支每天自动构建的产品版本，版本号为 `latest`
+- 发布版本，已发布的经过测试的版本，版本号为三位，比如 `1.1.1` 
 
-### 解压缩
+###　二进制包安装
+
+如果您通过　Byzer 社区官方下载站点下载的 Byzer Notebook 二进制包，则使用如下方式进行安装
+
+#### 解压缩
 
 通过cd命令进入下载的 Byzer Notebook 的路径中。
 
@@ -32,7 +39,11 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 
 找到 `conf` 目录下 `notebook.properties` 文件，您可参考下方配置项说明，更改或增加配置。
 
-#### 配置项说明：
+> **注意：**
+> 1. 一般情况下，您只需要进行修改和配置数据库以及引擎回调地址的几个参数
+> 2. 启动 Notebook 前，需要您手动在 MySQL 中手动创建 Database, 默认为`notebook`
+
+#### 配置项说明
 
 | 配置项                               | 描述                                                                                                      |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|
