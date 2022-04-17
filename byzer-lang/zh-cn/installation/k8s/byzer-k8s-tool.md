@@ -95,7 +95,7 @@ $ ./juicefs format \
 创建完毕后，您可以前往 minio console 查看到该 bucket
 
 
-#### 5. 进行 Byzer 引擎的部署
+### 进行 Byzer 引擎的部署
 
 上述准备工作完成后，可以通过执行第二步编译后产生的可执行文件 `byzer-k8s-depoly` 进行 Byzer Engine 在 K8S 上的部署，此处我们使用的镜像是 `byzer/byzer-lang-k8s:3.1.1-2.2.2`，关于镜像的选择可以参考 [K8S 镜像部署指南](/byzer-lang/zh-cn/installation/k8s/k8s-deployment.md) 一节
 
