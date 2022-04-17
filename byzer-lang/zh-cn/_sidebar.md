@@ -14,9 +14,6 @@
   * [K8S 部署指南](/byzer-lang/zh-cn/installation/k8s/k8s-deployment.md)
     * [Minikube 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-minikube.md)
     * [Byzer-K8S 工具部署](/byzer-lang/zh-cn/installation/k8s/byzer-k8s-tool.md)
-    * [AWS K8S 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-aws.md)
-    * [Azure K8S 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-azure.md)
-    * [腾讯云 K8S 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-tecent-cloud.md)
   * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md)
   
