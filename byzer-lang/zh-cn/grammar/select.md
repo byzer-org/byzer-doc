@@ -3,6 +3,7 @@
 `select` 句式是 Byzer-lang 中处理数据最重要的方式之一。
 
 > Byzer-lang 中的 `select` 句式除了最后 `as 表名` 以外，完全兼容 Spark SQL。
+> 一般来讲，可以结合使用 Spark SQL 中的函数和算子以及 Byzer 的一些特定语法命令或 UDF 来完成数据转换的功能
 
 ### 1. 基本语法
 

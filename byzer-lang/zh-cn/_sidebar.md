@@ -36,7 +36,6 @@
 - 数据处理和分析
     - [加载和存储多种数据源](/byzer-lang/zh-cn/datasource/README.md)
       * [RestAPI](/byzer-lang/zh-cn/datasource/restapi.md)
-        * [使用byzer-lang访问 REST API](/byzer-lang/zh-cn/datasource/rest.md)
       * [JDBC](/byzer-lang/zh-cn/datasource/jdbc.md)
       * [ElasticSearch](/byzer-lang/zh-cn/datasource/es.md)
       * [Solr](/byzer-lang/zh-cn/datasource/solr.md)
