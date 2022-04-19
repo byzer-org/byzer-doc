@@ -2,7 +2,7 @@
 ### 上传文件
 进入Byzer Notebook 工作区，在左侧导航栏的数据目录模块中，点击 **File System** 旁的浮标，您可将需要的文件上传至文件系统。
 <p>
-  <img src="/byzer-notebook/zh-cn/datasource/images/hdfs-upload.png">
+  <img src="/byzer-notebook/zh-cn/datasource/images/hdfs-upload.png" width="300">
   <img style="margin-left: 50px;" src="/byzer-notebook/zh-cn/datasource/images/hdfs-upload1.png">
 </p>
 
