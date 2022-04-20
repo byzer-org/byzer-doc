@@ -4,12 +4,12 @@
 
 ### 接入 DolphinScheduler
 
-> 在执行以下操作前，您需要安装 1.3.9 版本的 DolphinScheduler，点击前往 [DolphinScheduler 下载页面](https://dolphinscheduler.apache.org/en-us/download/download.html) 获取安装包和安装部署指引。
->
+在执行以下操作前，您需要安装 1.3.9 版本的 DolphinScheduler，请参考 [DolphinScheduler 1.3.9 安装配置指南](/byzer-notebook/zh-cn/schedule/install_dolphinscheduler.md)
+
 > 注意：
 >
 > 1. 您需要确保 Byzer Notebook 所在环境与 DolphinScheduler 所在环境网络是联通的；
-> 2. 在启动 Byzer Notebook 服务前，确保 DolphinScheduler 服务正常运行。
+>2. 在启动 Byzer Notebook 服务前，确保 DolphinScheduler 服务正常运行。
 
 #### 创建 Auth-Token
 

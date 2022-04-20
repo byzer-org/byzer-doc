@@ -26,6 +26,7 @@
 - Schedule
   * [Schedule Intro](/byzer-notebook/en-us/schedule/intro.md)
   * [Configuration for Schedule](/byzer-notebook/en-us/schedule/setup.md)
+    * [Install DolphinScheduler 1.3.9](/byzer-notebook/en-us/schedule/install_dolphinscheduler.md)
   * [Create/Join Schedule](/byzer-notebook/en-us/schedule/create_join.md)
   * [Edit Task](/byzer-notebook/en-us/schedule/edit_task.md)
   * [Edit Schedule](/byzer-notebook/en-us/schedule/edit.md)

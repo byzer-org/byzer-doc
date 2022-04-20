@@ -29,6 +29,7 @@
 - 调度
   * [调度介绍](/byzer-notebook/zh-cn/schedule/intro.md)
   * [接入调度系统](/byzer-notebook/zh-cn/schedule/setup.md)
+    * [DolphinScheduler 1.3.9 安装配置指南](/byzer-notebook/zh-cn/schedule/install_dolphinscheduler.md)
   * [创建/加入调度](/byzer-notebook/zh-cn/schedule/create_join.md)
   * [编辑任务](/byzer-notebook/zh-cn/schedule/edit_task.md)
   * [设置调度](/byzer-notebook/zh-cn/schedule/edit.md)
