@@ -6,9 +6,9 @@
 mkdir -p /opt/software/dolphinscheduler
 ```
 
-## 前置条件
+### 前置条件
 
-### **1. 推荐的生产环境服务器配置**
+#### 1. 推荐的生产环境服务器配置
 
 - CPU：4 核或以上
 
@@ -18,7 +18,7 @@ mkdir -p /opt/software/dolphinscheduler
 
 - 网络：千兆网卡
 
-### 2. 推荐的操作系统
+#### 2. 推荐的操作系统
 
 - Red Hat Enterprise 7.0 及以上
 
@@ -28,13 +28,13 @@ mkdir -p /opt/software/dolphinscheduler
 
 - Ubuntu 16.04 及以上
 
-### **3. 依赖环境安装**
+#### 3. 依赖环境安装
 
 - [MySQL](https://dev.mysql.com/downloads/mysql/5.7.html) (5.7)：**需要 JDBC Driver 5.1.47+**
 
 - [JDK](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html) (1.8+)：必装，**推荐安装 jdk-8u161**，请安装好后在 `/etc/profile` 下配置 JAVA_HOME 及 PATH 变量
 
-```bash
+```shell
 # 上传下载好的 jdk 包
 # 解压缩，并重命名
 tar -zxvf jdk-8u161-linux-x64.tar.gz -C /opt/software
@@ -49,7 +49,7 @@ source /etc/profile
 
 - [ZooKeeper](https://zookeeper.apache.org/releases.html) (3.4.6+)：必装
 
-```bash
+```shell
 # 下载 zookeeper 安装包，也可以外部下载后上传到部署环境中
 wget https://dlcdn.apache.org/zookeeper/zookeeper-3.6.3/apache-zookeeper-3.6.3-bin.tar.gz
 
@@ -72,13 +72,13 @@ dataDir=../data
 ./bin/zkServer.sh start
 ```
 
-## DolphinScheduler 单机部署安装
+### DolphinScheduler 单机部署安装
 
-### 1. 下载并解压安装包
+#### 1. 下载并解压安装包
 
 创建部署目录 `/opt/dolphinscheduler`（**注意：这里的部署目录不同于开头提到的安装目录**），下载 [DolphinScheduler 1.3.9](https://dlcdn.apache.org/dolphinscheduler/1.3.9/apache-dolphinscheduler-1.3.9-bin.tar.gz) 二进制包，并解压重命名为 `dolphinscheduler-1.3.9-bin`：
 
-```bash
+```shell
 # 创建部署目录，部署目录请不要创建在 /root、/home 等高权限目录 
 mkdir -p /opt/dolphinscheduler
 cd /opt/dolphinscheduler
@@ -98,11 +98,11 @@ cp mysql-connector-java-5.1.47/mysql-connector-java-5.1.47.jar dolphinscheduler-
 # 可以清理除 dolphinscheduler-1.3.9-bin 外，不需要的下载及解压缩文件
 ```
 
-### 2. 创建部署用户
+#### 2. 创建部署用户
 
 生产环境不建议直接使用 root 账号启动服务，为此需要创建部署用户 byzer，并配置 sudo 免密：
 
-```bash
+```shell
 # 创建用户需使用 root 登录
 useradd byzer
 
@@ -126,7 +126,7 @@ chown -R byzer:byzer /opt/software/dolphinscheduler
 
 此外，还需要为 byzer 用户配置 ssh 免密登录以满足 DolphinScheduler 执行任务时的需求：
 
-```bash
+```shell
 # 使用 byzer 账号 ssh 登录至部署服务器
 ssh byzer@{server-ip}
 
@@ -141,7 +141,7 @@ chmod 600 ~/.ssh/authorized_keys
 ssh localhost
 ```
 
-### 3. 数据库初始化
+#### 3. 数据库初始化
 
 进入数据库命令行窗口，执行数据库初始化命令，设置访问账号和密码，注意这里的` {user}` 和 `{password}` 需要替换为实际使用的数据库账号密码：
 
@@ -154,7 +154,7 @@ flush privileges;
 
 接着修改 `/opt/dolphinscheduler/dolphinscheduler-1.3.9-bin/conf` 目录下的配置文件：
 
-```bash
+```shell
 # 进入 dolphinscheduler 部署目录
 cd /opt/dolphinscheduler/dolphinscheduler-1.3.9-bin
 vi conf/datasource.properties
@@ -168,7 +168,7 @@ spring.datasource.password=xxx                    # 需要修改为上面的{pas
 
 接着执行元数据初始化脚本，执行成功则表示以上安装过程没有问题：
 
-```bash
+```shell
 sh script/create-dolphinscheduler.sh
 ```
 
@@ -176,7 +176,7 @@ sh script/create-dolphinscheduler.sh
 
 修改 `conf/env` 目录下的 `dolphinscheduler_env.sh` 中的环境变量，此处只需要配置 `JAVA_HOME` 和 `PATH`，其他项可忽略：
 
-```bash
+```shell
 export HADOOP_HOME=/opt/soft/hadoop                   # 忽略
 export HADOOP_CONF_DIR=/opt/soft/hadoop/etc/hadoop    # 忽略
 export SPARK_HOME1=/opt/soft/spark1                   # 忽略
@@ -192,7 +192,7 @@ export PATH=$HADOOP_HOME/bin:$SPARK_HOME1/bin:$SPARK_HOME2/bin:$PYTHON_HOME:$JAV
 
 接着将 jdk 软链接到 `/usr/bin/java`：
 
-```bash
+```shell
 sudo ln -s /opt/software/jdk8/bin/java /usr/bin/java
 ```
 
@@ -302,17 +302,17 @@ sudo mkdir /data/dolphinscheduler
 sudo chown -R byzer:byzer /data/dolphinscheduler
 ```
 
-### 5. 一键部署
+#### 5. 一键部署
 
 切换到部署用户 `byzer` ，执行一键部署脚本：
 
-```bash
+```shell
 sh install.sh
 ```
 
 > 注意： Ubuntu 系统执行此脚本需要把默认的 dash shell 切换成 bash shell，执行:
 >
-> ```bash
+> ```shell
 > # 执行后弹窗选择否，如需恢复，再次执行选择是
 > sudo dpkg-reconfigure dash
 > ```
@@ -333,11 +333,11 @@ AlertServer                # alert 服务
     <img src="/byzer-notebook/zh-cn/schedule/images/ds_login.png" alt="Login DolphinScheduler"/>
 </p>
 
-### 6. 服务启停
+#### 6. 服务启停
 
 进入 `/opt/software/dolphinscheduler` 目录
 
-```bash
+```shell
 # 一键停止
 sh ./bin/stop-all.sh
 
@@ -345,11 +345,11 @@ sh ./bin/stop-all.sh
 sh ./bin/start-all.sh
 ```
 
-## 对接 Byzer Notebook
+### 对接 Byzer Notebook
 
 Byzer Notebook 需要访问 DolphinScheduler 的 API 接口管理调度任务，为此需要在 DolphinScheduler 端创建一个专供 Byzer Notebook 使用的用户账号，并为此用户账号配置租户和 API 鉴权 Token。
 
-### 1. 创建租户
+#### 1. 创建租户
 
 使用 `admin` 账号登录 DolphinScheduler 前端页面（默认密码为 `dolphinscheduler123`），依次点击**安全中心—租户管理—创建租户**，**租户编码**和**租户名称**填入安装时创建的部署用户 `byzer`，提交保存：
 
@@ -357,7 +357,7 @@ Byzer Notebook 需要访问 DolphinScheduler 的 API 接口管理调度任务，
     <img src="/byzer-notebook/zh-cn/schedule/images/add_tenant.png" alt="Add Tenant"/>
 </p>
 
-### 2. 创建用户
+#### 2. 创建用户
 
 依次点击**安全中心—用户管理—创建用户**，**用户名**输入 `ByzerRobot`，**租户**选择刚刚创建的 `byzer` 租户，输入密码和邮箱，**提交**保存。
 
@@ -365,7 +365,7 @@ Byzer Notebook 需要访问 DolphinScheduler 的 API 接口管理调度任务，
     <img src="/byzer-notebook/zh-cn/schedule/images/add_user.png"/>
 </p>
 
-### 3. 创建 AuthToken
+#### 3. 创建 AuthToken
 
 使用刚刚创建的 ByzerRobot 账号重新登录 DolphinScheduler 页面，依次点击**右上角用户图标—用户信息—令牌管理—创建令牌**，**失效时间**可以酌情设置，点击**生成令牌**，然后**提交**保存：
 
@@ -377,7 +377,7 @@ Byzer Notebook 需要访问 DolphinScheduler 的 API 接口管理调度任务，
     <img src="/byzer-notebook/zh-cn/schedule/images/token_info.png" alt=""/>
 </p>
 
-### 4. 创建项目
+#### 4. 创建项目
 
 使用 ByzerRobot 账号登录 DolphinScheduler 页面，依次点击**项目管理—创建项目**，项目名称输入 `ByzerScheduler`（此名称是 Byzer Notebook 默认的项目名称），提交保存：
 
@@ -385,7 +385,7 @@ Byzer Notebook 需要访问 DolphinScheduler 的 API 接口管理调度任务，
     <img src="/byzer-notebook/zh-cn/schedule/images/add_tenant.png" alt="Add Tenant"/>
 </p>
 
-### 5. 创建调度并验证
+#### 5. 创建调度并验证
 
 进入**项目管理**页面，依次点击 **ByzerScheduler—工作流定义—创建工作流**，拖拽工具栏侧的 **HTTP 图标**至其右侧画布，创建测试节点 test，请求地址填写 Byzer Notebook 的 `APIVersion` 接口：http://localhost:9002/api/version （ip 地址需根据 Byzer Notebook 所在服务器调整），点击**确认添加—右上角保存**：
 
