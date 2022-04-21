@@ -326,7 +326,7 @@ and `config.page.limit`="2"
 
 
 
-#### 6. 使用POST请求上传文件
+#### 6. 使用 POST 请求上传文件
 
 ```sql
 save overwrite command as Rest.`http://lab.mlsql.tech/api/upload_file` where
