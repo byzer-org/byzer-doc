@@ -93,7 +93,20 @@ cell 右上角和上方工具栏中都提供了运行按钮，工具栏同时提
 
 对于cell可以切换 **Byzer 代码模式** 、**Python 代码模式** 和 **Markdown文本编辑** 模式。
 
-##### 3.3 快捷键辅助及文档手册辅助
+##### 3.4 引擎状态
+
+<p align="center">
+    <img src="/byzer-notebook/zh-cn/introduction/images/enginestatus.png" alt="drawing"  width="800"/>
+</p>
+
+- 状态灯绿色时表示当前引擎为运行中的状态，灰色时表示当前引擎为不可用；
+- 状态灯右侧为引擎名称
+- 鼠标悬浮展示引擎详细信息
+    - **引擎状态**：展示当前引擎的状态，共「运行中」、「不可用」两种
+    - **心跳检测**：提示刷新引擎状态的心跳检测间隔，<img src="/byzer-notebook/zh-cn/introduction/images/refreshenginestatus.png" style="zoom: 50%; vertical-align: middle;" />按钮可手动强制刷新当前引擎状态
+    - **资源占比**：展示当前引擎占用资源百分比的进度条，80%以内为「正常」状态，进度条为蓝色，超过80%为「拥挤」状态，进度条为红色，计算公式为：`资源占比 = 已用 CPU 核数 / 总CPU核`，`已用 CPU 核数 = 当前正在运行的任务数`
+
+##### 3.5 快捷键辅助及文档手册辅助
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/introduction/images/feedback.png" alt="drawing"  width="800"/>
