@@ -7,7 +7,7 @@ REST API 是 Byzer-lang 的一个核心特性功能，能够使得用户可以�
 
 ### REST API 语法说明
 
-#### 1. REST API 数据源代码示例
+#### 1. REST API 获取数据代码示例
 下面是一个基于 Github 的 open api 来获取 Github Organization 信息的简单例子：
 
 ```sql
@@ -25,7 +25,7 @@ LOAD Rest.`$GITHUB_ORGANIZATION_URL`
 as github_org;
 
 
--- decode API response from base64 string to a json string
+-- decode API response from binary to a json string
 select string(content) as content from github_org as response_content;
 
 -- expand the json string 
@@ -38,7 +38,7 @@ select content.* from github_org as org_info;
 在这个例子中，一共分为五个步骤：
 - 通过 `SET` 语法定义的一些变量，比如 API 的参数
 - 通过 `LOAD` 语法定义的一个 API 调用体，给 Github 发送 API 请求
-- 得到 Github REST API 的返回体，这个返回体是一个 base64 的字符串，将其通过 decode 解析为一个可读的 json string
+- 得到 Github REST API 的返回体，这个返回体是一个 binary 的字符串，将其通过 decode 解析为一个可读的 json string
 - 通过 `RUN` 语法的执行 Byzer 的内置插件 `JsonExpandExt`，对 Json 进行展开，将 Json String （content 列）解析为一个结构化的 Json 数据
 - 可以通过 get_json_object 和 json path 的方式来按需获取 Json 中的 key 以及 value， 但该例中 Json 已经被 `JsonExpandExt` 结构化，所以可以直接通过 `key.key` 的方式来获取 Json 中的值 
 
@@ -87,14 +87,14 @@ select content.* from github_org as org_info;
 #### 4. REST API 数据源的返回值
 
 LOAD 语句将请求的返回值设置为一张表。其中有两列：
-- `content`：base64 编码的返回体
+- `content`：API 的返回体，是一个 binary 字符串
 - `status`：http 状态码
 
 如下所示：
 
 |content | status |
 |--------|--------|
-|  (base64 encode content)| (http status)|
+|  (binary content)| (http status)|
 
 这里我们可以通过 `select string(content) as content` 的方式，来将 base64 加密后的反解为可读的字符串。
 
@@ -368,3 +368,41 @@ as worklog_list_bucket;
 
 `rest_request` 的返回结果，会将每一次 API 请求的结果追加进表的一行，以上述示例为例说明， 假如我们一共有 5 个桶的 id，即 ids 数组列有 5 行，那么经过 `rest_request` 调用后，结果表 `worklog_list2` 中会包含 5 行返回，每一行是每一次单独请求的结果。
 
+
+### 保存数据至 REST API 数据源
+
+REST API 既然作为一个数据源，就可以支持读和写，也就是 Byzer 语法中的 `Load / Save` 语义。但出于 REST API 数据源的特殊性，一般情况下都是从 API 进行数据的获取。
+
+对于通过 API 保存数据操作，一般情况下会分为下面两种，无论是哪种方式，都依赖于 API 自身的设计。
+
+#### 1. 通过参数的方式将数据传给 API 
+
+这种方式其实和调用 API 进行数据获取没有什么区别，将需要上传的数据，作为 Request body 中的值，使用 `LOAD` 语句进行 API 调用即可。
+
+对于需要多次调用 API 的情况，可以选择使用 `rest_request` udf
+
+#### 2. 通过数据文件的方式上传给 API 
+
+对于文件上传类的 API，我们可以通过 `SAVE` 语句来进行上传，我们来看一个例子
+
+```sql
+> SAVE overwrite command as Rest.`http://xxxxx/api/upload_file` where
+`config.connect-timeout`="10s"
+and `header.content-type`="multipart/form-data"
+and `header.Content-Type`="multipart/form-data; boundary=$you_boundary"
+and `header.Cookie`="JSESSIONID=$your_jsession_id;"
+-- upload file path
+and `form.file-path`="/tmp/upload/test_date.csv"
+-- upload file name
+and `form.file-name`="test_date.csv"
+and `config.method`="post";
+```
+
+
+可以看到 `SAVE` 语句的调用方式是通过
+```sql
+SAVE overwrite command as Rest.`${API_URL}`
+```
+的方式进行调用的，`where` 语句条件中是对应的参数信息。
+
+在这个示例中，通过参数 `form.file-path` 以及 `form.file-name` 来指定上传的文件路径和文件名。
