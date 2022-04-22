@@ -7,7 +7,7 @@
 > 1. Byzer VSCode Extension 支持 Windows，Linux，Mac 操作系统
 > 2. 推荐通过下述安装部署来进行安装，此插件内置了 Byzer All In One 产品包
 > 3. Byzer VSCode Extension 源码参考： [byzer-org/byzer-desktop](https://github.com/byzer-org/byzer-desktop)
-> 4. 插件当前识别的文件后缀名为 `.mlsql`，由于一些历史原因，目前我们还没有完全在代码层面做 naming 的变更，后续会持续更新迭代
+> 4. 插件当前识别的文件后缀名为 `.mlsql` | `.byzer` | `.mlsqlnb`，由于一些历史原因，目前我们还没有完全在代码层面做 naming 的变更，后续会持续更新迭代
 
 
 
