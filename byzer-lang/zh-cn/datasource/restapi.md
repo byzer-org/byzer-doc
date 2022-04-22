@@ -266,7 +266,7 @@ and `config.page.stop`="equals:$.status,999"
 
 此策略适合的 API 一般会通过在 URL 中暴露类似 `start` 和 `offset` 两个参数，来指明 API 的调用起点以及每次 API 调用获取数据行数的 offset 偏移量。
 
-在 OffsetPageStrategy 策略中，对于参数 `config.page.next`, 一般填写的是包含 `https://host/path/to/xxxx/start={0}`这么一个 API，用于指明下次的分页请求的 API， 变量 `{0}` 在每次调用的时候将会被渲染成一个新的 start 的值
+在 OffsetPageStrategy 策略中，对于参数 `config.page.next`的值，类似于 `https://host/path/to/xxxx/start={0}`这么一个 API，用于指明下次的分页请求的 API， 变量 `{0}` 在每次调用的时候将会被渲染成一个新的 start 的值
 
 对于这种类型的 API，参数填写示例如下：
 
