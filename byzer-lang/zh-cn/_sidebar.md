@@ -4,6 +4,13 @@
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
   * [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
+- 发行声明
+  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/README.md)
+  * [Byzer-lang 2.3.0](../../byzer-lang/zh-cn/release-notes/2.3.0.md)
+  * [Byzer-lang 2.2.2](../../byzer-lang/zh-cn/release-notes/2.2.2.md)
+  * [Byzer-lang 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
+  * [Byzer-lang 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
+  
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
   * [Byzer All In One 版本部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
@@ -127,12 +134,6 @@
 
 
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)
-- 发行声明
-  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-lang 2.2.2](../../byzer-lang/zh-cn/release-notes/2.2.2.md)
-  * [Byzer-lang 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
-  * [Byzer-lang 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
-  
 - 附录
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
