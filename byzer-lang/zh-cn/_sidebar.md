@@ -3,13 +3,13 @@
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
-  * [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
+  * [常见问题 FAQ](/byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
 - 发行声明
-  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-lang 2.3.0](../../byzer-lang/zh-cn/release-notes/2.3.0.md)
-  * [Byzer-lang 2.2.2](../../byzer-lang/zh-cn/release-notes/2.2.2.md)
-  * [Byzer-lang 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
-  * [Byzer-lang 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
+  * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
+  * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
+  * [Byzer-lang 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
+  * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
+  * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
   
 - 安装与配置
   * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
@@ -97,10 +97,10 @@
     
 - 插件系统
     * 插件开发
-        * [自定义 ET 插件开发](../../byzer-lang/zh-cn/extension/extension/et_dev.md)
-        * [自定义数据源插件开发](../../byzer-lang/zh-cn/extension/extension/ds_dev.md)
-        * [命令行开发](../../byzer-lang/zh-cn/extension/extension/et_command.md)
-        * [参数自省机制介绍](../../byzer-lang/zh-cn/extension/extension/et_params_dev.md)
+        * [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)
+        * [自定义数据源插件开发](/byzer-lang/zh-cn/extension/dev/ds_dev.md)
+        * [命令行开发](/byzer-lang/zh-cn/extension/dev/et_command.md)
+        * [参数自省机制介绍](/byzer-lang/zh-cn/extension/dev/et_params_dev.md)
     * [插件安装](/byzer-lang/zh-cn/extension/README.md)
         * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
@@ -117,7 +117,7 @@
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
-        * [shell命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
+        * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
 
