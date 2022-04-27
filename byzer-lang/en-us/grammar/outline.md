@@ -18,7 +18,7 @@ and syntax structures for machine learning:
 
 In addition, Byzer-lang supports scripts and package management.
 
-## Load data
+### Load data
 
 
 ```sql
@@ -35,7 +35,7 @@ Byzer-lang can load most:
 2. Data formats, such as text, image, csv, json, xml, etc.
 
 
-## Process data
+### Process data
 
 The keyword `select` clarifies the data processing.
 
@@ -49,7 +49,7 @@ select hello from hello_world as output;
 
 In this example, the `hello-world` table is processed using Spark SQL-compatible syntax.
 
-## Save data
+### Save data
 
 ```sql
 load excel.`./example-data/excel/hello_world.xlsx` 
@@ -61,7 +61,7 @@ save overwrite hello_world as csv.`./tmp/hw` where header="true";
 
 `save` means to save the table. `overwrite` means to overwrite the target object. `hello_world` is the saved table. `as` follows the saved format and path. The configuration option is in the `where/options` clause.
 
-## Reuse code
+### Reuse code
 
 In the same project, references between scripts can be supported through the `include` statement.
 
@@ -94,7 +94,7 @@ include local.`libCore.udf.hello`;
 select hello() as name as output;
 ```
 
-## Macro function
+### Macro function
 
 There are also functions in standard SQL, and the macro functions of Byzer-lang are SQL-level.
 
@@ -118,7 +118,7 @@ Macro functions also support named parameters:
 set loadExcel = '''load excel.`${path}` where header="true" as ${tableName}''';!loadExcel _ -path ./example-data/excel/hello_world.xlsx -tableName helloTable;
 ```
 
-## Native UDF
+### Native UDF
 
 Byzer-lang supports users to write UDF functions using Java /Scala. One of the great advantages of Byzer-lang is that you can write as you need.
 
@@ -128,7 +128,7 @@ register ScriptUDF.`` as arrayLast where lang="scala"and code='''def apply(a:Seq
 
 The above code defines an `arrayLast` function whose logic is to get the last value in the array. After the registration is completed through the `register` clause, it can be directly used in the `select` statement, and it works the same as the built-in function.
 
-## Variable
+### Variable
 
 Byzer-lang also supports variables. Variables are declared using `set`.
 
@@ -146,7 +146,7 @@ select "${a}" as a as output;
 
 Variable are mainly referenced in the form of `${}`. The branch conditional expressions are special cases, which are referenced in the form of `: VariableName`.
 
-## Branch statement
+### Branch statement
 
 Byzer-lang supports high-level branch statements.
 
@@ -162,7 +162,7 @@ Or:
 select 1 as a as mockTable;set b_count=`select count(*) from mockTable ` where type="sql" and mode="runtime";!if ''':b_count == 1 ''';        select 1 as a  as final_table;!else;        select 2 as a  as final_table;!fi;    select * from final_table as output;
 ```
 
-## Machine learning
+### Machine learning
 
 `The load/select` statement can complete the loading, association, preprocessing and other related work of data.
 
@@ -182,7 +182,7 @@ At this time, you can use the `register` clause to complete the registration of 
 register RandomForest.`/tmp/models/randomforest` as model_predict;select vec_array(model_predict(features)) as predicted_value from mock_data as output;
 ```
 
-## Byzer-python
+### Byzer-python
 
 Byzer supports Python scripting through Byzer-python. It will be easier to use if users use it in Byzer Notebook.
 
@@ -195,7 +195,7 @@ select 1 as a as mockTable;-- specify the output schema of python!python conf "s
 
 In Notebook, the syntax is simplified and Python scripts can be written in a separate cell.
 
-## Plugin
+### Plugin
 
 `run/train` and data sources can be extended through plug-ins.
 
@@ -217,7 +217,7 @@ run command as SampleDatasetExt.`` where columns="id,features,label" and size="1
 
 The ET will produce a table called `mockData` with 3 fields `id`, `feature`, `label`, This table has 100000 rows, and its feature length is 100 and the classification type is 2.
 
-## Scope
+### Scope
 
 Byzer-lang is an interpreted language. Variables, macro functions, UDF registration, `select` temporary tables, etc., all follow the following rules:
 

@@ -3,13 +3,13 @@
   * [Byzer-Lang Design](/byzer-lang/en-us/introduction/byzer_lang_design.md)
   * [Online Trial](/byzer-lang/en-us/introduction/online_trial.md)
   * [How to Contribute](/byzer-lang/en-us/appendix/contribute.md)  
-  * [FAQ](/byzer-lang/en-us/appendix/faq/byzerlang_FAQ.md)
+  * [FAQ](/byzer-lang/en-us/faq/byzerlang_FAQ.md)
 -Release
-  * [Byzer Version Management](/byzer-lang/en-us/appendix/release-notes/README.md)
+  * [Byzer Version Management](/byzer-lang/en-us/release-notes/README.md)
   * [Byzer-lang 2.3.0](/byzer-lang/en-us/release-notes/2.3.0.md)
   * [Byzer-lang 2.2.2](/byzer-lang/en-us/release-notes/2.2.2.md)
   * [Byzer-lang 2.2.1](/byzer-lang/en-us/release-notes/2.2.1.md)
-  * [Byzer-lang 2.2.0](/byzer-lang/en-us/release-notes/2.2.0.md)
+  * [Byzer-lang 2.2.0](/byzer-lang/en--us/release-notes/2.2.0.md)
 
 
 - Installation
@@ -42,7 +42,7 @@
 - Data Pipeline & Analysis
     - [Load Datasource in Byzer](/byzer-lang/en-us/datasource/README.md)
       * [RestAPI](/byzer-lang/en-us/datasource/restapi.md)
-        * [More REST API Examples](/byzer-lang/zh-cn/datasource/restapi_examples.md)
+        * [More REST API Examples](/byzer-lang/en-us/datasource/restapi_examples.md)
       * [JDBC](/byzer-lang/en-us/datasource/jdbc.md)
       * [ElasticSearch](/byzer-lang/en-us/datasource/es.md)
       * [Solr](/byzer-lang/en-us/datasource/solr.md)
