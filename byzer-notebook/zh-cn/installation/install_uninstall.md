@@ -31,19 +31,28 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 
 解压后得到 `Byzer-Notebook-<byzer_notebook_version>` 文件夹，里面的文件如下：
 
-<p align="center">
-<img src="/byzer-notebook/zh-cn/installation/image/image-files.png" title="image-ray-started"/>
-</p>
+
+```
+Byzer-Notebook-<byzer_notebook_version>
+  |-- bin                     # 包含 notebook.sh 等可执行脚本
+  |-- conf                    # notebook 的配置文件
+  |-- lib                     # notebook 产品 jar 包位置
+  |-- logs                    # notebook 运行产生的日志路径
+  |-- sample                  # notebook 自带的 sample 及 data
+  |-- CHANGELOG.md            # change log 文件
+  |-- VERSION                 # verion 文件
+  |-- commit_SHA1             # 该产品包对应的后端的 commit 记录
+  |-- commit_SHA1.frontend    # 该产品包对应的前端的 commit 记录
+```
 
 ### 配置文件
 
 找到 `conf` 目录下 `notebook.properties` 文件，您可参考下方配置项说明，更改或增加配置。
 
-> **注意：**
-> 1. 一般情况下，您只需要进行修改和配置数据库以及引擎回调地址的几个参数
-> 2. 启动 Notebook 前，需要您手动在 MySQL 中手动创建 Database, 默认为`notebook`
+> **注意：** 一般情况下，您只需要进行修改和配置数据库以及引擎回调地址的几个参数
 
-#### 配置项说明
+
+#### 基本配置项说明
 
 | 配置项                               | 描述                                                                                                      |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------|
@@ -67,32 +76,105 @@ tar -xvf Byzer-Notebook-<byzer_notebook_version>.tar.gz
 | notebook.job.history.max-size     | 定时清理已归档的任务记录时，最多保留 N 条记录，默认：`2000000`                                                                   |
 | notebook.job.history.max-time     | 定时清理已归档的任务记录时，删除 N 天前的记录，默认：`30`（自动删除 30 天前的任务记录）                                                       |
 
+#### 高级配置
+1. 如果您需要集成 Dolphin 调度系统来使用，请参考章节 [接入调度系统](/byzer-notebook/zh-cn/schedule/setup.md)
+2. 如果您需要将 Notebook 和其他的系统进行集成，需要启用 Redis 来进行用户 Session 的同步，可以修改一下参数
+
+| 配置项 | 描述  |
+|------|-----|
+| notebook.env.redis-enable   | 是否启用 Redis， 默认值为 `false`  |
+| notebook.redis.host  | Redis 的 host，默认值 `localhost`   |
+| notebook.redis.port | Redis 端口，默认值 `6379`  |
+| notebook.redis.password  | Redis 库的密码， 默认值 `redis_pwd`   |
+| notebook.redis.database  | Redis 库，默认值 `0` |
+
 ### 启动
 
 > 需要首先启动 Byzer-lang, 它的部署安装请翻看 [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
 
 进入 `Byzer-Notebook-<byzer_notebook_version>` 目录，执行：
 
-```bash
-# nohup 启动
-./startup.sh
-
-# hang up 启动
-./startup.sh hangup
+```shell
+$ cd /path/to/Byzer-Notebook-<byzer_notebook_version>
+$ ./bin/notebook.sh start
 ```
 
-您可查看 `logs/notebook.log`，看到下面日志说明服务成功启动。
+执行后，如何您看到下述显示，说明 Notebook 已经启动成功：
+```shell
+$ ./bin/notebook.sh start
+Starting Byzer Notebook...
 
-<p align="center">
-<img src="/byzer-notebook/zh-cn/installation/image/image-started.png" title="image-ray-started"/>
-</p>
+Byzer Notebook is checking installation environment, log is at /home/zhengshuai/Downloads/ByzerTest/Byzer-Notebook-latest/logs/check-env.out
+
+Checking Java Version
+...................................................[PASS]
+Checking MySQL Availability & Version
+...................................................[PASS]
+Checking Byzer engine
+...................................................[PASS]
+Checking Ports Availability
+...................................................[PASS]
+
+Checking environment finished successfully. To check again, run 'bin/check-env.sh' manually.
+
+
+NOTEBOOK_HOME is:/home/zhengshuai/Downloads/ByzerTest/Byzer-Notebook-latest
+NOTEBOOK_CONFIG_FILE is:/home/zhengshuai/Downloads/ByzerTest/Byzer-Notebook-latest/conf/notebook.properties
+NOTEBOOK_LOG_FOLDER is：/home/zhengshuai/Downloads/ByzerTest/Byzer-Notebook-latest/logs .
+
+2022-04-27 22:19:09 Start Byzer Notebook...
+
+Byzer Notebook is starting. It may take a while. For status, please visit http://192.168.49.1:9002.
+
+You may also check status via: PID:358716, or Log: /home/zhengshuai/Downloads/ByzerTest/Byzer-Notebook-latest/logs/notebook.log.
+
+```
+
+启动程序会对环境做检查，包括 JAVA，MySQL，Byzer Engine 以及对应的端口占用：
+- 如果环境检查成功，则会真正的执行启动命令，最终会在终端中显示可访问的 Notebook 地址，并会在 `$NOTEBOOK/bin` 目录下生成一个 `check-env-bypass` 文件，这样在下次启动时，会跳过除了端口占用之外的所有检查项
+- 如果环境检查不通过，则启动失败
+
+
+### 日志信息
+Notebook 运行日志将会生成在 `$NOTEBOOK_HOME/logs` 文件夹内，结构如下：
+
+```shell
+$NOTEBOOK_HOME/logs
+  |- notebook.log               # Notebook 主日志文件
+  |- notebook.out               # Notebook 产生的标准日志输出，包含 Springboot 等日志信息
+  |- shell.stderr               # 命令行执行输出的所有日志信息
+  |- shell.stdout               # 命令行执行输出的标准日志输出
+  |- check-env.error            # 执行 `check-env.sh` 产生的错误日志输出
+  |- check-env.out              # 执行 `check-env.sh` 产生的标准日志输出
+  |- notebook_access.log        # REST 接口的访问日志
+  |- security.log               # 操作执行记录日志，包含执行操作，执行人，以及时间等信息
+```
+
+
 
 ### 停止
 
 进入 `Byzer-Notebook-<byzer_notebook_version>` 目录，执行：
 
-```bash  
-./shutdown.sh
+```shell 
+$ ./bin/notebook.sh stop 
+```
+当您看到如下日志输出时，说明 Notebook 进程已停止启动
+
+```shell
+$ ./bin/notebook.sh stop 
+2022-04-27 22:39:18 Stopping Byzer Notebook...
+This user don't have permission to run crontab.
+2022-04-27 22:39:21 Byzer Notebook: 368419 has been Stopped
+```
+
+### 重启
+
+如果您需要重启 Notebook 应用，比如修改了配置等，您可以通过执行如下命令进行 Notebook 进程的重启操作
+
+
+```shell 
+$ ./bin/notebook.sh restart 
 ```
 
 ### 卸载
@@ -123,7 +205,7 @@ docker pull byzer/byzer-notebook:版本号
 docker pull byzer/byzer-notebook:latest
 ```
 
-> 该版本为非稳定版本，包含最新研发但尚未 release 的特性。
+> `latest` 为 Nightly Build 版本，该版本为非稳定版本，包含最新研发但尚未 release 的特性。
 
 #### 2. 启动
 
