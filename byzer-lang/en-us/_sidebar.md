@@ -4,13 +4,13 @@
   * [Online Trial](/byzer-lang/en-us/introduction/online_trial.md)
   * [How to Contribute](/byzer-lang/en-us/appendix/contribute.md)  
   * [FAQ](/byzer-lang/en-us/faq/byzerlang_FAQ.md)
--Release
+
+- Release Notes
   * [Byzer Version Management](/byzer-lang/en-us/release-notes/README.md)
   * [Byzer-lang 2.3.0](/byzer-lang/en-us/release-notes/2.3.0.md)
   * [Byzer-lang 2.2.2](/byzer-lang/en-us/release-notes/2.2.2.md)
   * [Byzer-lang 2.2.1](/byzer-lang/en-us/release-notes/2.2.1.md)
   * [Byzer-lang 2.2.0](/byzer-lang/en--us/release-notes/2.2.0.md)
-
 
 - Installation
   * [Byzer-lang Installation Instruction](/byzer-lang/en-us/installation/README.md)
@@ -25,7 +25,6 @@
   * [Byzer VSCode Extension](/byzer-lang/en-us/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer Engine Properties](/byzer-lang/en-us/installation/configuration/byzer-lang-configuration.md)
   
-
 - Byzer-lang Grammar Manual
   * [Byzer-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  
   * [Data Load/Load](/byzer-lang/en-us/grammar/load.md)
@@ -126,7 +125,6 @@
             * [Execute string as code](/byzer-lang/en-us/extension/et/external/run-script.md)
             * [Save to the incremental table and load again](/byzer-lang/en-us/extension/et/external/save-then-load.md)
 
-
 - Development  
     * [Integration Test](/byzer-lang/en-us/developer/it/integration_test.md)     
     * API
@@ -137,8 +135,8 @@
       * [Readness API](/byzer-lang/en-us/developer/api/readiness.md)
     * [Performance Tunning](/byzer-lang/en-us/developer/tunning/dynamic_resource.md)
 
+- [Terms](/byzer-lang/en-us/appendix/terms.md)  
 
 - Appendix
-    * [Terms](/byzer-lang/en-us/appendix/terms.md)  
     * [Blog](/byzer-lang/en-us/appendix/blog.md)   
 

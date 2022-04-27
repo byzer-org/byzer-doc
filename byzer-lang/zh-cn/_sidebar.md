@@ -4,6 +4,7 @@
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
   * [常见问题 FAQ](/byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
+
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
   * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
@@ -121,7 +122,6 @@
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
 
-
 - 开发者指南   
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
     * API
@@ -132,8 +132,8 @@
       * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
-
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)
+
 - 附录
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
