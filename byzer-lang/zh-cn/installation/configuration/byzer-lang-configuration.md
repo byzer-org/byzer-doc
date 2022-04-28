@@ -16,13 +16,77 @@
 
 1. `byzer.properties.override` 文件中配置的优先级要高于 `byzer.properties` 文件，即如果有相同的配置项， `byzer.properties.override` 文件中的值生效
 2. 处于运维的考虑，建议用户使用 `byzer.properties.override` 来管理自己的配置
-3. Byzer All In One 产品包中，`byzer.properties.override` 默认使用的是 `byzer.properties.all-in-one.example` 中的配置
-3. Byzer Server 产品包中，`byzer.properties.override` 默认使用的是 `byzer.properties.server.example` 中的配置
+
+
+### 配置示例
+
+#### byzer.properties.all-in-one.example
+
+Byzer All In One 产品包中，`byzer.properties.override` 默认使用的是 `byzer.properties.all-in-one.example` 中的配置，配置内容如下，一般情况下用户无需更改 `byzer.properties.override` 即可直接启动 Byzer 引擎
+
+```properties
+# byzer.properties.all-in-one.example
+# override example for all-in-one package
+
+byzer.server.mode=all-in-one
+
+streaming.master=local[*]
+streaming.name=Byzer-lang-desktop
+streaming.rest=true
+streaming.thrift=false
+streaming.platform=spark
+streaming.spark.service=true
+streaming.job.cancel=true
+streaming.datalake.path=./data/
+streaming.driver.port=9003
+streaming.enableHiveSupport=false
+streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugins.assert.app.MLSQLAssert,tech.mlsql.plugins.shell.app.MLSQLShell,tech.mlsql.plugins.ext.ets.app.MLSQLETApp,tech.mlsql.plugins.mllib.app.MLSQLMllib
+```
+
+#### byzer.properties.server.example
+
+Byzer Server 产品包中，`byzer.properties.override` 默认使用的是 `byzer.properties.server.example` 中的配置，该配置无法直接启动，一般是需要进行手工配置修改的， 比如产品包中默认的配置信息如下
+
+```properties
+# byzer.properties.server.example
+# override example for server package
+
+byzer.server.mode=server
+
+streaming.master=local[*]
+streaming.name=Byzer-lang-server
+streaming.rest=true
+streaming.thrift=false
+streaming.platform=spark
+streaming.spark.service=true
+streaming.driver.port=9003
+streaming.enableHiveSupport=false
+```
+
+如果你需要将 Byzer 引擎运行在 Hadoop 集群上，那么你的 `byzer.properties.override` 应该加入一些 Spark 相关的配置并且配置 `$SPARK_HOME` 和 `$HADOOP_CONF_DIR` 环境变量，配置示例如下
+
+```properties
+# byzer.properties.override
+spark.master=yarn
+streaming.name=byzer-lang
+streaming.rest=true
+streaming.platform=spark
+streaming.spark.service=true
+streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugins.assert.app.MLSQLAssert,tech.mlsql.plugins.shell.app.MLSQLShell,tech.mlsql.plugins.ext.ets.app.MLSQLETApp,tech.mlsql.plugins.mllib.app.MLSQLMllib
+
+# Spark config
+spark.driver.memory=2g
+spark.executor.memory=1g
+spark.driver.cores=1
+spark.executor.cores=1
+spark.executor.instances=1
+```
+
 
 
 ### 配置参数详解
 
-#### Server 模式
+#### Byzer 引擎 Server 模式
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|

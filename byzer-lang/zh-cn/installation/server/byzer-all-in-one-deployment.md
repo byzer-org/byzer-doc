@@ -61,6 +61,8 @@ $ cd byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0
 
 在启动 Byzer 引擎之前，您可以参考 [Byzer 引擎参数配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 一文来进行配置文件的修改
 
+> Byzer All in One 一般不需要修改配置即可在默认配置下直接启动
+
 ### 启动 Byzer 引擎
 
 Byzer 引擎提供了可执行脚本 `$BYZER_HOME/bin/byzer.sh` 来进行 Byzer 引擎的启动，停止，和重启，您可以通过执行该脚步获取使用说明，示例如下
