@@ -1,134 +1,238 @@
 # Byzer Server 二进制版本安装和部署
 
 
-区别于 Byzer All In One 版本的部署，Byzer Server 二进制包**不包含**如下的组件：
-- Byzer CLI 命令行交互插件，源码 [byzer-org/byzer-cli](https://github.com/byzer-org/byzer-cli)
-- JDK 1.8
-- Spark 
-- Byzer 插件集合，源码 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-cli) 
-
-Byzer Server 二进制包的安装需要用户自行下载部署 JDK 以及 Spark，并且只提供了 **REST 服务交互模式（Server Mode）** 来允许用户通过 REST API 的方式调用 Byzer API 来执行 Byzer 脚本。
+区别于 [Byzer All In One 产品包](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)，Byzer Server 二进制包仅包含 Byzer 引擎的核心引擎，**不包含** [Byzer CLI](https://download.byzer.org/byzer/misc/byzer-cli/) 以及 [Byzer Extensions](https://download.byzer.org/byzer-extensions/)， 也不包含 JDK 和 Spark 的依赖 Jar 文件。
 
 
-> 1. **推荐在 Hadoop 集群上使用 Byzer 时，下载此版本进行安装**
-> 2. 如果您对 Linux Server 运维不熟悉，推荐使用 [Byzer All In One](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) 进行部署
-> 3. 推荐的操作系统为 CentOS7.x 以及 Ubuntu 18.04 +
-> 4. **我们计划在 2.3.0 版本中, 重构 Byzer 引擎的部署方式来降低部署的复杂性**
+Byzer Server 二进制包的部署需要配合一个 Spark 集群来使用，目前支持的 Spark 版本为 `3.1.1` 和 `2.4.3`，暂不支持其他版本的 Spark。
+
+1. **推荐在 Hadoop 集群上使用 Byzer 时，下载此版本进行安装**
+2. 推荐的操作系统为 CentOS7.x 以及 Ubuntu 18.04 +，不支持 Windows
+3. 如果您想要在单机（Linux or MacOS）进行 Bzyer 引擎的部署，推荐使用 [Byzer All In One](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) 
+3. 如果您想要在 Windows 环境上进行 Bzyer 的体验，推荐使用 [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md) 或使用 Byzer Notebook
+
 
 ### 下载 Byzer Server 二进制包
 
 请前往 [Byzer 官方下载站点](https://download.byzer.org/byzer/) 下载对应的 Byzer Server二进制包。
 
-#### 选择版本
-如何选择对应的 Byzer 引擎版本说明，请参考 [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md) 中 **Byzer 引擎版本说明** 一节，一般情况下，我们推荐使用最新的正式发布版本
 
 #### 产品包名说明
 
-Byzer Server二进制包的包名规范为 `byzer-lang_{spark-vesion}-{byzer-version}.tar.gz`
+Byzer Server二进制包的包名规范为 `byzer-lang-{spark-vesion}-{byzer-version}.tar.gz`
 
-其中 `｛spark-version｝` 是 Byzer 引擎内置的 Spark 版本，`{byzer-version}` 是 Byzer 的版本。
+其中 `｛spark-version｝` 是 Byzer 引擎支持的 Spark 版本，`{byzer-version}` 是 Byzer 的版本。
 
-> 注意：
-> - 此处需要提前选择需要使用的 Spark 版本，Byzer 的版本要和 Spark 的版本一一对应
-> - 当前支持的 Spark 版本为 `3.1.1` 以及` 2.3.3`
+> 注意： 此处需要提前选择需要使用的 Spark 版本，Byzer 的版本要和 Spark 的版本一一对应
+
+
+#### Byzer 引擎版本的选择
+如何选择对应的 Byzer 引擎版本说明，请参考 [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md) 中 **Byzer 引擎版本说明** 一节，一般情况下，我们推荐使用最新的正式发布版本
 
 
 ### 安装前置准备
 
-JDK8 和 Spark 是 Byzer-lang 启动的必要条件。
+JDK8 和 Spark 可执行环境是 Byzer-lang 启动的必要条件
 
 
 #### JDK 1.8 安装
 
-请根据自己系统的要求，下载并安装 JDK 1.8，并确保 `$JAVA_HOME` 被正确设置
+请根据自己系统的要求，下载并安装 JDK 1.8，并确保 `$JAVA_HOME` 被正确设置，推荐使用 Oracle JDK 1.8 或 Open JDK 1.8
 
 #### Spark 安装
 
-根据您下载的 Byzer 的版本，前往 [Spark Downloads](https://spark.apache.org/downloads.html) 下载对应的 Spark 版本，在指定位置解压后，需要在 `bash_profile` 中设置 `SPARK_HOME` 环境变量。
+如果您使用的是 Hadoop 发行版，比如 Apache Hadoop、HDP 或 CDH，请前往您的 Hadoop 发行版提供方下载 Spark 3.1.1 或 Spark 2.4.3
 
-```
+以 Apache Hadoop 为例，前往 [Spark Downloads](https://spark.apache.org/downloads.html) 下载对应的 Spark 版本，在指定位置解压即可。（您需要确保 Spark 在您的 Hadoop 上运行正常）
+
+```shell
 ## 下载合适的 Spark 版本
 $ wget https://archive.apache.org/dist/spark/spark-3.1.1/spark-3.1.1-bin-hadoop3.2.tgz
 $ wget https://archive.apache.org/dist/spark/spark-2.4.3/spark-2.4.3-bin-hadoop2.7.tgz
 ```
 
-> 注意：
-> 1. 您需要删除 $SPARK_HOME/jars/velocity-1.5.jar，因为该 jar 与 byzer-lang 中的 Jar 冲突。
-> 2. 如果您使用的是 Hadoop 发行版，则需要找到该 Hadoop 发行版提供的对应版本 Spark 进行安装
+**注意：**
+1. 您需要删除 `$SPARK_HOME/jars/velocity-1.5.jar`，因为该 jar 与 byzer-lang 中的 Jar 冲突，会影响 Byzer 中 JsonPath 的正确解析
+2. 您需要在启动 Byzer 引擎前正确的设置 `$SPARK_HOME` 环境变量以及 `$HADOOP_CONF_DIR` 环境变量
 
+### 下载安装 Byzer 引擎
 
+这里我们以 Linux 环境和 Byzer `2.3.0` 版本举例说明， 访问 [https://download.byzer.org/byzer/2.3.0/](https://download.byzer.org/byzer/2.3.0/) ，下载 Byzer `2.3.0` Byzer Server 的产品包 `byzer-lang-3.1.1-2.3.0.tar.gz` 
 
-### 安装 Byzer 引擎
-
-#### 解压安装并设置环境变量
-1. 下载指定版本的 Byzer Server 二进制包，解压至指定位置
-2. 设置环境变量 `$BYZER_HOME`
-    - 通过 `export BYZER_HOME=/path/to/byzer-engine` 来设置临时环境变量
-    - 或将上述环境变量加入至 `~/.bash_profile` 
-3. 可执行脚本位于 `{BYZER_HOME}/bin` 目录下，分别为 `start-local.sh` 和 `stop-local.sh`
-
-
-#### Byzer 引擎启动命令说明
-Byzer 引擎本质就是一个 Spark Application， 可以通过 `spark-submit` 命令来启动。
-
-在 `spark-submit` 命令中，可以通过 `--class ${class_name}` 来指定应用的入口类以及一系列的参数。
-
-下面是在 `${BZYER_HOME}/bin/start-local.sh`中的一个典型的启动命令示例：
+此处我们以目录 `/home/byzer` 为例，下载安装包至此目录，解压安装包
 
 ```shell
-$SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
-        --driver-memory ${DRIVER_MEMORY} \
-        --jars ${JARS} \
-        --master local[*] \
-        --name mlsql \        
-        --conf "spark.scheduler.mode=FAIR" \
-       [1] ${BYZER_HOME}/libs/${MAIN_JAR}    \ 
-        -streaming.name mlsql    \
-        -streaming.platform spark   \
-        -streaming.rest true   \
-        -streaming.driver.port 9003   \
-        -streaming.spark.service true \
-        -streaming.thrift false \
-        -streaming.enableHiveSupport true
+$ tar -zxvf byzer-lang-3.1.1-2.3.0.tar.gz 
+$ cd byzer-lang-3.1.1-2.3.0
+```
+此处我们解压后的目录为 `/home/byzer/byzer-lang-3.1.1-2.3.0`，解压后的目录结构如下
+
+```shell 
+|-- bin                # 可执行脚本
+|-- conf               # Byzer 引擎的配置目录
+|-- libs               # Byzer 引擎的依赖 Jar文件
+|-- logs               # 日志目录
+|-- main               # Byzer 产品主程序 Jar 文件
+|-- plugin             # Byzer Extension 的安装目录  
 ```
 
-**参数说明**:
-- 以位置[1]为分割点，前面主要是 Spark 相关配置，后面部分则是 Byzer-lang 相关配置。
-- Spark 的配置以两个横杠 `--conf` 开头，而 Byzer-lang 配置以一个横杠 `-` 开头。
-- 对于 Byzer 引擎，Driver 内存一般推荐 8 GB 及以上
 
-通过在这种方式，我们可以将 Byzer-lang 运行在 K8s, Yarn, Mesos 以及 Local 等各种环境之上。
+### 修改 Byzer 引擎配置
 
-
-
-#### 常用参数
-
-| 参数 | 说明 | 示例值 |
-|----|----|-----|
-|  streaming.master  |  等价于--master 如果在spark里设置了，就不需要设置这个|     |
-|  streaming.name  |  应用名称  |     |
-|  streaming.platform  |  平台 |  目前只有spark   |
-|  streaming.rest  |  是否开启http接口 |   布尔值，需要设置为true  |
-|  streaming.driver.port | HTTP服务端口 |  一般设置为9003  |
-|  streaming.spark.service  | 执行完是否退出程序 |  true 不退出  false 退出  |
-|  streaming.job.cancel | 支持运行超时设置 |  一般设置为true  |
-|  streaming.datalake.path | 数据湖基目录 一般为HDFS |  需要设置，否则很多功能会不可用，比如插件等。 |
-
-
-### Local 模式启动
-
-Local 模式启动，您可以执行 `$BYZER_HOME/bin/start-local.sh` 包含 Byzer-lang 基本参数，请参考上面文档修改后启动。 
+在启动 Byzer 引擎之前，您可以参考 [Byzer 引擎参数配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 一文来进行配置文件的修改。
+您可以通过以下命令来进行快速的配置修改
 
 ```shell
-mkdir -p $BYZER_HOME/logs
-nohup $BYZER_HOME/bin/start-local.sh > $BYZER_HOME/logs/byzer_engine.log 2>&1 &
+$ cd /home/byzer/byzer-lang-3.1.1-2.3.0
+$ cp conf/byzer.properties.server.example conf/byzer.properties.override
+```
+在 Hadoop 集群上部署的一个典型的配置文件示例如下，你可根据下述示例来修改 `byzer.properties.override` 文件
+
+```properties
+# byzer.properties.override
+# override example for server package
+
+byzer.server.mode=server
+
+streaming.master=yarn
+streaming.name=byzer-engine
+streaming.rest=true
+streaming.platform=spark
+streaming.spark.service=true
+streaming.driver.port=9003
+streaming.enableHiveSupport=false
+
+spark.driver.memory=2g
+spark.executor.memory=1g
+spark.driver.cores=1
+spark.executor.cores=1
+spark.executor.instances=1
 ```
 
-### Yarn 模式启动
 
-我们推荐使用 yarn-client 模式启动。
+**注意：** Byzer Server 产品包的默认出厂配置是 `byzer.server.mode=server`，不支持切换至 `all-in-one` 模式，即不支持在单服务器的情况下启动
 
-> 因为当使用 yarn-cluster 模式启动时，由于 AM 在 Yarn 集群某台服务器，IP 可能会不固定，会造成一系列问题。
+
+### 安装 Byzer CLI 和 Byzer Extension （Optional）
+
+#### 安装 Byzer CLI
+如果您希望体验通过命令行交互来直接执行 Byzer 脚本，详情可参考 [Byzer CLI](/byzer-lang/zh-cn/installation/cli/byzer-cli.md) 章节，来进行 Byzer CLI 的下载和安装
+
+#### 安装 Byzer Extension
+如果您希望安装 Byzer Extensions, 您可以前往 [Byzer Extensions](https://download.byzer.org/byzer-extensions/) 下载 Byzer 的官方插件，放入 `$BYZER_HOME/plugin` 目录下，您也可以根据自己的需要，参照 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-extension) 来开发自己需要的插件，打包后将 Jar 包放入`$BYZER_HOME/plugin` 目录下。
+
+随后修改 `byzer.properties.override` 文件，修改如下参数，在 Byzer 引擎中注册插件的入口类,示例如下：
+
+```properties
+streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugins.assert.app.MLSQLAssert,tech.mlsql.plugins.shell.app.MLSQLShell,tech.mlsql.plugins.ext.ets.app.MLSQLETApp,tech.mlsql.plugins.mllib.app.MLSQLMllib
+```
+
+
+### 启动 Byzer 引擎
+
+Byzer 引擎提供了可执行脚本 `$BYZER_HOME/bin/byzer.sh` 来进行 Byzer 引擎的启动，停止，和重启，您可以通过执行该脚步获取使用说明，示例如下
+
+```shell
+$ ./bin/byzer.sh 
+Usage: 'byzer.sh [-v] start' or 'byzer.sh [-v] stop' or 'byzer.sh [-v] restart'
+
+```
+
+启动前请保证正确设置 `$SPARK_HOME` `$HADOOP_CONF_DIR` 环境变量，示例如下：
+
+```shell
+export SPARK_HOME=/work/server/spark
+export HADOOP_CONF_DIR=/work/server/hadoop/etc/hadoop
+```
+
+接下来，您可以通过执行下述命令来启动 Byzer 引擎。
+
+```shell
+$ ./bin/byzer.sh start
+```
+
+当您看到如下输出时，说明服务启动成功
+
+```shell
+$ ./bin/byzer.sh start
+Starting Byzer engine...
+
+Byzer-lang is checking installation environment, log is at /home/byzer/byzer-lang-3.1.1-2.3.0/logs/check-env.out
+
+Checking OS
+...................................................[PASS]
+Checking Java Version
+...................................................[PASS]
+Checking Ports Availability
+...................................................[PASS]
+
+Checking environment finished successfully. To check again, run 'bin/check-env.sh' manually.
+
+SPARK_HOME is: /work/server/spark
+BYZER_HOME is: /home/byzer/byzer-lang-3.1.1-2.3.0
+BYZER_CONFIG_FILE is: /home/byzer/byzer-lang-3.1.1-2.3.0/conf/byzer.properties
+Starting Byzer engine in server mode...
+
+[Spark Config]
+--conf spark.kryoserializer.buffer=256k
+--conf spark.executor.memory=1g
+--conf spark.driver.memory=2g
+--conf spark.kryoserializer.buffer.max=1024m
+--conf spark.sql.hive.thriftServer.singleSession=true
+--conf spark.master=local[*]
+--conf spark.scheduler.mode=FAIR
+--conf spark.executor.cores=1
+--conf spark.serializer=org.apache.spark.serializer.KryoSerializer
+--conf spark.executor.instances=1
+--conf spark.driver.cores=1
+[Byzer Config]
+-streaming.spark.service true
+-streaming.driver.port 9003
+-streaming.platform spark
+-streaming.name byzer-engine
+-streaming.thrift false
+-streaming.master yarn
+-streaming.rest true
+-streaming.enableHiveSupport false
+[Extra Config]
+/home/byzer/byzer-lang-3.1.1-2.3.0/plugin/*.jar:/home/byzer/byzer-lang-3.1.1-2.3.0/libs/ansj_seg-5.1.6.jar:/home/byzer/byzer-lang-3.1.1-2.3.0/libs/nlp-lang-1.7.8.jar:/home/byzer/byzer-lang-3.1.1-2.3.0/main/byzer-lang-3.1.1-2.12-2.3.0.jar
+
+
+Byzer engine is starting. It may take a while. For status, please visit http://192.168.49.1:9003.
+
+You may also check status via: PID:401599, or Log: /home/byzer/byzer-lang-3.1.1-2.3.0//logs/byzer-lang.log.
+
+```
+Byzer 引擎在启动时，会引入环境检查以及配置读取，启动成功后，会在终端提供可访问的 Web 地址， 你可以在浏览器中访问该地址进入 Byzer Web Console，如下图所示
+
+![](images/console.png)
+
+点击运行可以查看到上述 SQL 执行的结果，说明 Byzer 引擎正常。
+
+
+
+### 停止 Byzer 引擎
+
+您可以通过如下命令来停止 Byzer 引擎
+
+```shell
+$ ./bin/byzer.sh stop 
+2022-04-27 23:49:47 Stopping Byzer engine...
+2022-04-27 23:49:47 Stopping Byzer-lang: 356657
+```
+
+### 重启 Byzer 引擎
+
+您可以通过如下命令来重启 Byzer 引擎
+
+```shell
+$ ./bin/byzer.sh restart
+2022-04-27 23:49:47 Stopping Byzer engine...
+2022-04-27 23:49:47 Stopping Byzer-lang: 356657
+```
+
+
+
 
 1. 软链接 `core-site.xml`, `hdfs-site.xml`, `yarn-site.xml` 文件到 `$SPARK_HOME/conf` 目录下。
 2. 设置环境变量 `HADOOP_CONF_DIR`, 指向 `$SPARK_HOME/conf`, 参考命令如下
@@ -138,57 +242,16 @@ export HADOOP_CONF_DIR=$SPARK_HOME/conf
 ```
 也可将此环境变量设置在 `~/.bash_profile` 文件中
 
-3. 复制 `bin/start-local.sh` 为 `bin/start-on-yarn.sh`, 修改 `bin/start-on-yarn.sh`, 找到文件里如下代码片段
-
-```shell
-$SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
-        --driver-memory ${DRIVER_MEMORY} \
-        --jars ${JARS} \
-        --master local[*] \
-        --name mlsql \
-        --conf "spark.sql.hive.thriftServer.singleSession=true" 
-```
-
-将 `--master` 的 `local[*]` 换成 `yarn`, 添加 `--deploy-mode client`, 然后添加 executor 配置, 大概如下面的样子：
-
-```shell
-$SPARK_HOME/bin/spark-submit --class streaming.core.StreamingApp \
-        --driver-memory ${DRIVER_MEMORY} \
-        --jars ${JARS} \
-        --master yarn \
-        --deploy-mode client \
-        --executor-memory 2g \
-        --executor-cores 1 \
-        --num-executors 1 \
-        --name mlsql \
-        --conf "spark.sql.hive.thriftServer.singleSession=true" 
-```
-
-其中 Driver 和 Executor 的资源大小，根据实际情况来进行设置，然后执行 `bin/start-on-yarn.sh` 之后即可将 Byzer 引擎部署至 Yarn 上。
-
-更多的配置信息请参考 [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 
 
 
 ### FAQ
 
-1. 由于历史原因，在 2.3.0 版本之前，使用的环境变量是 `${MLSQL_HOME}`，而不是 `${BYZER_HOME}`
+####  如何设置 `$HADOOP_CONF_DIR` 环境变量
 
+1. 软链接 `core-site.xml`, `hdfs-site.xml`, `yarn-site.xml` 文件到 `$SPARK_HOME/conf` 目录下。
+2. 设置环境变量 `HADOOP_CONF_DIR`, 指向 `$SPARK_HOME/conf`, 参考命令如下
 
-2. 如何在 Server 版本中安装 Byzer 的插件？
-
-安装插件有两种方式：
-- 一种是网络安装，引擎启动后，通过 byzer 封装的宏命令进行网络安装，另一种是在
-- 一种是离线安装，是在引擎启动前，就将插件的 jar 包放到安装目录的 plugin 目录下，然后在启动命令中输入指定 plugin 的入口类即可
-
-详情请参考 [插件与安装](/byzer-lang/zh-cn/extension/README.md) 一节
-
-3. 如何在 Server 版本中安装 Byzer 命令行交互工具？
-
-如果需要在该版本中安装 byzer cli 工具，可以前往 [Byzer Engine Misc](https://download.byzer.org/byzer/misc/) 下载 Byzer CLI 插件，Byzer CLI 命名规范如下：
-
-- 在 Byzer 2.3.0 版本之前，命名为
-    - `mlsql-darwin-amd64`
-    - `mlsql-linux-amd64`
-    - `mlsql-windows-amd64.exe`
-
-下载对应版本的 Byzer CLI 插件后，安装至 `${BYZER_HOME}/bin` 目录下，并重命名为 `byzer`, 你可以选择将  `${BYZER_HOME}/bin` 目录加入到 系统的 `PATH` 环境变量中，这样你可以在命令行中直接使用 `byzer run script.byzer` 来执行 byzer 脚本了。
+```shell 
+export HADOOP_CONF_DIR=$SPARK_HOME/conf 
+```
+也可将此环境变量设置在 `~/.bash_profile` 文件中

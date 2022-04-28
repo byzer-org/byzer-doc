@@ -3,11 +3,20 @@
   * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
-  * [常见问题 FAQ](../../byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
+  * [常见问题 FAQ](/byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
+
+- 发行声明
+  * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
+  * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
+  * [Byzer-lang 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
+  * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
+  * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
+  
 - 安装与配置
-  * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
-  * [Byzer All In One 版本部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
-  * [Byzer Server 版本部署](/byzer-lang/zh-cn/installation/server/binary-installation.md)
+  * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
+  * [下载渠道](/byzer-lang/zh-cn/installation/download/site.md)
+  * [Byzer All In One 部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
+  * [Byzer Server 部署](/byzer-lang/zh-cn/installation/server/binary-installation.md)
   * [容器化部署](/byzer-lang/zh-cn/installation/containerized-deployment/containerized-deployment.md)
     * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized-deployment/sandbox-standalone.md)
     * [多容器部署](/byzer-lang/zh-cn/installation/containerized-deployment/muti-continer.md)
@@ -15,7 +24,9 @@
     * [Minikube 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-minikube.md)
     * [Byzer-K8S 工具部署](/byzer-lang/zh-cn/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
+  * [Byzer CLI](/byzer-lang/zh-cn/installation/cli/byzer-cli.md)
   * [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md)
+  * [Byzer 引擎日志说明](/byzer-lang/zh-cn/installation/logs/log.md)
   
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
@@ -90,10 +101,10 @@
     
 - 插件系统
     * 插件开发
-        * [自定义 ET 插件开发](../../byzer-lang/zh-cn/extension/extension/et_dev.md)
-        * [自定义数据源插件开发](../../byzer-lang/zh-cn/extension/extension/ds_dev.md)
-        * [命令行开发](../../byzer-lang/zh-cn/extension/extension/et_command.md)
-        * [参数自省机制介绍](../../byzer-lang/zh-cn/extension/extension/et_params_dev.md)
+        * [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)
+        * [自定义数据源插件开发](/byzer-lang/zh-cn/extension/dev/ds_dev.md)
+        * [命令行开发](/byzer-lang/zh-cn/extension/dev/et_command.md)
+        * [参数自省机制介绍](/byzer-lang/zh-cn/extension/dev/et_params_dev.md)
     * [插件安装](/byzer-lang/zh-cn/extension/README.md)
         * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
@@ -110,10 +121,9 @@
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
-        * [shell命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
+        * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
-
 
 - 开发者指南   
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
@@ -125,14 +135,8 @@
       * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
-
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)
-- 发行声明
-  * [Byzer 版本管理策略](../../byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-lang 2.2.2](../../byzer-lang/zh-cn/release-notes/2.2.2.md)
-  * [Byzer-lang 2.2.1](../../byzer-lang/zh-cn/release-notes/2.2.1.md)
-  * [Byzer-lang 2.2.0](../../byzer-lang/zh-cn/release-notes/2.2.0.md)
-  
+
 - 附录
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
   * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   

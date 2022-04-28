@@ -1,6 +1,6 @@
 # Sandbox 独立部署
 
-Sandbox 镜像统一将 Byzer-lang、Byzer Notebook 和 MySQL 打包到一个镜像中，用于快速的在本地体验 Byzer。
+Sandbox 镜像统一将 Byzer 引擎、Byzer Notebook 和 MySQL 打包到一个镜像中，用于快速的在本地体验 Byzer。
 
 如果您需要将多个组件分开部署，可以使用  [Sandbox 多容器部署](/byzer-lang/zh-cn/installation/containerized-deployment/muti-continer.md) 方式。
 
