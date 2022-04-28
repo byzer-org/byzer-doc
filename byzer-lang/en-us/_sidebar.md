@@ -13,7 +13,8 @@
   * [Byzer-lang 2.2.0](/byzer-lang/en--us/release-notes/2.2.0.md)
 
 - Installation
-  * [Byzer-lang Installation Instruction](/byzer-lang/en-us/installation/README.md)
+  * [Byzer Installation Instruction](/byzer-lang/en-us/installation/README.md)
+  * [Download Site](/byzer-lang/en-us/installation/download/site.md)
   * [Byzer All In One Deployment](/byzer-lang/en-us/installation/server/byzer-all-in-one-deployment.md)
   * [Byzer Server Deployment](/byzer-lang/en-us/installation/server/binary-installation.md)
   * [Containerized Deployment](/byzer-lang/en-us/installation/containerized-deployment/containerized-deployment.md)
@@ -23,7 +24,9 @@
     * [On Minikube](/byzer-lang/en-us/installation/k8s/byzer-on-minikube.md)
     * [Byzer-K8S Tools](/byzer-lang/en-us/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/en-us/installation/vscode/byzer-vscode-extension-installation.md)
+  * [Byzer CLI](/byzer-lang/en-us/installation/cli/byzer-cli.md)
   * [Byzer Engine Properties](/byzer-lang/en-us/installation/configuration/byzer-lang-configuration.md)
+  * [Byzer Logs](/byzer-lang/en-us/installation/logs/log.md)
   
 - Byzer-lang Grammar Manual
   * [Byzer-Lang Guide](/byzer-lang/en-us/grammar/outline.md)  

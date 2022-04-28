@@ -13,9 +13,10 @@
   * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
   
 - 安装与配置
-  * [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
-  * [Byzer All In One 版本部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
-  * [Byzer Server 版本部署](/byzer-lang/zh-cn/installation/server/binary-installation.md)
+  * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
+  * [下载渠道](/byzer-lang/zh-cn/installation/download/site.md)
+  * [Byzer All In One 部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
+  * [Byzer Server 部署](/byzer-lang/zh-cn/installation/server/binary-installation.md)
   * [容器化部署](/byzer-lang/zh-cn/installation/containerized-deployment/containerized-deployment.md)
     * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized-deployment/sandbox-standalone.md)
     * [多容器部署](/byzer-lang/zh-cn/installation/containerized-deployment/muti-continer.md)
@@ -23,7 +24,9 @@
     * [Minikube 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-minikube.md)
     * [Byzer-K8S 工具部署](/byzer-lang/zh-cn/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
+  * [Byzer CLI](/byzer-lang/zh-cn/installation/cli/byzer-cli.md)
   * [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md)
+  * [Byzer 引擎日志说明](/byzer-lang/zh-cn/installation/logs/log.md)
   
 - Byzer-Lang 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)

@@ -25,7 +25,7 @@ export MYSQL_ROOT_PASSWORD=root
 ## mysql 端口号
 export MYSQL_PORT=3306
 ## byzer 引擎后台管理服务的端口
-export KOLO_LANG_PORT=9003
+export BYZER_LANG_PORT=9003
 ## byzer notebook 客户端端口
 export BYZER_NOTEBOOK_PORT=9002
 ## 当前 byzer 使用的 spark 版本（用于生成 container name）
@@ -40,9 +40,9 @@ export BYZER_NOTEBOOK_VERSION=<Byzer-notebook Relase版本号>
 
 其中`Byzer-lang Relase版本号`请参考Byzer lang的Release Tags：https://github.com/byzer-org/byzer-lang/tags
 
-`Byzer-notebook Relase版本号`请参考Byzer notebook的Release Tags：https://github.com/byzer-org/byzer-notebook/tags
+`Byzer Notebook Relase版本号`请参考Byzer notebook的Release Tags：https://github.com/byzer-org/byzer-notebook/tags
 
-获取方式：例如最新的tag为v2.2.1，则使用版本号2.2.1，那么参数应该设置为 `export BYZER_LANG_VERSION=2.1.1`。
+获取方式：例如最新的tag为 `v2.2.1`，则使用版本号 `2.2.1`，那么参数应该设置为 `export BYZER_LANG_VERSION=2.1.1`。
 
 
 

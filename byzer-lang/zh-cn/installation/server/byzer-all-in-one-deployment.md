@@ -1,17 +1,7 @@
 # Byzer All In One 安装与配置
 
-Byzer All In One 版本是给用户提供的单机运行的安装包，无需准备 JDK，Spark 以及文件系统。除了提供 Byzer 引擎外，还**内置集成了如下组件**：
-- Byzer CLI 命令行交互插件，源码 [byzer-org/byzer-cli](https://github.com/byzer-org/byzer-cli)
-- Byzer 插件集合，源码 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-cli) 
+Byzer All In One 版本是在 [Byzer Server 产品包](/byzer-lang/zh-cn/installation/server/binary-installation.md)的基础上，内置包含了 JDK8，[Byzer CLI](https://download.byzer.org/byzer/misc/byzer-cli/) 以及 [Byzer Extensions](https://download.byzer.org/byzer-extensions/) , 给用户提供了单机启动 Byzer 引擎服务以及在 Hadoop 集群启动 Byzer 引擎服务的能力。
 
-
-Byzer All In One 提供了两种交互的方式：
-1. **命令行交互模式（CLI Mode）**：允许用户通过命令行的交互来执行 Byzer 脚本
-2. **REST 服务交互模式（Server Mode）**: 允许用户通过 REST API 的方式调用 Byzer API 来执行 Byzer 脚本
-
-> 注意：
-> 1. 当前 Byzer 引擎支持的 Byzer 脚本的文件后缀名为 `.byzer` 和 `.mlsql`
-> 2. Byzer All In One 的默认出场配置是以 Local 方式进行任务执行的
 
 ### 下载 Byzer All In One
 
@@ -57,11 +47,31 @@ $ cd byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0
 |-- spark-warehouse    
 ```
 
+> 由于内置了 Byzer CLI 命令行执行工具， 位置是 `$BYZER_HOME/bin/byzer`，您可以直接通过命令行交互来直接执行 Byzer 脚本，详情可参考 [Byzer CLI](/byzer-lang/zh-cn/installation/cli/byzer-cli.md) 章节
+
+
 ### 修改 Byzer 引擎配置
 
 在启动 Byzer 引擎之前，您可以参考 [Byzer 引擎参数配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 一文来进行配置文件的修改
 
-> Byzer All in One 一般不需要修改配置即可在默认配置下直接启动
+**注意：**
+- Byzer All In One 产品包的默认出厂配置是 `byzer.server.mode=all-in-one`，即默认情况下是**单机启动 Byzer 引擎服务**
+- 如果您希望以配合 Hadoop 集群的方式来启动，可以参考 [Byzer 引擎参数配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 来修改 `$BYZER_HOME/conf/byzer.properties.override` 文件的参数
+
+
+### 安装 Byzer Extension （Optional）
+
+Byzer All In One 已默认内置安装了 [Byzer Extensions](https://download.byzer.org/byzer-extensions/) 官方插件，位于 `$BYZER_HOME/plugin` 目录下，您无需手动安装。
+
+如果您需要安装自己开发的插件，您可以参照 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-extension) 来开发自己需要的插件，打包后将 Jar 包放入`$BYZER_HOME/plugin` 目录下。
+
+随后修改 `byzer.properties.override` 文件，修改如下参数，在 Byzer 引擎中注册插件的入口类,示例如下：
+
+```properties
+streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugins.assert.app.MLSQLAssert,tech.mlsql.plugins.shell.app.MLSQLShell,tech.mlsql.plugins.ext.ets.app.MLSQLETApp,tech.mlsql.plugins.mllib.app.MLSQLMllib
+```
+
+
 
 ### 启动 Byzer 引擎
 
@@ -72,8 +82,6 @@ $ ./bin/byzer.sh
 Usage: 'byzer.sh [-v] start' or 'byzer.sh [-v] stop' or 'byzer.sh [-v] restart'
 
 ```
-在启动 Byzer 引擎之前，可以根据自己的
-
 
 您可以通过执行下述命令来启动 Byzer 引擎。
 
@@ -87,7 +95,7 @@ $ ./bin/byzer.sh start
 $ ./bin/byzer.sh start
 Starting Byzer engine...
 
-Byzer-lang is checking installation environment, log is at /home/zhengshuai/Downloads/ByzerTest/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0/logs/check-env.out
+Byzer-lang is checking installation environment, log is at /home/byzer/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0/logs/check-env.out
 
 Checking OS
 ...................................................[PASS]
@@ -99,8 +107,8 @@ Checking Ports Availability
 Checking environment finished successfully. To check again, run 'bin/check-env.sh' manually.
 
 SPARK_HOME is: 
-BYZER_HOME is: /home/zhengshuai/Downloads/ByzerTest/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0
-BYZER_CONFIG_FILE is: /home/zhengshuai/Downloads/ByzerTest/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0/conf/byzer.properties
+BYZER_HOME is: /home/byzer/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0
+BYZER_CONFIG_FILE is: /home/byzer/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0/conf/byzer.properties
 Starting Byzer engine in all-in-one mode...
 
 [All Config]
@@ -109,7 +117,7 @@ Starting Byzer engine in all-in-one mode...
 
 Byzer engine is starting. It may take a while. For status, please visit http://192.168.49.1:9003.
 
-You may also check status via: PID:401599, or Log: /home/zhengshuai/Downloads/ByzerTest/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0/logs/byzer-lang.log.
+You may also check status via: PID:401599, or Log: /home/byzer/byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0/logs/byzer-lang.log.
 
 ```
 Byzer 引擎在启动时，会引入环境检查以及配置读取，启动成功后，会在终端提供可访问的 Web 地址， 你可以在浏览器中访问该地址进入 Byzer Web Console，如下图所示

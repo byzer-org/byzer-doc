@@ -9,9 +9,6 @@
 |- byzer.properties.override              # Byzer 引擎用户可更改的配置文件，该配置文件的优先级要高于 byzer.properties 
 |- byzer.properties.all-in-one.example    # Byzer all in one 产品包的配置示例
 |- byzer.properties.server.example        # Byzer server 产品包的配置示例
-|- log4j.properties                       # Byzer 引擎主日志配置
-|- byzer-server-log4j.properties          # Byzer 引擎服务端日志配置
-|- byzer-tools-log4j.properties           # Byzer 可执行命令中调用的 Java 类的日志配置
 ```
 
 1. `byzer.properties.override` 文件中配置的优先级要高于 `byzer.properties` 文件，即如果有相同的配置项， `byzer.properties.override` 文件中的值生效
@@ -83,14 +80,25 @@ spark.executor.instances=1
 ```
 
 
-
 ### 配置参数详解
 
-#### Byzer 引擎 Server 模式
+#### 常用参数
 
 | 参数 | 说明 | 示例值 |
 |----|----|-----|
-|  byzer.server.mode  |  区分产品包以及对应启动方式，有两个值 `server | all-in-one` | 不同的产品包默认值不同，具体见 `byzer.properties.override` 文件    |
+|  byzer.server.mode  |   区分产品包以及对应启动方式 | `server ` 和 `all-in-one`   |
+|  streaming.master  |  等价于--master |  `local [*]` 和 `yarn`    |
+|  streaming.name  |  应用名称  | 自定义即可    |
+|  streaming.platform  |  平台 |  目前只有spark   |
+|  streaming.rest  |  是否开启http接口 |   布尔值，需要设置为true  |
+|  streaming.driver.port | HTTP服务端口 |  一般设置为9003  |
+|  streaming.spark.service  | 执行完是否退出程序 |  true 不退出  false 退出  |
+|  streaming.job.cancel | 支持运行超时设置 |  一般设置为true  |
+|  streaming.datalake.path | 数据湖基目录 一般为 HDFS 上的目录 |  需要设置，否则很多功能会不可用，比如插件等 |
+
+### Spark 参数
+
+除了本章节提到的 Byzer 引擎的参数外， Spark 的参数都是可用的，一般情况需要调整的 Spark 参数是 Driver 和 Executor 的资源控制参数。
 
 #### 接口权限控制
 

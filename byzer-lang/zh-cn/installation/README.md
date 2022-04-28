@@ -43,15 +43,15 @@ Byzer 引擎支持多种文件系统，包括本地文件系统 （`file://`）�
 #### Byzer 产品包分类
 Byzer 社区提供了多种产品包来满足用户的不同使用场景。
 
-|产品包类型| 部署方式 | 说明 | 适合场景 |
+|产品包类型| 部署说明 | 说明 | 适合场景 |
 |--|--------|-----|----------|
-|Binary Package| [部署 Byzer All In One 版本](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)     |该版本内置了所有的依赖，包括 JDK，Spark，其中 Spark 以 Local 的方式运行，不需要额外准备 Spark on YARN 或者 Spark on K8S 环境。<br> 该版本内置了 Byzer CLI 的**命令行交互方式**和**服务化的 REST 交互方式**| 一般适合于快速体验 Byzer 引擎部署，本机开发环境的搭建，或者是测试环境的部署， 受限于单机的 CPU 核心数量和内存限制，一般情况下不适合生产环境 |
-|Binary Package| [部署 Byzer Server 版本](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) | 该版本没有内置 JDK，需要用户配置 Spark 集群 <br> 该版本只**支持服务化 REST 的交互方式**| 一般适合于在生产环境进行部署，最常见的场景是搭配 Hadoop 集群进行使用|
+|Binary Package| [部署 Byzer All In One 版本](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)     |该版本内置了所有的依赖，包括 JDK，Spark Jars 等； 该版本同时内置了 Byzer CLI 的**命令行交互方式**和**服务化的 REST 交互方式**，<br>该产品包的默认配置 `all-in-one` 允许您直接将 Byzer 引擎运行在单机 Linux 系统或 MacOS上； 您也可以通过调整配置文件将其切换成 `server` 模式，来将该引擎跑在 Yarn 上或 K8S 上| 使用 `all-in-one` 的单机模式一般适合于快速体验 Byzer 引擎部署，本机开发环境的搭建，或者是测试环境的部署， 受限于单机的 CPU 核心数量和内存限制，一般情况下不适合生产环境；<br> 使用 `server` 模式等同于 Byzer Server 版本，可搭配 Hadoop 集群进行使用 |
+|Binary Package| [部署 Byzer Server 版本](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) | 该版本没有内置 JDK，也没有内置 Byzer CLI 可执行程序以及 Byzer Extensions，需要用户配置 JDK 以及 Spark 集群 <br> 默认情况下，该产品包使用 `server` 模式，只**支持服务化 REST 的交互方式**，您也可以前往官方下载站下载 Byzer CLI 以及 Byzer Extensions 来扩充产品能力| 一般适合于在生产环境进行部署，最常见的场景是搭配 Hadoop 集群进行使用 <br> |
 |Image| [容器化部署](/byzer-lang/zh-cn/installation/containerized-deployment/containerized-deployment.md) | 提供了基于 Docker 的多种镜像，方便用户用于自动构建、部署服务，供快速体验 Byzer-lang 功能 | 一般适合于快速体验 Byzer 引擎部署，本机开发环境的搭建，或者是测试环境的部署， 受限于容器虚拟化，除了 K8S 部署模式外一般不适合生产环境  |
 |Image| [K8S 环境部署](/byzer-lang/zh-cn/installation/k8s/k8s-deployment.md) | K8S 部署方案，本质上是使用了 Byzer 引擎的容器镜像，可以支持 minikube 或云上 K8S 服务|搭配基于云厂商的 K8S，适合做测试以及生产环境|
 |VSCode Extension| [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md) | VisualStudio Code 插件，支持 Windows， Mac， Linux | 适合搭建本机开发环境和快速体验上手 |
 
-> 1. 如果您只是想做开发和测试，建议选择下载 Byzer All In One 版本
+> 1. 建议选择下载 Byzer All In One 版本， 该版本内置了 Byzer 官方的所有插件， 可以通过调整配置文件中的 `byzer.server.mode=all-in-one | server` 来进行单机或 Hadoop 集群部署模式的切换
 > 2. 如果您需要做生产部署，可以根据环境 （Hadoop/K8S） 来选择 Byzer Server 版本或使用 K8S 镜像部署
 
 #### Byzer 引擎版本号
