@@ -23,6 +23,8 @@ Byzer All In One 版本是在 [Byzer Server 产品包](/byzer-lang/zh-cn/install
 `｛spark-version｝` 是 Byzer 引擎内置的 Spark 版本，`{byzer-version}` 是 Byzer 的版本。
 
 
+> Byzer All In One 暂时只提供了适配 Spark `3.1.1` 版本的安装包
+
 ### 下载并安装
 
 这里我们以 Linux 环境和 Byzer `2.3.0` 版本举例说明， 访问 [https://download.byzer.org/byzer/2.3.0/](https://download.byzer.org/byzer/2.3.0/) ，下载 Byzer `2.3.0` Byzer All In One 的产品包 `byzer-lang-all-in-one-linux-amd64-3.1.1-2.3.0.tar.gz` 

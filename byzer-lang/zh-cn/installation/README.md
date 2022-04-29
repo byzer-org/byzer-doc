@@ -7,7 +7,7 @@ Byzer 引擎本质上来讲就是一个 Spark Service 实例， 分为 Driver �
 
 ### 下载
 
-请前往[社区下载方式说明](/byzer-lang/zh-cn/installation/download/site.md)章节，了解 Byzer 社区提供的官方下载渠道和方式
+请前往[Byzer 下载渠道](/byzer-lang/zh-cn/installation/download/site.md)章节，了解 Byzer 社区提供的官方下载渠道和方式
 
 ### 部署前提
 
