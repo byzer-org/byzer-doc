@@ -14,7 +14,7 @@
   
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
-  * [下载渠道](/byzer-lang/zh-cn/installation/download/site.md)
+  * [Byzer 下载渠道](/byzer-lang/zh-cn/installation/download/site.md)
   * [Byzer All In One 部署](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md)
   * [Byzer Server 部署](/byzer-lang/zh-cn/installation/server/binary-installation.md)
   * [容器化部署](/byzer-lang/zh-cn/installation/containerized-deployment/containerized-deployment.md)
