@@ -7,6 +7,7 @@
 
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
+  * [Byzer-lang 2.3.0.1](/byzer-lang/zh-cn/release-notes/2.3.0.1.md)
   * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
   * [Byzer-lang 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
   * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
