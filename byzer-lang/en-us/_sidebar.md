@@ -7,6 +7,7 @@
 
 - Release Notes
   * [Byzer Version Management](/byzer-lang/en-us/release-notes/README.md)
+  * [Byzer-lang 2.3.0.1 Hotfix](/byzer-lang/en-us/release-notes/2.3.0.1.md)
   * [Byzer-lang 2.3.0](/byzer-lang/en-us/release-notes/2.3.0.md)
   * [Byzer-lang 2.2.2](/byzer-lang/en-us/release-notes/2.2.2.md)
   * [Byzer-lang 2.2.1](/byzer-lang/en-us/release-notes/2.2.1.md)
