@@ -8,10 +8,11 @@
 - Release Notes
   * [Byzer Version Management](/byzer-lang/en-us/release-notes/README.md)
   * [Byzer-lang 2.3.0.1 Hotfix](/byzer-lang/en-us/release-notes/2.3.0.1.md)
-  * [Byzer-lang 2.3.0](/byzer-lang/en-us/release-notes/2.3.0.md)
-  * [Byzer-lang 2.2.2](/byzer-lang/en-us/release-notes/2.2.2.md)
-  * [Byzer-lang 2.2.1](/byzer-lang/en-us/release-notes/2.2.1.md)
-  * [Byzer-lang 2.2.0](/byzer-lang/en--us/release-notes/2.2.0.md)
+  - Old Versions
+    * [Byzer-lang 2.3.0](/byzer-lang/en-us/release-notes/2.3.0.md)
+    * [Byzer-lang 2.2.2](/byzer-lang/en-us/release-notes/2.2.2.md)
+    * [Byzer-lang 2.2.1](/byzer-lang/en-us/release-notes/2.2.1.md)
+    * [Byzer-lang 2.2.0](/byzer-lang/en--us/release-notes/2.2.0.md)
 
 - Installation
   * [Byzer Installation Instruction](/byzer-lang/en-us/installation/README.md)
@@ -22,7 +23,9 @@
     * [Sandbox Deployment](/byzer-lang/en-us/installation/containerized-deployment/sandbox-standalone.md)
     * [Multi-container Deployment](/byzer-lang/en-us/installation/containerized-deployment/muti-continer.md)
   * [K8S Deployment](/byzer-lang/en-us/installation/k8s/k8s-deployment.md)
+    * [Prerequisite](/byzer-lang/en-us/installation/k8s/k8s-prerequisites.md)
     * [On Minikube](/byzer-lang/en-us/installation/k8s/byzer-on-minikube.md)
+    * [On Azure AKS](/byzer-lang/en-us/installation/k8s/byzer-on-azure.md)
     * [Byzer-K8S Tools](/byzer-lang/en-us/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/en-us/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer CLI](/byzer-lang/en-us/installation/cli/byzer-cli.md)

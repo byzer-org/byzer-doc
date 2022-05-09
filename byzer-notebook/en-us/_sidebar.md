@@ -7,10 +7,11 @@
 
 - ReleaseNote
   * [Byzer Notebook 1.2.0](/byzer-notebook/en-us/release-notes/1.2.0.md)
-  * [Byzer Notebook 1.1.1](/byzer-notebook/en-us/release-notes/1.1.1.md)
-  * [Byzer Notebook 1.1.0](/byzer-notebook/en-us/release-notes/1.1.0.md)
-  * [Byzer Notebook 1.0.1](/byzer-notebook/en-us/release-notes/1.0.1.md)
-  * [Byzer Notebook 1.0.0](/byzer-notebook/en-us/release-notes/1.0.0.md)
+  - Old Versions
+    * [Byzer Notebook 1.1.1](/byzer-notebook/en-us/release-notes/1.1.1.md)
+    * [Byzer Notebook 1.1.0](/byzer-notebook/en-us/release-notes/1.1.0.md)
+    * [Byzer Notebook 1.0.1](/byzer-notebook/en-us/release-notes/1.0.1.md)
+    * [Byzer Notebook 1.0.0](/byzer-notebook/en-us/release-notes/1.0.0.md)
 
 - Install / Uninstall
   * [Prerequisites](/byzer-notebook/en-us/installation/prerequisites.md)
