@@ -8,10 +8,11 @@
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
   * [Byzer-lang 2.3.0.1](/byzer-lang/zh-cn/release-notes/2.3.0.1.md)
-  * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
-  * [Byzer-lang 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
-  * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
-  * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
+  - 历史版本
+    * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
+    * [Byzer-lang 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
+    * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
+    * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
   
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
@@ -22,7 +23,9 @@
     * [Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized-deployment/sandbox-standalone.md)
     * [多容器部署](/byzer-lang/zh-cn/installation/containerized-deployment/muti-continer.md)
   * [K8S 部署指南](/byzer-lang/zh-cn/installation/k8s/k8s-deployment.md)
+    * [K8S 部署前置条件](/byzer-lang/zh-cn/installation/k8s/k8s-prerequisites.md)
     * [Minikube 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-minikube.md)
+    * [Azure AKS 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-azure.md)
     * [Byzer-K8S 工具部署](/byzer-lang/zh-cn/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer CLI](/byzer-lang/zh-cn/installation/cli/byzer-cli.md)
