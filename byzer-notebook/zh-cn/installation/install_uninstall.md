@@ -70,7 +70,7 @@ Byzer-Notebook-<byzer_notebook_version>
 | notebook.mlsql.engine-url         | 默认 Byzer 引擎 API 地址，默认：`http://localhost:9003`，使用时可在设置页面切换引擎。                                            |
 | notebook.mlsql.engine-backup-url  | 备用 Byzer 引擎 API 地址 ，默认：`http://localhost:9004`，使用时可在设置页面切换引擎。                                           |
 | notebook.mlsql.auth-client        | Byzer 引擎鉴权插件，默认：`streaming.dsl.auth.client.DefaultConsoleClient`。您可自己开发鉴权插件配置在 Byzer 引擎端，而后将此项配置改为您的插件。 |
-| notebook.user.home                | Byzer 引擎端用户文件目录，默认：`/mlsql`。                                                                            |
+| notebook.user.home                | Byzer 引擎端用户文件目录，默认：`/mlsql`。 **您可以进行自定义路径，请确保启动 Byzer Notebook 的帐号对该路径有读写权限** |
 | notebook.job.output-size          | `Cell` 执行结果显示的记录条数限制，默认：`1000`                                                                          |
 | notebook.job.history.archive-time | 定时归档任务记录，将 N 天前的记录移入归档，默认：`7`（自动归档 7 天前的任务记录）                                                           |
 | notebook.job.history.max-size     | 定时清理已归档的任务记录时，最多保留 N 条记录，默认：`2000000`                                                                   |
