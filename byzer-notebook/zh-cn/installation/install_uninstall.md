@@ -54,43 +54,44 @@ Byzer-Notebook-<byzer_notebook_version>
 
 #### 基本配置项说明
 
-| 配置项                               | 描述                                                                                                      |
-|-----------------------------------|---------------------------------------------------------------------------------------------------------|
-| notebook.port                     | Byzer Notebook服务所用的端口，默认：`9002`。                                                                        |
-| notebook.session.timeout          | Session 超时时间，默认：`12h`（12小时）。                                                                            |
-| notebook.security.key             | 加密密钥（HexString），用于用户密码等敏感信息的加密，**不推荐更改此项配置**。                                                           |
-| notebook.database.type            | 元数据库类型，默认：`mysql`，**暂只支持 MySQL**。                                                                       |
-| notebook.database.ip              | 元数据库地址，默认：`localhost`。                                                                                  |
-| notebook.database.port            | 元数据库端口，默认：`3306`。                                                                                       |
-| notebook.database.name            | 元数据库 schema，默认：`notebook`。                                                                              |
-| notebook.database.username        | 元数据库连接账号，默认：`root`。                                                                                     |
-| notebook.database.password        | 元数据库连接账号的密码，默认：`root`。                                                                                  |
-| notebook.execution.timeout        | 运行 Byzer 脚本的超时时间（秒），默认：`2880`。                                                                          |
-| notebook.url                      | Byzer Notebook 服务地址，作用是给 Byzer 引擎回调，默认：`http://localhost:9002`。**您在配置此项时，应当保障此地址能被 Byzer 引擎访问。**        |                                                                                                         |
-| notebook.mlsql.engine-url         | 默认 Byzer 引擎 API 地址，默认：`http://localhost:9003`，使用时可在设置页面切换引擎。                                            |
-| notebook.mlsql.engine-backup-url  | 备用 Byzer 引擎 API 地址 ，默认：`http://localhost:9004`，使用时可在设置页面切换引擎。                                           |
-| notebook.mlsql.auth-client        | Byzer 引擎鉴权插件，默认：`streaming.dsl.auth.client.DefaultConsoleClient`。您可自己开发鉴权插件配置在 Byzer 引擎端，而后将此项配置改为您的插件。 |
-| notebook.user.home                | Byzer 引擎端用户文件目录，位于引擎端所使用的文件系统之上（本地文件系统 / HDFS / 对象存储）， 默认目录：`/mlsql`，在该目录下，会根据每一个用户的用户名做目录隔离，假如你使用 Notebook 中的 admin 用户，那么 admin 用户产生的数据文件将存储至 Byzer 引擎配置的文件系统的 `/mlsql/admin/` 目录中。 **您可以进行自定义该路径，请确保启动 Byzer 引擎对该路径有读写权限** |
-| notebook.job.output-size          | `Cell` 执行结果显示的记录条数限制，默认：`1000`                                                                          |
-| notebook.job.history.archive-time | 定时归档任务记录，将 N 天前的记录移入归档，默认：`7`（自动归档 7 天前的任务记录）                                                           |
-| notebook.job.history.max-size     | 定时清理已归档的任务记录时，最多保留 N 条记录，默认：`2000000`                                                                   |
-| notebook.job.history.max-time     | 定时清理已归档的任务记录时，删除 N 天前的记录，默认：`30`（自动删除 30 天前的任务记录）                                                       |
+| 配置项                               | 描述                                                                                                      | 起始生效版本 |
+|-----------------------------------|---------------------------------------------------------------------------------------------------------| --- |
+| notebook.port                     | Byzer Notebook服务所用的端口，默认：`9002`。                                                                        | 1.0.0 |
+| notebook.session.timeout          | Session 超时时间，默认：`12h`（12小时）。                                                                            |  1.0.0 |
+| notebook.security.key             | 加密密钥（HexString），用于加密数据库中用户密码等字段敏感信息，**建议在第一次安装时进行修改，后续保持不变**。               |  1.0.0 |
+| notebook.services.communication.token  |  用于和 Notebook 产生交互的服务进行服务间互信设置的验证 Token，你可以填写数字和字母的组合，并在另一个需要和 Notebook 互信的服务（比如 Byzer Data As From）中设置同样的 token 即可   | 1.2.1 |
+| notebook.database.type            | 元数据库类型，默认：`mysql`，**暂只支持 MySQL**。                                                                       |  1.0.0 |
+| notebook.database.ip              | 元数据库地址，默认：`localhost`。                                                                                  |  1.0.0 |
+| notebook.database.port            | 元数据库端口，默认：`3306`。                                                                                       |  1.0.0 |
+| notebook.database.name            | 元数据库 schema，默认：`notebook`。                                                                              |  1.0.0 |
+| notebook.database.username        | 元数据库连接账号，默认：`root`。                                                                                     |  1.0.0 |
+| notebook.database.password        | 元数据库连接账号的密码，默认：`root`。                                                                                  |  1.0.0 |
+| notebook.execution.timeout        | 运行 Byzer 脚本的超时时间（秒），默认：`2880`。                                                                          |  1.0.0 |
+| notebook.url                      | Byzer Notebook 服务地址，作用是给 Byzer 引擎回调，默认：`http://localhost:9002`。**您在配置此项时，应当保障此地址能被 Byzer 引擎访问。**  |  1.0.0 |
+| notebook.mlsql.engine-url         | 默认 Byzer 引擎 API 地址，默认：`http://localhost:9003`，使用时可在设置页面切换引擎。                                            |  1.0.0 |
+| notebook.mlsql.engine-backup-url  | 备用 Byzer 引擎 API 地址 ，默认：`http://localhost:9004`，使用时可在设置页面切换引擎。                                           |  1.0.0 |
+| notebook.mlsql.auth-client        | Byzer 引擎鉴权插件，默认：`streaming.dsl.auth.client.DefaultConsoleClient`。您可自己开发鉴权插件配置在 Byzer 引擎端，而后将此项配置改为您的插件。 |  1.0.0 |
+| notebook.user.home                | Byzer 引擎端用户文件目录，位于引擎端所使用的文件系统之上（本地文件系统 / HDFS / 对象存储）， 默认目录：`/mlsql`，在该目录下，会根据每一个用户的用户名做目录隔离，假如你使用 Notebook 中的 admin 用户，那么 admin 用户产生的数据文件将存储至 Byzer 引擎配置的文件系统的 `/mlsql/admin/` 目录中。 **您可以进行自定义该路径，请确保启动 Byzer 引擎对该路径有读写权限** |  1.0.0 |
+| notebook.job.output-size          | `Cell` 执行结果显示的记录条数限制，默认：`1000`                                                                          |  1.0.0 |
+| notebook.job.history.archive-time | 定时归档任务记录，将 N 天前的记录移入归档，默认：`7`（自动归档 7 天前的任务记录）                                                           |  1.0.0 |
+| notebook.job.history.max-size     | 定时清理已归档的任务记录时，最多保留 N 条记录，默认：`2000000`                                                                   |  1.0.0 |
+| notebook.job.history.max-time     | 定时清理已归档的任务记录时，删除 N 天前的记录，默认：`30`（自动删除 30 天前的任务记录）                                                       |  1.0.0 |
 
 #### 高级配置
 1. 如果您需要集成 Dolphin 调度系统来使用，请参考章节 [接入调度系统](/byzer-notebook/zh-cn/schedule/setup.md)
 2. 如果您需要将 Notebook 和其他的系统进行集成，需要启用 Redis 来进行用户 Session 的同步，可以修改一下参数
 
-| 配置项 | 描述  |
-|------|-----|
-| notebook.env.redis-enable   | 是否启用 Redis， 默认值为 `false`  |
-| notebook.redis.host  | Redis 的 host，默认值 `localhost`   |
-| notebook.redis.port | Redis 端口，默认值 `6379`  |
-| notebook.redis.password  | Redis 库的密码， 默认值 `redis_pwd`   |
-| notebook.redis.database  | Redis 库，默认值 `0` |
+| 配置项 | 描述  | 起始生效版本 |
+|------|-----|-----|
+| notebook.env.redis-enable   | 是否启用 Redis， 默认值为 `false`  |  1.2.0 |
+| notebook.redis.host  | Redis 的 host，默认值 `localhost`   |  1.2.0 |
+| notebook.redis.port | Redis 端口，默认值 `6379`  |  1.2.0 |
+| notebook.redis.password  | Redis 库的密码， 默认值 `redis_pwd`   |  1.2.0 |
+| notebook.redis.database  | Redis 库，默认值 `0` |  1.2.0 |
 
 ### 启动
 
-> 需要首先启动 Byzer-lang, 它的部署安装请翻看 [Byzer-lang 部署指引](/byzer-lang/zh-cn/installation/README.md)
+> 需要首先启动 Byzer Engine, 它的部署安装请翻看 [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
 
 进入 `Byzer-Notebook-<byzer_notebook_version>` 目录，执行：
 
