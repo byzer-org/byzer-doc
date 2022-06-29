@@ -47,43 +47,56 @@
   * [分支语句/!If|!Else](/byzer-lang/zh-cn/grammar/branch_statement.md)
   * [内置宏函数/build-in Macro Functions](/byzer-lang/zh-cn/grammar/commands.md)
 
-- 数据处理和分析
-    - [加载和存储多种数据源](/byzer-lang/zh-cn/datasource/README.md)
-      * [RestAPI](/byzer-lang/zh-cn/datasource/restapi.md)
-        * [更多 REST API 调用示例](/byzer-lang/zh-cn/datasource/restapi_examples.md)
-      * [JDBC](/byzer-lang/zh-cn/datasource/jdbc.md)
+- 加载数据
+    - [加载多种数据源](/byzer-lang/zh-cn/datasource/README.md)
+    - [JDBC 数据源](/byzer-lang/zh-cn/datasource/jdbc/jdbc.md)
+    - [数据仓库/湖](/byzer-lang/zh-cn/datahouse/README.md)
+      * [加载 Hive](/byzer-lang/zh-cn/datahouse/hive.md)
+      * [加载 Delta Lake](/byzer-lang/zh-cn/datahouse/delta_lake.md)
+    - [文件数据源](/byzer-lang/zh-cn/datasource/file.md)
+      - [加载 HDFS]()
+      - [加载 对象存储]()
+    - [REST API](/byzer-lang/zh-cn/datasource/restapi.md)
+      * [更多 REST API 调用示例](/byzer-lang/zh-cn/datasource/restapi_examples.md)
+    - [流式数据源]()
+      * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
+      * [MockStream](/byzer-lang/zh-cn/datasource/mock_streaming.md)
+    - [其他数据源](/byzer-lang/zh-cn/datasource/other.md)
+      * [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
       * [ElasticSearch](/byzer-lang/zh-cn/datasource/es.md)
       * [Solr](/byzer-lang/zh-cn/datasource/solr.md)
       * [HBase](/byzer-lang/zh-cn/datasource/hbase.md)
       * [MongoDB](/byzer-lang/zh-cn/datasource/mongodb.md)
-      * [本地文件/HDFS](/byzer-lang/zh-cn/datasource/file.md)
-      * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
-      * [MockStream](/byzer-lang/zh-cn/datasource/mock_streaming.md)
-      * [其他](/byzer-lang/zh-cn/datasource/other.md)
-    - [使用数仓/数据湖](/byzer-lang/zh-cn/datahouse/README.md)
-        * [Hive 加载和存储](/byzer-lang/zh-cn/datahouse/hive.md)
-        * [Delta 加载和存储以及流式支持](/byzer-lang/zh-cn/datahouse/delta_lake.md)
-        * [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
-    - [Byzer-python](/byzer-lang/zh-cn/python/README.md)
-        * [环境依赖](/byzer-lang/zh-cn/python/env.md)
-        * [数据处理](/byzer-lang/zh-cn/python/etl.md)
-        * [模型训练](/byzer-lang/zh-cn/python/train.md)
-        * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
-        * [PyJava API 简介](/byzer-lang/zh-cn/python/pyjava.md)
-        * [k8s 下的 Byzer-python 资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
-        * [dataMode 详解](/byzer-lang/zh-cn/python/datamode.md)
-        * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
-    
-    * [UDF 扩展](/byzer-lang/zh-cn/udf/README.md)
-        * [系统内置 UDF](/byzer-lang/zh-cn/udf/built_in_udf/README.md)
-          * [http 请求](/byzer-lang/zh-cn/udf/built_in_udf/http.md)
-          * [常用函数](/byzer-lang/zh-cn/udf/built_in_udf/vec.md)
-        * [动态扩展 UDF](/byzer-lang/zh-cn/udf/extend_udf/README.md)
-          * [Python UDF](/byzer-lang/zh-cn/udf/extend_udf/python_udf.md)
-          * [Scala UDF](/byzer-lang/zh-cn/udf/extend_udf/scala_udf.md)
-          * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
-          * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)
-    
+
+- 数据转换
+  - [使用 Byzer 做数据转换]()
+  - [SQL 函数]()
+
+- 存储数据
+  - [Byzer 存储系统介绍]()
+  - [写入 JDBC](/byzer-lang/zh-cn/datasource/jdbc.md)
+  - [写入数据仓库/湖](/byzer-lang/zh-cn/datahouse/README.md)
+    * [写入 Hive](/byzer-lang/zh-cn/datahouse/hive.md)
+    * [写入 Delta Lake](/byzer-lang/zh-cn/datahouse/delta_lake.md)
+  - [文件数据源](/byzer-lang/zh-cn/datasource/file.md)
+  - [REST API](/byzer-lang/zh-cn/datasource/restapi.md)
+    * [更多 REST API 调用示例](/byzer-lang/zh-cn/datasource/restapi_examples.md)
+  - [流式数据源]
+    * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
+    * [MockStream](/byzer-lang/zh-cn/datasource/mock_streaming.md)
+
+
+- Byzer-python
+    - [Byzer-python 介绍](/byzer-lang/zh-cn/python/README.md)
+    * [环境依赖](/byzer-lang/zh-cn/python/env.md)
+    * [数据处理](/byzer-lang/zh-cn/python/etl.md)
+    * [模型训练](/byzer-lang/zh-cn/python/train.md)
+    * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
+    * [PyJava API 简介](/byzer-lang/zh-cn/python/pyjava.md)
+    * [k8s 下的 Byzer-python 资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
+    * [dataMode 详解](/byzer-lang/zh-cn/python/datamode.md)
+    * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
+
 - 机器学习
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
         * [特征平滑/ScalerPlace](/byzer-lang/zh-cn/ml/feature/scale.md)
@@ -106,16 +119,11 @@
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
     
 - 插件系统
-    * 插件开发
-        * [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)
-        * [自定义数据源插件开发](/byzer-lang/zh-cn/extension/dev/ds_dev.md)
-        * [命令行开发](/byzer-lang/zh-cn/extension/dev/et_command.md)
-        * [参数自省机制介绍](/byzer-lang/zh-cn/extension/dev/et_params_dev.md)
     * [插件安装](/byzer-lang/zh-cn/extension/README.md)
         * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
         * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
-      * 内置ET
+      * 内置 ET 插件
         * [缓存表插件/CacheExt](/byzer-lang/zh-cn/extension/et/CacheExt.md)
         * [Json 展开插件/JsonExpandExt](/byzer-lang/zh-cn/extension/et/JsonExpandExt.md)
         * [Byzer-Watcher 插件](/byzer-lang/zh-cn/extension/et/byzer-watcher.md)
@@ -123,7 +131,7 @@
         * [语法解析插件/SyntaxAnalyzeExt](/byzer-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
         * [表分区插件/TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
         * [计算表父子关系插件/TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
-      * 外置ET
+      * 外置 ET 插件
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
@@ -132,13 +140,26 @@
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
 
 - 开发者指南   
-    * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)     
-    * API
-      * [Byzer Engine Rest API](/byzer-lang/zh-cn/developer/api/README.md)
-        * [脚本执行 API](/byzer-lang/zh-cn/developer/api/run_script_api.md)
-        * [Byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
+    * [UDF 扩展](/byzer-lang/zh-cn/udf/README.md)
+      * [系统内置 UDF](/byzer-lang/zh-cn/udf/built_in_udf/README.md)
+        * [http 请求](/byzer-lang/zh-cn/udf/built_in_udf/http.md)
+        * [常用函数](/byzer-lang/zh-cn/udf/built_in_udf/vec.md)
+      * [动态扩展 UDF](/byzer-lang/zh-cn/udf/extend_udf/README.md)
+        * [Python UDF](/byzer-lang/zh-cn/udf/extend_udf/python_udf.md)
+        * [Scala UDF](/byzer-lang/zh-cn/udf/extend_udf/scala_udf.md)
+        * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
+        * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)  
+    * 插件开发
+      * [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)
+      * [自定义数据源插件开发](/byzer-lang/zh-cn/extension/dev/ds_dev.md)
+      * [命令行开发](/byzer-lang/zh-cn/extension/dev/et_command.md)
+      * [参数自省机制介绍](/byzer-lang/zh-cn/extension/dev/et_params_dev.md) 
+    * [API](/byzer-lang/zh-cn/developer/api/README.md)
+      * [脚本执行 API](/byzer-lang/zh-cn/developer/api/run_script_api.md)
+      * [Byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/byzer-lang/zh-cn/developer/api/liveness.md)
       * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)
+    * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)  
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
 - [术语表](../../byzer-lang/zh-cn/terms/terms.md)

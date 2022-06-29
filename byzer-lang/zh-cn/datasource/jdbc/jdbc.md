@@ -1,12 +1,17 @@
 # JDBC 数据源
 
-Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server 等。
+Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server 等，或者其他提供了标准 JDBC 协议驱动的任何系统。
 
-本节会以 MySQL 为主要例子进行介绍。
+Byzer 加载 JDBC 类数据源后，会通过两步来进行，先进行数据源的连接 （**Connect**），然后在进行数据源的加载（**Load**），加载后就将 JDBC 中的表加载至 Byzer 中，此时就可以通过 SQL 来进行表的查询。
+
+> 注意，通过 JDBC 协议来进行表查询的时候，实际上是将查询计算下推至数据源侧进行执行，如果高频次或大数据量的数据拉取，会对数据源侧造成较大的负担。当数据量较大时推荐的方式为，先通过 Connect 和 Load 按批将数据从 JDBC 数据源侧拉取到 Byzer 所在的文件系统进行存储，然后在基于文件系统上的文件进行处理
 
 
+接下来我们以 MySQL 作为 JDBC 的数据源进行介绍。
 
-### 1. 加载数据
+todo加密解密
+
+###  加载数据
 
 Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
 
