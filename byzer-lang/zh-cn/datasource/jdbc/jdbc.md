@@ -2,58 +2,100 @@
 
 Byzer 支持加载符合 JDBC 协议的数据源，如 MySQL, Oracle,Hive thrift server 等，或者其他提供了标准 JDBC 协议驱动的任何系统。
 
-Byzer 加载 JDBC 类数据源后，会通过两步来进行，先进行数据源的连接 （**Connect**），然后在进行数据源的加载（**Load**），加载后就将 JDBC 中的表加载至 Byzer 中，此时就可以通过 SQL 来进行表的查询。
+Byzer 加载 JDBC 类数据源后，会通过两步来进行，先通过 JDBC URL 连接信息连接数据源的数据库，然后可以加载库中的表，此时就可以通过 Byzer SQL 来进行加载表的查询。
 
-> 注意，通过 JDBC 协议来进行表查询的时候，实际上是将查询计算下推至数据源侧进行执行，如果高频次或大数据量的数据拉取，会对数据源侧造成较大的负担。当数据量较大时推荐的方式为，先通过 Connect 和 Load 按批将数据从 JDBC 数据源侧拉取到 Byzer 所在的文件系统进行存储，然后在基于文件系统上的文件进行处理
+> 注意:
+> 1. 通过 JDBC 协议来进行表加载的时候，和数据库真实发生连接的时候是在 Executor 去执行加载语句的时候发生的，当一次 Byzer 语句的执行请求执行完毕后，连接释放
+> 2. 加载的过程实际上是将 SQL 语句的 Filter 算子下推至数据源侧，将数据按批拉取到 Byzer 引擎 executor 端的内存中进行计算，这个过程是被引擎的 Executor 端进行并行的，用户可以通过调整参数来进行
+> 3. 如果高频次或大数据量的数据拉取，会对数据源侧造成较大的负担。当数据量较大时推荐的方式为，将 JDBC 数据源一次性拉取到 Byzer 所在的文件系统进行存储，然后在基于文件系统上的文件进行后续的处理
 
 
-接下来我们以 MySQL 作为 JDBC 的数据源进行介绍。
+### 1. 连接/加载 JDBC 数据源
 
-todo加密解密
+我们以 MySQL 5.7 数据库为例， MySQL 中有如下的库表
 
-###  加载数据
+|DB| Table|
+|--|--|
+|byzer_demo|jdbc_demo|
+|byzer_demo|tutorials_tbl|
 
-Byzer 支持通过 `connect` 语法，以及 `load` 语法建立与 JDBC 数据源的连接。需要注意的是，建立的连接是 APP 范围內生效的。
+#### 准备 JDBC 驱动
+在连接 JDBC 数据源之前，我们需要先准备数据源的 JDBC 驱动，将其放入 Byzer Engine 安装路径中的 `${BYZER_HOME}/libs` 目录下。然后需要通过 `${BYZER_HOME}/bin/byzer.sh restart` 命令来重启 Byzer 引擎服务。
 
-下面是一个使用 `connect` 语法的例子：
+> 注意： Byzer Engine 的产品包中已经**内置了 MySQL 5.x 以及 Apache Kylin 的 JDBC Driver**，无需做额外的配置工作
+
+####  通过 CONNECT 语法和 LOAD 语法加载 JDBC （Optional）
+
+连接 JDBC 数据源的操作实际上是由 `Load` 语法语句来完成的，但考虑以下两个原因：
+- 每次加载 JDBC 表时，需要在每条 Load 语句的条件中写入连接信息，非常繁琐
+- 不是每个人都能够轻易的得到数据库的完整连接信息
+
+所以 Byzer 提供了 `CONNECT` 语法来进行连接信息的保存。下面是一个保存连接到 MySQL 中 wow database 的例子：
+
 
 ```sql
-SET user="root";
-SET password="root";
-CONNECT jdbc WHERE
- url="jdbc:mysql://127.0.0.1:3306/wow?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
+> SET user="root";
+> SET password="root";
+> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false";
+> CONNECT jdbc WHERE
+ url="${jdbc_url}"
  and driver="com.mysql.jdbc.Driver"
  and user="${user}"
  and password="${password}"
- AS db_1;
+ AS mysql_instance;
 ```
 
-> 这条语句表明，Byzer 连接的是 JDBC 数据源。WHERE 语句中包含连接相关的参数，指定驱动是 MySQL 的驱动，设置用户名/密码为 root。
-最后将这个链接的别名设置为 db_1.
+这样我们就定义了一个 MySQL 数据库的连接信息并命名为 `mysql_instance`，在引擎中，`mysql_instance` 不同于其他语法定义的临时表变量，是用户 Session 级别或 Request 级别，而 `CONNECT` 定义的连接信息变量是**引擎全局级别**的，也就是说，上述代码一旦被执行，那么 `mysql_instance` 这个变量就被以静态变量的方式存在引擎的内存当中。
 
-同样，我们也可以使用 `load` 语法加载数据源：
+> 注意：
+> 1. 由于 connection 定义的连接信息变量是全局的，所以是有可能被任一在该引擎上执行的其他 connection 语句进行覆盖的，这点一定要小心
+> 2. `mysql_instance` 是无法被 `SELECT` 语法进行查询的
+> 3. 引擎的默认实现中，是没有进行表的权限校验的，管理员如果有需要对不同用户进行表连接和访问的需求时，可以通过实现权限接口的插件来完成，实现的代码类可参考 [DefaultConsoleClient.scala](https://github.com/byzer-org/byzer-lang/blob/master/streamingpro-core/src/main/java/streaming/dsl/auth/client/DefaultConsoleClient.scala)
+
+
+当我们定义了 MySQL 的连接信息后，可以通过 `Load` 语句和 `jdbc`来完成表的加载和使用
 
 ```sql
-LOAD jdbc.`db.table` OPTIONS
-and driver="com.mysql.jdbc.Driver"
-and url="jdbc:mysql://127.0.0.1:3306/...."
-and user="..."
-and password="...."
-AS table1;
+> LOAD jdbc.`mysql_instance.jdbc_demo` as jdbc_demo_tbl;
+> LOAD jdbc.`mysql_instance.tutorials_tbl` as tutorials_tbl;
+
+> SELECT * from jdbc_demo_tbl as output;
 ```
 
-在这之后，可以使用 db_1 加载数据库中的任意表：
+这样我们就完成了一个通过 `CONNECT` 语法和 `LOAD` 语法完成 MySQL 的连接，并将数据库中的表进行了加载和操作。
+
+
+#### 通过 Load 语法直接加载
+
+除了可以通过 `CONNECT` 语法来建立连接，我们也可以通过 `LOAD` 语法来直接建立连接和加载 JDBC 中的库表，效果和使用  `CONNECT` + `LOAD` 语法等同，我们来看下面这个例子：
+
 
 ```sql
-LOAD jdbc.`db_1.table1` as table1;
-LOAD jdbc.`db_1.table2` as table2;
+> SET user="root";
+> SET password="root";
+> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false";
 
-SELECT * from table1 as output;
+> LOAD jdbc.`byzer_demo.tutorials_tbl` 
+where driver="com.mysql.jdbc.Driver"
+and url="${jdbc_url}"
+and user="${user}"
+and password="${password}"
+AS tutorial_tbl;
+
+> SELECT * from tutorial_tbl as output;
 ```
+这与我们就通过 `LOAD` 语句单独完成了 MySQL 中表的加载
 
-#### 1) 可选参数列表
+#### 加载 JDBC 过程中可选参数列表
 
-| Property Name  |  Meaning |
+参数由两类组成：
+- Spark 引擎端参数
+- Byzer 内置的参数
+
+##### Spark 参数
+Byzer 连接 JDBC 的底层实现是通过 Spark JDBC 来实现的，所以在使用的过程中，我们可以通过在 `WHERE` 语句中调整参数来达到类似控制并行度的问题。 参数文档可参考 Spark 的官方文档 [JDBC To Other Databases](https://spark.apache.org/docs/3.1.1/sql-data-sources-jdbc.html)
+
+| 参数名称 |  解释 |
 |---|---|
 |url|The JDBC URL to connect to. The source-specific connection properties may be specified in the URL. e.g., jdbc：postgresql://localhost/test?user=fred&password=secret|
 |dbtable |The JDBC table that should be read. Note that anything that is valid in a FROM clause of a SQL query can be used. For example, instead of a full table you could also use a subquery in parentheses.|
@@ -71,59 +113,73 @@ SELECT * from table1 as output;
 
 其中
 - `partitionColumn`, `lowerBound`, `upperBound`,`numPartitions` 用来控制加载表的并行度。你可以调整这几个参数提升加载速度。
-- 当 `driver` 为 MySQL 时，`url` 默认设置参数 `useCursorFetch=true`，并且 `fetchsize` 默认为-2147483648（在 spark2 中不支持设置 `fetchsize` 为负数，默认值为 1000），用于支持数据库游标的方式拉取数据，避免全量加载导致 OOM。
+- 当 `driver` 为 MySQL 时，`url` 默认设置参数 `useCursorFetch=true`，并且 `fetchsize` 默认为`-2147483648`（在 spark2 中不支持设置 `fetchsize` 为负数，默认值为 `1000`），用于支持数据库游标的方式拉取数据，避免全量加载导致 OOM。
 
-**Byzer内置参数**
+#### Byzer 内置参数
 
-| Property Name  |  Meaning |
+
+
+| 参数名称 |  解释 |
 |---|---|
-|prePtnArray|Prepartitioned array, default comma delimited|
-|prePtnDelimiter|Prepartition separator|
+|prePtnArray|预分区数组，默认使用逗号分割|
+|prePtnDelimiter|预分区参数分隔符|
 
-**预分区使用样例**
+下面是一个使用预分区的示例
 
 ```sql
-> LOAD jdbc.`db.table` OPTIONS
+> LOAD jdbc.`db.table` WHERE
 and driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:3306/...."
 and user="..."
 and password="...."
-and prePtnArray = "age<=10 | age > 10"
+and prePtnArray = "age>=10 | age < 30"
 and prePtnDelimiter = "\|"
 as table1;
 ```
 
 
-#### 2) MySQL 原生 SQL 加载
+#### Direct Query - 使用原生 SQL 加载 JDBC 数据
 
-值得注意的是，Byzer 还支持使用 MySQL 原生 SQL 的方式加载数据。比如：
+Byzer 除了上述通过 `CONNECT` 语法和 `LOAD` 语法来加载 JDBC 数据的方式外，还可以支持使用 JDBC 数据源的原生 SQL 的方式加载数据，以下面的示例为例，我们可以允许用户在 `WHERE` 语句中通过 `directQuery` 参数可以将 JDBC 系统支持的原生的 SQL 来进行数据加载的操作。
+
 
 ```sql
-> LOAD jdbc.`db_1.test1` WHERE directQuery='''
-select * from test1 where a = "b"
-''' AS newtable;
+> LOAD jdbc.`db_1.test1` 
+  WHERE directQuery='''
+  select * from test1 where a = "b"
+  ''' 
+  AS newtable;
 
-> SELECT * FROM newtable AS newtable_1;
+> SELECT * FROM newtable AS output;
 ```
 
-这种情况要求加载的数据集不能太大。 
+**注意**：
+1. 区别于 `CONNECT` 和 `LOAD`, Direct Query 模式是单线程的方式从数据库进行加载的
+2. DirectQuery 模式和 `CONNECT` 语法混用时, 在 CONNECT 语句定义的连接信息和库名同名时，有可能会发生表的引用关系混乱的情况，建议 directlyQuery 只在 `LOAD` 语句连接 JDBC 数据源中进行使用 
+3. DirectQuery 模式默认只执行以 `select` 开头的语句，没有做其他的校验，如 directQuery 的语句加载的表是否和 `LOAD` 语句中声明的表做匹配校验；如果您想开启此校验功能，则需要在 `${BYZER_HOME}/conf/byzer.properties.override` 配置文件中将如下参数设置为 `true`：
 
-如果你希望对这个语句也进行权限控制，如果是到表级别，那么只要系统开启授权即可。
-如果是需要控制到列，那么启动时需要添加如下参数：
-
-```shell
---conf "spark.mlsql.enable.runtime.directQuery.auth=true" 
+```properties
+spark.mlsql.enable.runtime.directQuery.auth=true 
 ```
 
 
 
-### 2. 删除或创建表
+### 2. 通过 Byzer 在 JDBC 中删除或创建表
 
-具体用法如下：
+Byzer 内置提供了一个 JDBC 的 ET 实现，可以允许用户执行 DDL 语句，此功能需要 JDBC 数据源的 JDBC Driver 提供相应的 DDL 能力。注意通过该 ET 的方式执行的语句，实际上都发生在 Byzer 引擎的 Driver 端，所以请避免通过该方式进行大量的数据操作。
+
+#### 通过 JDBC 创建表
+
+我们看一个示例，当前 MySQL 中数据库包含 `jdbc_demo`， `tutorials_tbl` 两张表，我们想要在数据库中创建另外一张表 `test1`，那么我们可以通过下述语句来完成 `test1` 表的创建 
+
 
 ```sql
-run command as JDBC.`db_1._` where 
-`driver-statement-0`="drop table if exists test1"
+> run command as JDBC.`byzer_demo._` where 
+driver="com.mysql.jdbc.Driver"
+and url="${jdbc_url}"
+and user="${user}"
+and password="${password}"
+and `driver-statement-0`="drop table if exists test1"
 and `driver-statement-1`='''
 CREATE TABLE test1
 (
@@ -132,11 +188,12 @@ CREATE TABLE test1
 );''';
 ```
 
-我们先用 `connect` 语法获得数据连接，然后通过 JDBC transformer 完成删除和创建表的工作。 driver-statement-[number] 中的 number 表示执行的顺序。
+在该示例中，我们通过 JDBC ET 执行了一条 `Drop` 语句和 `CREATE` 语句, 其中 `driver-statement-[number]` 中的 `number` 表示执行的顺序，从 `0` 开始计数。执行完毕后，MySQL 中可以查询到 `test1` 这张表
 
 
 
-### 3. 保存数据
+### 3. 保存数据至 JDBC
+
 
 建立 JDBC 数据连接后，你可以使用 `save` 语句对得到的数据进行保存。Byzer 支持 `append`/`overwrite` 方式保存数据。
 
@@ -212,6 +269,9 @@ and checkpointLocation="/tmp/cpl3";
 
 
 ### FAQ
+
+#### 如何在连接 JDBC 时对密码进行加密操作？
+
 
 #### 1) load 会把数据都加载到 Byzer 引擎的内存里么？
 答案是不会。引擎会批量到 MySQL 拉取数据进行计算。同一时刻，只有一部分数据在引擎内存里。

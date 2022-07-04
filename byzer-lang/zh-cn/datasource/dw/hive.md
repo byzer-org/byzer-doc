@@ -1,4 +1,4 @@
-# Hive 加载和存储
+# Hive 数据源
 
 Hive 在 Byzer-lang 中使用极为简单。 加载 Hive 表只需要一句话：
 

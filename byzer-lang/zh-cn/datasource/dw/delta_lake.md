@@ -1,4 +1,4 @@
-# Delta 加载和存储以及流式支持
+# Delta Lake 数据源
 
 Delta 本质就是 HDFS 上一个目录。我们会分如下几个部分介绍 Delta 的使用：
 

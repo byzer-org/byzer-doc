@@ -1,10 +1,10 @@
-### 更多 REST API 调用示例
+# 更多 REST API 调用示例
 
 
 Rest 数据源可以让 Byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的 REST API 交互。Rest 数据源支持简单的 REST API 调用，也支持直接在 Rest 数据源中实现分页数据的读取。
 
 
-#### 1. 使用 POST 方法将 json string 作为 Request body
+### 1. 使用 POST 方法将 json string 作为 Request body
 
 下述例子是调用 Byzer 引擎的 `/run/script` 的 api，来执行一段 byzer 的 sql 脚本，`body` 参数的值是 request body，在其中填写了 `/run/script` 这个请求的参数
 
@@ -53,7 +53,7 @@ from table1 as output;
 
 
 
-#### 2. 使用 GET 发起 Form 表单请求
+### 2. 使用 GET 发起 Form 表单请求
 
 下面这个例子展示了使用 cnnodejs 的一个 api 来获取 topics 相关的内容，其中请求参数是通过 `form` 的参数进行传递的
 
@@ -103,7 +103,7 @@ select content.data from cnodejs_articles as cnodejs_articles_info;
 
 
 
-#### 3. 设置动态渲染参数
+### 3. 设置动态渲染参数
 
 动态渲染参数可以在 `:{....}` 中执行代码。其语法和 if/else 里的条件表达式相同，用于返回一个变量，该变量会以字符串形式返回。所以可以写的更复杂，比如：
 
@@ -158,7 +158,7 @@ from cnodejs_articles as output;
 
 
 
-#### 4. 如何解析结果集
+### 4. 如何解析结果集
 
 下面演示一个结果集解析的 demo，为了方便处理JSON结果集，我们结合 JsonExpandExt ET 和 explode 函数，代码示例如下所示：
 
@@ -210,7 +210,7 @@ select explode(content.data) as article from cnodejs_articles as articles;
 
 
 
-#### 5. 分页数据的读取
+### 5. 分页数据的读取
 
 我们以 Node.js 专业中文社区的列表页为例，代码如下所示：
 
@@ -326,7 +326,7 @@ and `config.page.limit`="2"
 
 
 
-#### 6. 使用 POST 请求上传文件
+### 6. 使用 POST 请求上传文件
 
 ```sql
 save overwrite command as Rest.`http://lab.mlsql.tech/api/upload_file` where
@@ -356,7 +356,7 @@ and `config.method`="post"
 
 
 
-#### 7. 忽略请求结果异常
+### 7. 忽略请求结果异常
 
 对于 http 服务端响应的状态码不是 200 的情况，如果不想报错，可以结合分支加空表的模式：
 
