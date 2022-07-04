@@ -60,3 +60,21 @@ notebook.scheduler.callback-token=localNotebook-token-for-localDolphin
 
 > 以上是 DolphinScheduler 创建调度时的参数， 关于这些参数的详细解释请参考 [DolphinScheduler 使用手册](https://dolphinscheduler.apache.org/zh-cn/docs/1.3.9/user_doc/system-manual.html)
 
+### 调度任务结束后通知机制
+
+在 v1.2.1 版本中引入， Notebook 在做调度任务时，需要加入一个通知机制，可以当调度任务完成的时候，对执行的任务人员进行通知。
+
+通知的方式暂时支持 IM 的 Webhook 机器人，比如飞书，企业微信，钉钉等。此类 IM 机器人是通过 HTTP URL 以及 Text 来定义消息接收方以及消息内容的。
+
+
+用户可以通过配置文件 `$NOTEBOOK_HOME/conf/notebook.properties` 来定义接收方，接受消息的定制内容 text， 以及发送消息的等级。
+参数设计如下：
+
+```
+# 填写 IM 机器人的 HTTP webhook url，默认为空
+notebook.scheduler.notification.webhook-url= 
+# 可选值 all（调度成功或失败都发送消息）, failed（只有调度失败发送消息），默认值为 failed
+notebook.scheduler.notification.level=failed
+# 消息通知 Header，用户可自定义,为字符串
+notebook.scheduler.notification.message-header="Byzer Notebook Schedule Task Notification:"
+```
