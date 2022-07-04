@@ -6,8 +6,9 @@
   * [常见问题 FAQ](/byzer-notebook/zh-cn/faq/faq.md)
 
 - 发行声明
-  * [Byzer Notebook 1.2.0](/byzer-notebook/zh-cn/release-notes/1.2.0.md)
+  * [Byzer Notebook 1.2.1](/byzer-notebook/zh-cn/release-notes/1.2.1.md)
   - 历史版本
+    * [Byzer Notebook 1.2.0](/byzer-notebook/zh-cn/release-notes/1.2.0.md)
     * [Byzer Notebook 1.1.1](/byzer-notebook/zh-cn/release-notes/1.1.1.md)
     * [Byzer Notebook 1.1.0](/byzer-notebook/zh-cn/release-notes/1.1.0.md)
     * [Byzer Notebook 1.0.1](/byzer-notebook/zh-cn/release-notes/1.0.1.md)
@@ -41,5 +42,9 @@
 - 运维
   * [任务历史](/byzer-notebook/zh-cn/operation/job_history.md)
   * [引擎设置](/byzer-notebook/zh-cn/operation/engine.md)
+
+- 开发者指南
+  - REST API
+    * [Liveness API](/byzer-notebook/zh-cn/developer/api/liveness_api.md)
 
 - [术语表](/byzer-notebook/zh-cn/terms/terms.md)

@@ -6,8 +6,9 @@
   * [How to Contribute](/byzer-notebook/en-us/appendix/contribute.md)  
 
 - ReleaseNote
-  * [Byzer Notebook 1.2.0](/byzer-notebook/en-us/release-notes/1.2.0.md)
+  * [Byzer Notebook 1.2.1](/byzer-notebook/en-us/release-notes/1.2.1.md)
   - Old Versions
+    * [Byzer Notebook 1.2.0](/byzer-notebook/en-us/release-notes/1.2.0.md)
     * [Byzer Notebook 1.1.1](/byzer-notebook/en-us/release-notes/1.1.1.md)
     * [Byzer Notebook 1.1.0](/byzer-notebook/en-us/release-notes/1.1.0.md)
     * [Byzer Notebook 1.0.1](/byzer-notebook/en-us/release-notes/1.0.1.md)
@@ -41,6 +42,10 @@
 - Operation
   * [Job History](/byzer-notebook/en-us/operation/job_history.md)
   * [Engine Setting](/byzer-notebook/en-us/operation/engine.md)
+
+- Develop Guide
+  - REST API
+    * [Liveness API](/byzer-notebook/en-us/developer/api/liveness_api.md)
 
 - [Terms](/byzer-notebook/en-us/appendix/terms.md)  
 
