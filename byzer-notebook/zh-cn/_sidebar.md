@@ -45,6 +45,7 @@
 
 - 开发者指南
   - REST API
+    * [开发环境搭建](/byzer-notebook/zh-cn/developer/dev_env/build_notebooke_dev_env.md)
     * [Liveness API](/byzer-notebook/zh-cn/developer/api/liveness_api.md)
 
 - [术语表](/byzer-notebook/zh-cn/terms/terms.md)
