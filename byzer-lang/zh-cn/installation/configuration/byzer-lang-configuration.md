@@ -100,6 +100,43 @@ spark.executor.instances=1
 
 除了本章节提到的 Byzer 引擎的参数外， Spark 的参数都是可用的，一般情况需要调整的 Spark 参数是 Driver 和 Executor 的资源控制参数。
 
+**Spark 公平调度器配置**
+
+Spark 默认使用 FIFO 调度器，多人或者多任务场景下建议使用公平调度器(Fair Scheduler)。 这里以设置单个队列为例介绍。
+首先，编辑 `$BYZER_HOME/conf/byzer.properties.override` 添加参数，开启公平调度器。
+`spark.scheduler.mode=FAIR`
+
+然后，编辑 `$SPARK_HOME/conf/fairscheduler.xml` ，为公平调度器添加一个名称为 `default` 的队列。
+```xml
+<?xml version="1.0"?>
+
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<allocations>
+  <pool name="default">
+    <schedulingMode>FAIR</schedulingMode>
+    <weight>1</weight>
+    <minShare>1</minShare>
+  </pool>
+</allocations>
+
+```
+
 #### 接口权限控制
 
 | 参数 | 说明 | 示例值 |
