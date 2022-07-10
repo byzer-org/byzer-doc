@@ -1,11 +1,11 @@
-# 消费 Kafka 数据
+# Kafka 数据应用
 
 Byzer-lang 目前显式支持 Kafka 以及 MockStream. MockStream 主要用于模拟数据源，测试场景中应用的比较多。
 
 > 值得注意的是，Byzer-lang 支持 Kafka 0.10 及以上版本，而原生的 Structured Streaming 只支持0.10版本的    Kafka.
 
 
-## 消费 Kafka 数据
+### 1. 消费 Kafka 数据
 开始之前，先准备 Kafka 数据。您可以先创建一个名为 my-topic 的 topic 。
 > 请参考 [Kafka 开发环境搭建](./kafka_local_install.md) 安装 Kafka 。
 
@@ -78,12 +78,12 @@ and checkpointLocation="/tmp/cpl3";
 2. checkpointLocation 流重启后恢复用
 3. mode， 三种模式，Update，Append，Complete，请参考 structured streaming 里这三种模式的区别。
 
-## 模拟输入数据源
+### 2. 模拟输入数据源
 
 为了方便测试，我们提供了一个 Mock 输入，来模拟 Kafka 输入。
 
 ```
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -93,10 +93,10 @@ set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;
@@ -116,11 +116,11 @@ as table21;
 下面是一个典型的流式程序：
 
 ```sql
--- the stream name, should be uniq.
+-- 为流式数据源取名，不可重名
 set streamName="streamExample";
 
--- connect mysql as the data sink.
--- Please change mysql connection string accordingly. 
+-- 连接 mysql 作为数据接收器
+-- 相应修改 mysql 连接字符串
 connect jdbc where  
 driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:13306/notebook?useSSL=false"
@@ -130,7 +130,7 @@ and password="root"
 as mysql1;
 
 
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -140,26 +140,26 @@ set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;
 
--- aggregation 
+-- 聚合 
 select cast(key as string) as k,count(*) as c  from newkafkatable1 group by k
 as table21;
 
--- output the the result to console.
+-- 将结果输出至 console.
 -- save append table21  
 -- as console.`` 
 -- options mode="Complete"
 -- and duration="10"
 -- and checkpointLocation="/tmp/cpl3";
 
--- save the data to mysql.
+-- 将数据保存至 mysql.
 save append table21  
 as streamJDBC.`mysql1.test1` 
 options mode="Complete"
@@ -176,10 +176,10 @@ and checkpointLocation="/tmp/cpl3";
 如果你不想有任何依赖，就是想跑一个例子看看，可以使用如下的语句：
 
 ```sql
--- the stream name, should be unique.
+-- 为流式数据源取名，不可重名
 set streamName="streamExample-1";
 
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"yes","value":"a,b,c","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"d,f,e","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -189,21 +189,21 @@ set data='''
 {"key":"yes","value":"m,m,m","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 and valueFormat="csv"
 and valueSchema="st(field(column1,string),field(column2,string),field(column3,string))"
 as newkafkatable1;
 
--- aggregation 
+-- 聚合 
 select column1,column2,column3,kafkaValue from newkafkatable1 
 as table21;
 
--- output the the result to console.
+-- 将结果输出至 console.
 save append table21  
 as console.`` 
 options mode="Append"

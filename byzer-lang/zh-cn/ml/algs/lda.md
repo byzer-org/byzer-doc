@@ -1,4 +1,4 @@
-# LDA
+# 隐含狄利克雷分布/LDA
 
 在机器学习领域，LDA 是两个常用模型的简称：**Linear Discriminant Analysis** 和 **Latent Dirichlet Allocation**。本章节中的 LDA 仅指代 Latent Dirichlet Allocation. **LDA 在主题模型中占有非常重要的地位，常用来文本分类。**
 

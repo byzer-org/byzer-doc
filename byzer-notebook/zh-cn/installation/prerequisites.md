@@ -18,6 +18,8 @@
 
 2. 安装元数据库 MySQL 5.7+
 
+3. 一个可用的 Byzer 引擎
+
 ### 推荐的客户端配置
 
 - CPU：2.5 GHz Intel Core i7

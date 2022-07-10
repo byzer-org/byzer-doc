@@ -1,8 +1,8 @@
-# byzer mllib
+# Byzer mllib
 
 [byzer mllib](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-mllib) 插件将 spark-mllib 包装为 byzer ET 使用。
 
-## 如何安装
+### 如何安装
 
 1. 在 Web 控制台中执行以下命令：
 
@@ -45,7 +45,7 @@ If there are more than one class, use comma to seperate them. For example:
 -streaming.plugin.clzznames classA,classB,classC
 ```
 
-## 如何使用
+### 如何使用
 
 Classification:
 

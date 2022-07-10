@@ -43,10 +43,7 @@ Byzer-lang 内置了非常多的宏函数，可以帮助用户实现更好的交
 ```sql
 !show "jobs/v2/[jobGroupId]";
 !show "jobs/[jobGroupId]";
-!show "jobs/get/[jobGroupId]";
 ```
-
-三者显示的内容不同，用户可以自己尝试下结果。
 
 7. 列出所有可用的数据源：
 
@@ -93,16 +90,24 @@ Byzer-lang 内置了非常多的宏函数，可以帮助用户实现更好的交
 14. 列出某个 ET 组件的信息：
 
 ```sql
-!show "et/[ET组件名称]";
+!show "et/ET组件名称";
 ```
 
-15. 列出所有函数：
+15. 列出某个 ET 组件包含的所有参数的信息：
+
+```sql
+!show "et/params/ET组件名称";
+```
+
+例如：!show "et/params/RateSampler"; 查看 RateSampler 组件包含的所有参数信息
+
+16. 列出所有函数：
 
 ```sql
 !show functions;
 ```
 
-16. 列出某个函数：
+17. 列出某个函数：
 
 ```sql
 !show "function/[函数名称]";

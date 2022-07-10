@@ -1,7 +1,7 @@
-# 发送邮件插件 SendMessage 
+# 发送邮件插件/SendMessage 
 
 
-### What is SendMessage ET ？
+### 什么是 SendMessage ET ？
 
 > **ET** 是 Byzer 语言内置 Estimator/Transformer 的简称。
 
@@ -13,7 +13,7 @@
 - 数据计算处理后，生成下载链接，发邮件给相关人员
 - 数据量较少的情况，可以直接发送数据处理结果
 
-### Why Byzer-lang ？
+### 为什么选择 Byzer-lang ？
 传统分析型的报表系统，开发流程非常长，需要较多人工维护成本和迭代成本。一般会有一个邮件服务，该服务会定制开发一套 DSL 语法，用于在交互层面方便用户在邮件模板中使用，如：查询 SQL、调度周期语法糖、自定义参数、公共参数等。然后会有一个调度框架周期性触发邮件任务计算。
 
 我们发现上述流程非常复杂，那有没有快速简洁的方式，无需多方合作，无需定制化开发，就能完成一个企业级可复用的邮件服务工具呢？
@@ -199,15 +199,15 @@ and password="---"
 
 #### **Step2、**上传数据
 
-下面会通过 Byzer Notebook 的 Data Catalog 中的上传功能，上传我们的 `access_log.txt` 日志文件。
+下面会通过 Byzer Notebook 的数据目录中的上传功能，上传我们的 `access_log.txt` 日志文件。
 
 > Byzer Notebook 注册试用入口：https://www.byzer.org/home
 
-通过 `Home -> Upload` 进行上传：
+点击顶栏中的**主页**，再点击**上传**：
 
   <img src="/byzer-lang/zh-cn/extension/et/images/demo1.png" alt="qq_mail_indentify_code.png"/>
 
-将文件拖拽到上传框后，点击 `Submit` 就可以了。系统提示你上传成功，你可以通过命令行或者Notebook的文件系统查看。使用文件系统，可以到` Data Catalog -> File System` 查看：
+将文件拖拽到上传框后，点击**提交**就可以了。上传成功后，您可以通过命令行查看上传的文件，也可以进入**工作区**，找到侧边栏中的**数据目录**模块，在 **File System** 中查看：
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/extension/et/images/demo2.png" alt="qq_mail_indentify_code.png" alt="name"  width="250"/>

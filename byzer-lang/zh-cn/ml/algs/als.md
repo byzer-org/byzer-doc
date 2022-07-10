@@ -1,4 +1,4 @@
-# ALS
+# 交替最小二乘法/ALS
 
 ALS在协同算法里面很流行。通过它可以很方便的搭建一个推荐系统。
 
@@ -22,21 +22,21 @@ load jsonStr.`jsonStr` as data;
 ```sql
 train data as ALSInPlace.`/tmp/model` where
 
--- the first group of parameters
+-- 第一组参数
 `fitParam.0.maxIter`="5"
 and `fitParam.0.regParam` = "0.01"
 and `fitParam.0.userCol` = "a"
 and `fitParam.0.itemCol` = "i"
 and `fitParam.0.ratingCol` = "rate"
 
--- the sencond group of parameters    
+-- 第二组参数   
 and `fitParam.1.maxIter`="1"
 and `fitParam.1.regParam` = "0.1"
 and `fitParam.1.userCol` = "a"
 and `fitParam.1.itemCol` = "i"
 and `fitParam.1.ratingCol` = "rate"
 
--- compute rmse     
+-- 计算 rmse     
 and evaluateTable="data"
 and ratingCol="rate"
 
@@ -55,7 +55,7 @@ and coldStartStrategy="drop";
 <p align="center">
     <img src="/byzer-lang/zh-cn/ml/algs/images/als_result1.png" alt="name"  width="800"/>
 </p>
-可以看看最后的预存结果：
+可以看看最后的预测结果：
 
 ``` sql
 load parquet.`/tmp/model/data/userRec` as userRec;

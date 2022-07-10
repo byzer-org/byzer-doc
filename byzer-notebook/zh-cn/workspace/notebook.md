@@ -12,31 +12,41 @@
 
 他们的操作含义分别是：
 
-<img src="/byzer-notebook/zh-cn/workspace/images/edit.png" style="zoom:50%;" />  **新建 / 克隆 / 删除 / 重命名笔记本**：可以在当前笔记本主界面下创建新的笔记本，也可以克隆、重命名和删除当前笔记本；
+<img src="/byzer-notebook/zh-cn/workspace/images/edit.png" style="zoom:50%; vertical-align: middle;" />  **新建 / 克隆 / 删除 / 重命名笔记本**：可以在当前笔记本主界面下创建新的笔记本，也可以克隆、重命名和删除当前笔记本；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/save.png" style="zoom:50%;" />  **保存**： 保存当前编辑；
+<img src="/byzer-notebook/zh-cn/workspace/images/save.png" style="zoom:50%; vertical-align: middle;" />  **保存**： 保存当前编辑；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/add.png" style="zoom:50%;" />  **新增单元格**：在笔记本内新增一个单元格；
+<img src="/byzer-notebook/zh-cn/workspace/images/add.png" style="zoom:50%; vertical-align: middle;" />  **新增单元格**：在笔记本内新增一个单元格；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/run.png" style="zoom:50%;" />  **运行**：运行光标所在的单元格；
+<img src="/byzer-notebook/zh-cn/workspace/images/markdown.png" style="zoom:50%; vertical-align: middle;" />  **选择语言**：选择单元格内的语言，支持 Byzer、Python、Markdown 语言；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/runnext.png" style="zoom:50%;" />  **运行下一个**：运行光标所在的单元格的下一个单元格；
+<img src="/byzer-notebook/zh-cn/workspace/images/run.png" style="zoom:50%; vertical-align: middle;" />  **运行**：运行光标所在的单元格；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/runall.png" style="zoom:50%;" />  **运行所有**：运行笔记本内的所有单元格；
+<img src="/byzer-notebook/zh-cn/workspace/images/runnext.png" style="zoom:50%; vertical-align: middle;" />  **运行下一个**：运行光标所在的单元格的下一个单元格；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/trash.png" style="zoom:50%;" />  **删除**：删除光标所在的单元格；
+<img src="/byzer-notebook/zh-cn/workspace/images/runall.png" style="zoom:50%; vertical-align: middle;" />  **运行所有**：运行笔记本内的所有单元格,运行时会展示运行的进度条；
 
-<img src="/byzer-notebook/zh-cn/workspace/images/clear.png" style="zoom:50%;" />  **清楚所有结果**：清除运行笔记本后的结果；
+<p align="center">
+    <img src="/byzer-notebook/zh-cn/workspace/images/progress.png" alt="name"  width="800"/>
+</p>
 
-<img src="/byzer-notebook/zh-cn/workspace/images/markdown.png" style="zoom:50%;" />  **选择语言**：选择单元格内的语言，支持 Byzer、Python、Markdown 语言；
+<img src="/byzer-notebook/zh-cn/workspace/images/trash.png" style="zoom:50%; vertical-align: middle;" />  **删除**：删除光标所在的单元格；
+
+<img src="/byzer-notebook/zh-cn/workspace/images/clear.png" style="zoom:50%; vertical-align: middle;" />  **清楚所有结果**：清除运行笔记本后的结果；
+
+<img src="/byzer-notebook/zh-cn/workspace/images/foldall.png" style="zoom:50%; vertical-align: middle;" />  **折叠所有单元格**：将当前笔记本内所有的单元格的代码和运行结果都折叠；
+
+<p align="center">
+    <img src="/byzer-notebook/zh-cn/workspace/images/folded.png" alt="name"  width="800"/>
+</p>
+
+<img src="/byzer-notebook/zh-cn/workspace/images/expandall.png" style="zoom:50%; vertical-align: middle;" />  **展开所有单元格**：将当前笔记本内所有折叠的单元格的代码和运行结果都展开；
+
+<img src="/byzer-notebook/zh-cn/workspace/images/showshortcut.png" style="zoom:50%; vertical-align: middle;" />  **显示快捷帮助**：您可以通过快捷键操作笔记本，如切换到编辑模式、运行单元格等，点击**显示快捷帮助**按钮将提示所有可用的快捷操作。
 
 <p align="center">
     <img src="/byzer-notebook/zh-cn/workspace/images/shortcut2.png" alt="name"  width="800"/>
 </p>
-
-**显示快捷帮助**：您可以通过快捷键操作笔记本，如切换到编辑模式、运行单元格等，点击**显示快捷帮助**按钮将提示所有可用的快捷操作。
-
-
 
 ### 编辑笔记本
 

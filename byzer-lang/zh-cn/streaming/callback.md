@@ -1,6 +1,6 @@
 # 设置流式计算回调
 
-## 查看流计算进度
+### 1. 查看流计算进度
 用户可以通过特定的命令查看一个流式程序的进度：
 
 ```sql
@@ -14,14 +14,14 @@
 !show jobs;
 ```
 
-## HTTP 回调
+### 2. HTTP 回调
 如果我想收集一个流程序什么时候开始，运行的状态，以及如果异常或者被正常杀死的事件，可以使用回调，具体使用方式如下：
 
 ```sql
--- the stream name, should be unique
+-- 为流式数据源取名，不可重名
 set streamName="streamExample";
 
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:01.002","timestampType":0}
@@ -31,10 +31,10 @@ set data='''
 {"key":"yes","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:01.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;

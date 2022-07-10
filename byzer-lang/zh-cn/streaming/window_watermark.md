@@ -1,12 +1,12 @@
-# Window / watermark 的使用
+# 使用 window / watermark 
 
 Window/watermark 是流式计算里特有的概念，下面是一个具体的使用模板：
 
 ```sql
 set streamName="streamExample-1218";
 
--- connect mysql as the data sink.
--- Please change mysql connection string accordingly. 
+-- 连接 mysql 作为数据接收器
+-- 相应地修改 mysql 连接字符串 
 connect jdbc where  
 driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:13306/notebook?useSSL=false"
@@ -16,7 +16,7 @@ and password="mlsql"
 as mysql1;
 
 
--- mock some data.
+-- 模拟数据
 set data='''
 {"key":"a","value":"no","topic":"test","partition":0,"offset":0,"timestamp":"2008-01-24 18:01:01.001","timestampType":0}
 {"key":"a","value":"no","topic":"test","partition":0,"offset":1,"timestamp":"2008-01-24 18:01:02.002","timestampType":0}
@@ -26,28 +26,28 @@ set data='''
 {"key":"d","value":"no","topic":"test","partition":0,"offset":5,"timestamp":"2008-01-24 18:01:06.003","timestampType":0}
 ''';
 
--- load data as table
+-- 将数据加载成表
 load jsonStr.`data` as datasource;
 
--- convert table as stream source
+-- 将表转化为流式数据源
 load mockStream.`datasource` options 
 stepSizeRange="0-3"
 as newkafkatable1;
 
--- aggregation 
+-- 聚合
 select cast(key as string) as k, timestamp AS ts from newkafkatable1 as table21;
 
--- register watermark for table21
+-- 为 table21 注册 watermark
 register WaterMarkInPlace.`table21` as tmp_1
 options eventTimeCol="ts"
 and delayThreshold="2 seconds";
 
--- process table1
+-- 处理 table1
 select k, count(*) as num from table21
 group by k, window(ts,"3 seconds","1 seconds")
 as table22;
 
--- save the data to mysql.
+-- 将数据保存至 mysql.
 save append table22 
 as streamJDBC.`mysql1.test1` 
 options mode="Complete"

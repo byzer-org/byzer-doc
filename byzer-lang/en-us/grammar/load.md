@@ -3,7 +3,7 @@
 Byzer-Lang's design philosophy is `Everything is a table `, so you can abstract various file data sources, databases, data warehouses, data lakes and even Rest APIs into a table in Byzer-Lang, and then process it in a two-dimensional table way. This is mainly achieved through the `load` statement.
 
 
-## Basic operation
+### Basic operation
 
 Let's look at a simple load statement:
 
@@ -47,7 +47,7 @@ load jsonStr.`abc` as table1;
 select * from table1 as output;
 ```
 
-## Show available data sources
+### Show available data sources
 
 View the data sources supported by the current instance (built-in or installed through the plug-in) through the following instructions:
 
@@ -69,7 +69,7 @@ When users want to know some parameters of a data source (such as `csv`), they c
 !show datasources/params/csv;
 ```
 
-## Load Connect
+### Load Connect
 
 `load `supports references to `connect `statements.
 
@@ -92,7 +92,7 @@ The `connect `statement does not really connect to the database, but only record
 
 In the example, jdbc + db_1 is unique. When the system encounters jdbc. `db_1.crawler _table` in the following `load` statement, it will find all the configuration parameters such as driver, user, url, etc. through jdbc and db_1, and then automatically attach them to the `load` statement.
 
-## Direct Query
+### Direct Query
 
 Some data sources support direct query mode, and currently the JDBC data source is built-in.
 

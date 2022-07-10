@@ -1,6 +1,6 @@
-# KMeans
+# K 均值聚类算法/KMeans
 
-KMeans 属于聚类算法。
+KMeans，k均值聚类算法（k-means clustering algorithm）是一种迭代求解的聚类分析算法，其步骤是，预将数据分为K组，则随机选取K个对象作为初始的聚类中心，然后计算每个对象与各个种子聚类中心之间的距离，把每个对象分配给距离它最近的聚类中心。
 
 首先我们新增一些数据。
 
@@ -51,6 +51,5 @@ select kcluster(features) as catagory from data1 as output;
 <p align="center">
     <img src="/byzer-lang/zh-cn/ml/algs/images/kmeans_result2.png" alt="name"  width="800"/>
 </p>
-
 
 

@@ -1,10 +1,11 @@
 # 数据转换/Select
 
-`select` 句式是 Byzer-lang 中处理数据最重要的方式之一。之所以说之一，是因为还有 `ET` (应用于 run/train/predict )。
+`select` 句式是 Byzer-lang 中处理数据最重要的方式之一。
 
 > Byzer-lang 中的 `select` 句式除了最后 `as 表名` 以外，完全兼容 Spark SQL。
+> 一般来讲，可以结合使用 Spark SQL 中的函数和算子以及 Byzer 的一些特定语法命令或 UDF 来完成数据转换的功能
 
-## 基本语法
+### 1. 基本语法
 
 最简单的一个 `select` 语句：
 
@@ -15,20 +16,48 @@ as table1;
 
 结果为：col1: 1。
 
-从上面代码可以看到，Byzer-lang 中的 `select` 语法和传统 SQL `select` select 语法唯一的差别就是后面多了一个 `as tableName`。
+从上面代码可以看到，Byzer-lang 中的 `select` 语法和传统 SQL `select` 语法唯一的差别就是后面多了一个 `as tableName`。
 这也是为了方便后续对该 SQL 处理的结果进行引用引入的微小改良。
 
-比如，对于 `table1`, 用户可以在新的 `select` 语句中进行引用：
+**正常的 SQL 语句：**
 
 ```sql
-select 1 as col1 
-as table1;
-
-select * from table1 as output;
+SELECT
+b.* 
+FROM
+ table_a as a
+ LEFT JOIN table_b as b 
+ ON a.id = b.id 
+WHERE
+ a.study_id in( '12345678' )
+ AND a.status <> 3 
+ AND b.use_status = 0；
 ```
 
+**Byzer 语法：**
 
-## Select 句式中的模板功能
+```sql
+SELECT
+b.* 
+FROM
+ table_a as a
+ LEFT JOIN table_b as b 
+ ON a.id = b.id 
+WHERE
+ a.study_id in( '12345678' )
+ AND a.status <> 3 
+ AND b.use_status = 0 as new_table;
+ 
+ select * from new_table as traindata;
+```
+
+比如，对于 `new_table`, 用户可以在新的 `select` 语句中进行引用：
+
+
+
+
+
+### 2. Select 句式中的模板功能
 
 实际在书写 `select` 语句可能会非常冗长。Byzer-lang 提供了两种方法帮助大家简化代码。
 
