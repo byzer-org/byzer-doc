@@ -192,94 +192,23 @@ CREATE TABLE test1
 
 
 
-### 3. 保存数据至 JDBC
-
-
-建立 JDBC 数据连接后，你可以使用 `save` 语句对得到的数据进行保存。Byzer 支持 `append`/`overwrite` 方式保存数据。
-
-下面是 `append` 的例子：
-```
-> SAVE append tmp_article_table as jdbc.`db_1.crawler_table`;
-```
-
-> 这条语句表明，我们使用追加的方式进行保存。向 db_1中的 crawler_table 里添加数据，这些数据来源于表
- tmp_article_table
-
-如果需要使用覆盖的方式保存，请使用：
-
-```
-> SAVE overwrite ....
-```
-
-如果需要先创建表，再写入表，可以使用名为 JDBC 的 ET。该 ET 本质上是在 Driver 端执行操作指令。
-```
-> RUN command AS JDBC.`db_1._` WHERE
-`driver-statement-0`="drop table test1"
-and `driver-statement-1`="create table test1.....";
-
-> SAVE append tmp_article_table AS jdbc.`db_1.test1`;
-```
-> 这段语句，我们先删除 test1 ,然后创建 test1 ,最后使用 `save` 语句把进行数据结果的保存。
-
-**注意**： `JDBC.`后面的路径要写成 `db_1._`,表示忽略表名。
-
-
-
-### 4. Upsert
-
-MySQL 支持数据的 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
-
-`idCol` 的作用
-- 标记数据需要执行 `Upsert` 操作 
-- 确定需要的更新字段，因为主键本身是不需要更新的。Byzer 会将表所有的字段去除
-`idCol` 定义的字段，得到需要更新的字段。
-
-
-下面是一个简单的例子：
-
-```sql
-> SAVE append tmp_article_table AS jdbc.`db_1.test1`
-WHERE idCol="a,b,c";
-```
->Byzer 内部使用了 MySQL 的 `duplicate key` 语法，用户需要确认操作的数据库表确实有重复联合主键约束。
->如果数据库层面没有定义联合约束主键，将不会执行 `update` 操作，数据会不断增加。
-
-
-
-### 5. 流式数据写入 MySQL
-
-举个简单的例子：
-
-```
-> SET streamName="mysql-test";
-
-> SAVE append table_1 AS streamJDBC.`mysql1.test1` 
-OPTIONS mode="Complete"
-and `driver-statement-0`="create table  if not exists test1(k TEXT,c BIGINT)"
-and `statement-0`="insert into wow.test1(k,c) values(?,?)"
-and duration="3"
-and checkpointLocation="/tmp/cpl3";
-```
-
-> 我们使用 `streamJDBC` 数据源可以完成将数据写入到MySQL中。`driver-statement-0` 在整个运行期间只会执行一次。`statement-0`
-则会针对每条记录执行。
-
-**注意**：`insert` 语句中的占位符顺序需要和 table_1 中的列顺序保持一致。
-
 
 
 ### FAQ
 
 #### 如何在连接 JDBC 时对密码进行加密操作？
 
+#### 对库名有什么要求？
 
-#### 1) load 会把数据都加载到 Byzer 引擎的内存里么？
+建议 JDBC 底层数据数在命名规则上以”字母、数字和下划线“的组合为主，避免出现连字符等特殊字符
+
+#### Load 会把数据都加载到 Byzer 引擎的内存里么？
 答案是不会。引擎会批量到 MySQL 拉取数据进行计算。同一时刻，只有一部分数据在引擎内存里。
 
-#### 2) load 的时候可以加载过滤条件么
+#### Load 的时候可以加载过滤条件么
 可以，但是没有必要。用户可以把条件直接写在后续的 `select` 语句中，`select` 语句里的 where 条件会被下推给存储做过滤，避免大量数据传输。
 
-#### 3) count 非常慢，怎么办？
+#### Count 非常慢，怎么办？
 比如用户执行如下语句想查看下表的数据条数,如果表比较大，可能会非常慢，甚至有可能导致 Engine 有节点挂掉。
 
 ```sql
@@ -297,7 +226,7 @@ load jdbc.`db_1.tblname` where directQuery='''
 ''' as newtbl;
 ```
 
-#### 4) 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
+#### 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
 虽然你加了 where 条件，但是过滤效果可能并不好，引擎仍然需要拉取大量的数据进行计算，引擎默认是单线程的。我们可以配置多线程的方式去数据库拉取数据，可以避免单线程僵死。
 
 核心参数有如下：
@@ -307,7 +236,7 @@ load jdbc.`db_1.tblname` where directQuery='''
 3. `numPartitions` 分区数目。一般8个线程比较合适。
 能够进行分区的字段要求是数字类型，推荐使用自增 id 字段。
 
-#### 5) 多线程拉取还是慢，有办法进一步加速么
+#### 多线程拉取还是慢，有办法进一步加速么
 你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
 
 

@@ -72,28 +72,30 @@
 - 数据处理
   - [使用 Byzer 处理数据](/byzer-lang/zh-cn/transform/README.md)
   - [SQL 函数](/byzer-lang/zh-cn/transform/sql_func/README.md)
-  - [UDF 扩展](/byzer-lang/zh-cn/udf/README.md)
-    * [系统内置 UDF](/byzer-lang/zh-cn/udf/built_in_udf/README.md)
-      * [http 请求](/byzer-lang/zh-cn/udf/built_in_udf/http.md)
-      * [常用函数](/byzer-lang/zh-cn/udf/built_in_udf/vec.md)
-    * [动态扩展 UDF](/byzer-lang/zh-cn/udf/extend_udf/README.md)
-      * [Python UDF](/byzer-lang/zh-cn/udf/extend_udf/python_udf.md)
-      * [Scala UDF](/byzer-lang/zh-cn/udf/extend_udf/scala_udf.md)
-      * [Scala UDAF](/byzer-lang/zh-cn/udf/extend_udf/scala_udaf.md)
-      * [Java UDF](/byzer-lang/zh-cn/udf/extend_udf/java_udf.md)  
+  - [UDF 扩展](/byzer-lang/zh-cn/transform/udf/README.md)
+    * [系统内置 UDF](/byzer-lang/zh-cn/transform/udf/built_in_udf/README.md)
+      * [http 请求](/byzer-lang/zh-cn/transform/udf/built_in_udf/http.md)
+      * [常用函数](/byzer-lang/zh-cn/transform/udf/built_in_udf/udf_funcs.md)
+    * [动态扩展 UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/README.md)
+      * [Python UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/python_udf.md)
+      * [Scala UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/scala_udf.md)
+      * [Scala UDAF](/byzer-lang/zh-cn/transform/udf/extend_udf/scala_udaf.md)
+      * [Java UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/java_udf.md)  
 
 - 存储数据
-  - [Byzer 存储系统介绍]()
-  - [写入 JDBC](/byzer-lang/zh-cn/datasource/jdbc.md)
-  - [写入数据仓库/湖](/byzer-lang/zh-cn/datahouse/README.md)
-    * [写入 Hive](/byzer-lang/zh-cn/datahouse/hive.md)
-    * [写入 Delta Lake](/byzer-lang/zh-cn/datahouse/delta_lake.md)
-  - [文件数据源](/byzer-lang/zh-cn/datasource/file.md)
-  - [REST API](/byzer-lang/zh-cn/datasource/restapi.md)
-    * [更多 REST API 调用示例](/byzer-lang/zh-cn/datasource/restapi_examples.md)
-  - [流式数据源]
-    * [Kafka](/byzer-lang/zh-cn/datasource/kafka.md)
-    * [MockStream](/byzer-lang/zh-cn/datasource/mock_streaming.md)
+  - [Byzer 存储系统介绍](/byzer-lang/zh-cn/save_data/README.md)
+  - [写入 JDBC](/byzer-lang/zh-cn/save_data/jdbc/jdbc.md)
+  - [写入数据仓库/湖](byzer-lang/zh-cn/save_data/dw/README.md)
+    * [写入 Hive](/byzer-lang/zh-cn/save_data/dw/hive.md)
+    * [写入 Delta Lake](/byzer-lang/zh-cn/save_data/dw/delta.md)
+  - [存储为文件](/byzer-lang/zh-cn/save_data/file/README.md)
+    - [存储为文件/文本](/byzer-lang/zh-cn/save_data/file/file.md)
+    - [存储至 HDFS](/byzer-lang/zh-cn/save_data/file/hdfs.md)
+    - [存储至对象存储](/byzer-lang/zh-cn/save_data/file/object_storage.md)
+  - [通过 REST API 存储数据](/byzer-lang/zh-cn/save_data/restapi/README.md)
+  - [写入流式数据源](/byzer-lang/zh-cn/save_data/README.md)
+    * [写入 Kafka](/byzer-lang/zh-cn/save_data/streaming/kafka.md)
+
 
 
 - Byzer-python
@@ -163,7 +165,7 @@
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)  
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
-- [术语表](../../byzer-lang/zh-cn/terms/terms.md)
+- [术语表](/byzer-lang/zh-cn/terms/terms.md)
 
 - 附录
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
