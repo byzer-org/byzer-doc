@@ -27,6 +27,7 @@
     * [K8S 部署前置条件](/byzer-lang/zh-cn/installation/k8s/k8s-prerequisites.md)
     * [Minikube 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-minikube.md)
     * [Azure AKS 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-azure.md)
+    * [AWS EKS 部署](/byzer-lang/zh-cn/installation/k8s/byzer-on-aws.md)
     * [Byzer-K8S 工具部署](/byzer-lang/zh-cn/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/zh-cn/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer CLI](/byzer-lang/zh-cn/installation/cli/byzer-cli.md)
