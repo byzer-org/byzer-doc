@@ -27,6 +27,7 @@
     * [Prerequisite](/byzer-lang/en-us/installation/k8s/k8s-prerequisites.md)
     * [On Minikube](/byzer-lang/en-us/installation/k8s/byzer-on-minikube.md)
     * [On Azure AKS](/byzer-lang/en-us/installation/k8s/byzer-on-azure.md)
+    * [On AWS EKS](/byzer-lang/en-us/installation/k8s/byzer-on-aws.md)
     * [Byzer-K8S Tools](/byzer-lang/en-us/installation/k8s/byzer-k8s-tool.md)
   * [Byzer VSCode Extension](/byzer-lang/en-us/installation/vscode/byzer-vscode-extension-installation.md)
   * [Byzer CLI](/byzer-lang/en-us/installation/cli/byzer-cli.md)
