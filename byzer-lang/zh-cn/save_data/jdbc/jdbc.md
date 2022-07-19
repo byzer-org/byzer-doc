@@ -15,7 +15,7 @@
 ```sql
 > SET user="root";
 > SET password="root";
-> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false";
+> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&useSSL=false";
 > CONNECT jdbc WHERE
  url="${jdbc_url}"
  and driver="com.mysql.jdbc.Driver"

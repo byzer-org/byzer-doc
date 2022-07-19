@@ -36,7 +36,7 @@ Byzer 加载 JDBC 类数据源后，会通过两步来进行，先通过 JDBC UR
 ```sql
 > SET user="root";
 > SET password="root";
-> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false";
+> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&useSSL=false";
 > CONNECT jdbc WHERE
  url="${jdbc_url}"
  and driver="com.mysql.jdbc.Driver"
@@ -73,7 +73,7 @@ Byzer 加载 JDBC 类数据源后，会通过两步来进行，先通过 JDBC UR
 ```sql
 > SET user="root";
 > SET password="root";
-> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false";
+> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&useSSL=false";
 
 > LOAD jdbc.`byzer_demo.tutorials_tbl` 
 where driver="com.mysql.jdbc.Driver"
@@ -164,11 +164,12 @@ spark.mlsql.enable.runtime.directQuery.auth=true
 
 
 
-### 2. 通过 Byzer 在 JDBC 中删除或创建表
+### 2. 如何对 JDBC 中执行数据源原生语句
 
 Byzer 内置提供了一个 JDBC 的 ET 实现，可以允许用户执行 DDL 语句，此功能需要 JDBC 数据源的 JDBC Driver 提供相应的 DDL 能力。注意通过该 ET 的方式执行的语句，实际上都发生在 Byzer 引擎的 Driver 端，所以请避免通过该方式进行大量的数据操作。
 
-#### 通过 JDBC 创建表
+
+#### 执行 DDL 语句
 
 我们看一个示例，当前 MySQL 中数据库包含 `jdbc_demo`， `tutorials_tbl` 两张表，我们想要在数据库中创建另外一张表 `test1`，那么我们可以通过下述语句来完成 `test1` 表的创建 
 
@@ -188,32 +189,120 @@ CREATE TABLE test1
 );''';
 ```
 
-在该示例中，我们通过 JDBC ET 执行了一条 `Drop` 语句和 `CREATE` 语句, 其中 `driver-statement-[number]` 中的 `number` 表示执行的顺序，从 `0` 开始计数。执行完毕后，MySQL 中可以查询到 `test1` 这张表
+在该示例中，我们通过 JDBC ET 执行了一条 `Drop` 语句和 `CREATE` 语句, 其中：
+
+- JDBC.`byzer_demo._` 指代连接 byzer_demo 这个库，但不加载某张指定的表
+- `driver-statement-[number]` 中的 `number` 表示执行的顺序，从 `0` 开始计数。执行完毕后，MySQL 中可以查询到 `test1` 这张表
 
 
 
+#### Show Databases 
 
+如果想要在 Byzer 中执行 MySQL 中的 `show databases;` 命令来展示出当前的数据源中的数据库，我们可以通过如下的方式来完成：
+
+```sql
+> SET user="root";
+> SET password="root";
+> SET jdbc_url="jdbc:mysql://127.0.0.1:3306/byzer_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false&useSSL=false";
+> CONNECT jdbc WHERE
+ url="${jdbc_url}"
+ and driver="com.mysql.jdbc.Driver"
+ and user="${user}"
+ and password="${password}"
+ AS mysql_instance;
+ 
+ 
+> RUN command AS JDBC.`mysql_instance._` WHERE
+sqlMode="query"
+and `driver-statement-query`="show databases;"
+AS output;
+```
+
+在该示例中，我们定义了 MySQL 的连接，然后通过 JDBC ET 来进行 `show databases` 的操作；由于 `show databases` 不属于 DDL 语句，我们需要在这里指定 `sqlMode` 为 `query`, 然后通过 `driver-statement-query` 来进行执行。需要注意的是，
+- 在一次执行过程中，只能执行一次 `driver-statement-query` 定义的语句，如果在 where 条件中出现多个`driver-statement-query`，则会执行最后一条语句进行返回
+- 针对其他数据库进行 `show database` 操作，只需按对应的语法写 query 语句即可
+
+#### Show Tables
+
+如同 `show database` 操作，可以根据如下示例来进行 `show tables` 的操作
+
+```sql
+> RUN command AS JDBC.`mysql_instance._` WHERE
+sqlMode="query"
+and `driver-statement-query`="show tables;"
+AS output;
+```
+
+#### Desc Table
+
+如同 `show database` 操作，可以根据如下示例进行 `desc table` 的操作
+
+```sql
+> SET tableName="jdbc_demo";
+> RUN command AS JDBC.`mysql_instance._` WHERE
+sqlMode="query"
+and `driver-statement-query`="desc ${tableName};"
+AS output;
+```
 
 ### FAQ
 
 #### 如何在连接 JDBC 时对密码进行加密操作？
 
-#### 对库名有什么要求？
+由于在连接 JDBC 数据源时，会涉及很多敏感信息，比如 JDBC 连接串以及用户名密码等，这些信息是不建议被直接明文写在我们的脚本里的，Byzer 提供了 `aes_encry($variable)` 以及 `aes_decrypt($encrypted_variable)` 函数，来进行加密和解密的操作。我们来看下面的示例
+
+
+```sql
+-- 加密一个敏感变量
+> select 
+aes_encrypt("byzer") as password ,
+aes_encrypt("jdbc:mysql://127.0.0.1:3306/wow?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false") as url 
+as output;
+```
+
+在该语句中，我们对 password 和 jdbc url 进行了 aes 加密， 执行该语句，你会获得加密后的输出如下
+
+|password|url|
+|--|--|
+|zAiGTbg5YQMElMlT9WYQJw==|xBWeS/BfE3t+8/h30VwpG8j6igrgeYbkMRWC7MEIMhBhwy7l6C3YIBzSokSt5b3gMX5XSPtaHAfo1tOkIMDBghXg7Ji11oXedaR+1+2FkxGS2m4MyV7CbppMAKNGi8Q/irf02bgynCtNXw2Re+fCKA==|
+
+这样在后续的使用中，我们可以在 Byzer 语句中使用上述加密的字符串来替代明文，如下示例
+
+```sql
+> set PASSWORD=`select aes_decrypt("zAiGTbg5YQMElMlT9WYQJw==")` where type="sql" and scope="session";
+> set URL=`select aes_decrypt("xBWeS/BfE3t+8/h30VwpG8j6igrgeYbkMRWC7MEIMhBhwy7l6C3YIBzSokSt5b3gMX5XSPtaHAfo1tOkIMDBghXg7Ji11oXedaR+1+2FkxGS2m4MyV7CbppMAKNGi8Q/irf02bgynCtNXw2Re+fCKA==")` where type="sql"  and scope="session";
+
+> connect jdbc where
+ url="${URL}"
+ and driver="com.mysql.jdbc.Driver"
+ and user="root"
+ and password="${PASSWORD}"
+ as mysql_instance;
+```
+
+通过这种方式，我们就避免了明文的敏感信息出现在 Byzer 的脚本中。
+
+#### 对 JDBC 库名 (Database Name) 有什么要求？
 
 建议 JDBC 底层数据数在命名规则上以”字母、数字和下划线“的组合为主，避免出现连字符等特殊字符
 
+#### 连接 MySQL 时出现 Commuication Failure 的报错怎么处理？
+
+不同的 JDK 版本中对 JDBC 连接中 SSL 连接处理有差别。比如使用 OpenJDK `1.8.0_262` 版本启动的 Byzer 引擎，如果 JDBC URL 没有声明 `useSSL=false`，是可以正常连接的，但在 OpenJDK `1.8.0_332` 版本中，就必须要在 JDBC URL 中加入 `useSSL=false` 才能正常建立连接，否则会导致连接失败。
+
 #### Load 会把数据都加载到 Byzer 引擎的内存里么？
-答案是不会。引擎会批量到 MySQL 拉取数据进行计算。同一时刻，只有一部分数据在引擎内存里。
+不会。引擎会将执行计划提交到 executor 中，executor 会批量的从 JDCB 数据源中拉取数据进行计算，同一时刻，只有一部分数据在引擎内存里。
 
 #### Load 的时候可以加载过滤条件么
-可以，但是没有必要。用户可以把条件直接写在后续的 `select` 语句中，`select` 语句里的 where 条件会被下推给存储做过滤，避免大量数据传输。
+可以，用户可以在 `where` 语句中加入 filter 条件来达到数据加载时，将条件下推至 JDBC 数据源端，避免在执行过程中产生大量的数据传输。
+当然如果在一次执行中， `LOAD` 语句和 `SELECT` 语句在一起执行时，用户也可以把 where 条件直接写在的 `select` 语句中，在真正执行时，下推条件也会被同时优化到 `LOAD` 语句中，效果和在 `LOAD` 语句中加入 filter 条件相同
 
 #### Count 非常慢，怎么办？
 比如用户执行如下语句想查看下表的数据条数,如果表比较大，可能会非常慢，甚至有可能导致 Engine 有节点挂掉。
 
 ```sql
-load jdbc.`db_1.tblname` as tblname;
-select count(*) from tblname as newtbl;
+> load jdbc.`db_1.tblname` as tblname;
+> select count(*) from tblname as newtbl;
 ```
 
 原因是引擎需要拉取全量数据（批量拉取，并不是全部加载到内存），然后计数，而且默认是单线程，一般数据库对全表扫描都比较慢，所以没有 where 条件的 count 可能会非常慢。
@@ -221,23 +310,26 @@ select count(*) from tblname as newtbl;
 如果用户仅仅是为了看下表的大小，推荐用 directQuery 模式，directQuery 会把查询直接发给数据库执行，然后把得到的计算结果返回给引擎,所以非常快。 具体操作方式如下：
 
 ```sql
-load jdbc.`db_1.tblname` where directQuery='''
+> load jdbc.`db_1.tblname`
+ where directQuery='''
     select count(*) from tblname
-''' as newtbl;
+''' 
+as newtbl;
 ```
 
-#### 在 select 语句中加了 where 条件也很慢（甚至引擎挂掉）
-虽然你加了 where 条件，但是过滤效果可能并不好，引擎仍然需要拉取大量的数据进行计算，引擎默认是单线程的。我们可以配置多线程的方式去数据库拉取数据，可以避免单线程僵死。
+**一般我们会建议从 JDBC 过来的数据需要进行在 Delta Lake 或对象存储中进行一次落盘，这样后续在执行聚合类算子时能够充分的利用分布式的优势来提高对应的性能**
+
+#### 在 select 语句中加了 where 条件也很慢，甚至导致引擎挂掉
+有时候如果即使加了 where 条件，效果也没有达到预期的情况下，我们可以通过在 where 语句中进行调整如下参数的方式来进行执行的优化。
 
 核心参数有如下：
-
 1. `partitionColumn` 按哪个列进行分区
 2. `lowerBound`, `upperBound`, 分区字段的最小值，最大值（可以使用 `directQuery` 获取）
-3. `numPartitions` 分区数目。一般8个线程比较合适。
-能够进行分区的字段要求是数字类型，推荐使用自增 id 字段。
+3. `numPartitions` 分区数目。一般 8 个线程比较合适
 
-#### 多线程拉取还是慢，有办法进一步加速么
-你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
+注意，能够进行分区的字段要求是数字类型，推荐使用自增 id 字段。
+通过这样的方式，我们能够尽可能利用引擎的分布式能力，将拉取数据的并行度提到一个相对比较合适的程度来进行加速
+
 
 
 
