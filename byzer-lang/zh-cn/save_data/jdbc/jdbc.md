@@ -43,51 +43,47 @@ where header="true" and inferSchema="true" as csvTable;
 
 ### 通过 JDBC ET 创建表
 
-上述介绍的方式是直接通过 Save 语法在数据库中创建表
-
-如果需要先创建表，再写入表，可以使用名为 JDBC 的 ET。该 ET 本质上是在 Driver 端执行操作指令。
-```
-> RUN command AS JDBC.`db_1._` WHERE
-`driver-statement-0`="drop table test1"
-and `driver-statement-1`="create table test1.....";
-
-> SAVE append tmp_article_table AS jdbc.`db_1.test1`;
-```
-> 这段语句，我们先删除 test1 ,然后创建 test1 ,最后使用 `save` 语句把进行数据结果的保存。
-
-**注意**： `JDBC.`后面的路径要写成 `db_1._`,表示忽略表名。
-
+如果您希望通过 Byzer 引擎提供的 JDBC ET 扩展，来直接执行 JDBC 原生的 DDL 语句来进行表的创建，可以参考 [JDBC 数据源](/byzer-lang/zh-cn/datasource/jdbc/jdbc.md) 章节中的 **如何对 JDBC 中执行数据源原生语句** 一节
 
 
 ### Upsert 语义支持
 
-MySQL 支持数据的 `Upsert` 操作，只需要在 `save` 时指定 `idCol` 字段即可。
+有些数据库是可以支持 Upsert 语义操作的，关于什么是 Upsert 可以参考 [Upsert in SQL: What is an Upsert, and When Should You Use One?](https://www.cockroachlabs.com/blog/sql-upsert/) 一文的解释。目前 Byzer 支持 `MySQL` 或 `Oracle` 的 Upsert 语义。 
 
-`idCol` 的作用
-- 标记数据需要执行 `Upsert` 操作 
-- 确定需要的更新字段，因为主键本身是不需要更新的。Byzer 会将表所有的字段去除
-`idCol` 定义的字段，得到需要更新的字段。
-
-
-下面是一个简单的例子：
+接下来我们以 MySQL 来举例，MySQL 支持数据的 `Upsert` 操作，在 Byzer 语句中只需要在 `SAVE` 语句中指定 `idCol` 字段是表的哪个字段即可，如下述代码示例：
 
 ```sql
-> SAVE append tmp_article_table AS jdbc.`db_1.test1`
+> SAVE append tmp_data AS jdbc.`db_1.test1`
 WHERE idCol="a,b,c";
 ```
->Byzer 内部使用了 MySQL 的 `duplicate key` 语法，用户需要确认操作的数据库表确实有重复联合主键约束。
->如果数据库层面没有定义联合约束主键，将不会执行 `update` 操作，数据会不断增加。
+在该代码示例中，我们要以 `append` 增量保存的方式，将表 `tmp_data` 以 Upsert 的方式写入至 `db_1.test1` 中 
+
+其中 `idCol` 参数的作用
+- 标记该表写入时，数据是需要执行 `Upsert` 操作 
+- 确定需要的更新字段，因为主键本身是不需要更新的，真正更新的是该主键所在行（row）的其他列（column）的值
+
+> 注意：
+> 如果数据库层面没有定义联合约束主键，将不会执行 `update` 操作，数据会不断增加。
+> Upsert 执行时要求表的 Schema 是对齐的，否则更新失败
+
+实现 Upsert 语义的原理：
+- MySQL：使用了 MySQL 的 `duplicate key` 机制，用户需要确认操作的数据库表确实有重复联合主键约束
+- Oracle: 使用了 Oracle 的 `merge into` 机制， 详情可见 [BIP 2: Support upserting oracle table](https://github.com/byzer-org/byzer-lang/wiki/BIP-2:-Support-upserting-oracle-table)
 
 
 
-### 5. 流式数据写入 MySQL
 
-举个简单的例子：
+### 流式数据写入 JDBC
 
-```
+Byzer 也可以通过 `steamJDBC` 来实现流式写入的方式，将数据流式写入 JDBC。
+
+
+下述示例是一个通过流式写入 MySQL 的示例：
+
+```sql
 > SET streamName="mysql-test";
 
-> SAVE append table_1 AS streamJDBC.`mysql1.test1` 
+> SAVE append table_1 AS streamJDBC.`mysql_instance.test1` 
 OPTIONS mode="Complete"
 and `driver-statement-0`="create table  if not exists test1(k TEXT,c BIGINT)"
 and `statement-0`="insert into wow.test1(k,c) values(?,?)"
@@ -95,8 +91,9 @@ and duration="3"
 and checkpointLocation="/tmp/cpl3";
 ```
 
-> 我们使用 `streamJDBC` 数据源可以完成将数据写入到MySQL中。`driver-statement-0` 在整个运行期间只会执行一次。`statement-0`
-则会针对每条记录执行。
+我们使用 `streamJDBC` 可以完成将数据写入到 MySQL 中。其中
+- `driver-statement-0` 在整个运行期间只会执行一次
+- `statement-0` 则会针对每条记录执行
 
 **注意**：`insert` 语句中的占位符顺序需要和 table_1 中的列顺序保持一致。
 
