@@ -27,19 +27,20 @@
 pip install mlsql_plugin_tool
 mlsql_plugin_tool build --module_name mlsql-mllib --spark spark243
 ```
+
 然后更改 byzer 引擎的启动脚本，添加jar包：
 
 ```
 --jars YOUR_JAR_PATH
 ```
 
-Register Class:
+在byzer中注册类:
 
 ```
 -streaming.plugin.clzznames tech.mlsql.plugins.mllib.app.MLSQLMllib
 ```
 
-If there are more than one class, use comma to seperate them. For example:
+如果有多个类，请使用逗号分隔它们。 例如:
 
 ```
 -streaming.plugin.clzznames classA,classB,classC
@@ -61,9 +62,7 @@ predict data as LinearRegressionExt.`<your model HDFS path>` as predicted_table;
 run predicted_table as RegressionEvaluator.``;
 ```
 
+更多 mllib 插件：
 
-
-
-
-
-
+- [唯一标识符算子](/byzer-lang/zh-cn/extension/et/external/UniqueIdentifier.md)
+- [频数分布算子](/byzer-lang/zh-cn/extension/et/external/DescriptiveMetrics.md)

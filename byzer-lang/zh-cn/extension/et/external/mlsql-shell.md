@@ -27,12 +27,3 @@
 !sh echo "yes";
 !sh wget "https://github.com/byzer-org/byzer-extension/tree/master/mlsql-shell";
 ```
-
-
-
-
-
-
-
-
-
