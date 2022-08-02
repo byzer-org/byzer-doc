@@ -30,9 +30,3 @@ where metricSize='1000'; -- 支持通过参数metricSize控制条数，默认为
 - **metricSize**  设置最大返回条数。默认返回频数最高的100条。按照列名降序排列。
 
 比如 age 这一列不同的值有行数 1000+，但是 **metricSize** 是100，最后结果表 name 这一列只会显示频数最高的100条。
-
-调用方式如下
-
-```SQL
-run table2 as DescriptiveMetrics.`` where metricSize="100" as pd_table;
-```
