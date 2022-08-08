@@ -11,7 +11,7 @@
 
 ### byzer Excel 数据源介绍
 
-加载或者保存 Excel 会是一个较为常见的操作，我们在[mlsql-plugins](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了 excel 在 byzer 中的读取和保存。
+加载或者保存 Excel 会是一个较为常见的操作，我们在[byzer-extension](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了 excel 在 byzer 中的读取和保存。
 
 使用如下：
 
@@ -29,21 +29,7 @@ as data;
 select 1 as as as b;
 save overwrite b as excel.`/tmp/b.xlsx` where header="true";
 ```
-
-Excel 的配置项如下：
-
-| 参数                      | 默认值                            | 说明                                                         |
-| ------------------------- | --------------------------------- | ------------------------------------------------------------ |
-| `header`                  | `true`                            | 必填，是否将第一行作为列名                                   |
-| `treatEmptyValuesAsNulls` | `true`                            | 是否将空值视为 `Null`                                        |
-| `usePlainNumberFormat`    | `false`                           | 是否使用四舍五入和科学计数法格式化单元格                     |
-| `inferSchema`             | `false`                           | 是否开启推断模式                                             |
-| `addColorColumns`         | `false`                           | 是否需要获取列的背景颜色                                  |
-| `dataAddress`             | `A1`                              | 读取数据的范围                                               |
-| `timestampFormat`         | `yyyy-mm-dd hh:mm:ss[.fffffffff]` | 时间戳格式                                                   |
-| `maxRowsInMemory`         | `None`                            | 内存中缓存的最大数据条数                                     |
-| `excerptSize`             | `10`                              | 如果同时设置 `inferSchema` 和 `excerptSize`，则会推断的数据条数 |
-| `workbookPassword`        | `None`                            | excel 的密码                                               |
+                        |
 
 现在我们来看看如何进行开发。
 

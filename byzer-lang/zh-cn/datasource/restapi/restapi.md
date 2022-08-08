@@ -1,6 +1,6 @@
 # 加载 REST API 数据源
 
-### 1. REST API 获取数据代码示例
+## REST API 获取数据代码示例
 下面是一个基于 Github 的 open api 来获取 Github Organization 信息的简单例子：
 
 ```sql
@@ -36,7 +36,7 @@ select content.* from github_org as org_info;
 - 可以通过 get_json_object 和 json path 的方式来按需获取 Json 中的 key 以及 value， 但该例中 Json 已经被 `JsonExpandExt` 结构化，所以可以直接通过 `key.key` 的方式来获取 Json 中的值 
 
 
-#### 2. LOAD 语句
+## LOAD 语句
 
 上述示例中 `LOAD` 语句的组成:
 - 使用 `Rest` 关键字标志此次加载的数据源是 REST API，可以在反引号內直接填写访问的 REST API URL，也可以通过引用 SET 变量的方式来传递这个 URL
@@ -51,7 +51,7 @@ select content.* from github_org as org_info;
 
 
 
-#### 3. REST API 数据源基本参数
+### REST API 数据源基本参数
 
 和我们熟知的使用其他命令来调用 REST API 一样，比如 `curl`，`postman` 等，用户需要自己来填写 REST API 的请求参数，大致可以分为一下 3 类：
 - `config`：设置 rest 请求信息，如 `method`/`timeout` 等
@@ -77,7 +77,7 @@ select content.* from github_org as org_info;
 > 2. 参数值可以使用 `SET` 变量进行传递
 
 
-#### 4. REST API 数据源的返回值
+## REST API 数据源的返回值
 
 LOAD 语句将请求的返回值设置为一张表。其中有两列：
 - `content`：API 的返回体，是一个 binary 字符串
@@ -96,13 +96,13 @@ LOAD 语句将请求的返回值设置为一张表。其中有两列：
 
 
 
-### 分页调用 REST API 数据源获取数据
+## 分页调用 REST API 数据源获取数据
 
 有时候受限于一次 HTTP 请求的大小限制，或处于对系统的负载保护，某些系统的 REST API 需要根据某些字段进行分页来进行数据获取，最后将所有的数据进行合并处理。 
 
 Byzer 的 REST API 数据源支持动态获取一次　API 调用返回值中的字段，自动进行进行多次 API 请求调用，并将所有返回值组合成一张表。
 
-#### 1. 分页获取数据示例
+### 1. 分页获取数据示例
 
 下面以 JIRA 的 Open API 获取工时记录的场景来举一个稍微复杂些的例子：
 
@@ -168,7 +168,7 @@ select string(content) as content from worklog1 as worklog2;
 这里是通过 `config.page.values`，`config.page.next`，`config.page.limit` 三个参数来控制分页的。下面来详细解释如何在 REST API 数据源分页参数和分页策略。
 
 
-#### 2. REST API 数据源分页参数
+### 2. REST API 数据源分页参数
 
 当前 Rest 数据源总共有如下的分页参数
 
@@ -188,7 +188,7 @@ select string(content) as content from worklog1 as worklog2;
 
 
 
-#### 3. REST API 数据源分页策略
+### 3. REST API 数据源分页策略
 
 REST API 数据源有三种分页策略，是根据 **`config.page.values`** 这个参数来进行控制的。您可以根据你要调用的 API 暴露的分页方式，来选择对应的分页策略。
 
@@ -215,7 +215,7 @@ and `config.page.next`="{0}"
 ```
 
 
-##### **AutoIncrementPageStrategy** 策略
+#### **AutoIncrementPageStrategy** 策略
 
 此策略适合的 API 一般是需要传递类似 “第一次请求 page=1， 第二次page=2” 这种方式进行 API 的分页， 即此类 API 是会在 URL 通过一个指定的 page 参数用于控制分页获取数据的。那么对于用户而言，只要设置初始值和翻页停止条件即可。
 
@@ -255,7 +255,7 @@ and `config.page.stop`="equals:$.status,999"
 
 
 
-##### **OffsetPageStrategy** 策略
+#### **OffsetPageStrategy** 策略
 
 此策略适合的 API 一般会通过在 URL 中暴露类似 `start` 和 `offset` 两个参数，来指明 API 的调用起点以及每次 API 调用获取数据行数的 offset 偏移量。
 
@@ -270,7 +270,7 @@ and `config.page.stop`="equals:$.status,999"
 `config.page.values` 的值的格式 `offset:${limit},${offset}`, 此机制和 MySQL 中的 `limit n offset m` 一致， `${limit}` 代表 API 一页请求回来的数量，`${offset}` 是下一次分页请求的偏移量。停止分页的机制和 AutoIncrementPageStrategy 保持一致
 
 
-##### **DefaultPageStrategy** 策略
+#### **DefaultPageStrategy** 策略
 
 此策略一般适合于将分页信息作为 API 返回体中的一个字段返回给调用方的 API，
 此时一般都是可以通过 JsonPath 来从返回结果中获取到下一分页的信息。
@@ -287,7 +287,7 @@ and `config.page.next`="{0}"
 
 
 
-### 使用 rest_request UDF 来进行同时多次调用
+## 同时多次调用 API
 
 我们在使用 API 的时候有时候会碰到一种情况，就是 API 的请求参数是有数量上限的，所以需要将参数进行分组，进行多次 API 调用。
 
@@ -361,40 +361,428 @@ as worklog_list_bucket;
 `rest_request` 的返回结果，会将每一次 API 请求的结果追加进表的一行，以上述示例为例说明， 假如我们一共有 5 个桶的 id，即 ids 数组列有 5 行，那么经过 `rest_request` 调用后，结果表 `worklog_list2` 中会包含 5 行返回，每一行是每一次单独请求的结果。
 
 
-### 保存数据至 REST API 数据源
+## 更多 REST API 调用示例
 
-REST API 既然作为一个数据源，就可以支持读和写，也就是 Byzer 语法中的 `Load / Save` 语义。但出于 REST API 数据源的特殊性，一般情况下都是从 API 进行数据的获取。
 
-对于通过 API 保存数据操作，一般情况下会分为下面两种，无论是哪种方式，都依赖于 API 自身的设计。
+Rest 数据源可以让 Byzer-lang 脚本更加灵活，可以使用该数据源完成非常复杂的 REST API 交互。Rest 数据源支持简单的 REST API 调用，也支持直接在 Rest 数据源中实现分页数据的读取。
 
-#### 1. 通过参数的方式将数据传给 API 
 
-这种方式其实和调用 API 进行数据获取没有什么区别，将需要上传的数据，作为 Request body 中的值，使用 `LOAD` 语句进行 API 调用即可。
+### 1. 使用 POST 方法将 json string 作为 Request body
 
-对于需要多次调用 API 的情况，可以选择使用 `rest_request` udf
-
-#### 2. 通过数据文件的方式上传给 API 
-
-对于文件上传类的 API，我们可以通过 `SAVE` 语句来进行上传，我们来看一个例子
+下述例子是调用 Byzer 引擎的 `/run/script` 的 api，来执行一段 byzer 的 sql 脚本，`body` 参数的值是 request body，在其中填写了 `/run/script` 这个请求的参数
 
 ```sql
-> SAVE overwrite command as Rest.`http://xxxxx/api/upload_file` where
+SET ENGINE_URL="http://127.0.0.1:9003/run/script"; 
+
+load Rest.`$ENGINE_URL` where
+
+ `config.connect-timeout`="10s"
+
+ and `config.method`="post"
+
+ and `header.content-type`="application/json"
+
+ and `body`='''
+
+ { 
+
+   "executeMode": "query",
+
+   "sql": "select 1 as a as b;",
+
+   "owner": "admin",
+
+   "jobName": "f39ba3b2-0a28-4aa2-806e-5412813c995b"
+
+ }
+
+'''
+
+as table1;
+
+-- 获取接口返回结果
+
+select status, string(content) as content  
+
+from table1 as output;
+```
+
+执行结果：
+
+| status | content     |
+| ------ | ----------- |
+| 200    | [{"a":"1"}] |
+
+
+
+
+### 2. 使用 GET 发起 Form 表单请求
+
+下面这个例子展示了使用 cnnodejs 的一个 api 来获取 topics 相关的内容，其中请求参数是通过 `form` 的参数进行传递的
+
+```sql
+SET TOPIC_URL="https://cnodejs.org/api/v1/topics"; 
+
+load Rest.`$TOPIC_URL` where
+
+ `config.connect-timeout`="10s"
+
+ and `config.method`="get"
+
+ -- will retry 3 times if api call failed
+
+ and `config.retry`="3"
+
+ -- below lists the parameters of form
+
+ and `form.page`="1"
+
+ and `form.tab`="share"
+
+ and `form.limit`="2"
+
+ and `form.mdrender`="false" 
+
+as cnodejs_articles;
+
+
+-- decode API response from base64 string to a json string
+select string(content) as content from cnodejs_articles as response_content;
+
+-- expand the json string 
+run response_content as JsonExpandExt.`` where inputCol="content" and structColumn="true" as cnodejs_articles;
+
+-- retrieve user infomation and process as a table
+select content.data from cnodejs_articles as cnodejs_articles_info;
+```
+
+在这里，我们发起了 get 请求，请求参数可以放到 URL 里，也可以放到`form.[key]` 里。这些参数最终会被拼接到 URL 中。
+
+执行结果：
+
+| data |
+| ------ |
+| [ { "author": { "avatar_url": "https://avatars.githubusercontent.com/u/156269?v=4&s=120", "loginname": "fengmk2" }, "author_id": "4efc278525fa69ac6900000f", "content": "https://registry.npmmirror.com 中国 npm 镜像源在2013年12月开始就使用基于 koa 的 https://github.com/cnpm/cnpmjs ......    |
+
+
+
+### 3. 设置动态渲染参数
+
+动态渲染参数可以在 `:{....}` 中执行代码。其语法和 if/else 里的条件表达式相同，用于返回一个变量，该变量会以字符串形式返回。所以可以写的更复杂，比如：
+
+```sql
+and `form.created`=''':{select split(:create_at,":")[0] as :ca; :ca}'''
+```
+
+渲染动作产生在运行时，所以可以很方便的获取的参数。
+
+下面我们看一个具体的例子：
+
+```sql
+SET TOPIC_URL="https://cnodejs.org/api/v1/topics"; 
+
+load Rest.`$TOPIC_URL` where
+
+ `config.connect-timeout`="10s"
+
+ and `config.method`="get"
+
+ and `form.page`=''':{select 1 as :b;:b}'''
+
+ and `form.tab`="share"
+
+ and `form.limit`="2"
+
+ and `form.mdrender`="false" 
+
+as cnodejs_articles;
+
+
+select status, string(content) as content  
+
+from cnodejs_articles as output;
+```
+
+
+
+在 `form.page` 参数中我们设置的代码包含一段表达式：
+
+```sql
+ and `form.page`=''':{select 1 as :b;:b}'''
+```
+
+其中的`:{select ``1`` as :b;:b}`会动态执行，并将结果渲染到模板代码中，则实际执行的 SQL 内容变成了：
+
+```sql
+ and `form.page`='''1'''
+```
+
+所有 form 参数都支持动态渲染参数。
+
+
+
+### 4. 如何解析结果集
+
+下面演示一个结果集解析的 demo，为了方便处理JSON结果集，我们结合 JsonExpandExt ET 和 explode 函数，代码示例如下所示：
+
+```sql
+SET ENGINE_URL="https://cnodejs.org/api/v1/topics";
+
+load Rest.`$ENGINE_URL` where
+
+  `config.connect-timeout`="10s"
+
+  and `config.method`="get"
+
+  and `form.page`=''':{select 1 as :b;:b}'''
+
+  and `form.tab`="share"
+
+  and `form.limit`="2"
+
+  and `form.mdrender`="false"
+
+as raw_cnodejs_articles;
+
+
+select status, string(content) as content
+
+from raw_cnodejs_articles as temp_cnodejs_articles;
+
+
+-- 提取 JSON 结构内容（也就是 condejs 列表页面内容）并将其保存为 struct field 以便我们使用 JSON 数据
+
+run temp_cnodejs_articles as JsonExpandExt.``
+
+where inputCol="content" and structColumn="true"
+
+as cnodejs_articles;
+
+
+-- 转换列表页上的一行数据来操控行（即展开嵌套的 JSON 数据）
+select explode(content.data) as article from cnodejs_articles as articles;
+```
+
+
+
+结果如下：
+
+![img.png](images/img.png)
+
+我们可以看到，我们很容易将表展开，从而实现更复杂的需求。
+
+
+
+### 5. 分页数据的读取
+
+我们以 Node.js 专业中文社区的列表页为例，代码如下所示：
+
+```sql
+SET ENGINE_URL="https://cnodejs.org/api/v1/topics"; 
+
+load Rest.`$ENGINE_URL` where
+
 `config.connect-timeout`="10s"
-and `header.content-type`="multipart/form-data"
-and `header.Content-Type`="multipart/form-data; boundary=$you_boundary"
-and `header.Cookie`="JSESSIONID=$your_jsession_id;"
--- upload file path
-and `form.file-path`="/tmp/upload/test_date.csv"
--- upload file name
-and `form.file-name`="test_date.csv"
-and `config.method`="post";
+
+and `config.method`="get"
+
+and `form.page`=''':{select 1 as :b;:b}'''
+
+and `form.tab`="share"
+
+and `form.limit`="2"
+
+and `form.mdrender`="false"
+
+
+and `config.page.next`="https://cnodejs.org/api/v1/topics?page={0}"
+
+and `config.page.skip-params`="false"
+
+-- 自动增量这项特殊配置是为了自动增加页数而设计。`:1` 意味着页数值从1开始。
+
+and `config.page.values`="auto-increment:1"
+
+and `config.page.interval`="10ms"
+
+and `config.page.retry`="3"
+
+and `config.page.limit`="2"
+
+
+as raw_cnodejs_articles;
+
+
+set status= `select status from raw_cnodejs_articles` where type="sql" and mode="runtime";
+
+
+
+-- 如果状态不是200，则模拟不带数据的新表
+
+!if ''' :status != 200 '''; 
+
+!then; 
+
+    run command as EmptyTableWithSchema.`` where schema='''st(field(content,binary),field(status,integer))''' as raw_cnodejs_articles;    
+
+!fi;
+
+
+
+select status, string(content) as content  
+
+from raw_cnodejs_articles as temp_cnodejs_articles;
+
+
+
+run temp_cnodejs_articles as JsonExpandExt.`` 
+
+where inputCol="content" and structColumn="true" 
+
+as cnodejs_articles;
+
+
+
+select explode(content.data) as article from cnodejs_articles as articles;
+
+
+
+select count(article.id) from articles as output;
 ```
 
 
-可以看到 `SAVE` 语句的调用方式是通过
+
+结果如下，可以看到有 6 条数据，一共进行了三次分页
+
+![img_1.png](images/img_1.png)
+
+
+对于那种需要从结果集获取分页参数的，则可以使用 jsonpath 进行抽取并且进行渲染，相关配置如下：
+
 ```sql
-SAVE overwrite command as Rest.`${API_URL}`
-```
-的方式进行调用的，`where` 语句条件中是对应的参数信息。
+-- 为了得到 `cursor` 和 `wow` 在 page.next 中使用动态参数。
 
-在这个示例中，通过参数 `form.file-path` 以及 `form.file-name` 来指定上传的文件路径和文件名。
+and `config.page.next`="https://cnodejs.org/api/v1/topics?page={0}"
+
+-- 不能携带表单中携带的请求参数。
+
+and `config.page.skip-params`="true"
+
+-- 使用 JsonPath 来解析请求中的分页信息。更多信息，请参考: https://github.com/json-path/JsonPath。
+
+and `config.page.values`="$.path1;$.path2"
+
+-- 为每个分页请求设置间隔时间。
+
+and `config.page.interval`="10ms"
+
+-- 为每个分页请求设置设置失败重试次数。
+
+and `config.page.retry`="3"
+
+-- 设置请求页面的数量。
+
+and `config.page.limit`="2"
+```
+
+通过json path抽取的值会作为位置参数去重新生成 config.page.next 页。
+
+
+
+### 6. 使用 POST 请求上传文件
+
+```sql
+save overwrite command as Rest.`http://lab.mlsql.tech/api/upload_file` where
+
+`config.connect-timeout`="10s"
+
+and `header.content-type`="multipart/form-data"
+
+and `header.Content-Type`="multipart/form-data; boundary=$you_boundary"
+
+and `header.Cookie`="JSESSIONID=$your_jsession_id;"
+
+-- upload file path
+
+and `form.file-path`="/tmp/upload/test_date.csv"
+
+-- upload file name
+
+and `form.file-name`="test_date.csv"
+
+and `config.method`="post"
+
+;
+```
+
+我们请求的 byzer-notebook 是需要授权的，我们通过`header.`设置 Jsession 等授权信息。
+
+
+
+### 7. 忽略请求结果异常
+
+对于 http 服务端响应的状态码不是 200 的情况，如果不想报错，可以结合分支加空表的模式：
+
+```sql
+-- 这里的 url 是错误的, 因此状态是404。
+
+-- 它将在之后的脚本中抛出异常。
+
+SET ENGINE_URL="https://cnodejs.org/api/v1/topics1"; 
+
+load Rest.`$ENGINE_URL` where
+
+ `config.connect-timeout`="10s"
+
+ and `config.method`="get"
+
+ and `form.page`=''':{select 1 as :b;:b}'''
+
+ and `form.tab`="share"
+
+ and `form.limit`="2"
+
+ and `form.mdrender`="false" 
+
+as raw_cnodejs_articles;
+
+
+
+set status= `select status from raw_cnodejs_articles` where type="sql" and mode="runtime";
+
+
+
+-- 如果状态不是200，则模拟一个不带数据的新表。
+
+!if ''' :status != 200 '''; 
+
+!then; 
+
+    run command as EmptyTableWithSchema.`` where schema='''st(field(content,binary),field(status,integer))''' as raw_cnodejs_articles;    
+
+!fi;
+
+
+
+select status, string(content) as content  
+
+from raw_cnodejs_articles as temp_cnodejs_articles;
+
+
+
+run temp_cnodejs_articles as JsonExpandExt.`` 
+
+where inputCol="content" and structColumn="true" 
+
+as cnodejs_articles;
+
+
+
+-- 因为这段内容中没有字段数据，应再次模拟表。
+
+-- 从 condejs_articles 中选择 explode(content.data) 作为 article；
+
+-- 从 articles 中选择 article.id, article 作为输出；
+```
+
+
