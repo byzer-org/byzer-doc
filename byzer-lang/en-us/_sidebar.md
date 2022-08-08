@@ -47,7 +47,6 @@
   * [Branch/If|Else](/byzer-lang/en-us/grammar/branch_statement.md)
   * [Build-in Marco Functions](/byzer-lang/en-us/grammar/commands.md)
 
-
 - Data Extract
     - [Data Sources](/byzer-lang/en-us/datasource/README.md)
     - [JDBC DS](/byzer-lang/en-us/datasource/jdbc/jdbc.md)
@@ -95,7 +94,6 @@
   - [Save to REST API](/byzer-lang/en-us/save_data/restapi/README.md)
   - [Save to Streaming DS](/byzer-lang/en-us/save_data/README.md)
     * [Save to Kafka](/byzer-lang/en-us/save_data/streaming/kafka.md)
-
 
 - Byzer-Python
     - [Byzer-Python](/byzer-lang/en-us/python/README.md)
