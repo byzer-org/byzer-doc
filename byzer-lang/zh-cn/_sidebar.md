@@ -95,10 +95,8 @@
   - [写入流式数据源](/byzer-lang/zh-cn/save_data/README.md)
     * [写入 Kafka](/byzer-lang/zh-cn/save_data/streaming/kafka.md)
 
-
-
 - Byzer-Python
-    - [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
+    * [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
     * [环境依赖](/byzer-lang/zh-cn/python/env.md)
     * [数据处理](/byzer-lang/zh-cn/python/etl.md)
     * [模型训练](/byzer-lang/zh-cn/python/train.md)
@@ -163,7 +161,6 @@
       * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)  
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
-
 
 - 附录
   * [术语表](/byzer-lang/zh-cn/appendix/terms.md)
