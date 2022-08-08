@@ -73,7 +73,7 @@
   - [SQL 函数](/byzer-lang/zh-cn/transform/sql_func/README.md)
   - [UDF 扩展](/byzer-lang/zh-cn/transform/udf/README.md)
     * [系统内置 UDF](/byzer-lang/zh-cn/transform/udf/built_in_udf/README.md)
-      * [http 请求](/byzer-lang/zh-cn/transform/udf/built_in_udf/http.md)
+      * [HTTP 请求函数](/byzer-lang/zh-cn/transform/udf/built_in_udf/http.md)
       * [常用函数](/byzer-lang/zh-cn/transform/udf/built_in_udf/udf_funcs.md)
     * [动态扩展 UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/README.md)
       * [Python UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/python_udf.md)
@@ -97,8 +97,8 @@
 
 
 
-- Byzer-python
-    - [Byzer-python 介绍](/byzer-lang/zh-cn/python/README.md)
+- Byzer-Python
+    - [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
     * [环境依赖](/byzer-lang/zh-cn/python/env.md)
     * [数据处理](/byzer-lang/zh-cn/python/etl.md)
     * [模型训练](/byzer-lang/zh-cn/python/train.md)
@@ -164,8 +164,7 @@
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)  
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
-- [术语表](/byzer-lang/zh-cn/terms/terms.md)
 
 - 附录
+  * [术语表](/byzer-lang/zh-cn/appendix/terms.md)
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
-  * [取名小故事](/byzer-lang/zh-cn/appendix/naming_story.md)   
