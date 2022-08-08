@@ -58,9 +58,6 @@ select * from newtable as output limit 1;
 | id   | name              | user | cell_list                                                    |
 | ---- | ----------------- | ---- | ------------------------------------------------------------ |
 | 27   | 03_Demo_Notebook2 | zepp | [ 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131 ] |
-
-### 
-
 ### 使用mysql存储元信息
 
 前面我们提到，byzer Meta Store 可以采用MySQL存储，具体使用方式，请参考：[byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
