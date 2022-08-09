@@ -115,6 +115,35 @@ Byzer 连接 JDBC 的底层实现是通过 Spark JDBC 来实现的，所以在�
 - `partitionColumn`, `lowerBound`, `upperBound`,`numPartitions` 用来控制加载表的并行度。你可以调整这几个参数提升加载速度。
 - 当 `driver` 为 MySQL 时，`url` 默认设置参数 `useCursorFetch=true`，并且 `fetchsize` 默认为`-2147483648`（在 spark2 中不支持设置 `fetchsize` 为负数，默认值为 `1000`），用于支持数据库游标的方式拉取数据，避免全量加载导致 OOM。
 
+下面是一个 `partitionColumn`, `lowerBound`, `upperBound`,`numPartitions` 全量加载 `MySQL` 表的例子。这里 `numPartitions="2"` 表示 2 个分区， 每个分区各有 1 个数据库连接。 设置该参数为较大值时，对数据库压力较大，请先与 DBA 商议。
+`partitionColumn` 必须是一个数值类型的字段。`upperBound` 和 `lowerBound` 不决定加载数据量，仅影响每个分区数据量。 例子使用了 `Byzer-lang` 内置的 `aes_decrypt` 解密得到数据库密码，与它相对应的是 `aes_encrypt` 函数。
+
+```sql
+SET user="notebook";
+SET password=`SELECT aes_decrypt("3wmjQo5lUj07mMVf+WocKw==") AS result;` where type="sql";
+SET jdbc_url="jdbc:mysql://127.0.0.1:3306/notebook?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false";
+
+LOAD jdbc.`notebook.cell_info` 
+where driver="com.mysql.jdbc.Driver"
+and url="${jdbc_url}"
+and user="${user}"
+and password="${password}"
+and numPartitions="2" 
+and partitionColumn="id"
+and lowerBound="150"
+and upperBound="500"
+AS cell_info;
+
+SELECT MIN(id) AS min_id , MAX(id) AS max_id, COUNT(id) AS id_cnt from cell_info as output;
+```
+
+得到结果
+
+|min_id|max_id|id_cnt|
+|---|---|---|
+|114|494|367|
+ 
+
 #### Byzer 内置参数
 
 
