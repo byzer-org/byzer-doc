@@ -5,6 +5,10 @@
 在业务真实的数据EDA需求场景背景下，提升和丰富 DataSummary 对数据集的全局统计和剖析的能力。
 具体地，DataSummary ET 提供给用户多种功能选项，包括精确计算开关操作（ 提供用户小数据量情况下的精确计算分位数，精确计算中位数）以及增加过滤空值和空字符串等功能。
 
+注：该 ET 属于 Byzer 扩展，代码实现见：[SQLDataSummary.scala](https://github.com/byzer-org/byzer-extension/blob/master/mlsql-mllib/src/main/java/tech/mlsql/plugins/mllib/ets/fe/SQLDataSummary.scala)，
+该 ET 默认被集成至 Byzer All-In-One 产品包以及 K8S 镜像中，起始生效版本为 `byzer v2.3.2`。
+如果您使用的是 Byzer Server 版本，请参考[Byzer Server 部署](/byzer-lang/zh-cn/installation/server/binary-installation.md) 章节中安装 Byzer Extension 的一节
+
 ### User Tutorial
 
 该ET 的输入是一张多个字段的二维表，输出表是多个指标为列名的二维宽表
