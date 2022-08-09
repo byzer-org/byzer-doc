@@ -149,6 +149,8 @@
             * [Connect statement persistence](/byzer-lang/en-us/extension/et/external/connect-persist.md)
             * [Byzer assertion](/byzer-lang/en-us/extension/et/external/mlsql-assert.md)
             * [Byzer mllib](/byzer-lang/en-us/extension/et/external/mlsql-mllib.md)
+              * [唯一标识符算子](/byzer-lang/en-us/extension/et/external/UniqueIdentifier.md)
+              * [频数分布算子](/byzer-lang/en-us/extension/et/external/DescriptiveMetrics.md)
             * [shell command plugin](/byzer-lang/en-us/extension/et/external/mlsql-shell.md)
             * [Execute string as code](/byzer-lang/en-us/extension/et/external/run-script.md)
             * [Save to the incremental table and load again](/byzer-lang/en-us/extension/et/external/save-then-load.md)

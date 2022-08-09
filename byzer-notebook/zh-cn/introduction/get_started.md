@@ -15,8 +15,9 @@
    > tag 对应着镜像的版本号，您可点击 [mlsql-sandbox](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags) 页面，查看所有可用的 tag。
    
 2. 运行容器
-
-   `docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_byzer_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> allwefantasy/mlsql-sandbox:<tag>`
+```
+docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_byzer_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> allwefantasy/mlsql-sandbox:<tag>
+```
    
    > container_name 是运行的容器名称
    > host_notebook_port 是 notebook 服务在宿主机上暴露的端口
@@ -25,7 +26,7 @@
    > mysql_pwd 是 mysql 服务的 root 用户密码
    > tag 是上一步骤选定的镜像版本号
    
-3. 浏览器访问
+4. 浏览器访问
 
    访问 `http://localhost:9002` 即可开始体验 Byzer Notebook 了。
    
