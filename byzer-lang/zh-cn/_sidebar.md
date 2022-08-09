@@ -99,6 +99,7 @@
         * [逻辑回归/LogisticRegression](/byzer-lang/zh-cn/ml/algs/logistic_regression.md)
         * [线性回归/LinearRegression](/byzer-lang/zh-cn/ml/algs/linear_regression.md)
         * [隐含狄利克雷分布/LDA](/byzer-lang/zh-cn/ml/algs/lda.md)
+        * [模型可解释性](/byzer-lang/zh-cn/ml/algs/model_explain/ModelSelfExplain.md)
     
     * [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
         * [设计和原理](/byzer-lang/zh-cn/ml/api_service/design.md)
