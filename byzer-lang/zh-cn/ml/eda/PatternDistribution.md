@@ -1,9 +1,9 @@
-# PatternDistribution
+# 模式分布 / PatternDistribution
 
-## Background
+### Background
 
 根据业务方具体的业务场景回流的需求，增加字符串模式分布统计的算法 ET。该 ET 主要是对标 SAS 系统的模式统计功能，总结字符串类型列的文本模式，从统计学的角度观察数据的模式分布，从而更好的结合数据离散化的加工。
-## User Tutorial
+### User Tutorial
 
 该ET 该 ET 的输入是一张多个字段的二维表，输出两列，包含原始列名（只统计 String 类型的列），还有模式分布的 Json 字符串。
 
@@ -24,7 +24,7 @@ select name, age, income from table1 as table2;
 run table2 as PatternDistribution.`` as pd_table;
 ```
 
-### 可选参数
+#### 可选参数
 
 - **limit**  设置最多的模式行，如果模式总数不超过patternLimit的值，默认为100. 
 比如 name 这一列的模式有 105 个模式，但是 patternLimit 是100，

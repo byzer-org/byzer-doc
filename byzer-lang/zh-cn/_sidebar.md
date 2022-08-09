@@ -107,6 +107,10 @@
     * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
 
 - 机器学习
+    * [Exploratory Data Analysi ( EDA ) ](/byzer-lang/zh-cn/ml/eda/README.md)
+      * [数据剖析/DataSummary](/byzer-lang/zh-cn/ml/eda/DataSummary.md)
+      * [模式识别/PatternDistribution](/byzer-lang/zh-cn/ml/eda/PatternDistribution.md)
+    
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
         * [特征平滑/ScalerPlace](/byzer-lang/zh-cn/ml/feature/scale.md)
         * [归一化/NormalizeInPlace](/byzer-lang/zh-cn/ml/feature/normalize.md)

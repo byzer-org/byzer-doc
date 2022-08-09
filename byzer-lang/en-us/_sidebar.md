@@ -107,6 +107,11 @@
     * [Parallel in Byzer-python](/byzer-lang/en-us/python/py_parallel.md)
 
 - Machine Learning
+    
+    * [Exploratory Data Analysi ( EDA ) ](/byzer-lang/en-us/ml/eda/README.md)
+      * [DataSummary](/byzer-lang/en-us/ml/eda/DataSummary.md)
+      * [PatternDistribution](/byzer-lang/en-us/ml/eda/PatternDistribution.md)
+    
     * [Feature Engineering](/byzer-lang/en-us/ml/feature/README.md)
         * [ScalerPlace](/byzer-lang/en-us/ml/feature/scale.md)
         * [NormalizeInPlace](/byzer-lang/en-us/ml/feature/normalize.md)

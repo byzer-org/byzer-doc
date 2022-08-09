@@ -1,11 +1,11 @@
-# DataSummary
+# 数据剖析 / DataSummary
 
-## Background
+### Background
 
 在业务真实的数据EDA需求场景背景下，提升和丰富 DataSummary 对数据集的全局统计和剖析的能力。
 具体地，DataSummary ET 提供给用户多种功能选项，包括精确计算开关操作（ 提供用户小数据量情况下的精确计算分位数，精确计算中位数）以及增加过滤空值和空字符串等功能。
 
-## User Tutorial
+### User Tutorial
 
 该ET 的输入是一张多个字段的二维表，输出表是多个指标为列名的二维宽表
 
@@ -23,7 +23,7 @@ and roundAt='2' -- 剖析数据保留 2 位小数
 and approxSwitch="false"; -- 是否精确计算分位数
 ```
 
-### 可选参数
+#### 可选参数
 
 - **metrics**  执行要展示的统计值，默认展示所有统计值
 
@@ -54,7 +54,7 @@ run table2 as DataSummary.`` as summaryTable
 where approxSwitch="true";
 ```
 
-### Details
+#### Details
 
 DataSummary ET 是一个数据 EDA 工具，完成全局数据剖析指标展示，所包含的指标包括：
 
