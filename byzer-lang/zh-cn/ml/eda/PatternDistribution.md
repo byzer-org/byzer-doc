@@ -2,7 +2,8 @@
 
 ### Background
 
-根据业务方具体的业务场景回流的需求，增加字符串模式分布统计的算法 ET。该 ET 主要是对标 SAS 系统的模式统计功能，总结字符串类型列的文本模式，从统计学的角度观察数据的模式分布，从而更好的结合数据离散化的加工。
+模式分布 ET 是字符串的模式分布统计的算法 ET。
+该 ET 主要是对标 SAS 系统的模式统计功能，总结字符串类型列的文本模式，从统计学的角度观察数据的模式分布，从而更好的结合数据离散化的加工。
 
 注：该 ET 属于 Byzer 扩展，代码实现见：[SQLDataSummary.scala](https://github.com/byzer-org/byzer-extension/blob/master/mlsql-mllib/src/main/java/tech/mlsql/plugins/mllib/ets/fe/SQLPatternDistribution.scala)，
 该 ET 默认被集成至 Byzer All-In-One 产品包以及 K8S 镜像中，起始生效版本为 `byzer v2.3.2`。
