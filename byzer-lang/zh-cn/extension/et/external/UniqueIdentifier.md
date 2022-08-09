@@ -14,7 +14,7 @@
 
 调用方式如下
 
-```SQL
+```sql
 -- 假设存在源表数据 table1
 select * from table1 as table2;
 -- 调用唯一标识符计算的ET，返回值包括原始列名和频数分布的json数据

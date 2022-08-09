@@ -12,7 +12,7 @@
 
 调用方式如下
 
-```SQL
+```sql
 -- 假设存在源表数据 table1
 select * from table1 as table2;
 -- 通过run/train关键字执行，频数分布为精确计算，内部有使用Action算子，会触发spark job提交
