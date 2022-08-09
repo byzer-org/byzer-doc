@@ -4,6 +4,8 @@
 
 在某些 EDA 需求中，需要对表生成一列全局唯一的值，该唯一值列为数字顺序递增，不会出现数据乱序，可以选择替换现有列或者创建新列。
 
+起始生效版本：`Byzer-lang V2.3.2`， 该 ET 是集成于 `mlsql-lib` 扩展中，该扩展默认被被集成至 Byzer All-In-One 产品包以及 K8S 镜像中，如果您使用的 Byzer Server 版本，请参考 [Byzer Server 二进制版本安装和部署](byzer-lang/zh-cn/installation/server/binary-installation.md) 一章中安装插件的部分来进行插件的安装
+
 ## User Tutorial
 
 通过Byzer ET的方式执行唯一标识符计算，可以设置可选参数来控制替换现有列或者创建新列，如果是创建新列，需要指定一个列名，默认为Unique_ID，新的列会插入到表的第一列前面；如果选择替换现有列，则会在原有列的位置，进行数据覆盖。
