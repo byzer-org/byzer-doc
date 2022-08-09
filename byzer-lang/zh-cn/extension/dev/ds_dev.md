@@ -11,7 +11,7 @@
 
 ### byzer Excel 数据源介绍
 
-加载或者保存 Excel 会是一个较为常见的操作，我们在[mlsql-plugins](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了 excel 在 byzer 中的读取和保存。
+加载或者保存 Excel 会是一个较为常见的操作，我们在[byzer-extension](https://github.com/byzer-org/byzer-extension/tree/master/mlsql-excel)实现了 excel 在 byzer 中的读取和保存。
 
 使用如下：
 
@@ -29,6 +29,7 @@ as data;
 select 1 as as as b;
 save overwrite b as excel.`/tmp/b.xlsx` where header="true";
 ```
+                        |
 
 现在我们来看看如何进行开发。
 
