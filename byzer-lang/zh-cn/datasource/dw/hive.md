@@ -1,9 +1,10 @@
 # Hive 数据源
 
-Byzer 引擎默认提供了 Hive 读写的支持，可以和 Hive Metastore 进行交互，然后通过 Byzer 引擎可以直接处理 Hive 中表指向的 location
-Byzer 支持通过 JDBC 来访问 Hive，但性能可能比较低下。
+Byzer 引擎默认提供了 Hive 读写的支持，可以和 Hive Metastore 进行交互，然后通过 Byzer 引擎可以直接处理 Hive 中表指向的 location 的数据文件
 
-### 前置条件
+用户也可以通过 Hive 暴露的 JDBC 接口来访问 Hive，可以参考 [JDBC 数据源](/byzer-lang/zh-cn/datasource/jdbc/jdbc.md), 但性能相较于直接和 Hive Metastore 可能比较低下。
+
+### 1. 前置条件
 
 1. Hive 实例（一般位于 Hadoop 集群上）
 2. 根据 [Byzer Server 二进制版本安装和部署](/byzer-lang/zh-cn/installation/server/binary-installation.md) 在 Hadoop 集群的边缘节点（Edge Node）上安装 Byzer 引擎
@@ -29,7 +30,7 @@ Byzer 支持通过 JDBC 来访问 Hive，但性能可能比较低下。
 1. 参考上文进行 `export HADOOP_CONF_DIR` 或将 `hive-site.xml` 放入至 `$SPARK_HOME/conf` 目录中
 
 
-2. 收集 Hive 3.x 的 jar 包依赖，一般位于 Hive 的安装目录下，创建 `${BYZER_HOME}/dependencies/hive` 目录，将 Hive 3.x 的 Jar files 复制至该目录
+2. 收集 Hive 3.x 中和 Hive MetaStore 相关的 jar 包依赖，一般位于 Hive 的安装目录的 `lib` 目录下，创建 `${BYZER_HOME}/dependencies/hive/` 目录，将 Hive 3.x 的 MetaStore Jar files 复制至该目录
 
 
 3. 修改 `$SPARK_HOME/conf/spark-defaults.conf` 文件，如果该文件不存在，可以通过执行下述命令进行创建
@@ -43,23 +44,75 @@ $ cp spark-defaults.conf.template spark-defaults.conf
 
 ```shell
 $ cd apache-hive-3.1.2-bin
-$ ls lib/ grep hive
+$ ls lib
+```
+从输出中我们可以看到 hive 所有的依赖，找到 Hive Metastore 相关的依赖
+
+```shell
+- hive-standalone-metastore-3.1.2.jar
+- hive-exec-3.1.2.jar
+
+# libfb jars
+- libfb303-0.9.3.jar
+
+# metrics core jar
+- metrics-core-3.1.0.jar
+
+# javax jars
+- javax.servlet-api-3.1.0.jar
+- javax.jdo-3.2.0-m3.jar
+
+# commons jars
+- commons-logging-1.0.4.jar
+- commons-io-2.4.jar
+- commons-codec-1.7.jar
+- commons-collections-3.2.2.jar
+
+# calcite jars
+- calcite-core-1.16.0.jar
+
+# datanucleus jars
+- datanucleus-core-4.1.17.jar
+- datanucleus-api-jdo-4.2.4.jar
+- datanucleus-rdbms-4.1.19.jar
+
+# HikariCP jars
+- HikariCP-2.6.1.jar
+
+# antlr jars
+- antlr-runtime-3.5.2.jar
+
+# jackson jars
+- jackson-core-2.9.5.jar
+- jackson-annotations-2.9.5.jar
+- jackson-databind-2.9.5.jar
+- jackson-mapper-asl-1.9.13.jar
+- jackson-core-asl-1.9.13.jar
+
+# mysql connector driver
+# please note this driver is not included in ${HIVE_HOME}/lib
+- mysql-connector-java-5.1.48.jar
 ```
 
-
-
 在 `spark-defaults.conf` 文件中添加如下内容，注意替换 `$BYZER_HOME` 为绝对路径
+> 参考 Spark 官方文档 [Hive Tables](https://spark.apache.org/docs/latest/sql-data-sources-hive-tables.html)
 
 ```properties
 spark.sql.hive.metastore.version=3.1.2
 spark.sql.hive.metastore.jars=path
-spark.sql.hive.metastore.jars.path=file:///${BYZER_HOME}/dependencies/hivehive-standalone-metastore-3.1.2.jar,file:///${BYZER_HOME}/dependencies/hivehive-exec-3.1.2.jar,file:///${BYZER_HOME}/dependencies/hivecommons-logging-1.0.4.jar,file:///${BYZER_HOME}/dependencies/hivecommons-io-2.4.jar,file:///${BYZER_HOME}/dependencies/hivejavax.servlet-api-3.1.0.jar,file:///${BYZER_HOME}/dependencies/hivecalcite-core-1.16.0.jar,file:///${BYZER_HOME}/dependencies/hivecommons-codec-1.7.jar,file:///${BYZER_HOME}/dependencies/hivelibfb303-0.9.3.jar,file:///${BYZER_HOME}/dependencies/hivemetrics-core-3.1.0.jar,file:///${BYZER_HOME}/dependencies/hivedatanucleus-core-4.1.17.jar,file:///${BYZER_HOME}/dependencies/hivedatanucleus-api-jdo-4.2.4.jar,file:///${BYZER_HOME}/dependencies/hivejavax.jdo-3.2.0-m3.jar,file:///${BYZER_HOME}/dependencies/hivedatanucleus-rdbms-4.1.19.jar,file:///${BYZER_HOME}/dependencies/hiveHikariCP-2.6.1.jar,file:///${BYZER_HOME}/dependencies/hivemysql-connector-java-5.1.48.jar,file:///work/spark/jars/commons-collections-3.2.2.jar,file:///${BYZER_HOME}/dependencies/hiveantlr-runtime-3.5.2.jar,file:///${BYZER_HOME}/dependencies/hivejackson-core-2.9.5.jar,file:///${BYZER_HOME}/dependencies/hivejackson-annotations-2.9.5.jar,file:///${BYZER_HOME}/dependencies/hivejackson-databind-2.9.5.jar,file:///${BYZER_HOME}/dependencies/hivejackson-mapper-asl-1.9.13.jar,file:///${BYZER_HOME}/dependencies/hivejackson-core-asl-1.9.13.jar
+spark.sql.hive.metastore.jars.path=file:///${BYZER_HOME}/dependencies/hive/hive-standalone-metastore-3.1.2.jar,file:///${BYZER_HOME}/dependencies/hive/hive-exec-3.1.2.jar,file:///${BYZER_HOME}/dependencies/hive/commons-logging-1.0.4.jar,file:///${BYZER_HOME}/dependencies/hive/commons-io-2.4.jar,file:///${BYZER_HOME}/dependencies/hive/javax.servlet-api-3.1.0.jar,file:///${BYZER_HOME}/dependencies/hive/calcite-core-1.16.0.jar,file:///${BYZER_HOME}/dependencies/hive/commons-codec-1.7.jar,file:///${BYZER_HOME}/dependencies/hive/libfb303-0.9.3.jar,file:///${BYZER_HOME}/dependencies/hive/metrics-core-3.1.0.jar,file:///${BYZER_HOME}/dependencies/hive/datanucleus-core-4.1.17.jar,file:///${BYZER_HOME}/dependencies/hive/datanucleus-api-jdo-4.2.4.jar,file:///${BYZER_HOME}/dependencies/hive/javax.jdo-3.2.0-m3.jar,file:///${BYZER_HOME}/dependencies/hive/datanucleus-rdbms-4.1.19.jar,file:///${BYZER_HOME}/dependencies/hive/HikariCP-2.6.1.jar,file:///${BYZER_HOME}/dependencies/hive/mysql-connector-java-5.1.48.jar,file:///work/spark/jars/commons-collections-3.2.2.jar,file:///${BYZER_HOME}/dependencies/hive/antlr-runtime-3.5.2.jar,file:///${BYZER_HOME}/dependencies/hive/jackson-core-2.9.5.jar,file:///${BYZER_HOME}/dependencies/hive/jackson-annotations-2.9.5.jar,file:///${BYZER_HOME}/dependencies/hive/jackson-databind-2.9.5.jar,file:///${BYZER_HOME}/dependencies/hive/jackson-mapper-asl-1.9.13.jar,file:///${BYZER_HOME}/dependencies/hive/jackson-core-asl-1.9.13.jar
 ```
 
+至此，通过 `${BYZER_HOME}/bin/byzer.sh start` 启动
 
-### 加载 Hive 数据源中的表
+### 2. 加载 Hive 数据源中的表
 
-Hive 在 Byzer-lang 中使用极为简单。 加载 Hive 表只需要一句话：
+当按照上述前置条件配置好 Hive 的连接并启动 Byzer 引擎后，就可以通过 Byzer 语法进行 Hive 数据表的加载了。
+
+Hive 作为 Byzer 支持的内置数据源之一，也可以通过 [LOAD 语法](/byzer-lang/zh-cn/grammar/load.md) 进行库和表的加载。
+
+如下示例，Hive 表中有 Database `demo_db`，该 DB 下有表 `demo_table`，那么我们可以通过下述语句进行表 
+
 
 ```sql
 load hive.`db1.table1`  as table1;
