@@ -1,12 +1,12 @@
 # 频数分布 / DescriptiveMetrics
 
-## Background
+### Background
 
 频数分布 ET 主要是帮助用户从统计的角度计算 count，输入是一张多列二维表，输出是一个两列的二维表，列1为字段名，列2为该字段的值的分布情况，并以 Json String 的方式展示。
 
 起始生效版本：`Byzer-lang V2.3.2`， 该 ET 是集成于 `mlsql-lib` 扩展中，该扩展默认被被集成至 Byzer All-In-One 产品包以及 K8S 镜像中，如果您使用的 Byzer Server 版本，请参考 [Byzer Server 二进制版本安装和部署](byzer-lang/zh-cn/installation/server/binary-installation.md) 一章中安装插件的部分来进行插件的安装
 
-## User Tutorial
+### User Tutorial
 
 该 ET 的输入是一张多个字段的二维表，输出输出两列，包含原始列名（只统计 String 类型的列），还有频数分布的 Json 字符串。
 
