@@ -95,23 +95,12 @@
   - [写入流式数据源](/byzer-lang/zh-cn/save_data/README.md)
     * [写入 Kafka](/byzer-lang/zh-cn/save_data/streaming/kafka.md)
 
-- Byzer-Python
-    * [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
-    * [环境依赖](/byzer-lang/zh-cn/python/env.md)
-    * [数据处理](/byzer-lang/zh-cn/python/etl.md)
-    * [模型训练](/byzer-lang/zh-cn/python/train.md)
-    * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
-    * [PyJava API 简介](/byzer-lang/zh-cn/python/pyjava.md)
-    * [k8s 下的 Byzer-python 资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
-    * [dataMode 详解](/byzer-lang/zh-cn/python/datamode.md)
-    * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
-
 - 机器学习
     * [探索性数据分析 ( EDA ) ](/byzer-lang/zh-cn/ml/eda/README.md)
       * [数据剖析/DataSummary](/byzer-lang/zh-cn/ml/eda/DataSummary.md)
       * [模式识别/PatternDistribution](/byzer-lang/zh-cn/ml/eda/PatternDistribution.md)
-      * [频数分布/DescriptiveMetrics](/byzer-lang/zh-cn/zh-cn/ml/eda/DescriptiveMetrics.md)
-      * [唯一标识符/UniqueIdentifier](/byzer-lang/zh-cn/zh-cn/ml/eda/UniqueIdentifier.md)
+      * [频数分布/DescriptiveMetrics](/byzer-lang/zh-cn/ml/eda/DescriptiveMetrics.md)
+      * [唯一标识符/UniqueIdentifier](/byzer-lang/zh-cn/ml/eda/UniqueIdentifier.md)
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
         * [特征平滑/ScalerPlace](/byzer-lang/zh-cn/ml/feature/scale.md)
         * [归一化/NormalizeInPlace](/byzer-lang/zh-cn/ml/feature/normalize.md)
@@ -150,6 +139,17 @@
         * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
+
+- Byzer-Python
+    * [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
+    * [环境依赖](/byzer-lang/zh-cn/python/env.md)
+    * [数据处理](/byzer-lang/zh-cn/python/etl.md)
+    * [模型训练](/byzer-lang/zh-cn/python/train.md)
+    * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
+    * [PyJava API 简介](/byzer-lang/zh-cn/python/pyjava.md)
+    * [k8s 下的 Byzer-python 资源限制](/byzer-lang/zh-cn/python/k8s_resource.md)
+    * [dataMode 详解](/byzer-lang/zh-cn/python/datamode.md)
+    * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
 
 - 开发者指南   
     * 插件开发

@@ -95,23 +95,12 @@
   - [Save to Streaming DS](/byzer-lang/en-us/save_data/README.md)
     * [Save to Kafka](/byzer-lang/en-us/save_data/streaming/kafka.md)
 
-- Byzer-Python
-    * [Byzer-Python](/byzer-lang/en-us/python/README.md)
-    * [Environment](/byzer-lang/en-us/python/env.md)
-    * [Data Process](/byzer-lang/en-us/python/etl.md)
-    * [Train](/byzer-lang/en-us/python/train.md)
-    * [Deploy](/byzer-lang/en-us/python/deploy_model.md)
-    * [PyJava API Introduction](/byzer-lang/en-us/python/pyjava.md)
-    * [Resource Restriction under K8S](/byzer-lang/en-us/python/k8s_resource.md)
-    * [Datamode](/byzer-lang/en-us/python/datamode.md)
-    * [Parallel in Byzer-python](/byzer-lang/en-us/python/py_parallel.md)
-
 - Machine Learning
     * [Exploratory Data Analysis (EDA)](/byzer-lang/en-us/ml/eda/README.md)
       * [DataSummary](/byzer-lang/en-us/ml/eda/DataSummary.md)
       * [PatternDistribution](/byzer-lang/en-us/ml/eda/PatternDistribution.md)
-      * [UniqueIdentifier](/byzer-lang/en-us/ml/eda/external/UniqueIdentifier.md)
-      * [DescriptiveMetrics](/byzer-lang/en-us/ml/eda/external/DescriptiveMetrics.md)
+      * [UniqueIdentifier](/byzer-lang/en-us/ml/eda/UniqueIdentifier.md)
+      * [DescriptiveMetrics](/byzer-lang/en-us/ml/eda/DescriptiveMetrics.md)
     * [Feature Engineering](/byzer-lang/en-us/ml/feature/README.md)
         * [ScalerPlace](/byzer-lang/en-us/ml/feature/scale.md)
         * [NormalizeInPlace](/byzer-lang/en-us/ml/feature/normalize.md)
@@ -155,6 +144,17 @@
             * [shell command plugin](/byzer-lang/en-us/extension/et/external/mlsql-shell.md)
             * [Execute string as code](/byzer-lang/en-us/extension/et/external/run-script.md)
             * [Save to the incremental table and load again](/byzer-lang/en-us/extension/et/external/save-then-load.md)
+
+- Byzer-Python
+    * [Byzer-Python](/byzer-lang/en-us/python/README.md)
+    * [Environment](/byzer-lang/en-us/python/env.md)
+    * [Data Process](/byzer-lang/en-us/python/etl.md)
+    * [Train](/byzer-lang/en-us/python/train.md)
+    * [Deploy](/byzer-lang/en-us/python/deploy_model.md)
+    * [PyJava API Introduction](/byzer-lang/en-us/python/pyjava.md)
+    * [Resource Restriction under K8S](/byzer-lang/en-us/python/k8s_resource.md)
+    * [Datamode](/byzer-lang/en-us/python/datamode.md)
+    * [Parallel in Byzer-python](/byzer-lang/en-us/python/py_parallel.md)
 
 - Development
     * Extension Development
