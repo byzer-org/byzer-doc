@@ -107,16 +107,16 @@
     * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
 
 - 机器学习
-    * [Exploratory Data Analysi ( EDA ) ](/byzer-lang/zh-cn/ml/eda/README.md)
+    * [探索性数据分析 ( EDA ) ](/byzer-lang/zh-cn/ml/eda/README.md)
       * [数据剖析/DataSummary](/byzer-lang/zh-cn/ml/eda/DataSummary.md)
       * [模式识别/PatternDistribution](/byzer-lang/zh-cn/ml/eda/PatternDistribution.md)
-    
+      * [频数分布/DescriptiveMetrics](/byzer-lang/zh-cn/zh-cn/ml/eda/DescriptiveMetrics.md)
+      * [唯一标识符/UniqueIdentifier](/byzer-lang/zh-cn/zh-cn/ml/eda/UniqueIdentifier.md)
     * [特征工程](/byzer-lang/zh-cn/ml/feature/README.md)        
         * [特征平滑/ScalerPlace](/byzer-lang/zh-cn/ml/feature/scale.md)
         * [归一化/NormalizeInPlace](/byzer-lang/zh-cn/ml/feature/normalize.md)
         * [混淆矩阵/ConfusionMatrix](/byzer-lang/zh-cn/ml/feature/confusion_matrix.md)
         * [数据集切分/RateSampler](/byzer-lang/zh-cn/ml/feature/rate_sample.md)
-        
     * [内置算法](/byzer-lang/zh-cn/ml/algs/README.md)
         * [自动机器学习/AutoML](/byzer-lang/zh-cn/ml/algs/auto_ml.md) 
         * [K 均值聚类算法/KMeans](/byzer-lang/zh-cn/ml/algs/kmeans.md)
@@ -126,7 +126,6 @@
         * [逻辑回归/LogisticRegression](/byzer-lang/zh-cn/ml/algs/logistic_regression.md)
         * [线性回归/LinearRegression](/byzer-lang/zh-cn/ml/algs/linear_regression.md)
         * [隐含狄利克雷分布/LDA](/byzer-lang/zh-cn/ml/algs/lda.md)
-    
     * [部署算法 API 服务](/byzer-lang/zh-cn/ml/api_service/README.md)
         * [设计和原理](/byzer-lang/zh-cn/ml/api_service/design.md)
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
@@ -148,8 +147,6 @@
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
-          * [唯一标识符算子](/byzer-lang/zh-cn/extension/et/external/UniqueIdentifier.md)
-          * [频数分布算子](/byzer-lang/zh-cn/extension/et/external/DescriptiveMetrics.md)
         * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)

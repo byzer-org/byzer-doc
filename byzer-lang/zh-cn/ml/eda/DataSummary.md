@@ -5,9 +5,7 @@
 在业务真实的数据EDA需求场景背景下，提升和丰富 DataSummary 对数据集的全局统计和剖析的能力。
 具体地，DataSummary ET 提供给用户多种功能选项，包括精确计算开关操作（ 提供用户小数据量情况下的精确计算分位数，精确计算中位数）以及增加过滤空值和空字符串等功能。
 
-注：该 ET 属于 Byzer 扩展，代码实现见：[SQLDataSummary.scala](https://github.com/byzer-org/byzer-extension/blob/master/mlsql-mllib/src/main/java/tech/mlsql/plugins/mllib/ets/fe/SQLDataSummary.scala)，
-该 ET 默认被集成至 Byzer All-In-One 产品包以及 K8S 镜像中，起始生效版本为 `byzer v2.3.2`。
-如果您使用的是 Byzer Server 版本，请参考[Byzer Server 部署](/byzer-lang/zh-cn/installation/server/binary-installation.md) 章节中安装 Byzer Extension 的一节
+> 该 ET 属于 Byzer 扩展，代码实现见：[SQLDataSummary.scala](https://github.com/byzer-org/byzer-extension/blob/master/mlsql-mllib/src/main/java/tech/mlsql/plugins/mllib/ets/fe/SQLDataSummary.scala)
 
 ### User Tutorial
 
@@ -15,7 +13,7 @@
 
 调用方式如下
 
-```SQL
+```sql
 -- 假设存在源表数据 table1
 select * from table1 as table2;
 -- 执行 DataSummary 完成源表数据的数据剖析功能
@@ -35,25 +33,25 @@ and approxSwitch="false"; -- 是否精确计算分位数
 
 调用方式如下
 
-```SQL
+```sql
 run table2 as DataSummary.`` as summaryTable
 where metrics='mean, datatype, mode, median, 75%'
 ```
 
-metrics 可以填的值如下【 'columnName', 'mode', 'uniqueValueRatio', 'nullValueRatio', 'blankValueRatio', 'mean', 'nonNullCount', 'standardDeviation', 'standardError', 'max', 'min', 'maximumLength', 'minimumLength', 'primaryKeyCandidate', 'dataLength', 'dataType', 'ordinalPosition', '%25', 'median', '%75'】
+- 参数 **metrics** 可以填的值如下 `columnName`, `mode`, `uniqueValueRatio`, `nullValueRatio`, `blankValueRatio`, `mean`, `nonNullCount`, `standardDeviation`, `standardError`, `max`, `min`, `maximumLength`, `minimumLength`, `primaryKeyCandidate`, `dataLength`, `dataType`, `ordinalPosition`, `%25`, `median`, `%75`
 
-- **roundAt** 指标统计保留默认保留 2 位小数
+- 参数 **roundAt** 指标统计保留位数，默认保留 2 位小数
 
 比如，用户的统计指标，需要展示 4 位小数，可以通过如下调用
 
-```SQL
+```sql
 run table2 as DataSummary.`` as summaryTable
 where rountAt="4";
 ```
 
-- **approxSwitch** 指定是否打开近似计算，默认为 false。spark 为了解决大数据量的处理效率， 唯一值，count，众数还有分位数的计算提供了 approxDistinct， approxCount 等功能。如果打开 approxSwitch，就会开启 spark 近似计算，提高计算效率，调用方式如下
+- 参数 **approxSwitch** 指定是否打开近似计算，默认为 false。spark 为了解决大数据量的处理效率， 唯一值，count，众数还有分位数的计算提供了 approxDistinct， approxCount 等功能。如果打开 approxSwitch，就会开启 spark 近似计算，提高计算效率，调用方式如下
 
-```SQL
+```sql
 run table2 as DataSummary.`` as summaryTable
 where approxSwitch="true";
 ```

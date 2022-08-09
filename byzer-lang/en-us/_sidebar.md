@@ -96,7 +96,7 @@
     * [Save to Kafka](/byzer-lang/en-us/save_data/streaming/kafka.md)
 
 - Byzer-Python
-    - [Byzer-Python](/byzer-lang/en-us/python/README.md)
+    * [Byzer-Python](/byzer-lang/en-us/python/README.md)
     * [Environment](/byzer-lang/en-us/python/env.md)
     * [Data Process](/byzer-lang/en-us/python/etl.md)
     * [Train](/byzer-lang/en-us/python/train.md)
@@ -107,17 +107,16 @@
     * [Parallel in Byzer-python](/byzer-lang/en-us/python/py_parallel.md)
 
 - Machine Learning
-    
-    * [Exploratory Data Analysi ( EDA ) ](/byzer-lang/en-us/ml/eda/README.md)
+    * [Exploratory Data Analysis (EDA)](/byzer-lang/en-us/ml/eda/README.md)
       * [DataSummary](/byzer-lang/en-us/ml/eda/DataSummary.md)
       * [PatternDistribution](/byzer-lang/en-us/ml/eda/PatternDistribution.md)
-    
+      * [UniqueIdentifier](/byzer-lang/en-us/ml/eda/external/UniqueIdentifier.md)
+      * [DescriptiveMetrics](/byzer-lang/en-us/ml/eda/external/DescriptiveMetrics.md)
     * [Feature Engineering](/byzer-lang/en-us/ml/feature/README.md)
         * [ScalerPlace](/byzer-lang/en-us/ml/feature/scale.md)
         * [NormalizeInPlace](/byzer-lang/en-us/ml/feature/normalize.md)
         * [ConfusionMatrix](/byzer-lang/en-us/ml/feature/confusion_matrix.md)
         * [RateSampler](/byzer-lang/en-us/ml/feature/rate_sample.md)
-
     * [Built-In Algorithms](/byzer-lang/en-us/ml/algs/README.md)
         * [AutoML](/byzer-lang/en-us/ml/algs/auto_ml.md) 
         * [KMeans](/byzer-lang/en-us/ml/algs/kmeans.md)
@@ -127,7 +126,6 @@
         * [LogisticRegression](/byzer-lang/en-us/ml/algs/logistic_regression.md)
         * [LinearRegression](/byzer-lang/en-us/ml/algs/linear_regression.md)
         * [LDA](/byzer-lang/en-us/ml/algs/lda.md)
-
     * [Deploy Algorithm as API Service](/byzer-lang/en-us/ml/api_service/README.md)
         * [Design and Principles](/byzer-lang/en-us/ml/api_service/design.md)
         * [Deploy Process](/byzer-lang/en-us/ml/api_service/process.md)
@@ -154,8 +152,6 @@
             * [Connect statement persistence](/byzer-lang/en-us/extension/et/external/connect-persist.md)
             * [Byzer assertion](/byzer-lang/en-us/extension/et/external/mlsql-assert.md)
             * [Byzer mllib](/byzer-lang/en-us/extension/et/external/mlsql-mllib.md)
-              * [唯一标识符算子](/byzer-lang/en-us/extension/et/external/UniqueIdentifier.md)
-              * [频数分布算子](/byzer-lang/en-us/extension/et/external/DescriptiveMetrics.md)
             * [shell command plugin](/byzer-lang/en-us/extension/et/external/mlsql-shell.md)
             * [Execute string as code](/byzer-lang/en-us/extension/et/external/run-script.md)
             * [Save to the incremental table and load again](/byzer-lang/en-us/extension/et/external/save-then-load.md)
