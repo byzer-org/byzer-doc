@@ -115,7 +115,8 @@
         * [LogisticRegression](/byzer-lang/en-us/ml/algs/logistic_regression.md)
         * [LinearRegression](/byzer-lang/en-us/ml/algs/linear_regression.md)
         * [LDA](/byzer-lang/en-us/ml/algs/lda.md)
-    * [Deploy Algorithm as API Service](/byzer-lang/en-us/ml/api_service/README.md)
+        * [Model Explain](/byzer-lang/en-us/ml/algs/model_explain/ModelSelfExplain.md)
+        * [Deploy Algorithm as API Service](/byzer-lang/en-us/ml/api_service/README.md)
         * [Design and Principles](/byzer-lang/en-us/ml/api_service/design.md)
         * [Deploy Process](/byzer-lang/en-us/ml/api_service/process.md)
 
