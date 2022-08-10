@@ -6,14 +6,15 @@
   * [常见问题 FAQ](/byzer-notebook/zh-cn/faq/faq.md)
 
 - 发行声明
-  * [Byzer Notebook 1.2.1](/byzer-notebook/zh-cn/release-notes/1.2.1.md)
+  * [Byzer Notebook 1.2.2](/byzer-notebook/zh-cn/release-notes/1.2.2.md)
   - 历史版本
+    * [Byzer Notebook 1.2.1](/byzer-notebook/zh-cn/release-notes/1.2.1.md)
     * [Byzer Notebook 1.2.0](/byzer-notebook/zh-cn/release-notes/1.2.0.md)
     * [Byzer Notebook 1.1.1](/byzer-notebook/zh-cn/release-notes/1.1.1.md)
     * [Byzer Notebook 1.1.0](/byzer-notebook/zh-cn/release-notes/1.1.0.md)
     * [Byzer Notebook 1.0.1](/byzer-notebook/zh-cn/release-notes/1.0.1.md)
     * [Byzer Notebook 1.0.0](/byzer-notebook/zh-cn/release-notes/1.0.0.md)  
-
+  
 - 安装与配置
   * [安装前置条件](/byzer-notebook/zh-cn/installation/prerequisites.md)
   * [安装与卸载](/byzer-notebook/zh-cn/installation/install_uninstall.md)
