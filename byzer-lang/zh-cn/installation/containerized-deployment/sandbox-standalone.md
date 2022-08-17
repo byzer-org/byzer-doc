@@ -39,8 +39,10 @@ docker run -d \
 byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
 ```
 
-> 注意：`Byzer Release 版本号`请参考 Byzer 的 Release Tags：https://github.com/byzer-org/byzer-lang/tags
-> 获取方式：e.g. tag 为 v2.2.1，则使用版本号 2.2.1，执行 `docker pull byzer/byzer-sandbox:3.1.1-2.1.1`
+> **注意：**
+> `Byzer Release 版本号`请参考 Docker Hub 中  byzer-sandbox 的 Release Tags：https://hub.docker.com/r/byzer/byzer-sandbox/tags
+> 参考 [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md) 一节中
+> docker 启动命令中映射了 MySQL 的端口号，如果本地安装了 MySQL 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
 
 
 #### Byzer on Spark2
@@ -65,12 +67,15 @@ docker run -d \
 byzer/byzer-sandbox:2.4.3-<Byzer Release 版本号>
 ```
 
-> 注意：docker 启动命令中映射了 MySQL 的端口号，如果本地安装了 MySQL 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
-
 
 ### 体验 Byzer 功能
 
-在用户登陆界面，输入用户名和密码: admin/admin 进入Byzer Notebook 首页。
+Sandbox 启动需要一段时间，服务启动后会暴露两个端口：
+- `9002`: Byzer Notebook 服务端口 
+- `9003`: Byzer Engine 的服务端口
+
+
+当 Sandbox 启动成功后，我们可以通过 `localhost:9002` 地址来访问 Byzer Notebook. 在用户登陆界面，输入用户名和密码: `admin/admin` 进入Byzer Notebook 首页。
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/installation/server/images/login.png" alt="name"  width="800"/>
