@@ -114,9 +114,17 @@ Hive 作为 Byzer 支持的内置数据源之一，也可以通过 [LOAD 语法]
 如下示例，Hive 表中有 Database `demo_db`，该 DB 下有表 `demo_table`，那么我们可以通过下述语句进行表 
 
 
+#### 使用 Hive 关键字进行表的加载
+
+
 ```sql
-load hive.`db1.table1`  as table1;
+> LOAD hive.`demo_db.demo_table`  as table1;
 ```
+通过该语句，我们就可以将 Hive 中的 `demo_db.demo_table` 加载至 byzer 中，并命名为 `table1`，接下来就可以使用 select 对 `table1` 语句进行处理了。
+
+
+在 LOAD hive 表的过程中，我们可以使用 `where` 语句来进行表的过滤
+
 
 保存则是：
 
@@ -198,6 +206,9 @@ $ jar cvf hive-conf.jar hive-site.xml
 
 
 
-#### 2. 如果我使用的 Byzer VSCode Extension，想要访问 Hive 需要怎么设置
+#### 2. 如果我使用的 Byzer VSCode Extension，想要访问 Hive 需要怎么设置？
 
 如果您使用的 Byzer VSCode Extension，在 VSCode 的配置路径内（一般为 `~/.vscode/extensions/allwefantasy.mlsql-0.0.7/dist/mlsql-lang`），参考上一条，将打包好的 `hive-conf.jar` 放入至目录 `~/.vscode/extensions/allwefantasy.mlsql-0.0.7/dist/mlsql-lang/spark` 中，重启 VScode 即可
+
+#### 3. 是否可以对接其他的数仓？
+如果您使用的数仓的 Catalog 组件是 Hive 兼容的，一般服务厂商会提供 sdk jar 包以及相应的配置文件，比如 AWS Glue，您可以参照 Hive 的配置方式进行配置即可。配置好后，我们就可以参考上述的 `LOAD` 语法对 Catalog 中的表进行读取。
