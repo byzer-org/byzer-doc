@@ -23,6 +23,8 @@ Byzer 目前支持的系统有 Linux 以及 MacOS （Intel 芯片）， Windows 
 
 社区官方测试过的版本为 JDK 8
 
+> 如果您使用的是 Open JDK，目前的测试过的版本是 `8u-332`， Byzer 社区提供了下载方式，可前往官方下载站点 https://download.byzer.org/byzer/misc/jdk/jdk8/ 自行下载安装
+
 #### Spark
 
 Byzer 引擎的运行时为 Spark，目前支持的版本分别有 `3.1.1` 以及 `2.4.3`，暂不支持其他版本的 Spark。

@@ -233,17 +233,6 @@ $ ./bin/byzer.sh restart
 
 
 
-
-1. 软链接 `core-site.xml`, `hdfs-site.xml`, `yarn-site.xml` 文件到 `$SPARK_HOME/conf` 目录下。
-2. 设置环境变量 `HADOOP_CONF_DIR`, 指向 `$SPARK_HOME/conf`, 参考命令如下
-
-```shell 
-export HADOOP_CONF_DIR=$SPARK_HOME/conf 
-```
-也可将此环境变量设置在 `~/.bash_profile` 文件中
-
-
-
 ### FAQ
 
 ####  如何设置 `$HADOOP_CONF_DIR` 环境变量

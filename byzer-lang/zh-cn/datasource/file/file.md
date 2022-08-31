@@ -187,12 +187,12 @@ id,name,age
 
 该示例 mock 了一组 csv 字符串并通过 `csvStr` 将其加载成表，并通过 `json` 数据源将其写入至 `/tmp/jack` 路径下，然后再通过 `text` 数据源关键字加载成表。得到的结果如下
 
-|file|value|
-|--|--|--|
-|file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json|{"id":"300","name":"'Mike'","age":"80"}|
-|file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json|{"id":"100","name":"'John'","age":"30"}|
-|file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json|{"id":"400","name":"'Dan'","age":"50"}|
-|file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json|{"id":"200","name":"'Mary'"}|
+| file | value |
+| ----------- | ----------- |
+|`file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json` | `{"id":"300","name":"'Mike'","age":"80"}`|
+|`file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json` | `{"id":"100","name":"'John'","age":"30"}`|
+|`file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json` | `{"id":"400","name":"'Dan'","age":"50"}`|
+|`file:///${root_path}/{$user_name}/tmp/jack/part-00003-2e02851c-fc95-44cf-853d-61b870a8106a-c000.json` | `{"id":"200","name":"'Mary'"}`|
 
 
 `text` 数据源返回的结果为一张两列的表，分别为 `file | 数据所在的文件全路径` 以及 `value | 数据文件的中的一行`
