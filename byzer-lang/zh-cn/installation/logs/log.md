@@ -25,3 +25,17 @@ Byzer 引擎的日志配置位于目录 `$BYZER_HOME/conf` 目录下，包含如
 ```
 
 您可以根据您的需要修改上述日志配置文件来日志级别和输出的格式。
+
+### 自定义 API 返回报错模板
+
+从 Byzer 引擎 `2.3.3` 版本开始，Byzer 引擎提供了自定义 API 返回消息的静态替换模板功能，用户可以自行定义返回消息体。
+
+用户可以在 `$BYZER_HOME/conf/` 目录下创建或编辑已有的 `err-msg-template.json` 格式的文件，该文件格式如下：
+
+```json
+[
+  { "regexp": "MLSQL Parser error in .*?", "msg": "MLSQL Parser error"}
+]
+```
+
+在该文件中，用户可以自定义不同的 API 消息的正则匹配表达式作为 `regexp` 的值，然后将需要替换的文本定义在 `msg` 中，当 API 返回匹配到制定的表达式时，就会将 API 返回消息体中的 message 替换为用户自定义的消息体，在保证灵活性的前提下，提高 API 返回消息的可读性。

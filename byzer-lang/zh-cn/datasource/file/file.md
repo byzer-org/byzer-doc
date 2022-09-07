@@ -150,6 +150,8 @@ id,name,age
 | `sep`                       | `,`                            | 指定单个字符分割字段和值                                     |
 | `mode`                      |                                | 允许一种在解析过程中处理损坏记录的模式。它支持以下不区分大小写的模式。请注意，`Spark`尝试在列修剪下仅解析`CSV`中必需的列。因此，损坏的记录可以根据所需的字段集而有所不同。 |
 | `encoding`                  | `uft-8`                        | 通过给定的编码类型进行解码                                   |
+| `skipFirstNLines`           | `0`                            | 加载csv时支持跳过前 N 行, v2.3.3 开始生效                                 |
+| `multiLine`                 | `false`                        | 加载csv时支持解析一个单元格包含多行值                                  |
 | `quote`                     | `“`                            | 其中分隔符可以是值的一部分，设置用于转义带引号的值的单个字符。如果您想关闭引号，则需要设置一个空字符串，而不是`null`。 |
 | `escape`                    | `\`                           | 设置单个字符用于在引号里面转义引号                           |
 | `charToEscapeQuoteEscaping` | escape or `\0`                 | 当转义字符和引号(`quote`)字符不同的时候，默认是转义字符(escape)，否则为`\` |
@@ -226,6 +228,7 @@ Excel 数据源中可使用的参数项如下：
 | `usePlainNumberFormat`    | `false`                           | 是否使用四舍五入和科学计数法格式化单元格                     |
 | `inferSchema`             | `false`                           | 是否开启推断模式                                             |
 | `addColorColumns`         | `false`                           | 是否需要获取列的背景颜色                                  |
+| `skipFirstNLines`         | `0`                               | 加载 Excel sheet 时支持跳过前 N 行，v2.3.3 开始生效                                 |
 | `dataAddress`             | `A1`                              | 读取数据的范围                                               |
 | `timestampFormat`         | `yyyy-mm-dd hh:mm:ss[.fffffffff]` | 时间戳格式                                                   |
 | `maxRowsInMemory`         | `None`                            | 内存中缓存的最大数据条数                                     |
