@@ -228,7 +228,7 @@ Excel 数据源中可使用的参数项如下：
 | `usePlainNumberFormat`    | `false`                           | 是否使用四舍五入和科学计数法格式化单元格                     |
 | `inferSchema`             | `false`                           | 是否开启推断模式                                             |
 | `addColorColumns`         | `false`                           | 是否需要获取列的背景颜色                                  |
-| `skipFirstNLines`         | `0`                               | 加载csv时支持跳过前 N 行，v2.3.3 开始生效                                 |
+| `skipFirstNLines`         | `0`                               | 加载 Excel sheet 时支持跳过前 N 行，v2.3.3 开始生效                                 |
 | `dataAddress`             | `A1`                              | 读取数据的范围                                               |
 | `timestampFormat`         | `yyyy-mm-dd hh:mm:ss[.fffffffff]` | 时间戳格式                                                   |
 | `maxRowsInMemory`         | `None`                            | 内存中缓存的最大数据条数                                     |
