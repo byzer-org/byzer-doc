@@ -6,8 +6,9 @@
   * [How to Contribute](/byzer-notebook/en-us/appendix/contribute.md)  
 
 - ReleaseNote
-  * [Byzer Notebook 1.2.2](/byzer-notebook/en-us/release-notes/1.2.2.md)
+  * [Byzer Notebook 1.2.3](/byzer-notebook/en-us/release-notes/1.2.3.md)
   - Old Versions
+    * [Byzer Notebook 1.2.2](/byzer-notebook/en-us/release-notes/1.2.2.md)
     * [Byzer Notebook 1.2.1](/byzer-notebook/en-us/release-notes/1.2.1.md)
     * [Byzer Notebook 1.2.0](/byzer-notebook/en-us/release-notes/1.2.0.md)
     * [Byzer Notebook 1.1.1](/byzer-notebook/en-us/release-notes/1.1.1.md)
