@@ -38,7 +38,7 @@ run table2 as DataSummary.`` as summaryTable
 where metrics='mean, datatype, mode, median, 75%'
 ```
 
-- 参数 **metrics** 可以填的值如下 `columnName`, `mode`, `uniqueValueRatio`, `nullValueRatio`, `blankValueRatio`, `mean`, `nonNullCount`, `standardDeviation`, `standardError`, `max`, `min`, `maximumLength`, `minimumLength`, `primaryKeyCandidate`, `dataLength`, `dataType`, `ordinalPosition`, `%25`, `median`, `%75`
+- 参数 **metrics** 可以填的值如下 `mode`, `uniqueValueRatio`, `nullValueRatio`, `blankValueRatio`, `mean`, `nonNullCount`, `standardDeviation`, `standardError`, `max`, `min`, `maximumLength`, `minimumLength`, `primaryKeyCandidate`, `dataLength`, `dataType`, `%25`, `median`, `%75`
 
 - 参数 **roundAt** 指标统计保留位数，默认保留 2 位小数
 
@@ -49,11 +49,20 @@ run table2 as DataSummary.`` as summaryTable
 where rountAt="4";
 ```
 
-- 参数 **approxSwitch** 指定是否打开近似计算，默认为 false。spark 为了解决大数据量的处理效率， 唯一值，count，众数还有分位数的计算提供了 approxDistinct， approxCount 等功能。如果打开 approxSwitch，就会开启 spark 近似计算，提高计算效率，调用方式如下
-
+- 参数 **approxCountDistinct** 指定是否打开近似计算，默认为 false。spark 为了解决大数据量的处理效率， count 计算提供了 approx_count_distinct 功能。如果打开 approxCountDistinct DataSummary ET 会开启近似计算，从而提高计算效率，
+  调用方式如下
 ```sql
 run table2 as DataSummary.`` as summaryTable
-where approxSwitch="true";
+where approxCountDistinct="true"; 
+-- and threshold=0.98
+--当打开approxCountDistinct开关，DataSummary会根据计算的 uniqueValueRatio 与 threshold (默认值为0.9) 做比较，大于 threshold 会再做一次精准计算
+-- threshold 
+```
+
+- 参数 **relativeError** 指定计算分位数（ median/50%, 25%, 75%）的误差率，默认值是 0.01，误差率设置的值越高，分位数指标计算的速度越快，性能也越好。误差率设置为 0.0 的时候，是精准计算，耗时较长。
+```sql
+run table2 as DataSummary.`` as summaryTable
+where relativeError="0.05";
 ```
 
 #### Details
@@ -79,3 +88,8 @@ DataSummary ET 是一个数据 EDA 工具，完成全局数据剖析指标展示
 17. 非空计数 （不是空值的数据量）nonNullCount
 18. 四分位数 -- %25
 19. 四分三位数 -- %75
+
+#### 性能分析 
+详情见 [DataSummaryET 性能分析](/byzer-lang/zh-cn/appendix/performance_test.md)
+
+
