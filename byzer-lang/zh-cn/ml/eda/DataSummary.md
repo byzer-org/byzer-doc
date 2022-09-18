@@ -71,23 +71,23 @@ DataSummary ET 是一个数据 EDA 工具，完成全局数据剖析指标展示
 
 1. 列名 columnName
 2. 数据类型 dataType
-3. 唯一值比例 uniqueValueRatio
-4. 空（空值的比例）nullValueRatio
-5. 空白（空字符串的比例）blankValueRatio
-6. 均值  mean
+3. 唯一值比例 （数值类型和非数值类型都支持） uniqueValueRatio
+4. 空（空值的比例，数值类型和非数值类型都支持）nullValueRatio
+5. 空白（空字符串的比例，数值类型和非数值类型都支持）blankValueRatio
+6. 均值  (仅数值类型, 非数值类型展示为空) mean
 7. 中位数 (仅数值类型, 非数值类型展示为 0.0) median
-8. 众数 (仅数值类型，多个众数只显示一个，非数值类型展示 0) mode
-9. 标准差 (仅数值类型非数值类型展示为0)，standardDeviation 
-10. 标准误差（见下方，仅数值类型 standardError
-11. 最小值 (仅数值类型) max
-12. 最大值 (仅数值类型) min
-13. 最小长度 （该列中数据的最小长度）maximumLength
-14. 最大长度（该列中数据的最小长度）minimumLength
-15. 序号位置（字段在table中的位置/顺序）ordinalPosition
-16. 主健候选者（是/否，唯一值的比例为100%的字段，则“是”。）primaryKeyCandidate
-17. 非空计数 （不是空值的数据量）nonNullCount
-18. 四分位数 -- %25
-19. 四分三位数 -- %75
+8. 众数 (数值类型和非数值类型都支持) mode
+9. 标准差 (仅数值类型非数值类型展示为空)，standardDeviation 
+10. 标准误差（仅计算数值类型，非数值类型的标准误差展示为空) standardError
+11. 最小值 (数值类型和非数值类型都支持) max
+12. 最大值 (数值类型和非数值类型都支持) min
+13. 最小长度 （该列中数据的最小长度，数值类型和非数值类型都支持）maximumLength
+14. 最大长度（该列中数据的最小长度，数值类型和非数值类型都支持）minimumLength
+15. 序号位置（字段在table中的位置/顺序，数值类型和非数值类型都支持）ordinalPosition
+16. 主健候选者（是/否，唯一值的比例为100%的字段，则“是”，数值类型和非数值类型都支持 ）primaryKeyCandidate
+17. 非空计数 （不是空值的数据量，数值类型和非数值类型都支持）nonNullCount
+18. 四分位数 -- (仅数值类型, 非数值类型展示为 0.0) %25 
+19. 四分三位数 -- (仅数值类型, 非数值类型展示为 0.0) %75
 
 #### 性能分析 
 详情见 [DataSummaryET 性能分析](/byzer-lang/zh-cn/appendix/performance_test.md)
