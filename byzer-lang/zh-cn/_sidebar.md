@@ -59,7 +59,7 @@
     - [数据仓库/湖](/byzer-lang/zh-cn/datasource/dw/README.md)
       * [加载 Hive](/byzer-lang/zh-cn/datasource/dw/hive.md)
       * [加载 Delta Lake](/byzer-lang/zh-cn/datasource/dw/delta_lake.md)
-    - [REST API](/byzer-lang/zh-cn/datasource/restapi/restapi.md)
+    - [加载 REST API](/byzer-lang/zh-cn/datasource/restapi/restapi.md)
     - [流式数据源](/byzer-lang/zh-cn/datasource/streaming/README.md)
       * [Kafka](/byzer-lang/zh-cn/datasource/streaming/kafka.md)
       * [MockStream](/byzer-lang/zh-cn/datasource/streaming/mock_streaming.md)
