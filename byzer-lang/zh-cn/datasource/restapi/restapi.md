@@ -267,7 +267,11 @@ and `config.page.stop`="equals:$.status,999"
 and `config.page.values`="offset:100,100"
 and `config.page.stop`="equals:$.status,999"
 ```
-`config.page.values` 的值的格式 `offset:${limit},${offset}`, 此机制和 MySQL 中的 `limit n offset m` 一致， `${limit}` 代表 API 一页请求回来的数量，`${offset}` 是下一次分页请求的偏移量。停止分页的机制和 AutoIncrementPageStrategy 保持一致
+`config.page.values` 的值的格式 `offset:${pageOffset}，${pageLimit}`, 此机制和 MySQL 中的 `limit n offset m` 一致， `${pageLimit}` 代表 API 一页请求回来的最大数量，`${pageOffset}` 是下一次分页请求的偏移量，这个值会在每次分页调用时，会被更新为上一次调用的 offset + limit，然后这个值会被赋予 `config.page.next` 中定义的变量 `{0}`。
+
+举例说明，比如 `offset:0,50`， 那么 API 第一页调用是取回 50 条数据，下一页的调用，就会变成从 index 50（即第 51 条数据）开始，再拉取 50 条，以此类推， 每一页的数据拉取的起始点为 0，50，100，150 ... 直到分页结束
+
+停止分页的机制和 AutoIncrementPageStrategy 保持一致
 
 
 #### **DefaultPageStrategy** 策略
