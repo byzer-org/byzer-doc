@@ -30,7 +30,7 @@ Byzer 加载 JDBC 类数据源后，会通过两步来进行，先通过 JDBC UR
 - 每次加载 JDBC 表时，需要在每条 Load 语句的条件中写入连接信息，非常繁琐
 - 不是每个人都能够轻易的得到数据库的完整连接信息
 
-所以 Byzer 提供了 `CONNECT` 语法来进行连接信息的保存。下面是一个保存连接到 MySQL 中 wow database 的例子：
+所以 Byzer 提供了 `CONNECT` 语法来进行连接信息的保存。下面是一个保存连接到 MySQL 中 byzer_demo database 的例子：
 
 
 ```sql
