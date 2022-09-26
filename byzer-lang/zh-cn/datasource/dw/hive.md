@@ -126,6 +126,8 @@ Hive 作为 Byzer 支持的内置数据源之一，也可以通过 [LOAD 语法]
 在 LOAD hive 表的过程中，我们可以使用 `where` 语句来进行表的过滤
 
 
+#### 使用 JDBC 加载 Hive
+
 我们也可以使用 JDBC 访问 hive , 具体做法如下：
 
 ```sql
@@ -143,6 +145,8 @@ and fetchsize="100";
 - 请根据你的 Hive 版本, 将 jdbc jar 放到 `$BYZER_HOME/libs` 目录下
 - JDBC 查询性能不如原生方式查询。
 
+
+注意，目前不支持通过 JDBC 将表 SAVE 至 Hive
 
 
 ### FAQ
