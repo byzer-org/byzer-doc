@@ -8,64 +8,37 @@
 
 ### 安装 Sandbox 镜像
 
-1. 获取镜像
+1. 获取镜像并运行容器
 
-   `docker pull allwefantasy/mlsql-sandbox:<tag>`
-   
-   > tag 对应着镜像的版本号，您可点击 [mlsql-sandbox](https://hub.docker.com/r/allwefantasy/mlsql-sandbox/tags) 页面，查看所有可用的 tag。
-   
-2. 运行容器
-```
-docker run -d --name <container_name> -p <host_notebook__port>:9002 -p <host_byzer_port>:9003 -p <host_mysql_port>:3306 -e MYSQL_ROOT_PASSWORD=<mysql_pwd> allwefantasy/mlsql-sandbox:<tag>
+```shell
+docker pull byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
 ```
    
-   > container_name 是运行的容器名称
-   > host_notebook_port 是 notebook 服务在宿主机上暴露的端口
-   > host_byzer_port 是 byzer 服务在宿主机上暴露的端口
-   > host_mysql_port 是 mysql 服务在宿主机上暴露的端口
-   > mysql_pwd 是 mysql 服务的 root 用户密码
-   > tag 是上一步骤选定的镜像版本号
-   
+使用 docker 命令启动 Spark 3.1.1 版 Sandbox 容器:
+
+```shell
+docker run -d \
+-p 3306:3306 \
+-p 9002:9002 \
+-p 9003:9003 \
+-e MYSQL_ROOT_HOST=% \
+-e MYSQL_ROOT_PASSWORD=root \
+--name sandbox-3.1.1-<Byzer Release 版本号> \
+--restart=always \
+byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
+```
+
+
+> **注意：**
+> `Byzer Release 版本号`请参考 Docker Hub 中  byzer-sandbox 的 Release Tags：https://hub.docker.com/r/byzer/byzer-sandbox/tags
+> 参考 [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md) 一节中
+> docker 启动命令中映射了 MySQL 的端口号，如果本地安装了 MySQL 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
+
 4. 浏览器访问
 
    访问 `http://localhost:9002` 即可开始体验 Byzer Notebook 了。
    
    初始管理员账号密码为 admin/admin。
    
-### 安装示例
 
-接下来，我们将通过示例来展示整个快速安装的过程。示例中命令行参数值分别如下：
-
-- tag: 3.1.1-2.2.0
-- container_name: byzer-sandbox
-- host_notebook_port: 9002
-- host_byzer_port: 9003
-- host_mysql_port: 3306
-- mysql_pwd: root
-
-1. 获取镜像
-
-   `docker pull allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
-
-   <img src="/byzer-notebook/zh-cn/introduction/images/fetch_sandbox_image.png" alt="fetch_image"/>
-   
-2. 运行容器
-
-   `docker run -d --name byzer-sandbox -p 9002:9002 -p 9003:9003 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root allwefantasy/mlsql-sandbox:3.1.1-2.2.0`
-
-   <img src="/byzer-notebook/zh-cn/introduction/images/run_sandbox_container.png" alt="run_container"/>
-
-3. 浏览器访问
-
-   访问 `http://localhost:9002`
-   
-
-   <img src="/byzer-notebook/zh-cn/introduction/images/visit_notebook.png" alt="visit_notebook"/>
-
-   
-   输入账号密码: `admin/admin`，开始探索 Byzer Notebook 吧。
-   
-
-   <img src="/byzer-notebook/zh-cn/introduction/images/explore_notebook_cn.png" alt="explore_notebook"/>
-   
    
