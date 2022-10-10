@@ -14,7 +14,7 @@ PS: vscode 商店对插件大小有限制，从商店安装的话还是需要自
 桌面版一般自己玩。如果想在云上或者测试环境搭建一个单机引擎，和小伙伴一起玩。
 
 ### Docker 神器在手，天下我有
-可以用 docker 版本安装到服务器上。[Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized_deployment/sandbox-standalone.md)
+可以用 docker 版本安装到服务器上。[Sandbox 独立部署](/byzer-lang/zh-cn/installation/containerized-deployment/sandbox-standalone.md)
 
 文档里的下载地址可能会过期。 推荐大家按如下地址下载发型包：
 
