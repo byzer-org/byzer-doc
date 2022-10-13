@@ -19,13 +19,13 @@ Docker 桌面版是一个适用于 MacOS 和 Windows 机器的应用程序，用
 #### 下载 Byzer docker repo 最新的 image（基于 Spark 3）：
 
 ```shell
-docker pull byzer/byzer-sandbox:3.1.1-latest
+docker pull byzer/byzer-sandbox:3.3.0-latest
 ```
 > 该版本为非稳定版本，包含最新研发但尚未 release 的特性。
 
-#### Byzer on Spark3
+#### Byzer on Spark 3
 
-使用 docker 命令启动 Spark 3.1.1 版 Sandbox 容器:
+使用 docker 命令启动 Spark 3.3.0 版 Sandbox 容器:
 
 ```shell
 docker run -d \
@@ -34,9 +34,10 @@ docker run -d \
 -p 9003:9003 \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
---name sandbox-3.1.1-<Byzer Release 版本号> \
+--memory 4g \
+--name byzer-sandbox-3.3.0-<Byzer Release 版本号> \
 --restart=always \
-byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
+byzer/byzer-sandbox:3.3.0-<Byzer Release 版本号>
 ```
 
 > **注意：**
@@ -45,7 +46,7 @@ byzer/byzer-sandbox:3.1.1-<Byzer Release 版本号>
 > docker 启动命令中映射了 MySQL 的端口号，如果本地安装了 MySQL 的话，可能会存在端口冲突，需要重新定义一个端口号，如：`-p 13306:3306`
 
 
-#### Byzer on Spark2
+#### Byzer on Spark 2
 
 如果需要体验 Spark2.4 版本的 Byzer， 下载 Byzer docker repo 中的稳定版本（基于 Spark 2）：
 
@@ -60,7 +61,7 @@ docker run -d \
 -p 3306:3306 \
 -p 9002:9002 \
 -p 9003:9003 \
---name sandbox-2.4.3-<Byzer Release 版本号> \
+--name byzer-sandbox-2.4.3-<Byzer Release 版本号> \
 --restart=always \
 -e MYSQL_ROOT_HOST=% \
 -e MYSQL_ROOT_PASSWORD=root \
