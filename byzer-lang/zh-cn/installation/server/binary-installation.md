@@ -6,6 +6,8 @@
 
 Byzer Server 二进制包的部署需要配合一个 Spark 集群来使用，目前支持的 Spark 版本为 `3.1.1` 和 `2.4.3`，暂不支持其他版本的 Spark。
 
+> nightly-build 版本(Byzer>=2.4.0-SNAPSHOT) 已经支持 Spark 3.3.0
+
 1. **推荐在 Hadoop 集群上使用 Byzer 时，下载此版本进行安装**
 2. 推荐的操作系统为 CentOS7.x 以及 Ubuntu 18.04 +，不支持 Windows
 3. 如果您想要在单机（Linux or MacOS）进行 Bzyer 引擎的部署，推荐使用 [Byzer All In One](/byzer-lang/zh-cn/installation/server/byzer-all-in-one-deployment.md) 
@@ -208,6 +210,33 @@ Byzer 引擎在启动时，会引入环境检查以及配置读取，启动成�
 ![](images/console.png)
 
 点击运行可以查看到上述 SQL 执行的结果，说明 Byzer 引擎正常。
+
+#### 使用 spark-submit 来进行提交
+
+byzer.sh 其实封装了 spark-submit 命令。如果你想精细的控制任务如何提交，可以自己手写 spark-submit 来完成任务提交。
+
+```
+${SPARK_HOME}/bin/spark-submit \
+--class streaming.core.StreamingApp \
+--master yarn \
+--deploy-mode client \
+--driver-memory 40g \
+--driver-cores 20 \
+--conf spark.executor.cores=3 \
+--conf spark.serializer=org.apache.spark.serializer.KryoSerializer \
+--conf spark.executor.instances=2 \
+--conf spark.executor.memory=20g \
+--conf spark.mlsql.path.schemas=oss \
+/opt/byzer/byzer-lang/main/byzer-lang-3.3.0-2.12-2.4.0-SNAPSHOT.jar \
+-streaming.spark.service true \
+-streaming.driver.port 9003 \
+-streaming.platform spark \
+-streaming.datalake.path oss://edrington-cdp/deltalake \
+-streaming.name byzer-engine \
+-streaming.thrift false \
+-streaming.rest true \
+-streaming.enableHiveSupport true 
+```
 
 
 
