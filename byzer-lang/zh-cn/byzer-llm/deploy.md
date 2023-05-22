@@ -27,7 +27,7 @@
 
 启动完成后就可以访问 9003 端口了。
 
-> 注意：如果需要访问 file:// 或者对象存储的绝对路径，则需要修改 conf/byzer.> properties.overwrite，添加如下配置(显示的罗列哪些schema可以用绝对路径)：
+> 注意：如果需要访问 file:// 或者对象存储的绝对路径，则需要修改 ${BYZER_HOME}/conf/byzer.properties.overwrite，添加如下配置(显示的罗列哪些schema可以用绝对路径)：
 > spark.mlsql.path.schemas=oss,s3a,s3,abfs,file
 
 
@@ -114,6 +114,42 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 ```
 
 
-## 总结
+## 常见问题
+
+### Python 依赖库安装超时
+
+在文件 https://github.com/allwefantasy/byzer-llm/blob/master/requirements.txt 中，会有三个项目采用直接从github安装，分别是：
+
+1. peft
+2. byzerllm
+3. pyjava
+
+如果你发现会超时，可以通过类似如下方式手动安装这三个组件：
+
+```
+conda activate byzerllm-desktop
+git clone https://github.com/huggingface/peft
+cd perf
+pip install .
+```
+
+因为涉及到torch以及cuda的依赖的安装，如果安装过慢，可以配置国内阿里云镜像。
+具体做法是新增 `~/.pip/pip.conf` 文件，然后填入如下内容：
+
+```
+[global]
+ trusted-host = mirrors.aliyun.com
+ index-url = https://mirrors.aliyun.com/pypi/simple
+```
+
+### protobuf 安装问题
+
+这个时候你可以先注释掉 requiments.txt里的 protobuf, 然后在安装完成后再强制执行一遍如下命令：
+
+```
+pip install protobuf==3.20.0
+```
+
+
 
 
