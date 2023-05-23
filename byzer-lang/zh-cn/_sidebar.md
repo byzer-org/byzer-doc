@@ -134,9 +134,11 @@
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
     
 - 插件系统
-    * [插件安装](/byzer-lang/zh-cn/extension/README.md)
-        * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
-        * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
+    * [插件日常操作](/byzer-lang/zh-cn/extension/README.md)
+        * [网络安装插件](/byzer-lang/zh-cn/extension/operation/online_install.md)
+        * [离线安装插件](/byzer-lang/zh-cn/extension/operation/offline_install.md)
+        * [获取列表](/byzer-lang/zh-cn/extension/operation/list.md)      
+        * [删除插件](/byzer-lang/zh-cn/extension/operation/remove.md)
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
       * 内置 ET 插件
         * [缓存表插件/CacheExt](/byzer-lang/zh-cn/extension/et/CacheExt.md)

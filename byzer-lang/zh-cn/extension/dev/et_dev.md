@@ -861,9 +861,9 @@ override def predict(sparkSession: SparkSession, _model: Any, name: String, para
 
 如果你想作为外置插件使用，也就是单独做成一个项目开发和维护，可以参考项目: [byzer-extension](https://github.com/byzer-org/byzer-extension)
 
-模式和内置插件一样，然后打成jar包，使用[离线安装的方式安装](/byzer-lang/zh-cn/extension/installation/offline_install.md)，即手动下载好jar包放置到程序目录，并在启动命令中设置 jar 包以及启动类。MLSQL 外置插件可以动态安装，但是如果要更新，则需要重启服务。
+模式和内置插件一样，然后打成jar包，使用[离线安装的方式安装](/byzer-lang/zh-cn/extension/operation/offline_install.md)，即手动下载好jar包放置到程序目录，并在启动命令中设置 jar 包以及启动类。MLSQL 外置插件可以动态安装，但是如果要更新，则需要重启服务。
 
-我们也支持[网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)，直接使用命令行方式在 Console 里安装。比如，如果需要安装 excel 支持，一行命令在 MLSQL Console 里即可搞定：
+我们也支持[网络安装插件](/byzer-lang/zh-cn/extension/operation/online_install.md)，直接使用命令行方式在 Console 里安装。比如，如果需要安装 excel 支持，一行命令在 MLSQL Console 里即可搞定：
 
 ```Shell
 !plugin ds add - "mlsql-excel-3.0";
