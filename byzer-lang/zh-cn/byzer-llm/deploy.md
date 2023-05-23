@@ -60,7 +60,7 @@ notebook.user.home=/mlsql
 
 现在就可以启动 Notebook了：
 
-```
+```shell
 ./bin/notebook.sh start
 
 ## 重启可以用
