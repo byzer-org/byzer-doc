@@ -8,6 +8,8 @@
 3. 启动 Ray
 4. 安装 Byzer-LLM 扩展
 
+> 注意：Byzer-LLM 需要在有 Nvidia 的 GPU 的机器上才能正常工作。推荐 Ubuntu 22.04, 同时确保安装了驱动。可以直接安装他的大礼包： https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=runfile_local
+
 ### Byzer-lang/Byzer-notebook 部署
 
 下载：
@@ -21,8 +23,10 @@
 
 进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.5 目录，执行如下命令即可启动 By zer 引擎：
 
-```
+```shell
 ./bin/byzer.sh start
+# 重启可以用下面的命令
+# ./bin/byzer.sh restart
 ```
 
 启动完成后就可以访问 9003 端口了。
@@ -58,6 +62,9 @@ notebook.user.home=/mlsql
 
 ```
 ./bin/notebook.sh start
+
+## 重启可以用
+## ./bin/notebook.sh restart
 ```
 
 
