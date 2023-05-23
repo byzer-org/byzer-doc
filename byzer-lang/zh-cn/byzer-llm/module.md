@@ -45,7 +45,7 @@ and modelTable="command";
 |pythonExec| 指定 Byzer 和 Ray 的 Python 环境|
 |dataMode| 可选值 model/data. 在 Byzer-LLM 中一律指定为 model  |
 |runIn| 指定 ray client 运行在 Byzer 的driver端还是 executor端。建议 driver端。可选值： driver/executor |
-|num_gpus| 指定后续部署的模型需要的GPU资源。可以是小数，方便多个模型可以调度到一个GPU上 |
+|num_gpus| 指定部署的模型实例需要的GPU资源。注意这里是指一个模型实例需要的GPU资源。可以是小数，这样可以方便多个模型可以调度到一个GPU上 |
 |maxConcurrency| 部署多少个模型实例。如果你有多个GPU，可以部署多个实例，从而获得更好的并发 |
 |standalone| 如果你是单机部署 Ray, 那么可以将该值设置为true。 |
 |schema| 在 Byzer-LLM 中设置为 file 即可 |
