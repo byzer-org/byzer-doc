@@ -8,7 +8,7 @@
 
 **1. 启动 Byzer** 
 
-> 关于 Byzer 的启动和部署，详情可以查看 [Byzer-lang 安装与配置](/byzer-lang/zh-cn/installation/binary-installation.md)
+> 关于 Byzer 的启动和部署，详情可以查看 [Byzer-lang 安装与配置](/byzer-lang/zh-cn/installation/server/binary-installation.md)
 
 使用 `Local` 模式，通常你可以认为这是一个标准的 Java 应用，启动脚本参考：
 

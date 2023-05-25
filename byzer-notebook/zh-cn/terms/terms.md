@@ -12,7 +12,7 @@ Byzer 希望能够提供**一套语言、一个引擎，就能覆盖整个数据
 
 ET是指 转换器（Transformer）与预估器（Estimator）的合称。
 
-> ET 使用的详细介绍和使用请查看 [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/extension/et_dev)
+> ET 使用的详细介绍和使用请查看 [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)
 
 1) 转换器 Transformer
 

@@ -25,7 +25,7 @@ and idCols="id";
 ```
 我们看到 id 为 1 的数据已经被更新为。
 
-![](images/data_lake_1.png)
+![](/byzer-lang/zh-cn/datasource/dw/images/data_lake_1.png)
 
 
 ### 流式更新支持
@@ -138,7 +138,7 @@ and checkpointLocation="/tmp/rate-1" partitionBy key;
 
 内容如下：
 
-![](images/data_lake_2.png)
+![](/byzer-lang/zh-cn/datasource/dw/images/data_lake_2.png)
 
 现在我们可以对指定版本之前的数据做合并了：
 
@@ -150,11 +150,11 @@ and checkpointLocation="/tmp/rate-1" partitionBy key;
 
 我们看下合并前每个分区下面文件情况：
 
-![](images/data_lake_3.png)
+![](/byzer-lang/zh-cn/datasource/dw/images/data_lake_3.png)
 
 合并后文件情况：
 
-![](images/data_lake_4.png)
+![](/byzer-lang/zh-cn/datasource/dw/images/data_lake_4.png)
 
 我们删除了16个文件，生成了两个新文件。另外在compaction的时候，并不影响读和写。所以是非常有用的。
 

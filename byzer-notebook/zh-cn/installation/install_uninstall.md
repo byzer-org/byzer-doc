@@ -89,7 +89,7 @@ Byzer-Notebook-<byzer_notebook_version>
 | notebook.redis.password  | Redis 库的密码， 默认值 `redis_pwd`   |  1.2.0 |
 | notebook.redis.database  | Redis 库，默认值 `0` |  1.2.0 |
 
-3. 如果您需要在调度任务结束后通过即时通信工具通知到任务执行人时，可参考 [接入调度系统](byzer-notebook/zh-cn/schedule/setup.md) 中的**调度任务结束后通知机制**
+3. 如果您需要在调度任务结束后通过即时通信工具通知到任务执行人时，可参考 [接入调度系统](/byzer-notebook/zh-cn/schedule/setup.md) 中的**调度任务结束后通知机制**
 
 ### 启动
 

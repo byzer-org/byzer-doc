@@ -64,5 +64,5 @@ run predicted_table as RegressionEvaluator.``;
 
 更多 mllib 插件：
 
-- [唯一标识符算子](/byzer-lang/zh-cn/extension/et/external/UniqueIdentifier.md)
-- [频数分布算子](/byzer-lang/zh-cn/extension/et/external/DescriptiveMetrics.md)
+- [唯一标识符算子](/byzer-lang/zh-cn/ml/eda/UniqueIdentifier.md)
+- [频数分布算子](/byzer-lang/zh-cn/ml/eda/DescriptiveMetrics.md)

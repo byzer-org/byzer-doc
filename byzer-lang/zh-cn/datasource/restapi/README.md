@@ -7,4 +7,3 @@ REST API 是 Byzer-lang 的一个核心特性功能，能够使得用户可以�
 
 
 - [加载 REST API 数据源](/byzer-lang/zh-cn/datasource/restapi/restapi.md)
-- [更多 REST API 调用示例](/byzer-lang/zh-cn/datasource/restapi/restapi_examples.md)

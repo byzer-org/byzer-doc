@@ -148,12 +148,12 @@
         * [语法解析插件/SyntaxAnalyzeExt](/byzer-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
         * [表分区插件/TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
         * [计算表父子关系插件/TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
+        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/run-script.md)
       * 外置 ET 插件
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
         * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
-        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
 
 - Byzer-Python

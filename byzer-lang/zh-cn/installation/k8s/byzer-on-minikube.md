@@ -107,7 +107,7 @@ $ kubectl version --client
 Client Version: version.Info{Major:"1", Minor:"23", GitVersion:"v1.23.4", GitCommit:"e6c093d87ea4cbb530a7b2ae91e54c0842d8308a", GitTreeState:"clean", BuildDate:"2022-02-16T12:38:05Z", GoVersion:"go1.17.7", Compiler:"gc", Platform:"linux/amd64"}
 ```
 
-> 您可以访问 k8s 官方手册来查看如何在您的操作系统中安装 kubectl 工具 [https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/]([https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
+> 您可以访问 k8s 官方手册来查看如何在您的操作系统中[安装 kubectl 工具](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/)
 
 #### 1.4 启动 minikube 环境
 

@@ -58,7 +58,7 @@ notebook.scheduler.callback-token=localNotebook-token-for-localDolphin
 | notebook.scheduler.instance-priority | DolphinScheduler 中调度运行的优先级，可选：`HIGHEST/HIGH/MEDIUM/LOW/LOWEST`，默认：`MEDIUM`。                            |
 | notebook.scheduler.worker            | 指定任务在哪个 Worker 机器组运行，默认：`default`，意为可在任一 Worker 上运行。                                                   |
 
-> 以上是 DolphinScheduler 创建调度时的参数， 关于这些参数的详细解释请参考 [DolphinScheduler 使用手册](https://dolphinscheduler.apache.org/zh-cn/docs/1.3.9/user_doc/system-manual.html)
+> 以上是 DolphinScheduler 创建调度时的参数， 关于这些参数的详细解释请参考 [DolphinScheduler 使用手册](https://dolphinscheduler.apache.org/zh-cn/docs/1.3.9/system-manual)
 
 ### 调度任务结束后通知机制
 

@@ -2,7 +2,7 @@
 
 Train/Run/Predict 都属于 Byzer-lang 里独有的并且可扩展的句式，一般用于机器学习模型的训练和预测，以及特征工程相关的数据处理操作。
 
-想了解更多 [内置算法](/byzer-lang/zh-cn/ml/algs/README.md) 和 [特征工程](/byzer-lang/zh-cn/ml/feature/README) 算子的应用，可跳转置对应章节。
+想了解更多 [内置算法](/byzer-lang/zh-cn/ml/algs/README.md) 和 [特征工程](/byzer-lang/zh-cn/ml/feature/README.md) 算子的应用，可跳转置对应章节。
 
 ### 1. 基础语法
 

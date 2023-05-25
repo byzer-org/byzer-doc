@@ -239,4 +239,4 @@ Excel 数据源中可使用的参数项如下：
 ### FAQ
 
 #### Q1. 如何扩展 Byzer 可接入的文本类数据源？
-Byzer 实现 Excel 数据源的加载是通过插件来进行开发的，可以参考 [自定义数据源插件开发](byzer-lang/zh-cn/extension/dev/ds_dev.md) 来进行数据源插件的扩展
+Byzer 实现 Excel 数据源的加载是通过插件来进行开发的，可以参考 [自定义数据源插件开发](/byzer-lang/zh-cn/extension/dev/ds_dev.md) 来进行数据源插件的扩展

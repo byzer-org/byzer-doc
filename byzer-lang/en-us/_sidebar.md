@@ -15,7 +15,7 @@
     * [Byzer-lang 2.3.0](/byzer-lang/en-us/release-notes/2.3.0.md)
     * [Byzer-lang 2.2.2](/byzer-lang/en-us/release-notes/2.2.2.md)
     * [Byzer-lang 2.2.1](/byzer-lang/en-us/release-notes/2.2.1.md)
-    * [Byzer-lang 2.2.0](/byzer-lang/en--us/release-notes/2.2.0.md)
+    * [Byzer-lang 2.2.0](/byzer-lang/en-us/release-notes/2.2.0.md)
   
 - Installation
   * [Byzer Installation Instruction](/byzer-lang/en-us/installation/README.md)

@@ -75,8 +75,8 @@ dataDir=../data
 ### DolphinScheduler 单机部署安装
 
 #### 1. 下载并解压安装包
-
-创建部署目录 `/opt/dolphinscheduler`（**注意：这里的部署目录不同于开头提到的安装目录**），下载 [DolphinScheduler 1.3.9](https://dlcdn.apache.org/dolphinscheduler/1.3.9/apache-dolphinscheduler-1.3.9-bin.tar.gz) 二进制包，并解压重命名为 `dolphinscheduler-1.3.9-bin`：
+                                                                                                           
+创建部署目录 `/opt/dolphinscheduler`（**注意：这里的部署目录不同于开头提到的安装目录**），下载 [DolphinScheduler 1.3.9](https://archive.apache.org/dist/dolphinscheduler/1.3.9/apache-dolphinscheduler-1.3.9-bin.tar.gz) 二进制包，并解压重命名为 `dolphinscheduler-1.3.9-bin`：
 
 ```shell
 # 创建部署目录，部署目录请不要创建在 /root、/home 等高权限目录 
@@ -84,7 +84,7 @@ mkdir -p /opt/dolphinscheduler
 cd /opt/dolphinscheduler
 
 # 下载 dolphinscheduler 安装包和 MySQL JDBC 驱动，也可以外部下载后上传到部署环境中
-wget https://dlcdn.apache.org/dolphinscheduler/1.3.9/apache-dolphinscheduler-1.3.9-bin.tar.gz
+wget https://archive.apache.org/dist/dolphinscheduler/1.3.9/apache-dolphinscheduler-1.3.9-bin.tar.gz
 wget https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-java-5.1.47.tar.gz
 
 # 解压缩

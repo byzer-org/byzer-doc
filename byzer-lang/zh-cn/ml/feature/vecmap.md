@@ -25,7 +25,7 @@ def apply(row:org.apache.spark.sql.Row) = {
 select convert_st_to_map(features) as f from data as newdata;
 ```
 
-这里使用了自定义 UDF 去将 Row 转化为 Map，详细了解可以翻看 [动态扩展 UDF](/byzer-lang/zh-cn/udf/extend_udf/README.md)。
+这里使用了自定义 UDF 去将 Row 转化为 Map，详细了解可以翻看 [动态扩展 UDF](/byzer-lang/zh-cn/transform/udf/extend_udf/README.md)。
 
 ### 转化
 

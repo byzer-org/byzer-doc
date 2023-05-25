@@ -214,7 +214,7 @@ load jdbc.`db_1.tblname` where directQuery='''
 能够进行分区的字段要求是数字类型，推荐使用自增id字段。
 
 #### 多线程拉取还是慢，有办法进一步加速么
-你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datahouse/mysql_binlog.md)
+你可以通过上面的方式将数据保存到 delta / hive 中，然后再使用。这样可以一次同步，多次使用。如果你没办法接受延迟，那么可以使用 Byzer 把 MySQL 实时同步到 Delta 中，可以参考 [MySQL Binlog 同步](/byzer-lang/zh-cn/datasource/others/mysql_binlog.md)
 
 
 
