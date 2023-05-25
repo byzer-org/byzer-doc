@@ -7,12 +7,12 @@
 2. 推荐通过下述安装部署来进行安装，此插件内置了 Byzer All In One 产品包
 3. Byzer VSCode Extension 源码参考： [byzer-org/byzer-desktop](https://github.com/byzer-org/byzer-desktop)
 4. 插件当前识别的文件后缀名为 `.mlsql` | `.byzer` | `.mlsqlnb`， 暂不支持 `.bznb`，由于一些历史原因，目前我们还没有完全在代码层面做 naming 的变更，后续会持续更新迭代
-5. Byzer VSCode Extension 目前内置了一个 Byzer All In One 引擎，在插件启动后会使用 9003 端口在本地启动一个 Byzer 引擎，关闭 VSCode 后，该引擎停止
+5. Byzer VSCode Extension 目前内置了一个 Byzer All In One 引擎，在插件启动后会在本地启动一个 Byzer 引擎，关闭 VSCode 后，该引擎停止
 
 
 
 ### 下载说明
-Byzer VSCode Extension 目前只能在[Byzer 官方下载站点](https://download.byzer.org/byzer/)进行下载。
+Byzer VSCode Extension 目前只能在[Byzer 官方下载站点](https://download.byzer.org/byzer-desktop/)进行下载。
 
 Byzer VSCode Extension 的命名规范：
 - byzer-lang `2.3.0` 版本发布之后为：`byzer-vscode-extesion-{os}-{version}.vsix` 
@@ -29,7 +29,6 @@ Byzer VSCode Extension 的命名规范：
 
 > **注意**
 > 1. Byzer VSCode Extension 的版本号和 Byzer 引擎的版本号目前不保持一致，用户可以通过官方站点的下载路径，位于同一下载目录下的 VSCode Extension 和 Byzer 引擎是同版本的
-> 2. Windows 环境下， Byzer VSCode Extension 不支持 Byzer Python
 
 
 
@@ -43,6 +42,18 @@ Byzer VSCode Extension 的命名规范：
    ![img.png](images/img_local_install.png)
 
 > 注意： 只有当打开后缀名为 `.mlsqlnb`的文件，插件才会被初始化
+
+### 配置下桌面主题
+
+因为 Byzer 插件目前只适配了白色主题，所以你还需要设置下主题。 打开控制面板，输入 Theme, 点击红框部分。
+
+![](images/v2-a17f572d47e3e508dab36828bb833135_720w.png)
+
+接着选择 Light 主题：
+
+![](images/v2-36324b2472e3473feaeef06ff9f38c50_720w.png)
+
+现在，我们可以开始我们的桌面版之旅了。
 
 ### 使用方式
 
@@ -108,6 +119,10 @@ engine.spark.io.compression.lz4.blockSize=128k
 输入 **开发人员：重新加载窗口** 来重载 `mlsql.config` 文件使其生效
 
 您可以参考 [Byzer 引擎参数配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md) 来进行配置的变更
+
+### 常见安装问题
+
+Mac 下安装问题 (全系列),Mac下的 Byzer 桌面版内置 JDK 在进行 save 动作时会有些问题。你可以通过上面的方式手动配置一个新的 JDK, 然后重启软件即可。
 
 ### 更多示例
 
