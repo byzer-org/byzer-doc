@@ -27,6 +27,7 @@
   * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md)
   * [Ray Dashbord 简单介绍](/byzer-lang/zh-cn/byzer-llm/ray.md)
   * [Byzer-LLM 示例 Notebook](/byzer-lang/zh-cn/byzer-llm/example1.md)
+  * [Byzer-LLM API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
