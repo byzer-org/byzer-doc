@@ -25,7 +25,13 @@
   * [Hive](/byzer-notebook/zh-cn/datasource/hive.md)
   * [DeltaLake](/byzer-notebook/zh-cn/datasource/deltalake.md)
   * [文件数据源](/byzer-notebook/zh-cn/datasource/file.md)
-  * [外部数据源](/byzer-notebook/zh-cn/datasource/external_ds.md)
+  * [外部数据源](/byzer-notebook/zh-cn/datasource/external_ds/README.md)
+    * [ElasticSearch](/byzer-notebook/zh-cn/datasource/external_ds/es.md)
+    * [JDBC](/byzer-notebook/zh-cn/datasource/external_ds/jdbc.md)
+    * [Kafka](/byzer-notebook/zh-cn/datasource/external_ds/kafka.md)
+    * [Mock Streaming](/byzer-notebook/zh-cn/datasource/external_ds/mock_streaming.md)
+    * [Rest API](/byzer-notebook/zh-cn/datasource/external_ds/restapi.md)
+    * [其他](/byzer-notebook/zh-cn/datasource/external_ds/other.md)
 
 - 工作区
   * [工作区介绍](/byzer-notebook/zh-cn/workspace/intro.md)

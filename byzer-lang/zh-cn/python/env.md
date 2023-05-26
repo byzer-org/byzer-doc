@@ -80,7 +80,7 @@ ray start --address='<head_node_ip_address>:6379' --redis-password='<password>'
 <img alt="image-ray-cluster.png" src="/byzer-lang/zh-cn/python/image/image-ray-cluster.png" width="800"/>
 </p>
 
-> 这里只是简单地启动了 Ray 环境，更多配置信息可参考 [Ray 官方文档](https://docs.ray.io/en/releases-1.8.0/)
+> 这里只是简单地启动了 Ray 环境，更多配置信息可参考 [Ray 官方文档](https://docs.ray.io/en/latest/)
 
 执行分布式用例：
 

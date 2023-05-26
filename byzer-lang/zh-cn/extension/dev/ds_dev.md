@@ -201,4 +201,4 @@ override def save(writer: DataFrameWriter[Row], config: DataSinkConfig): Unit = 
 
 ### 使用
 
-开发完成后，就可以打包了了。你可以选择 [在线或者离线安装](/byzer-lang/zh-cn/extension/installation/offline_install.md)。因为是自己开发的，一般都选择离线安装。
+开发完成后，就可以打包了了。你可以选择 [在线或者离线安装](/byzer-lang/zh-cn/extension/operation/offline_install.md)。因为是自己开发的，一般都选择离线安装。

@@ -170,10 +170,6 @@ def batchPredict(df: DataFrame, path: String, params: Map[String, String]): Data
 3. load 对应 load 语法关键字，用于加载目录下的数据。
 4. predict 则对应 register 语法关键字。 将模型注册成UDF函数，方便在批/流/API中使用。
 
-> 如果想了解更详细的内容参考：[Train/Run/Predict语法](/byzer-lang/zh-cn/grammar/et_statement.md)
-
-
-
 #### **Override train**
 
 我们看到，train 其实接受了很多参数。这些参数都是 train 里的 params 传递的。我们看到 params 的签名是 `Map[String, String]` ， 所以在 Byzer 中，所有的属性配置都是字符串。我们先对方法做个解释：
@@ -390,7 +386,7 @@ load modelParams.`SyntaxAnalyzeExt` as output;
 
 paramdescriptionactionRequired. action for syntax analysis Optional parameter: extractTables Notice: Currently, the only supported action is `extractTables`, and other parameters of the action are under construction. e.g. action = "extractTables" (default: extractTables)sqlRequired. SQL to be analyzed e.g. sql = "select * from table" (default: )
 
-在上面的示例中，参数的定义还是比较复杂的，我们也非常建议完成的定义该数据结构，因为在代码自动补全、workflow中插件可视化、了解参数原信息和参数间依赖关系等方面都非常有用。如需了解更多参数机制，请访问[开发插件自省参数](../../../../byzer-lang/zh-cn/extension/extension/et_params_dev.md)
+在上面的示例中，参数的定义还是比较复杂的，我们也非常建议完成的定义该数据结构，因为在代码自动补全、workflow中插件可视化、了解参数原信息和参数间依赖关系等方面都非常有用。如需了解更多参数机制，请访问[开发插件自省参数](/byzer-lang/zh-cn/extension/dev/et_params_dev.md)
 
 
 
@@ -636,7 +632,7 @@ register("SyntaxAnalyzeExt", "tech.mlsql.plugins.ets.SyntaxAnalyzeExt")
 
 
 
-我们开发好的 ET 可以很简单的封装为宏命令，简化交互上的使用。比如 ET `SQLShowTableExt`，就是我们常用的命令 !`desc`，我们可以参考文章: [命令行开发](../../../../byzer-lang/zh-cn/extension/extension/et_command.md)
+我们开发好的 ET 可以很简单的封装为宏命令，简化交互上的使用。比如 ET `SQLShowTableExt`，就是我们常用的命令 !`desc`，我们可以参考文章: [命令行开发](/byzer-lang/zh-cn/extension/dev/et_command.md)
 
 
 
@@ -861,9 +857,9 @@ override def predict(sparkSession: SparkSession, _model: Any, name: String, para
 
 如果你想作为外置插件使用，也就是单独做成一个项目开发和维护，可以参考项目: [byzer-extension](https://github.com/byzer-org/byzer-extension)
 
-模式和内置插件一样，然后打成jar包，使用[离线安装的方式安装](/byzer-lang/zh-cn/extension/installation/offline_install.md)，即手动下载好jar包放置到程序目录，并在启动命令中设置 jar 包以及启动类。MLSQL 外置插件可以动态安装，但是如果要更新，则需要重启服务。
+模式和内置插件一样，然后打成jar包，使用[离线安装的方式安装](/byzer-lang/zh-cn/extension/operation/offline_install.md)，即手动下载好jar包放置到程序目录，并在启动命令中设置 jar 包以及启动类。MLSQL 外置插件可以动态安装，但是如果要更新，则需要重启服务。
 
-我们也支持[网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)，直接使用命令行方式在 Console 里安装。比如，如果需要安装 excel 支持，一行命令在 MLSQL Console 里即可搞定：
+我们也支持[网络安装插件](/byzer-lang/zh-cn/extension/operation/online_install.md)，直接使用命令行方式在 Console 里安装。比如，如果需要安装 excel 支持，一行命令在 MLSQL Console 里即可搞定：
 
 ```Shell
 !plugin ds add - "mlsql-excel-3.0";

@@ -8,8 +8,7 @@
 2. 流式计算  希望把模型部署在流式程序里。
 3. API服务  希望通过API 对外提供模型预测服务（最常见）。
 
-在 Byzer 中，所有的特征工程 `ET`（[什么是ET?](/byzer-lang/zh-cn/grammar/et_statement.md)）都可以被注册成UDF函数。
+在 Byzer 中，所有的特征工程 `ET`（[自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)）都可以被注册成UDF函数。
 
 这样只要 API Server 支持注册这些函数，我们就可以通过这些函数的组合完成一个端到端的预测服务了。
-
-​            
+ 

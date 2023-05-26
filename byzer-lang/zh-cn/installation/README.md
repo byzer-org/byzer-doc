@@ -37,8 +37,8 @@ Byzer 引擎支持多种文件系统，包括本地文件系统 （`file://`）�
 
 ### Byzer 引擎说明
 从 Byzer 社区建立开始，每一次发布都有对应的发布声明，用户可通过以下几个渠道进行发布声明的获取：
-- 该手册文档的[发行说明章节](/byzer-lang/zh-cn/release-notes/version.md)
-- Github Release 页面
+- Byzer 文档的[发行说明章节](https://docs.byzer.org/#/byzer-lang/zh-cn/)
+- GitHub Release 页面
     - [Byzer-lang Release](https://github.com/byzer-org/byzer-lang/releases)
     - [Byzer Notebook Release](https://github.com/byzer-org/byzer-notebook/releases)
 

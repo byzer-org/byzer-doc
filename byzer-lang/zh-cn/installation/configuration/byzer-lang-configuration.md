@@ -184,7 +184,7 @@ UDF 的编写需要符合 Byzer-Lang 的规范。我们推荐直接在 Console �
 
 #### Session设置
 
-Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session，如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](../developer/api/run_script_api.md)。
+Byzer-lang 支持用户级别 Session, 请求级别 Session。每个 Session 相当于构建了一个沙盒，避免不同请求之间发生冲突。默认是用户级别 Session，如果希望使用请求级别 Session ，需要在请求上带上 `sessionPerRequest` 参数。对此参看[Rest接口详解](/byzer-lang/zh-cn/developer/api/run_script_api.md)。
 
 
 | 参数 | 说明 | 示例值 |

@@ -5,9 +5,6 @@ Byzer 具备加载和存储多种数据源的能力。支持的外部数据源�
 - JDBC
 - [RestApi](../../../../byzer-notebook/zh-cn/datasource/external_ds/restapi.md)
 - [ElasticSearch](../../../../byzer-notebook/zh-cn/datasource/external_ds/es.md)
-- [Solr](../../../../byzer-notebook/zh-cn/datasource/external_ds/solr.md)
-- [HBase](../../../../byzer-notebook/zh-cn/datasource/external_ds/hbase.md)
-- [MongoDB](../../../../byzer-notebook/zh-cn/datasource/external_ds/mongodb.md)
 - [Kafka](../../../../byzer-notebook/zh-cn/datasource/external_ds/kafka.md)
 - [MockStreaming](../../../../byzer-notebook/zh-cn/datasource/external_ds/mock_streaming.md)
 - [其他](../../../../byzer-notebook/zh-cn/datasource/external_ds/other.md)
@@ -18,7 +15,7 @@ Byzer 具备加载和存储多种数据源的能力。支持的外部数据源�
 
 点击**外部数据源**下方的**新增**按钮，在弹窗中输入以下数据源信息即可新增数据源。
 
-> 注意：目前该新增方法仅支持添加交互式 JDBC 外部数据源，若您需要添加其他外部数据源，请参考[加载和存储多种数据源](../../../byzer-lang/zh-cn/datasource/README.md)。
+> 注意：目前该新增方法仅支持添加交互式 JDBC 外部数据源，若您需要添加其他外部数据源，请参考[加载和存储多种数据源](/byzer-lang/zh-cn/datasource/README.md)。
 
 <img style="zoom: 70%;" src="/byzer-notebook/zh-cn/datasource/images/add-external_datasource.png">
 

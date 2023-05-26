@@ -135,9 +135,11 @@
         * [部署流程](/byzer-lang/zh-cn/ml/api_service/process.md)
     
 - 插件系统
-    * [插件安装](/byzer-lang/zh-cn/extension/README.md)
-        * [网络安装插件](/byzer-lang/zh-cn/extension/installation/online_install.md)
-        * [离线安装插件](/byzer-lang/zh-cn/extension/installation/offline_install.md)
+    * [插件日常操作](/byzer-lang/zh-cn/extension/README.md)
+        * [网络安装插件](/byzer-lang/zh-cn/extension/operation/online_install.md)
+        * [离线安装插件](/byzer-lang/zh-cn/extension/operation/offline_install.md)
+        * [获取列表](/byzer-lang/zh-cn/extension/operation/list.md)      
+        * [删除插件](/byzer-lang/zh-cn/extension/operation/remove.md)
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
       * 内置 ET 插件
         * [缓存表插件/CacheExt](/byzer-lang/zh-cn/extension/et/CacheExt.md)
@@ -147,12 +149,12 @@
         * [语法解析插件/SyntaxAnalyzeExt](/byzer-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
         * [表分区插件/TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
         * [计算表父子关系插件/TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
+        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/run-script.md)
       * 外置 ET 插件
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
         * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
-        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
 
 - Byzer-Python

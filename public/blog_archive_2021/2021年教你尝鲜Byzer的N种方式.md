@@ -26,5 +26,5 @@ Byzer-engine: http://download.byzer.org/2.2.0-SNAPSHOT/mlsql-engine_3.0-2.2.0-SN
 ### 想在生产环境里用
 参考:
 
-- [Byzer-lang binary 部署](byzer-lang/zh-cn/installation/binary-installation.md) 
-- [引擎 K8s 部署指南](byzer-lang/zh-cn/installation/containerized_deployment/K8S-deployment.md) 
+- [Byzer-lang binary 部署](/byzer-lang/zh-cn/installation/server/binary-installation.md) 
+- [引擎 K8s 部署指南](/byzer-lang/zh-cn/installation/k8s/k8s-deployment.md) 

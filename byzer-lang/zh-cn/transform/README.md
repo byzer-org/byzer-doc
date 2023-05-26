@@ -31,5 +31,5 @@ Byzer 语言为用户提供了基于 SQL 的语法来处理数据。用户可以
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
         * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
-        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/external/run-script.md)
+        * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/run-script.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)

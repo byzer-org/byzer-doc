@@ -1,6 +1,6 @@
 # 数据加载/Load
 
-Byzer-Lang 的 [设计理念](/byzer-lang/zh-cn/introduction/byzer_lang_design) 是 `Everything is a table`，在 Byzer-Lang 中所有的文件都可以被抽象成表的概念。
+Byzer-Lang 的 [设计理念](/byzer-lang/zh-cn/introduction/byzer_lang_design.md) 是 `Everything is a table`，在 Byzer-Lang 中所有的文件都可以被抽象成表的概念。
 
 多样的数据源例如：数据库，数据仓库，数据湖甚至是 Rest API 都可以被 Byzer-lang 抽象成二维表的方式读入并进行后续的分析处理，而读入数据源的这一重要过程主要通过 `load` 句式来达成。
 
