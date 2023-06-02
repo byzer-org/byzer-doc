@@ -169,6 +169,9 @@
     * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
 
 - 开发者指南   
+    * 修改Byzer-lang
+      * [设置 Intellij IDE 开发环境](/byzer-lang/zh-cn/developer/core/ide.md)
+      * [修改代码并打包示例](/byzer-lang/zh-cn/developer/core/package.md)
     * 插件开发
       * [自定义 ET 插件开发](/byzer-lang/zh-cn/extension/dev/et_dev.md)
       * [自定义数据源插件开发](/byzer-lang/zh-cn/extension/dev/ds_dev.md)
