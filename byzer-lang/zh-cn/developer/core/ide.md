@@ -18,7 +18,9 @@ git clone https://github.com/byzer-org/byzer-lang
 
 ### 如何本地 Debug
 
-在 子模块 `streamingpro-mlsql` 中的 `/src/main/java` 随便一个package下新建一个 `WilliamLocalSparkServiceApp` ,然后复制黏贴如下代码，之后用 IDE debug模式启动该类即可。
+找到类  `tech.mlsql.example.app.LocalSparkServiceApp`, 在IDE 中点击 Debug运行，然后你就可以访问 http://localhost:9003/ 了。
+
+此外，比如我个人为了方便，也会在 子模块 `streamingpro-mlsql` 中的 `/src/main/java` 随便一个package下新建一个 `WilliamLocalSparkServiceApp` ,然后复制黏贴如下代码，之后用 IDE debug模式启动该类即可。
 
 ```scala
 package streaming.core
