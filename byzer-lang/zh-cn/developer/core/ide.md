@@ -14,7 +14,7 @@ git clone https://github.com/byzer-org/byzer-lang
 
 其中 Maven 推荐推荐 3.6.3 版本。
 
-当从 IDE 以 Maven 方式导入项目后，随意打开一个 Scala文件，会询问你 Scala 的版本，这个时候请选择 2.12.10。
+当从 IDE 以 Maven 方式导入项目后，随意打开一个 Scala文件，会询问你 Scala 的版本，这个时候请选择 2.12.15。
 
 ### 如何本地 Debug
 
