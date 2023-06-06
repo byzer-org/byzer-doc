@@ -9,15 +9,18 @@ Byzer-LLM 由三部分组成：
 
 升级分成两部分：
 
-1. byzer-llm 插件 和  pyjava/byzerllm Python库升级。 他们三者通常要同时升级
+1. byzer-llm 插件 和  pyjava/byzerllm Python库升级，他们三者通常要同时升级
 2. Byzer 引擎升级
 
-Byzer引擎升级只要按安装文档说明即可完成。现在主要插件和pyjava/byzerllm 两个 Python库的升级。
+Byzer引擎升级只要 Byzer 安装文档说明即可完成。
+该文主要介绍如何升级插件和 pyjava/byzerllm 两个 Python库。
 
 ## byzer-llm 插件升级
 
-两种方式。第一种方式是离线安装的，那么可以 https://download.byzer.org/byzer-extensions/nightly-build/ 中下载最新的 byzer-llm 插件，
-放到 ${BYZER_HOME}/plugin 目录下，然后在 ${BYZER_HOME}/conf/byzer.properties.overwrite 中添加：
+根据不同的安装方式，可以选择不同的升级方式。
+
+第一种离线安装方式。可以从 https://download.byzer.org/byzer-extensions/nightly-build/ 链接中下载最新的 byzer-llm 插件，
+放到 ${BYZER_HOME}/plugin 目录下替换原来的版本的插件，如果是第一次，则还需要在 ${BYZER_HOME}/conf/byzer.properties.overwrite 中添加配置：
 
 ```
 streaming.plugin.clzznames=tech.mlsql.plugins.llm.LLMApp
@@ -33,8 +36,11 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 
 第二种是在线安装：
 
-```shell
+```sql
+-- 删除原有插件
 !plugin app remove "byzer-llm-3.3";
+
+-- 再次安装插件
 !plugin app add - "byzer-llm-3.3";
 ```
 
