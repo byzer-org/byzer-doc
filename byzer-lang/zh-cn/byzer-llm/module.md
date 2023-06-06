@@ -55,7 +55,7 @@ and modelTable="command";
 | Parameter | Description |
 |--|--|
 |`action="infer"`| finetune 还是 部署模型。可选值为： infer/finetune |
-|`pretrainedModelType="chatglm"`| 模型类型。 可选值：chatglm/moss/bark/whisper/dolly/qa/falcon/sass-chatglm|
+|`pretrainedModelType="chatglm"`| 模型类型。 可选值：chatglm,moss,bark,whisper,dolly,qa,falcon,sass/chatglm|
 |`localPathPrefix="/my8t/byzerllm/jobs"`  | 临时文件目录。部署模型的 worker 会产生很多临时文件，需要指定一个目录进行存储，防止默认 /tmp 太小的问题|
 |`modelWaitServerReadyTimeout="60"`| 单位秒。Byzer-LLM 会提供模型的 socket server ,这里可以设置为等待socket server ready的时间 建议修改成 300|
 |`dataWaitServerReadyTimeout="60"`| 单位秒。Byzer-LLM 会提供数据的 socket server ,这里可以设置为等待socket server ready的时间 建议修改成 300|
@@ -72,6 +72,13 @@ modelTable 需要使用模型分发，速度较慢。如果单机的话，建议
 | Parameter | Description |
 |--|--|
 |`udfName="origin_model_predict"`|Byzer-LLM 会将模型调用抽象成 SQL 函数，这里可以随意取一个名字，方便后续调用|
+
+sass/chatglm 独有参数：
+
+| Parameter | Description |
+|--|--|
+|`apiKey="xxxx"`| ChatGLM Saas 服务的 apiKey |
+|`publicKey="xxxx"`| ChatGLM Saas 服务的 publicKey | |
 
 
 #### 微调参数：
