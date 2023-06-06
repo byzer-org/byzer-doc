@@ -50,6 +50,9 @@ byzerllm 升级：
 git clone https://github.com/allwefantasy/byzer-llm
 cd byzer-llm
 
+## 拉取最新代码
+git pull origin main
+
 ## 防止依赖更新
 pip install -r requirements.txt
 
@@ -62,6 +65,9 @@ pyjava 升级：
 ```shell
 git clone https://github.com/byzer-org/byzer-python
 cd byzer-python/python
+
+## 拉取最新代码
+git pull origin master
 
 ## 安装 pyjava 自身
 pip install .
