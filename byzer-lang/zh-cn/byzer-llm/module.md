@@ -62,10 +62,10 @@ and modelTable="command";
 |`modelTable="d_chatglm_6b_model"`| Byzer-LLM 将模型也抽象成表，这里指定模型表的名称|
 |`localModelDir="/my8t/byzerllm/jobs/checkpoint-17000/pretrained_model"`| 指定worker 本地的模型，这样可以极大的加速模型的加载|
 
-注意：modelTable 和 localModelDir 两个参数本质都是指定模型文件在哪里。如果都被配置了，会优先使用 localModelDir。
+注意1：modelTable 和 localModelDir 两个参数本质都是指定模型文件在哪里。如果都被配置了，会优先使用 localModelDir。
 modelTable 需要使用模型分发，速度较慢。如果单机的话，建议使用 localModelDir 参数。当使用 localModelDir的时候，此时将 modelTable 参数配置成 `command`。
 
-
+注意2： 对于 大模型 SaaS 服务，部署时需要将 num_gpus 设置为 0 (通过命令： !python conf "num_gpus=0"; 来完成), 避免占用 GPU 资源。
 
 #### 部署参数
 
