@@ -57,7 +57,7 @@ git clone https://github.com/allwefantasy/byzer-llm
 cd byzer-llm
 
 ## 拉取最新代码
-git pull origin main
+git pull origin master
 
 ## 防止依赖更新
 pip install -r requirements.txt
