@@ -1,6 +1,6 @@
 # Byzer-LLM 构建基于大模型问答知识库
 
-全程应该是，使用用户私有数据基于大模型的问答知识库。这里有三个定语：
+Byzer 给知识库的全称定义是：使用用户私有数据基于大模型的问答知识库。这里有三个定语：
 
 1. 用户私有业务数据
 2. 基于大模型
@@ -47,7 +47,13 @@ and udfName="chatglm_chat"
 and modelTable="command";
 ```
 
-启动一个大模型。我们在后续的构建向量或者查询过程中都会使用到这个模型。
+启动一个大模型。我们在后续的构建向量或者查询过程中都会使用到这个模型。注意这里，可以通过修改配置：
+
+```sql
+!python conf "maxConcurrency=1";
+```
+
+来控制该模型能够提供的并发能力。当起作为 embedding 服务时，默认单并发难以满足实际需求。
 
 ## 构建向量存储
 
@@ -104,6 +110,14 @@ save overwrite movies_vec_store_glm as delta.`ai_model.movies_vec_store_glm`;
 |outputTable| 输出的向量文件表 |
 
 现在，我们已经构建完向量存储，并且将文件保存到了数据湖。
+
+关于构建性能，你可以对数据指定分片数目，这个数目最好对应 embedding服务的并发数目。 比如，假设我们 embedding 服务的并发度
+为2,那么你可以通过下面的语句把我们的数据切分成两份，然后将新表传递给 LLMQABuilder
+
+```sql
+run newData2 as TableRepartition.`` where partitionNum="2" as newData3;
+```
+
 
 ## 部署知识库服务
 
