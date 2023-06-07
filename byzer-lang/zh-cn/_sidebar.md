@@ -28,7 +28,7 @@
   * [Ray Dashbord 简单介绍](/byzer-lang/zh-cn/byzer-llm/ray.md)
   * [Byzer-LLM 示例 Notebook](/byzer-lang/zh-cn/byzer-llm/example1.md)
   * [Byzer-LLM API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)
-  * [Byzer-LLM 构建给予大模型问答知识库](/byzer-lang/zh-cn/byzer-llm/qa.md)
+  * [Byzer-LLM 构建基于大模型问答知识库](/byzer-lang/zh-cn/byzer-llm/qa.md)
   * [Byzer-LLM 如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
   * [Byzer-LLM 升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
 
