@@ -73,7 +73,7 @@ context.build_result(result)
 
 上面的代码如果去Byzer-Notebook 提供的语法糖的话，会长成这个样子：
 
-```
+```sql
 !python env "PYTHON_ENV=source /home/winubuntu/miniconda3/bin/activate byzerllm-desktop";
 !python conf "runIn=driver"
 !python conf "dataMode=model";
@@ -155,12 +155,6 @@ result = [handle_record(row) for row in rows]
 ## 此处 result 是一个迭代器，context.build_result 也支持传入生成器/数组
 context.build_result(result)
 ```
-
-上文的 Byzer-python 代码是用原生的 Byzer-lang 代码书写的。
-
-### 2.1 使用分布式 Dask
-
-todo
 
 ### 3. Byzer-python 读写 Excel 文件
 

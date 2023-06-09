@@ -167,6 +167,7 @@
     * [环境依赖](/byzer-lang/zh-cn/python/env.md)
     * [Byzer-python参数详解](/byzer-lang/zh-cn/python/parameters.md)
     * [数据处理](/byzer-lang/zh-cn/python/etl.md)
+    * [SQL表转化为分布式Pandas](/byzer-lang/zh-cn/python/dask.md)
     * [模型训练](/byzer-lang/zh-cn/python/train.md)
     * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)
     * [PyJava API 简介](/byzer-lang/zh-cn/python/pyjava.md)
