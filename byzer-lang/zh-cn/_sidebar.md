@@ -74,6 +74,10 @@
     - [腾讯云 COS](/byzer-lang/zh-cn/save_data/file/cos.md)
     - [JuiceFS](/byzer-lang/zh-cn/save_data/file/juicefs.md)
 
+- 数据湖支持
+    - [内置数据湖 Delta Lake](/byzer-lang/zh-cn/datasource/dw/delta_summary.md)
+      * [加载](/byzer-lang/zh-cn/datasource/dw/delta_lake.md)
+      * [写入](/byzer-lang/zh-cn/save_data/dw/delta.md)
 - 加载数据
     - [加载多种数据源](/byzer-lang/zh-cn/datasource/README.md)
     - [JDBC 数据源](/byzer-lang/zh-cn/datasource/jdbc/jdbc.md)
@@ -81,9 +85,8 @@
       - [加载文件/文本](/byzer-lang/zh-cn/datasource/file/file.md)
       - [加载 HDFS 上的文件 ](/byzer-lang/zh-cn/datasource/file/hdfs.md)
       - [加载对象存储上的文件](/byzer-lang/zh-cn/datasource/file/object_storage.md)
-    - [数据仓库/湖](/byzer-lang/zh-cn/datasource/dw/README.md)
-      * [加载 Hive](/byzer-lang/zh-cn/datasource/dw/hive.md)
-      * [加载 Delta Lake](/byzer-lang/zh-cn/datasource/dw/delta_lake.md)
+    - [数据仓库](/byzer-lang/zh-cn/datasource/dw/README.md)
+      * [加载 Hive](/byzer-lang/zh-cn/datasource/dw/hive.md)      
     - [加载 REST API](/byzer-lang/zh-cn/datasource/restapi/restapi.md)
     - [流式数据源](/byzer-lang/zh-cn/datasource/streaming/README.md)
       * [Kafka](/byzer-lang/zh-cn/datasource/streaming/kafka.md)
@@ -111,9 +114,8 @@
 - 存储数据
   - [Byzer 存储系统介绍](/byzer-lang/zh-cn/save_data/README.md)
   - [写入 JDBC](/byzer-lang/zh-cn/save_data/jdbc/jdbc.md)
-  - [写入数据仓库/湖](/byzer-lang/zh-cn/save_data/dw/README.md)
-    * [写入 Hive](/byzer-lang/zh-cn/save_data/dw/hive.md)
-    * [写入 Delta Lake](/byzer-lang/zh-cn/save_data/dw/delta.md)
+  - [写入数据仓库](/byzer-lang/zh-cn/save_data/dw/README.md)
+    * [写入 Hive](/byzer-lang/zh-cn/save_data/dw/hive.md)    
   - [存储为文件](/byzer-lang/zh-cn/save_data/file/README.md)
     - [存储为文件/文本](/byzer-lang/zh-cn/save_data/file/file.md)
     - [存储至 HDFS](/byzer-lang/zh-cn/save_data/file/hdfs.md)    
