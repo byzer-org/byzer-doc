@@ -28,3 +28,4 @@ as output;
 
 ```sql
 load parquet.`obs://xxxxx/poc/city_temperatures`  as city_temperatures;
+```
