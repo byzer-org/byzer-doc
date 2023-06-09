@@ -3,7 +3,7 @@
 DeltaLake 作为 Byzer 的内置数据源，使用非常简单，只需在启动添加启动参数(${BYZER_HOME}/conf/byzer.properties.overwrite):
 
 ```
--streaming.datalake.path "对象存储某个目录"
+streaming.datalake.path=对象存储某个目录
 ```
 
 此时，你就获得一个名字叫 `delta` 的数据源。通过该数据源，你可以管理和使用数据湖。
@@ -37,7 +37,7 @@ where mode="path";
 因为 Byzer 默认是不支持使用带Schema路径的，所以你需要开启一个白名单(${BYZER_HOME}/conf/byzer.properties.overwrite)：
 
 ```
-spark.mlsql.path.schemas="oss"
+spark.mlsql.path.schemas=oss
 ```
 
 这样所有以 oss://bucket 开头前缀的地址都不会被改写，用户可以正确的去访问这个地址。多个对象存储schema可以按逗号分隔。
