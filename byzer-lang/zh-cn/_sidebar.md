@@ -31,6 +31,7 @@
   * [Byzer-LLM 构建基于大模型问答知识库](/byzer-lang/zh-cn/byzer-llm/qa.md)
   * [Byzer-LLM 如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
   * [Byzer-LLM 升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
+  * [Byzer-LLM 内置大模型支持列表](/byzer-lang/zh-cn/byzer-llm/model_list_supported.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)

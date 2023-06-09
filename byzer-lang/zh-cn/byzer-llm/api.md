@@ -1,9 +1,9 @@
 ## Byzer-LLM API 调用
 
 Byzer-LLM  一旦完成模型部署，你将会得到一个函数，该函数可以应用于Byzer-lang中的 ETL, 流式计算等形态的任务中。
-与此同时，Byzer-LLM 也暴露出一个 endpoint, 方便你通过 http 协议获得交互。具体例子可以查看：https://github.com/allwefantasy/byzer-llm/blob/master/test/virtual-teacher.py
+与此同时，Byzer-LLM 也暴露出一个 endpoint, 方便你通过 http 协议获得交互。
 
-这里，我们简单介绍下 endpoint, 地址形式为：
+地址形式为：
 
 ```
 http://127.0.0.1:9003/model/predict
@@ -33,7 +33,7 @@ def request(sql:str,json_data:str)->str:
 def chat(s:str,history:List[Tuple[str,str]])->str:
     newhis = [{"query":item[0],"response":item[1]} for item in history]
     json_data = json.dumps([
-        {"instruction":s,"history":newhis,"output":"NAN"}
+        {"instruction":s,"history":newhis}
     ])
     ## chat 是我们注册的模型函数， feature 就是 json_data里的每一条记录
     response = request('''
