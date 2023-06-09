@@ -65,6 +65,15 @@
   * [分支语句/!If|!Else](/byzer-lang/zh-cn/grammar/branch_statement.md)
   * [内置宏函数/build-in Macro Functions](/byzer-lang/zh-cn/grammar/commands.md)
 
+
+- 对象存储支持 
+    - [华为云 OBS](/byzer-lang/zh-cn/save_data/file/obs.md)
+    - [Azure Blob/abfs](/byzer-lang/zh-cn/save_data/file/blob.md)
+    - [AWS S3](/byzer-lang/zh-cn/save_data/file/s3.md)
+    - [阿里云 OSS](/byzer-lang/zh-cn/save_data/file/oss.md)
+    - [腾讯云 COS](/byzer-lang/zh-cn/save_data/file/cos.md)
+    - [JuiceFS](/byzer-lang/zh-cn/save_data/file/juicefs.md)
+
 - 加载数据
     - [加载多种数据源](/byzer-lang/zh-cn/datasource/README.md)
     - [JDBC 数据源](/byzer-lang/zh-cn/datasource/jdbc/jdbc.md)
@@ -107,8 +116,7 @@
     * [写入 Delta Lake](/byzer-lang/zh-cn/save_data/dw/delta.md)
   - [存储为文件](/byzer-lang/zh-cn/save_data/file/README.md)
     - [存储为文件/文本](/byzer-lang/zh-cn/save_data/file/file.md)
-    - [存储至 HDFS](/byzer-lang/zh-cn/save_data/file/hdfs.md)
-    - [存储至对象存储](/byzer-lang/zh-cn/save_data/file/object_storage.md)
+    - [存储至 HDFS](/byzer-lang/zh-cn/save_data/file/hdfs.md)    
   - [通过 REST API 存储数据](/byzer-lang/zh-cn/save_data/restapi/README.md)
   - [写入流式数据源](/byzer-lang/zh-cn/save_data/README.md)
     * [写入 Kafka](/byzer-lang/zh-cn/save_data/streaming/kafka.md)
