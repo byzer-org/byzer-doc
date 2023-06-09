@@ -163,7 +163,9 @@
 
 - Byzer-Python
     * [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
+    * [Byzer-Python 工具语法糖](/byzer-lang/zh-cn/python/suger.md)
     * [环境依赖](/byzer-lang/zh-cn/python/env.md)
+    * [Byzer-python参数详解](/byzer-lang/zh-cn/python/parameters.md)
     * [数据处理](/byzer-lang/zh-cn/python/etl.md)
     * [模型训练](/byzer-lang/zh-cn/python/train.md)
     * [模型部署](/byzer-lang/zh-cn/python/deploy_model.md)

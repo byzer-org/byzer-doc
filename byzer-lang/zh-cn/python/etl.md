@@ -1,6 +1,9 @@
 # 数据处理
 
-先构建一组测试数据，用以后续演示。
+在上一篇环境设置的里，我们提供了一个分布式做ETL处理的例子。等价于实现了一个 Python UDF。
+在这一篇中，我们会详细介绍使用 Byzer-pyhton
+
+## 演示数据准备
 
 ```sql
 set jsonStr='''
@@ -34,62 +37,24 @@ as sample_data;
 
 ### 1. Byzer-python 处理数据
 
-如果想在虚拟环境中运行 Byzer-python 代码，那么可以用下面的指令指定需要使用的 Python 虚拟环境:
+如果数据规模不大，可以在 Byzer-Notebook 中使用如下 Python 脚本对表 `sample_data` 进行处理：
 
-```sql
-!python env "PYTHON_ENV=source activate dev";
-```
+```python
+#%python
+#%input=sample_data
+#%output=python_output_table
+#%schema=st(field(_id,string),field(x,double),field(y,double))
+#%runIn=driver
+#%dataMode=model
+#%cache=true
+#%pythonExec=/home/winubuntu/miniconda3/envs/byzerllm-desktop/bin/python
+#%env=source /home/winubuntu/miniconda3/bin/activate byzerllm-desktop
 
-> 1. `source activate dev`  可以替换成绝对路径 `source /path/to/activate dev`。
->
-> 2. 如果没有虚拟环境，配置为 `"PYTHON_ENV=:"` 即可。
-
-接着指定代码是在 Driver 还是在 Executor 端执行，推荐在 Driver 执行：
-
-```sql
-!python conf "runIn=driver";
-```
-
-如果代码中使用了 `RayContext.foreach` 或 `RayContext.map_iter`，请将 `dataMode` 设置为 `data`，否则设置为 `model`。 在这个例子里，我们设置为 `model`：
-
-```sql
-!python conf "dataMode=model";
-```
-
-现在指定 Python 脚本返回的数据格式：如果返回的是表，可以通过设置 `schema=st(field({name},{type})...)` 定义各字段的字段名和字段类型；如果返回到是文件，可设置 `schema=file`。
-
-```sql
-!python conf "schema=st(field(_id,string),field(x,double),field(y,double))";
-```
-
-`schema` 字段类型对应关系：
-
-| Python 类型 | schema 字段类型 | 例（Python 数据：schema 定义）                                                                                              |
-|----------| --------------- |---------------------------------------------------------------------------------------------------------------------|
-| `int`      | `long`            | `{"int_value": 1}` ：`"schema=st(field(int_value,long))"`                                                            |
-| `float`    | `double`          | `{"float_value": 2.1}` ：`"schema=st(field(float_value,double))"`                                                    |
-| `str`      | `string`          | `{"str_value": "Everything is a table!"}` ：`"schema=st(field(str_value,string))"`                               |
-| `bool`     | `boolean`         | `{"bool_value": True}` ：`"schema=st(field(bool_value,boolean)"`                                                     |
-| `list`    | `array`           | `{"list_value": [1.0, 3.0, 5.0]}`：`"schema=st(field(list_value,array(double)))"`                                    |
-| `dict`    | `map`             | `{"dict_value": {"list1": [1, 3, 5], "list2": [2, 4, 6]}}` ：`"schema=st(field(dict_value,map(string,array(long))))"` |
-| `bytes` | `binary` | `{"bytes_value": b"Everything is a table!"}` ：`"schema=st(field(bytes_value,binary))"` |
-
-> 要注意，在schema的类型中，整型需要使用long，而不是integer或short；浮点数需要使用double，而不是float。因为在python中，int和float都是8个字节的。
-
-以上四项配置都是 Session 级别的，推荐每次执行 Python 脚本时手动指定。
-
-运行 Python 脚本对表 `sample_data` 进行处理：
-
-```sql
-run command as Ray.`` where 
-inputTable="sample_data"
-and outputTable="python_output_table"
-and code='''
 import ray
 from pyjava.api.mlsql import RayContext
 
 ray_context = RayContext.connect(globals(), None)
-datas = RayContext.collect_from(ray_context.data_servers())
+rows = RayContext.collect_from(ray_context.data_servers())
 id_count = 1
 
 def handle_record(row):
@@ -100,7 +65,40 @@ def handle_record(row):
     item["y"] = row["b"]
     return item
 
-result = map(handle_record, datas)
+result = [handle_record(row) for row in rows]
+context.build_result(result)
+''';
+```
+
+
+上面的代码如果去Byzer-Notebook 提供的语法糖的话，会长成这个样子：
+
+```
+!python env "PYTHON_ENV=source /home/winubuntu/miniconda3/bin/activate byzerllm-desktop";
+!python conf "runIn=driver"
+!python conf "dataMode=model";
+!python conf "schema=st(field(_id,string),field(x,double),field(y,double)
+
+run command as Ray.`` where 
+inputTable="sample_data"
+and outputTable="python_output_table"
+and code='''
+import ray
+from pyjava.api.mlsql import RayContext
+
+ray_context = RayContext.connect(globals(), None)
+rows = RayContext.collect_from(ray_context.data_servers())
+id_count = 1
+
+def handle_record(row):
+    global id_count
+    item = {"_id": str(id_count)}
+    id_count += 1
+    item["x"] = row["a"]
+    item["y"] = row["b"]
+    return item
+
+result = [handle_record(row) for row in rows]
 context.build_result(result)
 ''';
 ```
@@ -137,7 +135,7 @@ ray_context = RayContext.connect(globals(), None)
 
 # 通过ray_context.data_servers() 获取所有数据源，如果开启了Ray，那么就可以
 # 分布式获取这些数据进行处理。
-datas = RayContext.collect_from(ray_context.data_servers())
+rows = RayContext.collect_from(ray_context.data_servers())
 id_count = 1
 
 ## 从 java 端接受的数据格式也是list(dict)，也就是说，每一行的数据都以字典的数据结构存储。
@@ -152,42 +150,17 @@ def handle_record(row):
     item["y"] = row["b"]
     return item
 
-result = map(handle_record, datas)
+result = [handle_record(row) for row in rows]
 
 ## 此处 result 是一个迭代器，context.build_result 也支持传入生成器/数组
 context.build_result(result)
 ```
 
-上文的 Byzer-python 代码是用原生的 Byzer-lang 代码书写的。在 Byzer Notebook 和 Byzer 桌面版中，您可以使用**注解**来配置上文提到的 `!python`
-配置项和输入输出表 `inputTable/outputtable` ，此时 Byzer-python 代码的编写和与普通 Python 脚本无异：
+上文的 Byzer-python 代码是用原生的 Byzer-lang 代码书写的。
 
-```python
-#%python
-#%env=source activate dev
-#%input=sample_data
-#%output=python_output_table
-#%runIn=driver
-#%dataMode=model
-#%schema=st(field(_id,string),field(x,float),field(y,float))
+### 2.1 使用分布式 Dask
 
-import ray
-from pyjava.api.mlsql import RayContext
-
-ray_context = RayContext.connect(globals(), None)
-datas = RayContext.collect_from(ray_context.data_servers())
-id_count = 1
-
-def handle_record(row):
-    global id_count
-    item = {"_id": str(id_count)}
-    id_count += 1
-    item["x"] = row["a"]
-    item["y"] = row["b"]
-    return item
-
-result = map(handle_record, datas)
-context.build_result(result)
-```
+todo
 
 ### 3. Byzer-python 读写 Excel 文件
 
@@ -274,7 +247,7 @@ from pyjava.api.mlsql import RayContext
 import socket
 
 ## 获取 ray_context,这里需要使用 Ray，第二个参数填写 Ray head-node 的地址和端口
-ray_context = RayContext.connect(globals(), '10.1.3.197:10001')
+ray_context = RayContext.connect(globals(), '127.0.0.1:10001')
 
 ## Ray 集群分布式处理
 @ray.remote

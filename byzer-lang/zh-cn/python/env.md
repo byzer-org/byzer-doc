@@ -7,35 +7,39 @@
 
 ### 1. Python 环境搭建
 
-创建一个名字为 dev 的 Python 3.6.13 环境
+创建一个名字为 byzerllm-desktop 的 Python 3.10 环境
 
 ```shell
-conda create -n dev python=3.6.13
+conda create -n byzerllm-desktop python=3.10
 ```
 
-激活 dev 环境
+激活 byzerllm-desktop 环境
 
 ```shell
-source activate dev
+source activate byzerllm-desktop
 ```
 
-安装以下依赖包
+安装基础以下**基础**依赖包
 
 ```
-pyarrow==4.0.1
-ray[default]==1.8.0
-aiohttp==3.7.4
-pandas>=1.0.5; python_version < '3.7'
-pandas>=1.2.0; python_version >= '3.7'
-requests
-matplotlib~=3.3.4
-uuid~=1.30
-pyjava
+pandas==1.5.3
+pyarrow==11.0.0
+aiohttp==3.8.4
+ray[default]==2.3.0
+pyjava==0.5.0
 ```
 
-### 2. Ray 环境搭建（可选）
+### 2. Ray 环境搭建
 
-Ray 依赖 Python 环境，这里使用前文创建的 Python 3.6 环境部署 Ray。
+Ray 是 Byzer 的运行时环境之一。尽管如此，他是可选的。当你有如下需求时：
+
+1. 分布式Python处理，或者分布式 Pandas 的能力
+2. 或者需要 GPU 等资源的管理能力
+3. 需要大模型等支持
+
+则用户需要部署 Ray 方便 Byzer 使用。
+
+Ray 依赖 Python 环境，需要和前面的环境保持一致。这里直接在 byzerllm-desktop 启动 Ray.
 
 #### 1) 单机启动
 
@@ -82,7 +86,10 @@ ray start --address='<head_node_ip_address>:6379' --redis-password='<password>'
 
 > 这里只是简单地启动了 Ray 环境，更多配置信息可参考 [Ray 官方文档](https://docs.ray.io/en/latest/)
 
-执行分布式用例：
+
+## 代码示例
+
+下面是一个使用了Python高阶 API进行对SQL表进行分布式处理的一个示例。您复制黏贴到 Byzer-Notebook中即可执行。
 
 ```sql
 -- 分布式获取 python hello world
@@ -99,7 +106,7 @@ set jsonStr='''
 
 load jsonStr.`jsonStr` as data;
 
-!python env "PYTHON_ENV=source activate dev";
+!python conf "pythonExec=/home/winubuntu/miniconda3/envs/byzerllm-desktop/bin/python";
 !python conf "schema=st(field(ProductName,string),field(SubProduct,string))";
 !python conf "dataMode=data";
 !python conf "runIn=driver";
@@ -124,6 +131,8 @@ def echo(row):
 ray_context.foreach(echo)
 ''';
 ```
+
+
 
 ### 3. Byzer-python 与 Ray
 
