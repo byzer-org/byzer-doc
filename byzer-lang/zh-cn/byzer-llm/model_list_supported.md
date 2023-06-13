@@ -29,7 +29,8 @@ Byzer-LLM 目前支持两类大模型：
 
 | Parameter | Description |
 |--|--|
-|saas/chatglm|  Chatglm 商业接口 |
+|saas/chatglm|  Chatglm130B |
+|saas/sparkdesk|  星火大模型 |
 
 ## 能力说明
 
