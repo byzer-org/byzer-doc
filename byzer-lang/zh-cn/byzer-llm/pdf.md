@@ -6,7 +6,7 @@
 首先我们可以以二进制文本方式加载 PDF:
 
 ```sql
-load binaryFile.`/tmp/upload/**/*.pdf` as pdfs_temp;
+load binaryFile.`/tmp/upload/**/*.pdf` as pdfs_temp; 
 select content from pdfs_temp as pdfs;
 !emptyTable;
 ```

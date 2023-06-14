@@ -33,6 +33,29 @@ and modelTable="command";
 
 在这段代码里，你只需要修改  `localModelDir` 指向一个正确的chatglm模型地址，就能部署该模型。
 
+用户也可以使用如下代码简化全局参数配置：
+
+```sql
+-- 全局环境参数
+!byzerllm setup single;
+!byzerllm setup "pythonExec=/home/winubuntu/miniconda3/envs/byzerllm-desktop/bin/python";
+!byzerllm setup "num_gpus=0.4";
+
+-- 允许该模块需要的参数
+run command as LLM.`` where 
+action="infer"
+and pretrainedModelType="chatglm"
+and localPathPrefix="/my8t/byzerllm/jobs"
+and localModelDir="/my8t/byzerllm/jobs/checkpoint-17000/pretrained_model"
+and modelWaitServerReadyTimeout="300"
+and udfName="chat"
+and modelTable="command";
+
+```
+
+这里 `!byzerllm setup single;` 会设置一些默认参数。用户可以执行这条语句获得所有模型配置值。
+接着单独设置pythonExec，num_gpus 覆盖默认参数。最终达到和第一个示例完全一样的效果。
+
 下面我们详细介绍上面的参数。
 
 ### LLM 参数介绍
