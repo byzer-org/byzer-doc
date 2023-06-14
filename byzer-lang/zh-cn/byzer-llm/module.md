@@ -75,6 +75,13 @@ and modelTable="command";
 |standalone| 如果你是单机部署 Ray, 那么可以将该值设置为true。 |
 |schema| 在 Byzer-LLM 中设置为 file 即可 |
 
+当 num_gpus 是小数时，比如启动A模型 设置为0.5 他会给A模型看到第一块GPU， 接着：
+
+1. 启动B模型，还是设置为0.5, 那么他一算，第一块GPU 应该还够，会继续让A模型看到第一块GPU，这样两个模型都跑在同一块GPU上了。
+2. 启动B模型，如果你设置为 0.6, 他一算，发现超了，于是让B 看到第二块GPU ，B就跑在第二块GPU上了。
+
+通过合适的启动顺序和 num_gpus 配比，可以充分利用有限的GPU显存。
+
 #### 通用参数
 
 | Parameter | Description |
