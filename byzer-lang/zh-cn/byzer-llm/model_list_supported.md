@@ -23,6 +23,7 @@ Byzer-LLM 目前支持两类大模型：
 |dolly|  语言大模型 |
 |falcon| 语言大模型  |
 |llama|  语言大模型 |
+|custom/m3e|  embedding 模型，地址：https://huggingface.co/moka-ai/m3e-base |
 
 
 ## SaaS 大模型
@@ -38,4 +39,14 @@ Byzer-LLM 目前支持两类大模型：
 
 1. embedding
 2. chat
+
+
+只提供语言生成的模型：
+
+1. saas/chatglm
+2. saas/sparkdesk
+
+只提供 embedding 服务的模型：
+
+1. custom/m3e
 
