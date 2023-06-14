@@ -72,7 +72,7 @@ and modelTable="command";
 |runIn| 指定 ray client 运行在 Byzer 的driver端还是 executor端。建议 driver端。可选值： driver/executor |
 |num_gpus| 指定部署的模型实例需要的GPU资源。注意这里是指一个模型实例需要的GPU资源。可以是小数，这样可以方便多个模型可以调度到一个GPU上 |
 |maxConcurrency| 部署多少个模型实例。如果你有多个GPU，可以部署多个实例，从而获得更好的并发 |
-|standalone| 如果你是单机部署 Ray, 那么可以将该值设置为true。 |
+|standalone| 如果你每次模型部署模型只会设置1个实例 或者 会使用在部署模型时使用 localModelDir, 需要将该值设置为true，其他情况设置为false |
 |schema| 在 Byzer-LLM 中设置为 file 即可 |
 
 当 num_gpus 是小数时，比如启动A模型 设置为0.5 他会给A模型看到第一块GPU， 接着：
