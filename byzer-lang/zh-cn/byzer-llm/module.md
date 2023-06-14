@@ -33,6 +33,8 @@ and modelTable="command";
 
 在这段代码里，你只需要修改  `localModelDir` 指向一个正确的chatglm模型地址，就能部署该模型。
 
+### 简化全局参数配置
+
 用户也可以使用如下代码简化全局参数配置：
 
 ```sql
@@ -84,6 +86,7 @@ and modelTable="command";
 |`dataWaitServerReadyTimeout="60"`| 单位秒。Byzer-LLM 会提供数据的 socket server ,这里可以设置为等待socket server ready的时间 建议修改成 300|
 |`modelTable="d_chatglm_6b_model"`| Byzer-LLM 将模型也抽象成表，这里指定模型表的名称|
 |`localModelDir="/my8t/byzerllm/jobs/checkpoint-17000/pretrained_model"`| 指定worker 本地的模型，这样可以极大的加速模型的加载|
+|`reconnect="false"`| 默认为false.有的时候 Byzer引擎重启，但是 Ray中的模型实例还在，就可以设置为 true 然后执行重连操作。|
 
 注意1：modelTable 和 localModelDir 两个参数本质都是指定模型文件在哪里。如果都被配置了，会优先使用 localModelDir。
 modelTable 需要使用模型分发，速度较慢。如果单机的话，建议使用 localModelDir 参数。当使用 localModelDir的时候，此时将 modelTable 参数配置成 `command`。
@@ -119,6 +122,16 @@ chatglm专属：
 |`quantizationBit="false"`|是否进行量化. This option is only works for ChatGLM. The Moss will auto detect according the model files|
 |`quantizationBitNum="8"`|量化位 可选 8/4|
 |`finetuningType="lora"`| action=finetune 时，指定 fintune的类型。默认为 lora。目前仅支持 chatglm 的fintune, 可选值： p_tuning/freese/lora|
+
+
+### 删除大模型实例
+
+```sql
+!byzerllm model remove chat;
+```
+
+这样就可以删除之前部署的 chat 模型函数。
+
 
 
 
