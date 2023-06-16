@@ -157,6 +157,16 @@ pip install .
 pip install protobuf==3.20.0
 ```
 
+### argilla/rich 库冲突问题
+
+类似下面的错误：
+
+![](images/20230616-172035.jpeg)
+
+可以先uninstall rich 然后再安装 argilla。 
+如果有需要再安装指定版本 rich。
+
+
 
 
 
