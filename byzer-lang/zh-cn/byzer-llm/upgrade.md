@@ -1,15 +1,17 @@
 # Byzer-LLM 升级指南
 
-Byzer-LLM 由三部分组成：
+Byzer-LLM 由四个部分组成：
 
 1. Byzer 引擎
 2. [byzer-llm](https://github.com/byzer-org/byzer-extension/tree/master/byzer-llm) 插件
 3. [byzerllm](https://github.com/allwefantasy/byzer-llm) Python库
 4. [pyjava](https://github.com/byzer-org/byzer-python/tree/master/python) Python库
 
-升级分成两部分：
+这里容易搞混 byzer-llm jar包和 byzerllm Python 包。你可以理解为两者实现了 Java/Scala 和 Python的沟通桥梁。
 
-1. byzer-llm 插件 和  pyjava/byzerllm Python库升级，他们三者通常要同时升级
+升级主要分成两部分：
+
+1. byzer-llm 插件 和  pyjava/byzerllm 两个Python库升级，通常我们我们需要对三者同时进行升级
 2. Byzer 引擎升级
 
 Byzer引擎升级只要 Byzer 安装文档说明即可完成。
