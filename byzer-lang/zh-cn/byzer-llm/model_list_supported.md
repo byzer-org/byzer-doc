@@ -10,7 +10,7 @@ Byzer-LLM 目前支持两类大模型：
 两者的部署和使用方式完全一致，区别在于私有大模型需要占用较大资源（诸如GPU/CPU等）。 SaaS大模型启动都是Proxy worker,本身不会占用什么资源。
 
 
-## 私有大模型
+## 开源大模型
 
 下面参数名称作为 `pretrainedModelType` 可选参数列表。
 
@@ -24,6 +24,7 @@ Byzer-LLM 目前支持两类大模型：
 |falcon| 语言大模型  |
 |llama|  语言大模型 |
 |custom/m3e|  embedding 模型，地址：https://huggingface.co/moka-ai/m3e-base |
+|custom/baichuan|  语言大模型 |
 
 
 ## SaaS 大模型
