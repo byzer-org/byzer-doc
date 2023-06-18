@@ -86,6 +86,7 @@
       - [加载文件/文本](/byzer-lang/zh-cn/datasource/file/file.md)
       - [加载 HDFS 上的文件 ](/byzer-lang/zh-cn/datasource/file/hdfs.md)
       - [加载对象存储上的文件](/byzer-lang/zh-cn/datasource/file/object_storage.md)
+      - [读取Excel文件](/byzer-lang/zh-cn/datasource/file/excel_load.md)
     - [数据仓库](/byzer-lang/zh-cn/datasource/dw/README.md)
       * [加载 Hive](/byzer-lang/zh-cn/datasource/dw/hive.md)      
     - [加载 REST API](/byzer-lang/zh-cn/datasource/restapi/restapi.md)
