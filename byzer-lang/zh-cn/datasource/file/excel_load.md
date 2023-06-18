@@ -28,6 +28,18 @@ as hello_world;
 streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugins.assert.app.MLSQLAssert,tech.mlsql.plugins.shell.app.MLSQLShell,tech.mlsql.plugins.mllib.app.MLSQLMllib,tech.mlsql.plugins.llm.LLMApp
 ```
 
+## 如何指定 sheet name
+
+可以通过 `sheetName` 参数指定。
+
+```sql
+load excel.`/tmp/upload/it.xlsx` where header="true"
+and sheetName="技术文档"
+as it_table;
+
+select uuid() as id,* from it_table as it_table;
+```
+
 ## 如何忽略注释
 
 在下面的示例中,我们将使用comment选项告诉Byzer在读取Excel文件时忽略任何以评论字符开头的行。
