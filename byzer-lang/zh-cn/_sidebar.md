@@ -37,6 +37,7 @@
     * [SQL 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_sqlchat.md)
   * [Byzer-LLM Examples](/byzer-lang/zh-cn/byzer-llm/examples/README.md)
     * [虚拟外教](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
+    * [ChatGLM6B 微调示例](/byzer-lang/zh-cn/byzer-llm/examples/chagtlm_fintune.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
