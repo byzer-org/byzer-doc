@@ -94,3 +94,33 @@ as template as output;
 
 `{0}` 会被 Contents 字段替换， `{1}` 会被 "YES" 字符串替换。用户可以在Notebook 自行体验。
 
+
+## 优化 Tips
+
+因为和大模型交互是昂贵的，为了防止反复请求，我们可以讲每一轮对话进行持久化。
+
+创建一个命令`persist_table`:
+
+```sql
+set persist_table='''
+ save overwrite {0} as parquet.`/tmp/test/{0}`;
+ load parquet.`/tmp/test/{0}` as {0}
+''' where scope="session";
+```
+
+之后就可以在后续cell中这么用：
+
+```sql
+select chat(llm_param(map(
+    "system_msg",'You are a helpful assistant. Think it over and answer the user question correctly.',
+    "instruction",'你好，请记住我的名字，我叫祝威廉。如果记住了，请说记住。',
+    "temperature","0.1",
+    "user_role","User",
+    "assistant_role","Assistant"
+))) as q as q1;
+
+!persist_table q1;
+```
+
+后续Cell 引用该 q1的时候，就不会触发对话的重复执行。
+
