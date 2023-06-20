@@ -32,7 +32,11 @@
   * [Byzer-LLM 如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
   * [Byzer-LLM 升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
   * [Byzer-LLM 内置大模型支持列表](/byzer-lang/zh-cn/byzer-llm/model_list_supported.md)
-  * [如何使用 Byzer Notebook 作为聊天框](/byzer-lang/zh-cn/byzer-llm/notebook_chatbox.md)
+  * 如何使用 Byzer Notebook 作为聊天框
+    * [Notebook 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_chatbox.md)
+    * [SQL 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_sqlchat.md)
+  * [Byzer-LLM Examples](/byzer-lang/zh-cn/byzer-llm/examples/README.md)
+    * [虚拟外教](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)

@@ -24,18 +24,7 @@ Byzer-LLM 可以使用SQL 完成上述标准流程。
 ## 启动大模型/embedding服务
 
 ```sql
-!python conf "rayAddress=127.0.0.1:10001";
-!python conf "pythonExec=/home/winubuntu/miniconda3/envs/byzerllm-desktop/bin/python";
-!python conf "dataMode=model";
-!python conf "runIn=driver";
-!python conf "schema=st(field(value,string))";
-
-!python conf "num_gpus=1";
-!python conf "maxConcurrency=1";
-!python conf "standalone=true";
-!python conf "owner=william";
-!python conf "schema=file";
-
+!byzerllm setup single;
 run command as LLM.`` where 
 action="infer"
 and pretrainedModelType="chatglm"
@@ -50,7 +39,7 @@ and modelTable="command";
 启动一个大模型。我们在后续的构建向量或者查询过程中都会使用到这个模型。注意这里，可以通过修改配置：
 
 ```sql
-!python conf "maxConcurrency=1";
+!byzerllm setup "maxConcurrency=1";
 ```
 
 来控制该模型能够提供的并发能力。当起作为 embedding 服务时，默认单并发难以满足实际需求。
@@ -79,8 +68,7 @@ select * from newData where length(page_content)!=0 and length(source) != 0 as n
 现在让我们把这些影视数据全部构建成向量：
 
 ```sql
-!python conf "owner=william";
-!python conf "schema=file";
+!byzerllm setup single;
 
 -- run newData2 as TableRepartition.`` where partitionNum="2" as newData3;
 select * from newData2 as newData3;
@@ -122,18 +110,8 @@ run newData2 as TableRepartition.`` where partitionNum="2" as newData3;
 ## 部署知识库服务
 
 ```sql
-!python conf "rayAddress=127.0.0.1:10001";
-!python conf "pythonExec=/home/winubuntu/miniconda3/envs/byzerllm-desktop/bin/python";
-!python conf "dataMode=model";
-!python conf "runIn=driver";
-!python conf "schema=st(field(value,string))";
-
-!python conf "num_gpus=0";
-!python conf "maxConcurrency=1";
-!python conf "standalone=true";
-!python conf "owner=william";
-!python conf "schema=file";
-
+!byzerllm setup single;
+!byzerllm "num_gpus=0";
 
 -- 加载向量数据
 load delta.`ai_model.movies_vec_store2` as movies_vec_store_model;
