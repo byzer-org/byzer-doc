@@ -124,7 +124,7 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 
 ### Python 依赖库安装超时
 
-在文件 https://github.com/allwefantasy/byzer-llm/blob/master/requirements.txt 中，会有三个项目采用直接从github安装，分别是：
+在文件 https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt 中，会有三个项目采用直接从github安装，分别是：
 
 1. peft
 2. byzerllm
