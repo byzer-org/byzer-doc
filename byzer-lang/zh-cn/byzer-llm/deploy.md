@@ -21,7 +21,7 @@
 
 首先是启动 Byzer-lang 引擎，
 
-进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.5 目录，执行如下命令即可启动 By zer 引擎：
+进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.6 目录，执行如下命令即可启动 By zer 引擎：
 
 ```shell
 ./bin/byzer.sh start
@@ -82,9 +82,8 @@ notebook.user.home=/mlsql
 conda create --name byzerllm-desktop python=3.10
 ```
 
-2. 现在可以切换到环境 `byzerllm-desktop`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/requirements.txt
+2. 现在可以切换到环境 `byzerllm-desktop`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
 
-3. 截止现在，内置的大语言模型为 Moss/ChatGLM/Dolly， 语音相关模型 whisper, bark，同时支持 QA 知识库的构建。
 
 继续保持在环境 `byzerllm-desktop`， 然后使用如下命令启动 Ray:
 
@@ -97,7 +96,7 @@ CUDA_VISIBLE_DEVICES=0,1 ray start --head \
 --temp-dir /my8t/byzerllm/ray_temp 
 ```
 
-简要解释下，CUDA_VISIBLE_DEVICES 配置让Ray 可以看到的 GPU,从0开始。 
+简要解释下，CUDA_VISIBLE_DEVICES 配置让 Ray 可以看到的 GPU,从0开始。 
 
 1. --num-gpus 则配置 Ray 可以管理的 GPU 数，另外三个参数 
 2. --object-store-memory, --storage, --temp-dir 可选。
