@@ -21,8 +21,7 @@ history array<array<string>>
 
 ```
 category  string
-conversation
-array<struct<assistant:string,human:string>>
+conversation array<struct<assistant:string,human:string>>
 conversation_id bigint
 dataset string
 ```
@@ -57,8 +56,8 @@ and `sft.int.max_seq_length`="512";
 save overwrite baichuan300 as delta.`ai_model.baichuan300`;
 ```
 
-如果使用数据湖拉取模型并保存，需要额外消耗18-30分钟（26g左右大小的模型文件夹）。正常情况考虑到微调的实际运行时间微不足道，
-到考虑到需要快速进行测试，并且减少资源消耗，可以使用提前放在训练机器上的本地模型，代码如下：
+如果使用数据湖拉取模型并保存，需要额外消耗18-30分钟（26g左右大小的模型文件夹）。正常情况考虑到微调的较长的实际运行时间，这点额外开销微不足道。
+不过很多时候我们需要快速进行测试，并且减少资源消耗，这个时候可以使用提前放在训练机器上的本地模型，代码如下：
 
 
 ```sql
@@ -77,9 +76,9 @@ and `sft.int.max_seq_length`="512";
 save overwrite baichuan300 as delta.`ai_model.baichuan300`;
 ```
 
-相比上面的代码，我们把model 修改为 command, 同时添加 localModelDir 显示指定原始模型。
+相比之前的代码，我们把 model 修改为 command, 同时添加 localModelDir 显式指定原始模型路径。
 
-其 `sft.int.max_seq_length` 指定微调参数。该参数由三部分构成：
+其中 `sft.int.max_seq_length` 用来指定微调参数。该参数由三部分构成：
 
 1. sft 参数前缀
 2. int  参数类型
@@ -116,5 +115,5 @@ DEFAULT_QLORA_CONFIG = {
  }
 ```
 
-在上面的例子中，我们修改了 `max_seq_length`,这样可以让 7B 的百川模型在消费级的 24G 显卡中即可运行微调任务。
+在上面的例子中，我们修改了 `max_seq_length` 为 512,这样可以让 7B 的百川模型在消费级的 24G 显卡中即可运行微调任务。
 
