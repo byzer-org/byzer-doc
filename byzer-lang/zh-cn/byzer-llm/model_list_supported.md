@@ -19,6 +19,7 @@ Byzer-LLM 目前支持两类大模型：
 |bark| 语音合成模型 |
 |whisper| fast-whisper,语音转文字模型 |
 |chatglm6b| 语言大模型  |
+|custom/chatglm2| chatglm6b 的2代版本 |
 |moss|  语言大模型 |
 |dolly|  语言大模型 |
 |falcon| 语言大模型  |
