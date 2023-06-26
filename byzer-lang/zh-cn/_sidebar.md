@@ -33,6 +33,7 @@
   * [Byzer-LLM 升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
   * [Byzer-LLM 内置大模型支持列表](/byzer-lang/zh-cn/byzer-llm/model_list_supported.md)
   * [Byzer-LLM 模型微调](/byzer-lang/zh-cn/byzer-llm/model-sft.md)
+  * [多模态 VisualGLM-6B 使用示例](/byzer-lang/zh-cn/byzer-llm/visualglm-6b.md)
   * 如何使用 Byzer Notebook 作为聊天框
     * [Notebook 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_chatbox.md)
     * [SQL 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_sqlchat.md)

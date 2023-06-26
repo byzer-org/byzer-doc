@@ -24,6 +24,7 @@ Byzer-LLM 目前支持两类大模型：
 |dolly|  语言大模型 |
 |falcon| 语言大模型  |
 |llama|  语言大模型 |
+|custom/visualglm|  多模态6B模型 |
 |custom/m3e|  embedding 模型，地址：https://huggingface.co/moka-ai/m3e-base |
 |custom/baichuan|  语言大模型 |
 
