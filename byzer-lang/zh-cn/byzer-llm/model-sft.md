@@ -4,6 +4,22 @@
 
 截止到本文撰写为止，Byzer-LLM 默认使用 QLora 进行单机多卡微调，多机多卡全参数预训练的支持工作正在进行中。
 
+## 已经测试过支持微调的模型(截止至2023-06-26)
+
+1. custom/chatglm2
+2. custom/baichuan
+3. custom/falcon
+
+其中 
+
+1. chatglm2 需要 pytorch 2.0.1 才能在消费级显卡上微调 （flash attension的限制）
+2. chatglm2 需要修改 tokenization_chatglm.py 中 72 行代码处 添加一条新语句（bug，等待官方修复）：
+
+```python
+self.vocab_file = vocab_file
+```
+
+
 ## 数据格式
 
 Byzer-LLM 微调支持两种QA格式的数据。
