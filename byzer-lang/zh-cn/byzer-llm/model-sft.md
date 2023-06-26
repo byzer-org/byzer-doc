@@ -13,7 +13,7 @@
 其中 
 
 1. chatglm2 需要 pytorch 2.0.1 才能在消费级显卡上微调 （flash attension的限制）
-2. chatglm2 需要修改 tokenization_chatglm.py 中 72 行代码处 添加一条新语句（bug，等待官方修复）：
+2. chatglm2 需要修改模型权重文件目录里的 tokenization_chatglm.py 第 72 行代码。在其后添加一条新语句（bug，等待官方修复）：
 
 ```python
 self.vocab_file = vocab_file
