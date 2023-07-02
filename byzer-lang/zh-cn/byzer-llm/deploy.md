@@ -14,14 +14,14 @@
 
 下载：
 
-1. Byzer-lang: https://download.byzer.org/byzer-lang/2.3.6/byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.6.tar.gz
-2. Byzer-notebook: https://download.byzer.org/byzer-notebook/1.2.3/Byzer-Notebook-1.2.3.tar.gz
+1. Byzer-lang: https://download.byzer.org/byzer-lang/2.3.8/byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.8.tar.gz
+2. Byzer-notebook: https://download.byzer.org/byzer-notebook/1.2.5/Byzer-Notebook-1.2.5.tar.gz
 
 然后解压。
 
 首先是启动 Byzer-lang 引擎，
 
-进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.6 目录，执行如下命令即可启动 By zer 引擎：
+进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.8 目录，执行如下命令即可启动 Byzer 引擎：
 
 ```shell
 ./bin/byzer.sh start
@@ -37,7 +37,7 @@
 
 启动 Byzer Notebook 则需要提前准备一个 MySQL 数据库，建议 5.7 版本的，然后创建一个名称叫做 notebook 的数据库。
 
-现在可以进入 Byzer-Notebook-1.2.3， 修改 conf/notebook.properties 文件，
+现在可以进入 Byzer-Notebook-1.2.5， 修改 conf/notebook.properties 文件，
 
 根据数据库实际地址修改数据库配置部分：
 
