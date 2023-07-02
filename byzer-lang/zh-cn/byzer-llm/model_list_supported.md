@@ -1,6 +1,6 @@
 # Byzer-LLM 内置大模型支持列表
 
-> 截止到：2023-06-09
+> 截止到：2023-07-01
 
 Byzer-LLM 目前支持两类大模型：
 
@@ -23,7 +23,8 @@ Byzer-LLM 目前支持两类大模型：
 |moss|  语言大模型 |
 |dolly|  语言大模型 |
 |falcon| 语言大模型  |
-|llama|  语言大模型 |
+|llama|  语言大模型(llama架构的模型都可以用这个，比如vicuna等) |
+|custom/starcode|代码补全|
 |custom/visualglm|  多模态6B模型 |
 |custom/m3e|  embedding 模型，地址：https://huggingface.co/moka-ai/m3e-base |
 |custom/baichuan|  语言大模型 |
