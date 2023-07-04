@@ -62,9 +62,6 @@ cd byzer-llm
 ## 拉取最新代码
 git pull origin master
 
-## 防止依赖更新
-pip install -r requirements.txt
-
 ## 安装 byzerllm 自身
 pip install .
 ```
