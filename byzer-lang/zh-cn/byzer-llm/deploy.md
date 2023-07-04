@@ -122,9 +122,47 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 
 ## 常见问题
 
+### bitsandbytes 异常
+
+一般都是这样的错误：
+```
+RuntimeError:
+        CUDA Setup failed despite GPU being available. Please run the following command to get more information:
+
+        python -m bitsandbytes
+
+        Inspect the output of the command and see if you can locate CUDA libraries. You might need to add them
+        to your LD_LIBRARY_PATH. If you suspect a bug, please take the information from python -m bitsandbytes
+        and open an issue at: https://github.com/TimDettmers/bitsandbytes/issues
+```
+
+这个可以通过手动安装 bitsandbytes 来解决。比如我的cuda版本是122（可以使用python -m bitsandbytes 来查看具体版本）。
+这个时候可以按如下方式来安装：
+
+
+```shell
+git clone https://github.com/timdettmers/bitsandbytes.git
+cd bitsandbytes
+
+# CUDA_VERSIONS in {110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 120}
+# make argument in {cuda110, cuda11x, cuda12x}
+# if you do not know what CUDA you have, try looking at the output of: python -m bitsandbytes
+CUDA_VERSION=122 make cuda12x
+python setup.py install
+```
+
+此外，你可能还需要在在 `~/.bashrc` 添加如下配置：
+
+```shell
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}
+```
+
+你可以通过运行命令 nvcc 来进行测试。
+
 ### Python 依赖库安装超时
 
-在文件 https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt 中，会有三个项目采用直接从github安装，分别是：
+在文件 https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt 中，有些项目会直接从github/gitee安装，比如：
 
 1. peft
 2. byzerllm
