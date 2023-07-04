@@ -122,6 +122,57 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 
 ## 常见问题
 
+### Cuda安装问题
+如果通过大礼包安装不上，并且现有的驱动和Toolkit 都没办法满足需求。
+如果你的显卡比较新，可以支持最新驱动，按如下方式进行操作。
+
+> 重装驱动请谨慎
+
+#### 对于Ubuntu 22.04
+
+删除原有的驱动：
+
+```shell
+sudo apt remove --purge nvidia-*
+sudo apt autoremove --purge
+```
+
+接着安装最新驱动：
+
+```shell
+sudo apt install nvidia-driver-535
+```
+
+重启机器：
+
+```shell
+sudo reboot
+```
+
+接着安装 Nvidia Toolkit，这里推荐用conda来安装：
+
+```shell
+conda install cuda -c nvidia
+```
+
+之后运行 `nvcc` 命令检查安装。
+
+#### 对于 CentOS 8
+
+对于 CentOS 8 可以直接通过dnf升级到最新版本：
+
+```shell
+dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+dnf install -y cuda
+```
+
+
+
+
+
+
+
+
 ### bitsandbytes 异常
 
 一般都是这样的错误：
@@ -155,7 +206,7 @@ pip install .
 ```
 
 
-此外，你可能还需要在在 `~/.bashrc` 添加如下配置：
+此外，根据实际报错，可能还需要在在 `~/.bashrc` 添加如下配置(注意你的实际路径)：
 
 ```shell
 export PATH=/usr/local/cuda/bin:$PATH
