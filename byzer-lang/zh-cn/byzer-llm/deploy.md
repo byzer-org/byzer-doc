@@ -123,6 +123,7 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 ## 常见问题
 
 ### Cuda安装问题
+
 如果通过大礼包安装不上，并且现有的驱动和Toolkit 都没办法满足需求。
 如果你的显卡比较新，可以支持最新驱动，按如下方式进行操作。
 
@@ -167,12 +168,6 @@ dnf install -y cuda
 ```
 
 
-
-
-
-
-
-
 ### bitsandbytes 异常
 
 一般都是这样的错误：
@@ -193,6 +188,7 @@ RuntimeError:
 
 
 ```shell
+# 使用这个地址如果github访问不畅快： https://gitee.com/allwefantasy/bitsandbytes
 git clone https://github.com/timdettmers/bitsandbytes.git
 cd bitsandbytes
 
