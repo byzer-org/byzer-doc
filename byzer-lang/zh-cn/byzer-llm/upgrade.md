@@ -55,6 +55,7 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 byzerllm 升级：
 
 ```shell
+## gitee: https://gitee.com/allwefantasy/byzer-llm
 git clone https://github.com/allwefantasy/byzer-llm
 cd byzer-llm
 
@@ -71,6 +72,8 @@ pip install .
 pyjava 升级：
 
 ```shell
+
+# gitee: https://gitee.com/allwefantasy/byzer-python 
 git clone https://github.com/byzer-org/byzer-python
 cd byzer-python/python
 
