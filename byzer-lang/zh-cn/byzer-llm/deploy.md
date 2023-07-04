@@ -202,7 +202,7 @@ pip install .
 ```
 
 
-此外，根据实际报错，可能还需要在在 `~/.bashrc` 添加如下配置(注意你的实际路径)：
+此外，根据命令：python -m bitsandbytes 实际报错(没有任何报错就无需操作下面步骤，通常如果你使用conda安装的toolkit无需添加下面的内容)，可能还需要在在 `~/.bashrc` 添加如下配置(注意你的实际路径)：
 
 ```shell
 export PATH=/usr/local/cuda/bin:$PATH
