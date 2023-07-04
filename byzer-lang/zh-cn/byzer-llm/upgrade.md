@@ -62,6 +62,10 @@ cd byzer-llm
 ## 拉取最新代码
 git pull origin master
 
+## 防止依赖更新
+# https://gitee.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
+pip install -r demo-requirements.txt
+
 ## 安装 byzerllm 自身
 pip install .
 ```
