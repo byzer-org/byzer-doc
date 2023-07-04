@@ -125,6 +125,7 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 ### bitsandbytes 异常
 
 一般都是这样的错误：
+
 ```
 RuntimeError:
         CUDA Setup failed despite GPU being available. Please run the following command to get more information:
@@ -149,7 +150,10 @@ cd bitsandbytes
 # if you do not know what CUDA you have, try looking at the output of: python -m bitsandbytes
 CUDA_VERSION=122 make cuda12x
 python setup.py install
+
+pip install .
 ```
+
 
 此外，你可能还需要在在 `~/.bashrc` 添加如下配置：
 
