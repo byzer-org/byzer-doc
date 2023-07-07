@@ -21,6 +21,7 @@ Byzer-LLM 目前支持两类大模型：
 |chatglm6b| 语言大模型  |
 |custom/chatglm2| chatglm6b 的2代版本 |
 |moss|  语言大模型 |
+|custom/alpha_moss|  支持多卡部署版本的 Moss |
 |dolly|  语言大模型 |
 |falcon| 语言大模型  |
 |llama|  语言大模型(llama架构的模型都可以用这个，比如vicuna等) |
