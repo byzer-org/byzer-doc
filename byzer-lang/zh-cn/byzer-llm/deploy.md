@@ -153,7 +153,7 @@ sudo reboot
 接着安装 Nvidia Toolkit，这里推荐用conda来安装：
 
 ```shell
-conda install cuda -c nvidia
+conda install cuda==11.7.0 -c nvidia
 ```
 
 之后运行 `nvcc` 命令检查安装。
