@@ -1,5 +1,42 @@
 ## 部署
 
+## 裸机全自动化部署
+
+> 只支持 CentOS 8 / Ubuntu 20.04 / Ubuntu 22.04
+
+在机器上执行如下指令
+
+```shell
+git clone https://gitee.com/allwefantasy/byzer-llm
+cd byzer-llm/setup-machine
+```
+
+接着切换到 Root用户下执行如下脚本：
+
+```shell
+ROLE=master./setup-machine.sh
+```
+
+此时会完成 byzerllm 账号创建登工作。
+
+接着 切换到 byzerllm 账号下，再次执行：
+
+```shell
+ROLE=master ./setup-machine.sh
+```
+
+会完整的安装包括显卡驱动，cuda 工具集，一整套 Byzer-LLM 环境，之后就可以访问  http://localhost:9002 来使用 Byzer-LLM 了。
+
+用户如果想组件集群，对于从节点，可以使用如下命令，也是分别执行两次。
+
+```shell
+ROLE=worker ./setup-machine.sh
+```
+
+> 如遇到任何问题，欢迎反馈并且提交PR。
+
+
+## 手动部署
 
 使用 Byzer-LLM 需要做如下工作：
 
