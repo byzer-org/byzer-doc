@@ -127,7 +127,7 @@ ray_context.foreach(resize_image)
 
 Byzer-lang 目前不仅支持官方 Web 版本 IDE：Byzer Notebook ， 也支持用户在 VSCode 中下载插件来启用代码编辑以及 Notebook 的能力。参考： [Byzer-desktop](https://github.com/byzer-org/byzer-desktop) ， [Byzer Notebook](https://github.com/byzer-org/byzer-notebook)
 
-**Byzer Notebook 是基于 Byzer 引擎搭建的网页交互计算（Web IDE）应用平台。Byzer Notebook 同时也是** **Byzer-lang 的 dubugger(调试器)，通过 Notebook 简单易用的调试功能，省去了初学者安装配置开发环境的门槛。**
+**Byzer Notebook 是基于 Byzer 引擎搭建的网页交互计算（Web IDE）应用平台。Byzer Notebook 同时也是** **Byzer-lang 的 debugger(调试器)，通过 Notebook 简单易用的调试功能，省去了初学者安装配置开发环境的门槛。**
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/introduction/images/notebook.png" alt="name"  width="800"/>
