@@ -30,8 +30,7 @@ def request(sql:str,json_data:str)->str:
         raise Exception(response.text)
     return response.text
 
-def chat(s:str,history:List[Tuple[str,str]])->str:
-    newhis = [{"query":item[0],"response":item[1]} for item in history]
+def chat(s:str,history:List[Dict[str,str]])->str:    
     json_data = json.dumps([
         {"instruction":s,"history":newhis}
     ])
