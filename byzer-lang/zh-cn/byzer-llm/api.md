@@ -63,8 +63,8 @@ POST 请求参数介绍：
 
 | Parameter          | Value      | Desc|
 |--------------------|------------|------|
-| instruction     |        |用户当前发送的对话|
-| history  | 数组        |历史会话，数组，里面的元数结构为 {"query":"",response:""} 结构|
+| instruction     |        |用户当前发送的对话,也可以不设置，全部放在 history里|
+| history  | 数组        |历史会话，数组，里面的元数结构为 {"role":"","content":""} 结构。其中role值为： system/user/asssitant|
 | top_p  | 0.95      | 设置越高，回答越固定 |
 | temperature  | 0.1       | 设置越低，回答越固定|
 | max_length  | 1024       | 总token长度限制|
