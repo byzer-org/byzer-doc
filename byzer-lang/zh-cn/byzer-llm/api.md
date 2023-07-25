@@ -66,6 +66,7 @@ POST 请求参数介绍：
 | history  | 数组        |历史会话，数组，里面的元数结构为 {"role":"","content":""} 结构。其中role值为： system/user/asssitant|
 | timeout_s  | 超时时间，单位秒     | 默认 300 |
 | stopping_sequences  | 停止提示     | 无。多个字符串按逗号分隔。当生成模型遇到指定的字符之一，就会停止生成，目前的实现比较消耗性能 |
+|stopping_sequences_skip_check_min_length|  默认值0    | 生成多少个字符后再做stopping_sequence的检查。 |
 | top_p  | 0.95      | 设置越高，回答越固定 |
 | temperature  | 0.1       | 设置越低，回答越固定|
 | max_length  | 1024       | 总token长度限制|
