@@ -19,8 +19,23 @@
 
 模型下载地址： https://huggingface.co/guillaumekln/faster-whisper-large-v2。需要提前下载到 Ray 所在服务器
 
-因为该模型为了追求速度，所以依赖 NVIDIA libraries cuBLAS 11.x 和 cuDNN 8.x 。 请到 https://developer.nvidia.com/cudnn 下载，并且按照对应的安装步骤
-进行安装。
+1. 进入 /home/byzerllm/miniconda3/envs/byzerllm-dev/lib 目录下，并且做一个软链（如果你用Byzer 提供的setup_machine脚本，应该会自动有这个软链）
+
+```
+cd /home/byzerllm/miniconda3/envs/byzerllm-dev
+ln -s lib lib64
+```
+2. 因为该模型为了追求速度，所以依赖 NVIDIA libraries cuBLAS 11.x 和 cuDNN 8.x 。 请到 https://developer.nvidia.com/cudnn 下载，并且按照对应的安装步骤
+将一些依赖库拷贝到前面我们创建的软链目录下。
+
+3. 该模型一些依赖 Byzer-llm 默认是不带的，所以需要手动安装：
+
+```
+pip install fast-whisper
+```
+
+
+最后在 Byzer Notebook里启动：
 
 
 ```sql
@@ -49,13 +64,21 @@ and localPathPrefix="/my8t/byzerllm/jobs"
 and localModelDir="/home/winubuntu/projects/glm-model/chatglm-6b-model"
 and modelWaitServerReadyTimeout="300"
 and reconnect="false"
-and udfName="chatglm_chat"
+and udfName="chat"
 and modelTable="command";
 ```
 
 ### 部署 Bark 
 
 模型请到 https://huggingface.co/suno/bark 下载。需要提前下载到 Ray 所在服务器
+
+下载完模型，进入模型目录，然后执行如下指令：
+
+```
+git clone https://huggingface.co/bert-base-multilingual-cased  pretrained_tokenizer
+```
+
+注意，该模型在运行时还会下载一些音频的编解码器，所以需要确保网络通畅。
 
 ```sql
 
