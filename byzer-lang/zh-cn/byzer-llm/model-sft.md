@@ -11,6 +11,8 @@
 3. sft/falcon
 4. sft/llama2
 
+> 新增模型我们需要一一验证，需要点时间，敬请期待。
+
 其中 
 
 1. chatglm2 需要 pytorch 2.0.1 才能在消费级显卡上微调 （flash attension的限制）
@@ -42,6 +44,8 @@ conversation array<struct<assistant:string,human:string>>
 conversation_id bigint
 dataset string
 ```
+
+尽管如此，只要是对话数据，你也可以自己通过SQL拼接成上面的格式(Byzer拥有很强大的数据处理能力)，再进行微调。
 
 ## 微调步骤
 
@@ -99,8 +103,8 @@ load model.`/home/byzerllm/models/Llama-2-7b-chat-hf` as llama2_7b;
 !byzerllm setup sft;
 
 run command as LLM.`` where 
-and localPathPrefix="/my8t/byzerllm/jobs"
-and pretrainedModelType="custom/baichuan"
+and localPathPrefix="/home/byzerllm/models/sft/jobs"
+and pretrainedModelType="s/baichuan"
 and model="llama2_7b"
 and inputTable="sft_data"
 and outputTable="llama2_300"
