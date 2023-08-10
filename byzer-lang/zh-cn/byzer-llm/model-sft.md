@@ -52,8 +52,20 @@ dataset string
 加载数据：
 
 ```sql
-load json.`file:///home/winubuntu/projects/Firefly/data/dummy_data.jsonl` where
-inferSchema="true"
+-- 加载数据集
+-- 支持格式如下：https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/model-sft
+-- 这个数据集比较坑，是一个大 json数组，而不是一行一条json
+-- 需要额外做下处理展开成一张表
+load text.`/tmp/upload/alpaca_data_zh_51k.json` where 
+wholetext="true"
+as raw_sft_data;
+
+select explode(from_json(value,'array<struct<instruction:string,input:string,output:string>>')) as e 
+from raw_sft_data
+as temp_raw_sft_data;
+
+select e.instruction as instruction, e.input as input , e.output as output
+from temp_raw_sft_data
 as sft_data;
 
 ```
@@ -63,11 +75,19 @@ as sft_data;
 
 ```sql
 
+!byzerllm model remove "sft-william-llama2-alpaca-data";
+
+
 -- 测试Llama2模型微调
 !byzerllm setup sft;
+
+-- 这里需要根据你的资源进行修改
 !byzerllm setup "num_gpus=4";
 
 run command as LLM.`` where 
+
+name="sft-william-llama2-alpaca-data"
+
 and localPathPrefix="/home/byzerllm/models/sft/jobs"
 
 -- 指定模型类型
@@ -85,7 +105,11 @@ and outputTable="llama2_300"
 
 -- 微调参数
 and  detached="true"
-and `sft.int.max_seq_length`="512";
+and `sft.int.max_seq_length`="512"
+
+-- 每步都打印日志，方便查看 loss
+and `sft.int.logging_steps`="1"
+;
 ```
 
 前面我们假设服务器上有模型了。
@@ -122,7 +146,7 @@ save overwrite llama2_300 as delta.`ai_model.llama2_300`;
 
 ## 如何查看模型训练进度
 
-在Notebook提交后，可以在 8265 端口查看 Actor，地址通常是：http://127.0.0.1:8265/#/actors， 找到名字默认为 `sft-william-xxxxx` 的Actor， 
+在Notebook提交后，可以在 8265 端口查看 Actor，地址通常是：http://127.0.0.1:8265/#/actors， 找到名字默认为 `sft-william-llama2-alpaca-data` 的Actor， 
 在该 Actor 的日志控制台你可以看到类似如下信息：
 
 ```
@@ -147,6 +171,11 @@ train_steps_per_second   =      0.10541
 
 注意，你也可以前面的训练脚本中，通过 name 参数显示的给这个Actor取一个名字，方便你定位找到该Actor。
 
+## Tensorboard
+
+模型开始训练，会自动setup tensorboard。 你可以在 `sft-william-llama2-alpaca-data` 的Actor的日志中看到 tensorboard地址，访问改地址即可。
+
+你也可以直接在 `sft-william-llama2-alpaca-data` 的Actor 看到 loss 等相关信息。
 
 ## 部署微调模型
 
