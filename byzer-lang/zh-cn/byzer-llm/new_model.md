@@ -57,10 +57,10 @@ def init_model(
 
 run command as LLM.`` where 
 action="infer"
-and pretrainedModelType="llama"
-and localModelDir="/home/byzerllm/models/openbuddy-llama-13b-v5-fp16"
-and reconnect="true"
-and udfName="llama_13b_chat"
+and pretrainedModelType="custom/llama2"
+and localModelDir="/home/byzerllm/models/xxxxx"
+and reconnect="false"
+and udfName="llama2_13b_chat"
 and modelTable="command";
 ```
 
@@ -93,11 +93,13 @@ def stream_chat(self,tokenizer,ins:str, his:List[Dict[str,str]]=[],
 5. max_length/top_p/temperature 是大模型最常见的参数
 6. kwargs 是用户在调用推理接口时传入额外参数，比如用户在API或者SQL中传入`generation.image` ，那么 kwargs 中就会有 `image`(前缀会自动被去掉) 这个参数 
 
+返回值是 `[(content,"",role)]`, 其中 content 为文本。
+
 在这个方法里你要实现具体的推理逻辑。我们看看如何在 Byzer SQL 中调用这个方法：
 
 ```sql
 select 
-llama_13b_chat(llm_param(map(
+llama2_13b_chat(llm_param(map(
               "user_role","User",
               "assistant_role","Assistant",
               "system_msg",'You are a helpful assistant. Think it over and answer the user question correctly.',
@@ -112,12 +114,14 @@ llama_13b_chat(llm_param(map(
  as q as q1;
 ```
 
-这里 llama_13b_chat 函数是前面我们调用 `run command` 初始化的模型函数。在 Byzer中，任何模型都会转化为一个SQL函数调用。
+这里 llama2_13b_chat 函数是前面我们调用 `run command` 初始化的模型函数。在 Byzer中，任何模型都会转化为一个SQL函数调用。
 接着我们通过UDF函数`llm_param` 传递一些参数给模型进行推理。
 
 1. instruction 对应的就是 stream_chat 的 ins 参数
 2. generation.image 的 image 值就可以在stream_chat中的kwargs 中拿到
 3. temperature 对应的就是 stream_chat 的 temperature 参数
+
+
 
 ### sft_train
 
