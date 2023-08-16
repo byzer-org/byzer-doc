@@ -116,7 +116,7 @@ notebook.user.home=/mlsql
 1. 使用 conda 创建一个 Python 3.10.10  
 
 ```
-conda create --name byzerllm-desktop python=3.10
+conda create --name byzerllm-desktop python=3.10.10
 ```
 
 2. 现在可以切换到环境 `byzerllm-desktop`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
@@ -150,7 +150,7 @@ Byzer-LLM 作为一个扩展，可以有两种方式安装。第一种在线安�
 !plugin app add - "byzer-llm-3.3";
 ```
 
-第二种方式是离线安装, 在这个 https://download.byzer.org/byzer-extensions/nightly-build/ 中下载 byzer-llm-3.3_2.12-0.1.0-SNAPSHOT.jar ， 然后将其放到 Byzer 引擎 `${BYZER_HOME}/plugin` 目录里,然后在  `${BYZER_HOME}/conf/byzer.properties.overwrite` 中添加如下参数 `streaming.plugin.clzznames=tech.mlsql.plugins.llm.LLMApp` ，因为我已经添加了一些扩展，所以这里看起来会是这样你在的：
+第二种方式是离线安装, 在这个 https://download.byzer.org/byzer-extensions/nightly-build/ 中下载 byzer-llm-3.3_2.12-[最新版本].jar ， 然后将其放到 Byzer 引擎 `${BYZER_HOME}/plugin` 目录里,然后在  `${BYZER_HOME}/conf/byzer.properties.overwrite` 中添加如下参数 `streaming.plugin.clzznames=tech.mlsql.plugins.llm.LLMApp` ，因为我已经添加了一些扩展，所以这里看起来会是这样你在的：
 
 ```
 streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugins.assert.app.MLSQLAssert,tech.mlsql.plugins.shell.app.MLSQLShell,tech.mlsql.plugins.mllib.app.MLSQLMllib,tech.mlsql.plugins.llm.LLMApp
@@ -190,7 +190,7 @@ sudo reboot
 接着安装 Nvidia Toolkit，这里推荐用conda来安装：
 
 ```shell
-conda install cuda==11.7.0 -c nvidia
+conda install cuda==11.8.0 -c nvidia
 ```
 
 之后运行 `nvcc` 命令检查安装。
@@ -232,7 +232,7 @@ cd bitsandbytes
 # CUDA_VERSIONS in {110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 120}
 # make argument in {cuda110, cuda11x, cuda12x}
 # if you do not know what CUDA you have, try looking at the output of: python -m bitsandbytes
-CUDA_VERSION=122 make cuda12x
+CUDA_VERSION=118 make cuda11x
 python setup.py install
 
 pip install .

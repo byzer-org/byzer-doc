@@ -40,7 +40,6 @@ and modelTable="command";
 ```sql
 -- 全局环境参数
 !byzerllm setup single;
-!byzerllm setup "pythonExec=/home/winubuntu/miniconda3/envs/byzerllm-desktop/bin/python";
 !byzerllm setup "num_gpus=0.4";
 
 -- 允许该模块需要的参数

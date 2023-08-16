@@ -1,14 +1,17 @@
 ## Byzer-LLM 模型微调
 
-> 2023-06-25
+> 2023-08-08
 
-截止到本文撰写为止，Byzer-LLM 默认使用 QLora 进行单机多卡微调，多机多卡全参数预训练的支持工作正在进行中。
+本文详细介绍在Byzer-LLM 使用 QLora 进行单机多卡微调。
 
-## 已经测试过支持微调的模型(截止至2023-06-26)
+## 已经测试过支持微调的模型(截止至2023-08-08)
 
-1. custom/chatglm2
-2. custom/baichuan
-3. custom/falcon
+1. sft/chatglm2
+2. sft/baichuan
+3. sft/falcon
+4. sft/llama2
+
+> 新增模型我们需要一一验证，需要点时间，敬请期待。
 
 其中 
 
@@ -42,57 +45,175 @@ conversation_id bigint
 dataset string
 ```
 
+尽管如此，只要是对话数据，你也可以自己通过SQL拼接成上面的格式(Byzer拥有很强大的数据处理能力)，再进行微调。
+
 ## 微调步骤
 
-加载数据和模型：
+加载数据：
 
 ```sql
-load json.`file:///home/winubuntu/projects/Firefly/data/dummy_data.jsonl` where
-inferSchema="true"
+-- 加载数据集
+-- 支持格式如下：https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/model-sft
+-- 这个数据集比较坑，是一个大 json数组，而不是一行一条json
+-- 需要额外做下处理展开成一张表
+load text.`/tmp/upload/alpaca_data_zh_51k.json` where 
+wholetext="true"
+as raw_sft_data;
+
+select explode(from_json(value,'array<struct<instruction:string,input:string,output:string>>')) as e 
+from raw_sft_data
+as temp_raw_sft_data;
+
+select e.instruction as instruction, e.input as input , e.output as output
+from temp_raw_sft_data
 as sft_data;
 
-load delta.`ai_model.baichuan_7B_model` as baichuan_7B_model;
 ```
+
+微调模型：
 
 
 ```sql
 
--- 模型微调
+!byzerllm model remove "sft-william-llama2-alpaca-data";
+
+
+-- 测试Llama2模型微调
 !byzerllm setup sft;
 
-run command as LLM.`` where 
-and localPathPrefix="/my8t/byzerllm/jobs"
-and pretrainedModelType="custom/baichuan"
-and model="baichuan_7B_model"
-and inputTable="sft_data"
-and outputTable="baichuan300"
-and `sft.int.max_seq_length`="512";
-
--- 保存模型
-save overwrite baichuan300 as delta.`ai_model.baichuan300`;
-```
-
-如果使用数据湖拉取模型并保存，需要额外消耗18-30分钟（26g左右大小的模型文件夹）。正常情况考虑到微调的较长的实际运行时间，这点额外开销微不足道。
-不过很多时候我们需要快速进行测试，并且减少资源消耗，这个时候可以使用提前放在训练机器上的本地模型，代码如下：
-
-
-```sql
-!byzerllm setup sft;
+-- 这里需要根据你的资源进行修改
+!byzerllm setup "num_gpus=4";
 
 run command as LLM.`` where 
-and localPathPrefix="/my8t/byzerllm/jobs"
-and pretrainedModelType="custom/baichuan"
+
+name="sft-william-llama2-alpaca-data"
+
+and localPathPrefix="/home/byzerllm/models/sft/jobs"
+
+-- 指定模型类型
+and pretrainedModelType="sft/llama2"
+
+-- 指定模型
+and localModelDir="/home/byzerllm/models/Llama-2-7b-chat-hf"
 and model="command"
-and localModelDir="/home/winubuntu/projects/baichuan-7B-model"
+
+-- 指定微调数据表
 and inputTable="sft_data"
-and outputTable="baichuan300"
+
+-- 输出新模型表
+and outputTable="llama2_300"
+
+-- 微调参数
+and  detached="true"
+and `sft.int.max_seq_length`="512"
+
+-- 每步都打印日志，方便查看 loss
+and `sft.int.logging_steps`="1"
+;
+```
+
+前面我们假设服务器上有模型了。
+
+## 使用数据湖管理模型
+
+如果你想使用数据湖拉取模型并保存，需要额外消耗18-30分钟（26g左右大小的模型文件夹）。正常情况考虑到微调本身就需要较长的实际运行时间，这点额外开销微不足道。
+
+如果是这样，需要改成如下方式进行微调：
+
+
+```sql
+load model.`/home/byzerllm/models/Llama-2-7b-chat-hf` as llama2_7b;
+
+!byzerllm setup sft;
+
+run command as LLM.`` where 
+and localPathPrefix="/home/byzerllm/models/sft/jobs"
+and pretrainedModelType="s/baichuan"
+and model="llama2_7b"
+and inputTable="sft_data"
+and outputTable="llama2_300"
 and `sft.int.max_seq_length`="512";
 
 -- 保存模型
-save overwrite baichuan300 as delta.`ai_model.baichuan300`;
+save overwrite llama2_300 as delta.`ai_model.llama2_300`;
 ```
 
-相比之前的代码，我们把 model 修改为 command, 同时添加 localModelDir 显式指定原始模型路径。
+相比之前的代码：
+
+1. 原始模型使用 load 语法加载
+2. 使用 model 参数配置模型表。去掉 `localModelDir`
+3. 最后通过save 保存模型
+
+## 如何查看模型训练进度
+
+在Notebook提交后，可以在 8265 端口查看 Actor，地址通常是：http://127.0.0.1:8265/#/actors， 找到名字默认为 `sft-william-llama2-alpaca-data` 的Actor， 
+在该 Actor 的日志控制台你可以看到类似如下信息：
+
+```
+Loading data: /home/byzerllm/projects/sft/jobs/sft-william-20230809-13-04-48-674fd1b9-2fc1-45b9-9d75-7abf07cb84cb/finetune_data/data.jsonl3
+2
+there are 33 data in dataset
+*** starting training ***
+{'train_runtime': 19.0203, 'train_samples_per_second': 1.735, 'train_steps_per_second': 0.105, 'train_loss': 3.0778136253356934, 'epoch': 0.97}35
+
+***** train metrics *****36  
+epoch                    =       0.9737  
+train_loss               =     3.077838  
+train_runtime            = 0:00:19.0239  
+train_samples_per_second =      1.73540  
+train_steps_per_second   =      0.10541
+
+[sft-william] Copy /home/byzerllm/models/Llama-2-7b-chat-hf to /home/byzerllm/projects/sft/jobs/sft-william-20230809-13-04-48-674fd1b9-2fc1-45b9-9d75-7abf07cb84cb/finetune_model/final/pretrained_model4243              
+[sft-william] Train Actor is already finished. You can check the model in: /home/byzerllm/projects/sft/jobs/sft-william-20230809-13-04-48-674fd1b9-2fc1-45b9-9d75-7abf07cb84cb/finetune_model/final   
+```
+
+表示模型训练成功，可以找到对应节点进行模型下载或者通过脚本自动同步到所有机器上。
+
+注意，你也可以前面的训练脚本中，通过 name 参数显示的给这个Actor取一个名字，方便你定位找到该Actor。
+
+## Tensorboard
+
+模型开始训练，会自动setup tensorboard。 你可以在 `sft-william-llama2-alpaca-data` 的Actor的日志中看到 tensorboard地址，访问改地址即可。
+
+你也可以直接在 `sft-william-llama2-alpaca-data` 的Actor 看到 loss 等相关信息。
+
+## 部署微调模型
+
+```sql
+-- 部署微调后的模型
+
+!byzerllm setup single;
+-- 如果没有做模型分发，那么可以确认下模型在哪台机器上，在这个集群分别是 master,worker_1,worker_2 三台机器，然后模型
+-- 在 master 节点上，我们就让部署进程自动调度到 master 节点上。
+!byzerllm setup "resource.master=0.01";
+
+run command as LLM.`` where 
+action="infer"
+and localPathPrefix="/home/byzerllm/models/infer/jobs"
+and localModelDir="/home/byzerllm/models/sft/jobs/sft-william-20230809-13-29-10-757c54e4-0d62-423a-a4ef-f9fbeb3d9bf1/finetune_model/final"
+and pretrainedModelType="custom/llama2"
+and udfName="llama2_chat"
+and modelTable="command";
+
+```
+
+## 验证
+
+在 Notebook 中验证部署后的模型
+
+```sql
+--%chat
+--%model=llama2_chat
+--%system_msg=You are a helpful assistant. Think it over and answer the user question correctly.
+--%user_role=User
+--%assistant_role=Assistant
+--%output=q1
+
+推荐一部电影
+```
+
+## 参数说明
+
 
 其中 `sft.int.max_seq_length` 用来指定微调参数。该参数由三部分构成：
 
