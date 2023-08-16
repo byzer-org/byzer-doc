@@ -36,6 +36,7 @@
   * [Byzer-LLM 内置大模型支持列表](/byzer-lang/zh-cn/byzer-llm/model_list_supported.md)
   * [Byzer-LLM 模型微调](/byzer-lang/zh-cn/byzer-llm/model-sft.md)
   * [Byzer-LLM 模型预训练](/byzer-lang/zh-cn/byzer-llm/model-sfft.md)
+  * [Byzer-LLM Byzer中使用Stable Diffusion](/byzer-lang/zh-cn/byzer-llm/stable_diffusion.md)
   * [如何给Byzer-LLM适配新模型](/byzer-lang/zh-cn/byzer-llm/new_model.md)
   * [多模态 VisualGLM-6B 使用示例](/byzer-lang/zh-cn/byzer-llm/visualglm-6b.md)
   * 如何使用 Byzer Notebook 作为聊天框
