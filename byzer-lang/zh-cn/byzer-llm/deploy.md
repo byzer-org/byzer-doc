@@ -4,6 +4,12 @@
 
 > 只支持 CentOS 8 / Ubuntu 20.04 / Ubuntu 22.04
 
+### 前置说明
+1. 如果你的机器是云上的虚拟机，在创建机器资源的时候，一般都会让你设置主机名，建议主机名就叫byzerllm(确保它有sudo权限，一般默认都会有)，会少很多事情，安装脚本也只需要运行一次；
+2. 如果是国外的云厂商，有一些默认参数可以调整，现在默认参数都是为国内设置的，在国外的云厂商的主机会慢不少。比如PYPI_MIRROR可以设置为default, GIT_MIRROR可以设置为github
+
+### 具体操作
+
 在机器上执行如下指令
 
 ```shell
@@ -14,7 +20,7 @@ cd byzer-llm/setup-machine
 接着切换到 Root用户下执行如下脚本：
 
 ```shell
-ROLE=master./setup-machine.sh
+ROLE=master ./setup-machine.sh
 ```
 
 此时会完成 byzerllm 账号创建登工作。
@@ -27,7 +33,13 @@ ROLE=master ./setup-machine.sh
 
 会完整的安装包括显卡驱动，cuda 工具集，一整套 Byzer-LLM 环境，之后就可以访问  http://localhost:9002 来使用 Byzer-LLM 了。
 
-用户如果想组件集群，对于从节点，可以使用如下命令，也是分别执行两次。
+> 注意，如果你的机器是从云厂商创建的虚拟机，需要使用SSH隧道端口映射，让本地也能访问远程机器的9002/9003端口，可参考下面的代码，只需把local_port替换成你希望的本地端口，remote_host替换成云主机的公网ip
+
+```shell
+ssh -L local_port:localhost:9003 byzerllm@remote_host
+```
+
+用户如果想组建集群，对于从节点，可以使用如下命令，也是分别执行两次。
 
 ```shell
 ROLE=worker ./setup-machine.sh
