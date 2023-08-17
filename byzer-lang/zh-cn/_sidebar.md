@@ -23,7 +23,7 @@
     * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
 
 - Byzer-LLM
-
+  * [Byzer-LLM 快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
   * [Byzer-LLM 介绍](/byzer-lang/zh-cn/byzer-llm/README.md)
   * [Byzer-LLM 部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)
   * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md)
