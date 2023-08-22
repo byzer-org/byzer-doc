@@ -13,6 +13,7 @@ SQL 自身的一些缺陷在面对上面问题时，会导致非常大的问题�
 所以在当面对很复杂的业务场景时，如何有效的复用，管理和维护 SQL代码是非常重要的。Byzer 很好的解决了这方面的问题。除了本篇模块化编程以外，相辅相成的还有一个能力，就是模板编程的能力： Byzer Man：Byzer 模板编程入门。
 
 ## Byzer Notebook 里的 Notebook 之间引用
+
 > 该功能需要 Byzer notebook 1.1.0 以及以上版本支持  
 
 Byzer-lang 提供了很好的 IDE 工具，诸如纯 Web 版本的 Byzer Notebook  ，还有 本地版本的 Byzer-desktop (基于VsCode), 他们都是以 Notebook 形式提供了对 Byzer 语言的支持，对于用户调试、管理和模块化 Byzer 代码具有非常大的价值。当然，还有程序员们喜欢的 Byzer-shell ,Byzer-cli ， 在 Byzer 的 All-in-one 版本里都默认包含了。
@@ -165,8 +166,8 @@ include http.`project.demo.casewhen#3`;
 ```sql
 include lib.`gitee.com/allwefantasy/lib-core`
 where 
--- commit="xxxxx"
-and alias="libCore";
+-- commit="xxxxx" and
+alias="libCore";
 ```
 
 接着可以可以引用里面的具体某个文件：
