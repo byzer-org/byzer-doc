@@ -197,7 +197,7 @@ select hello() as name as output;
 Byzer desktop 如果没有配置远程的引擎地址，默认会使用内置的引擎，这意味着我们可以使用Byzer 操作本地的文件。
 模块的使用和 Byzer Notebook 完全一致。但对于本地的脚本的引入略有区别，它使用 project 关键词，支持相对路径：
 
-```sql
+```​sql
 include project.`./udf.hello`;
 ```​
 
