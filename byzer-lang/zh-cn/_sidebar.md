@@ -78,7 +78,7 @@
   * [代码引入/Include](/byzer-lang/zh-cn/grammar/include.md)
   * [分支语句/!If|!Else](/byzer-lang/zh-cn/grammar/branch_statement.md)
   * [内置宏函数/build-in Macro Functions](/byzer-lang/zh-cn/grammar/commands.md)
-
+  * [模块化支持](/byzer-lang/zh-cn/grammar/module.md)
 
 - 对象存储支持 
     - [华为云 OBS](/byzer-lang/zh-cn/save_data/file/obs.md)
