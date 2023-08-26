@@ -57,17 +57,16 @@ and modelTable="command";
 ### 部署ChatGLM6B
 这边我们可以使用任何byzer的用于chat模型llama和chagglm都可以, 注意下面的python文件中，需要把udf换成我们现在启动的聊天的udf。
 ```sql
--- 交互模型我们选择llama-30b-cn的模型
 !byzerllm setup single;
-!byzerllm setup "num_gpus=4";
+!byzerllm setup "num_gpus=2";
 !byzerllm setup "resources.master=0.001";
-!byzerllm setup "maxConcurrency=1";
 
 run command as LLM.`` where 
 action="infer"
 and pretrainedModelType="llama"
-and localModelDir="/home/byzerllm/models/llama-30b-cn" and reconnect="false"
-and udfName="llama_30b_chat"
+and localModelDir="/home/byzerllm/models/openbuddy-llama-13b-v5-fp16"
+and reconnect="false"
+and udfName="llama_13b_chat"
 and modelTable="command";
 ```
 
@@ -84,11 +83,11 @@ git clone https://huggingface.co/bert-base-multilingual-cased  pretrained_tokeni
 注意，该模型在运行时还会下载一些音频的编解码器，所以需要确保网络通畅。
 
 ```sql
-!byzerllm setup "num_gpus=5";
 !byzerllm setup single;
--- !byzerllm setup "resource.master=1";
--- 这里设置高并行度可以让byzer自动对长文字分开切分，然后并行合成，从而加快速度
-!byzerllm setup "maxConcurrency=5";
+!byzerllm setup "num_gpus=1";
+--!byzerllm setup "resource.master=0.01";
+--!byzerllm setup "resource.worker_2=0";
+!byzerllm setup "maxConcurrency=4";
 
 run command as LLM.`` where 
 action="infer"
@@ -119,14 +118,16 @@ and modelTable="command";
 这里我们用gradio 开发一个界面,假设文件名称叫 digital_techer.py:
 
 ```python
+import concurrent.futures
 import json
+import re
+import time
 from base64 import b64encode
 from typing import List, Tuple
 
 import gradio as gr
 import numpy as np
 import requests
-
 
 # select finetune_model_predict(array(feature)) as a
 def request(sql: str, json_data: str) -> str:
@@ -158,19 +159,33 @@ def voice_to_text(rate: int, t: np.ndarray) -> str:
     t2 = json.loads(t[0]["value"][0])
     return t2[0]["predict"]
 
-
-def text_to_voice(s: str) -> np.ndarray:
+def text_to_voice(sequence) -> np.ndarray:
     json_data = json.dumps([
-        {"instruction": s}
+        {"instruction": sequence}
     ])
-    response = request('''
-     select text_to_voice(array(feature)) as value
-    ''', json_data)
-
-    t = json.loads(response)
+    data = request('''
+                 select text_to_voice(array(feature)) as value
+                ''', json_data)
+    t = json.loads(data)
     t2 = json.loads(t[0]["value"][0])
     return np.array(t2[0]["predict"])
 
+def execute_parallel(fn,a,num_workers=3):
+    import concurrent.futures
+
+    def process_chunk(chunk):
+        return [fn(*m) for m in chunk]
+
+    def split_list(lst, n):
+        k, m = divmod(len(lst), n)
+        return [lst[i * k + min(i, m):(i + 1) * k + min(i + 1, m)] for i in range(n)]
+
+    # Split the list into three chunks
+    chunks = split_list(a,num_workers)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=num_workers) as executor:
+        results = list(executor.map(lambda x: process_chunk(x), chunks))
+    return results
 
 ## s,history = state.history
 def chat(s: str, history: List[Tuple[str, str]]) -> str:
@@ -283,8 +298,18 @@ def main_note(audio, text, state: UserState):
     print("llama30b:", s)
     print("text to voice")
     message = f"你: {t}\n\n外教: {s}\n"
-
-    m = text_to_voice(s)
+    sequences = re.split(r'[.!?。!?]', s)
+    chunks = []
+    start_time = time.time()
+    for s in sequences:
+        if len(s.strip()) == 0:
+            continue
+        chunks.append(s.strip())
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
+        m = list(executor.map(lambda x: text_to_voice(x), chunks))
+    m = np.concatenate(m)
+    end_time = time.time()
+    print(f"total time: {end_time - start_time} seconds")
 
     from scipy.io.wavfile import write as write_wav
     import io
@@ -296,21 +321,21 @@ def main_note(audio, text, state: UserState):
     state.add_output(message)
     return html, state.output_state, state
 
-
-state = gr.State(UserState())
-demo = gr.Interface(
-    fn=main_note,
-    inputs=[gr.Audio(source="microphone"), gr.TextArea(lines=30, placeholder="message"), state],
-    outputs=["html", gr.TextArea(lines=30, placeholder="message"), state],
-    examples=[
-    ],
-    interpretation=None,
-    allow_flagging="never",
-)
-
-if __name__ == "__main__":
+def main():
+    state = gr.State(UserState())
+    demo = gr.Interface(
+        fn=main_note,
+        inputs=[gr.Audio(source="microphone"), gr.TextArea(lines=30, placeholder="message"), state],
+        outputs=["html", gr.TextArea(lines=30, placeholder="message"), state],
+        examples=[
+        ],
+        interpretation=None,
+        allow_flagging="never",
+    )
     demo.launch(server_name="127.0.0.1", server_port=7861, debug=True)
 
+if __name__ == "__main__":
+    main()
 ```
 
 之后运行命令
