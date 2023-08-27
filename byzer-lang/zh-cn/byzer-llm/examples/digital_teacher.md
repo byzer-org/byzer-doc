@@ -9,8 +9,8 @@
 我们分别使用：
 
 1. fast whisper
-2. chatglm6b
-3. bark
+2. LLama 13B
+3. Bark
 
 > 在继续后面的步骤之前，请确保按官方文档部署好环境。
 
@@ -19,16 +19,18 @@
 
 模型下载地址： https://huggingface.co/guillaumekln/faster-whisper-large-v2。需要提前下载到 Ray 所在服务器
 
-1. 进入 /home/byzerllm/miniconda3/envs/byzerllm-dev/lib 目录下，并且做一个软链（如果你用Byzer 提供的setup_machine脚本，应该会自动有这个软链）
 
-```
-cd /home/byzerllm/miniconda3/envs/byzerllm-dev
-ln -s lib lib64
-```
-2. 因为该模型为了追求速度，所以依赖 NVIDIA libraries cuBLAS 11.x 和 cuDNN 8.x 。 请到 https://developer.nvidia.com/cudnn 下载，并且按照对应的安装步骤
-将一些依赖库拷贝到前面我们创建的软链目录下。
+1. 因为该模型为了追求速度，所以依赖 NVIDIA libraries cuBLAS 11.x 和 cuDNN 8.x 。 请到 https://developer.nvidia.com/cudnn 下载，并且按照对应的安装步骤
+将一些依赖库拷贝到前面我们创建的软链目录下。 或者通过 
 
-3. 该模型一些依赖 Byzer-llm 默认是不带的，所以需要手动安装：
+```shell
+conda install -y libcublas -c "nvidia/label/cuda-11.8.0" 
+conda install -y cudnn -c nvidia 
+```
+
+来安装。
+
+3. 该模型依赖 Byzer-llm 默认是不带的，所以需要手动安装：
 
 ```
 pip install fast-whisper
@@ -39,27 +41,26 @@ pip install fast-whisper
 
 
 ```sql
-!byzerllm setup "num_gpus=1";
 !byzerllm setup single;
-!byzerllm setup "resource.master=0.01";
+!byzerllm setup "num_gpus=1";
+-- !byzerllm setup "resource.master=0.01";
 
 run command as LLM.`` where 
 action="infer"
 and pretrainedModelType="whisper"
-and localPathPrefix="/home/byzerllm/jobs"
 and localModelDir="/home/byzerllm/models/faster-whisper-large-v2"
-and modelWaitServerReadyTimeout="300"
 and udfName="voice_to_text"
 and reconnect="false"
 and modelTable="command";
 ```
 
-### 部署ChatGLM6B
-这边我们可以使用任何byzer的用于chat模型llama和chagglm都可以, 注意下面的python文件中，需要把udf换成我们现在启动的聊天的udf。
+### 部署 LLama 13B
+
+
 ```sql
 !byzerllm setup single;
 !byzerllm setup "num_gpus=2";
-!byzerllm setup "resources.master=0.001";
+-- !byzerllm setup "resources.master=0.001";
 
 run command as LLM.`` where 
 action="infer"
@@ -80,7 +81,7 @@ and modelTable="command";
 git clone https://huggingface.co/bert-base-multilingual-cased  pretrained_tokenizer
 ```
 
-注意，该模型在运行时还会下载一些音频的编解码器，所以需要确保网络通畅。
+> 注意，该模型在运行时还会下载一些音频的编解码器，所以需要确保网络通畅。
 
 ```sql
 !byzerllm setup single;
@@ -92,9 +93,7 @@ git clone https://huggingface.co/bert-base-multilingual-cased  pretrained_tokeni
 run command as LLM.`` where 
 action="infer"
 and pretrainedModelType="bark"
-and localPathPrefix="/home/byzerllm/jobs"
 and localModelDir="/home/byzerllm/models/bark"
-and modelWaitServerReadyTimeout="300"
 and udfName="text_to_voice"
 and reconnect="false"
 and modelTable="command";
