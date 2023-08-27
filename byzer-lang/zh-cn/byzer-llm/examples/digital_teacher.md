@@ -24,8 +24,8 @@
 将一些依赖库拷贝到前面我们创建的软链目录下。 或者通过 
 
 ```shell
-conda install -y libcublas -c "nvidia/label/cuda-11.8.0" 
-conda install -y cudnn -c nvidia 
+conda install -y libcublas -c nvidia/label/cuda-11.8.0
+conda install -y cudnn -c nvidia/label/cuda-11.8.0 
 ```
 
 来安装。
