@@ -153,6 +153,8 @@ select movice_qa(array(to_json(map(
 "instruction",'我想看李连杰的电影',
 "k","5",
 "temperature","0.1",
+"max_length", 8192,
+"strategy", "full_doc",
 "prompt","${template}"
 
 )))) as response as output;
