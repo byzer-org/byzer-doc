@@ -215,6 +215,7 @@
       * [参数自省机制介绍](/byzer-lang/zh-cn/extension/dev/et_params_dev.md) 
     * [API](/byzer-lang/zh-cn/developer/api/README.md)
       * [脚本执行 API](/byzer-lang/zh-cn/developer/api/run_script_api.md)
+      * [推理接口 API](/byzer-lang/zh-cn/developer/api/inference_api.md)
       * [Byzer元信息存储](/byzer-lang/zh-cn/developer/api/meta_store.md)
       * [Liveness API](/byzer-lang/zh-cn/developer/api/liveness.md)
       * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)

@@ -35,9 +35,12 @@ Content-Type: application/x-www-form-urlencoded
 | `context.__auth_server_url__` | 数据访问验证服务器地址 |   |
 | `context.__auth_secret__` | Byzer-lang engine 回访请求服务器的密钥。比如 Notebook 调用了 Byzer-lang engine，需要传递这个参数， 然后 Byzer-lang engine 要回调 Notebook , 那么需要将这个参数带回 |   |
 
+其中 `defaultPathPrefix` 配置需要和 Byzer Notebook 配置文件中的 `notebook.user.home` 保持一致，才能访问到某个用户的目录。
 
 ### 例子
+
 调用本机 API 例子
+
 ```shell
 curl --location --request POST 'http://localhost:9003/run/script' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
