@@ -160,10 +160,12 @@ select movice_qa(array(to_json(map(
 )))) as response as output;
 ```
 
-在上面这段代码中，我们设置了一个模板。其中里面有两个变量：
+在上面这段代码中，我们设置了一个模板。其中里面有四个变量：
 
 1. context ,这里会填充系统通过向量检索得到的影视数据，就是前面提到的chunk。
 2. query, 这里自动回填充用户的问题，就是 instruction 字段指定的值。
+3. max_length, 指定 token 最大值。
+4. strategy, full_doc 取命中数最大的文档作为 LLM 问题的上下文。 
 
 最终渲染得到的一个完整文本会发送给大模型 chatglm_chat。
 
