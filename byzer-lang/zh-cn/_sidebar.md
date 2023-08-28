@@ -174,13 +174,13 @@
     * [Estimator-Transformer 插件](/byzer-lang/zh-cn/extension/et/README.md)
       * 内置 ET 插件
         * [缓存表插件/CacheExt](/byzer-lang/zh-cn/extension/et/CacheExt.md)
-        * [Json 展开插件/JsonExpandExt](/byzer-lang/zh-cn/extension/et/JsonExpandExt.md)
-        * [Byzer-Watcher 插件](/byzer-lang/zh-cn/extension/et/byzer-watcher.md)
+        * [Json 展开插件/JsonExpandExt](/byzer-lang/zh-cn/extension/et/JsonExpandExt.md)        
         * [发送邮件插件/SendMessage](/byzer-lang/zh-cn/extension/et/SendMessage.md)
         * [语法解析插件/SyntaxAnalyzeExt](/byzer-lang/zh-cn/extension/et/SyntaxAnalyzeExt.md)
         * [表分区插件/TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
         * [计算表父子关系插件/TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/run-script.md)
+        * [byzer-execute-sql JDBC 插件](/byzer-lang/zh-cn/extension/et/jdbc.md)] 
       * 外置 ET 插件
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
