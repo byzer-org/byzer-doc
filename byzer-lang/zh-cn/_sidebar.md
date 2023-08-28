@@ -180,13 +180,15 @@
         * [表分区插件/TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
         * [计算表父子关系插件/TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/run-script.md)
-        * [byzer-execute-sql JDBC 插件](/byzer-lang/zh-cn/extension/et/jdbc.md)] 
+        * [JDBC 插件](/byzer-lang/zh-cn/extension/et/buildin_jdbc.md)
+         
       * 外置 ET 插件
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
         * [Byzer 断言](/byzer-lang/zh-cn/extension/et/external/mlsql-assert.md)
         * [Byzer mllib](/byzer-lang/zh-cn/extension/et/external/mlsql-mllib.md)
         * [shell 命令插件](/byzer-lang/zh-cn/extension/et/external/mlsql-shell.md)
         * [保存到增量表中再次加载](/byzer-lang/zh-cn/extension/et/external/save-then-load.md)
+        * [byzer-execute-sql JDBC 插件](/byzer-lang/zh-cn/extension/et/jdbc.md)
 
 - Byzer-Python
     * [Byzer-Python 介绍](/byzer-lang/zh-cn/python/README.md)
