@@ -180,7 +180,7 @@
         * [表分区插件/TableRepartition](/byzer-lang/zh-cn/extension/et/TableRepartition.md)
         * [计算表父子关系插件/TreeBuildExt](/byzer-lang/zh-cn/extension/et/TreeBuildExt.md)
         * [将字符串当做代码执行](/byzer-lang/zh-cn/extension/et/run-script.md)
-        * [JDBC 插件](/byzer-lang/zh-cn/extension/et/buildin_jdbc.md)
+        * [JDBC 插件(内置)](/byzer-lang/zh-cn/extension/et/buildin_jdbc.md)
          
       * 外置 ET 插件
         * [Connect语句持久化](/byzer-lang/zh-cn/extension/et/external/connect-persist.md)
