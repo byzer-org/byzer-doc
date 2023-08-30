@@ -22,7 +22,7 @@
     * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
     * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
 
-- Byzer-LLM
+- Byzer-LLM:基于 SQL 的大模型全生命周期管理扩展
   * [Byzer-LLM 快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
   * [Byzer-LLM 介绍](/byzer-lang/zh-cn/byzer-llm/README.md)
   * [Byzer-LLM 部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)
@@ -30,7 +30,6 @@
   * [Ray Dashbord 简单介绍](/byzer-lang/zh-cn/byzer-llm/ray.md)
   * [Byzer-LLM 示例 Notebook](/byzer-lang/zh-cn/byzer-llm/example1.md)
   * [Byzer-LLM API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)
-  * [Byzer-LLM 构建基于大模型问答知识库](/byzer-lang/zh-cn/byzer-llm/qa.md)
   * [Byzer-LLM 如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
   * [Byzer-LLM 升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
   * [Byzer-LLM 内置大模型支持列表](/byzer-lang/zh-cn/byzer-llm/model_list_supported.md)
@@ -46,6 +45,9 @@
   * [Byzer-LLM Examples](/byzer-lang/zh-cn/byzer-llm/examples/README.md)
     * [虚拟外教示例](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
     * [示例Notebook项目](/byzer-lang/zh-cn/byzer-llm/examples/notebookexamples.md)
+
+- Byzer-RetrievalQA:基于 Byzer-LLM的基于大模型的问答知识库
+  * [构建基于大模型问答知识库](/byzer-lang/zh-cn/byzer-retrievevalqa/qa.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
@@ -66,7 +68,7 @@
   * [Byzer 引擎配置说明](/byzer-lang/zh-cn/installation/configuration/byzer-lang-configuration.md)
   * [Byzer 引擎日志说明](/byzer-lang/zh-cn/installation/logs/log.md)
   
-- Byzer-Lang 语法手册
+- Byzer-SQL 语法手册
   * [Byzer-Lang 语言向导](/byzer-lang/zh-cn/grammar/outline.md)
   * [数据加载/Load](/byzer-lang/zh-cn/grammar/load.md)
   * [数据转换/Select](/byzer-lang/zh-cn/grammar/select.md)

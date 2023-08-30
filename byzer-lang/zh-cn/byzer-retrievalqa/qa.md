@@ -1,4 +1,4 @@
-# Byzer-LLM 构建基于大模型问答知识库
+# 构建基于大模型问答知识库
 
 Byzer 给知识库的全称定义是：使用用户私有数据基于大模型的问答知识库。这里有三个定语：
 
@@ -28,9 +28,7 @@ Byzer-LLM 可以使用SQL 完成上述标准流程。
 run command as LLM.`` where 
 action="infer"
 and pretrainedModelType="chatglm"
-and localPathPrefix="/my8t/byzerllm/jobs"
 and localModelDir="/home/winubuntu/projects/glm-model/chatglm-6b-model"
-and modelWaitServerReadyTimeout="300"
 and reconnect="false"
 and udfName="chatglm_chat"
 and modelTable="command";
