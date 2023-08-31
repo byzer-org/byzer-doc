@@ -46,7 +46,7 @@
     * [虚拟外教示例](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
     * [示例Notebook项目](/byzer-lang/zh-cn/byzer-llm/examples/notebookexamples.md)
 
-- Byzer-RetrievalQA:基于 Byzer-LLM的基于大模型的问答知识库
+- Byzer-RetrievalQA:基于大模型的问答知识库
   * [构建基于大模型问答知识库快速示例](/byzer-lang/zh-cn/byzer-retrievalqa/qa.md)
   * [准备模型](/byzer-lang/zh-cn/byzer-retrievalqa/models.md)
   * [构建向量索引库](/byzer-lang/zh-cn/byzer-retrievalqa/build_vector_db.md)
