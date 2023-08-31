@@ -41,7 +41,7 @@
   * 如何使用 Byzer Notebook 作为聊天框
     * [Notebook 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_chatbox.md)
     * [SQL 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_sqlchat.md)
-  * [Byzer-LLM 推理性能优化](/byzer-lang/zh-cn/byzer-llm/model-infer-tgi.md)  
+  <!-- * [Byzer-LLM 推理性能优化](/byzer-lang/zh-cn/byzer-llm/model-infer-tgi.md)   -->
   * [Byzer-LLM Examples](/byzer-lang/zh-cn/byzer-llm/examples/README.md)
     * [虚拟外教示例](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
     * [示例Notebook项目](/byzer-lang/zh-cn/byzer-llm/examples/notebookexamples.md)
