@@ -83,6 +83,7 @@
   * [模块化支持](/byzer-lang/zh-cn/grammar/module.md)
   * [模板化支持](/byzer-lang/zh-cn/grammar/template.md)
   * [断言支持](/byzer-lang/zh-cn/grammar/assert.md)
+  * [额外篇：关于变量作用域问题](/byzer-lang/zh-cn/grammar/variable_scope.md)
 
 - 对象存储支持 
     - [华为云 OBS](/byzer-lang/zh-cn/save_data/file/obs.md)
