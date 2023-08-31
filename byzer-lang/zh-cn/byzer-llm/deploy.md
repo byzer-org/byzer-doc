@@ -52,12 +52,96 @@ ROLE=worker ./setup-machine.sh
 
 使用 Byzer-LLM 需要做如下工作：
 
-1. 安装 Byzer-lang/Byzer Notebook
-2. 创建一个 byzerllm-desktop Python环境，并按要求安装依赖
-3. 启动 Ray
-4. 安装 Byzer-LLM 扩展
+1. 启动 Ray
+2. 安装 Byzer-lang/Byzer Notebook
+3. 安装 Byzer-LLM 扩展
 
-> 注意：Byzer-LLM 需要在有 Nvidia 的 GPU 的机器上才能正常工作。推荐 Ubuntu 22.04, 同时确保安装了驱动。可以直接安装他的大礼包： https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=runfile_local
+> 注意：Byzer-LLM 需要在有 Nvidia 的 GPU 的机器上才能正常工作。推荐 Ubuntu 22.04, 同时确保安装了驱动。
+
+
+### Conda 安装和配置
+
+使用 conda 创建一个 Python 3.10.11 环境
+
+```shell
+conda create --name byzerllm-dev python=3.10.11
+```
+
+### Cuda 驱动 和 Toolkit 安装
+
+> 重装驱动请谨慎
+
+#### 对于Ubuntu 22.04
+
+接着安装最新驱动：
+
+```shell
+sudo apt install nvidia-driver-535
+```
+
+重启机器：
+
+```shell
+sudo reboot
+```
+
+如果想删删除原有的驱动，可以执行如下指令：
+
+```shell
+sudo apt remove --purge nvidia-*
+sudo apt autoremove --purge
+```
+
+接着安装 Nvidia Toolkit，这里推荐用conda来安装：
+
+```shell
+conda activate byzerllm-dev
+conda install -y cuda -c nvidia/label/cuda-11.8.0
+```
+
+之后运行 `nvcc` 命令检查安装。
+
+#### 对于 CentOS 8
+
+对于 CentOS 8 可以直接通过dnf升级到最新版本：
+
+```shell
+dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
+dnf install -y cuda
+```
+
+接着安装 Nvidia Toolkit，这里推荐用conda来安装
+
+```shell
+conda activate byzerllm-dev
+conda install -y cuda -c nvidia/label/cuda-11.8.0
+```
+
+
+### Ray 部署
+
+
+1. 确定切换到环境 `byzerllm-dev`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
+
+
+继续保持在环境 `byzerllm-dev`， 然后使用如下命令启动 Ray:
+
+```
+CUDA_VISIBLE_DEVICES=0,1 ray start --head \
+--dashboard-host 192.168.3.224 \
+--num-gpus=2 \
+--object-store-memory 40949672960 \
+--storage /my8t/byzerllm/ray_stroage  \
+--temp-dir /my8t/byzerllm/ray_temp 
+```
+
+简要解释下，CUDA_VISIBLE_DEVICES 配置让 Ray 可以看到的 GPU,从0开始。 
+
+1. --num-gpus 则配置 Ray 可以管理的 GPU 数，另外三个参数 
+2. --object-store-memory, --storage, --temp-dir 可选。
+3. --dashboard-host 是 Ray 的dashboard地址
+
+根据自身的显卡情况填写（显卡显存需要>=8g）
 
 ### Byzer-lang/Byzer-notebook 部署
 
@@ -120,38 +204,7 @@ notebook.user.home=/mlsql
 此时就可以访问 9002 端口了，进入 Notebook 界面开始工作了。
 
 
-### Ray 部署
 
-
-推荐 Ubuntu 22.04 操作系统。
-
-1. 使用 conda 创建一个 Python 3.10.10  
-
-```
-conda create --name byzerllm-desktop python=3.10.10
-```
-
-2. 现在可以切换到环境 `byzerllm-desktop`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
-
-
-继续保持在环境 `byzerllm-desktop`， 然后使用如下命令启动 Ray:
-
-```
-CUDA_VISIBLE_DEVICES=0,1 ray start --head \
---dashboard-host 192.168.3.224 \
---num-gpus=2 \
---object-store-memory 40949672960 \
---storage /my8t/byzerllm/ray_stroage  \
---temp-dir /my8t/byzerllm/ray_temp 
-```
-
-简要解释下，CUDA_VISIBLE_DEVICES 配置让 Ray 可以看到的 GPU,从0开始。 
-
-1. --num-gpus 则配置 Ray 可以管理的 GPU 数，另外三个参数 
-2. --object-store-memory, --storage, --temp-dir 可选。
-3. --dashboard-host 是 Ray 的dashboard地址
-
-根据自身的显卡情况填写（显卡显存需要>=8g）
 
 
 ### Byzer-LLM 扩展安装
@@ -171,50 +224,6 @@ streaming.plugin.clzznames=tech.mlsql.plugins.ds.MLSQLExcelApp,tech.mlsql.plugin
 
 ## 常见问题
 
-### Cuda安装问题
-
-如果通过大礼包安装不上，并且现有的驱动和Toolkit 都没办法满足需求。
-如果你的显卡比较新，可以支持最新驱动，按如下方式进行操作。
-
-> 重装驱动请谨慎
-
-#### 对于Ubuntu 22.04
-
-删除原有的驱动：
-
-```shell
-sudo apt remove --purge nvidia-*
-sudo apt autoremove --purge
-```
-
-接着安装最新驱动：
-
-```shell
-sudo apt install nvidia-driver-535
-```
-
-重启机器：
-
-```shell
-sudo reboot
-```
-
-接着安装 Nvidia Toolkit，这里推荐用conda来安装：
-
-```shell
-conda install cuda==11.8.0 -c nvidia
-```
-
-之后运行 `nvcc` 命令检查安装。
-
-#### 对于 CentOS 8
-
-对于 CentOS 8 可以直接通过dnf升级到最新版本：
-
-```shell
-dnf config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo
-dnf install -y cuda
-```
 
 
 ### bitsandbytes 异常
