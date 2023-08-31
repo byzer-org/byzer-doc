@@ -47,7 +47,7 @@
     * [示例Notebook项目](/byzer-lang/zh-cn/byzer-llm/examples/notebookexamples.md)
 
 - Byzer-RetrievalQA:基于 Byzer-LLM的基于大模型的问答知识库
-  * [构建基于大模型问答知识库](/byzer-lang/zh-cn/byzer-retrievevalqa/qa.md)
+  * [构建基于大模型问答知识库](/byzer-lang/zh-cn/byzer-retrievalqa/qa.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)

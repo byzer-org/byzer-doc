@@ -5,9 +5,9 @@
 ## DDL 模式
 
 ```sql
-run command as SQLJDBC.`` where
+run command as JDBC.`` where
 sqlMode="ddl"
-driver="com.mysql.jdbc.Driver"
+and driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:3306/wow?useSSL=false&haracterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
 and user="root"
 and password="xxxxx"
@@ -26,9 +26,9 @@ create table xxxx
 ## Query模式
 
 ```sql
-run command as SQLJDBC.`` where
+run command as JDBC.`` where
 sqlMode="query"
-driver="com.mysql.jdbc.Driver"
+and driver="com.mysql.jdbc.Driver"
 and url="jdbc:mysql://127.0.0.1:3306/wow?useSSL=false&haracterEncoding=utf8&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false"
 and user="root"
 and password="xxxxx"
