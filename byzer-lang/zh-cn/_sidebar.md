@@ -24,10 +24,10 @@
 
 - Byzer-LLM:基于 SQL 的大模型全生命周期管理扩展
   * [Byzer-LLM 快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
+  * [Byzer-LLM 如何通过日志排查错误](/byzer-lang/zh-cn/byzer-llm/ray.md)
   * [Byzer-LLM 介绍](/byzer-lang/zh-cn/byzer-llm/README.md)
   * [Byzer-LLM 部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)
-  * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md)
-  * [Ray Dashbord 简单介绍](/byzer-lang/zh-cn/byzer-llm/ray.md)
+  * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md)  
   * [Byzer-LLM 示例 Notebook](/byzer-lang/zh-cn/byzer-llm/example1.md)
   * [Byzer-LLM API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)
   * [Byzer-LLM 如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
