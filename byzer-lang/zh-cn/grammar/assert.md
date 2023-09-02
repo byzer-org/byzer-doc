@@ -2,11 +2,58 @@
 
 ## 简介
 
-断言可以让 Byzer 在 SQL 脚本中的任何一个位置实现中断，判断某个条件是否成立，如果不成立，则不执行 后续 SQL 语句，而是抛出异常。
-这个对于有复杂需求的 SQL 脚本来说，是非常有用的。
+断言可以让 Byzer 在 SQL 脚本中的任何一个位置实现中断，判断某个条件是否成立。
 
+```sql
+set abc='''
+{ "x": 120, "y": 100, "z": 260 ,"dataType":"B group"}
+{ "x": 160, "y": 100, "z": 260 ,"dataType":"C group"}
+{ "x": 170, "y": 100, "z": 260 ,"dataType":"C group"}
+{ "x": 150, "y": 100, "z": 260 ,"dataType":"B group"}
+{ "x": 110, "y": 100 ,"dataType":"A group"}
+{ "x": 130 ,"dataType":"A group"}
+{ "x": 140, "y": 200 ,"dataType":"A group"}
+''';
+load jsonStr.`abc` as table1;
+```
+> 注意：
+> 
+> 1.下面相关算子，不带有Throw的不会打断脚本运行，并且会返回具体的异常数据集，通长用来做数据探查。
+> 
+> 2.如果希望在执行的过程中，像执行代码一样遇到异常直接打断运行，可以使用带有Throw的算子，这样会抛出异常，不会返回数据集。
 
-## 语法
+## 常用单表或视图Data Quality验证算子
+### assertNotNull tableName 'fieldName1,fieldName2...'
+判断表中的某些字段是否为空,默认会返回具体的非空数据集
+
+![img.png](image/img1.png)
+
+### assertNotNullThrow tableName 'fieldName1,fieldName2...' 
+判断表中的某些字段是否为空,不满足条件则会抛出异常
+
+![img.png](image/img2.png)
+
+### assertUniqueKey tableName 'fieldName1,fieldName2...'
+判断表中的某些字段是否唯一,默认会非唯一的字段名
+
+![img.png](image/img3.png)
+
+### assertUniqueKeyThrow tableName 'fieldName1,fieldName2...'
+判断表中的某些字段是否唯一,不满足条件则会抛出异常
+
+![img.png](image/img4.png)
+
+### assertUniqueKeys tableName 'fieldName1,fieldName2...'
+判断组合字段是否全局唯一,默认会返回具体的非唯一数据集
+
+![img.png](image/img5.png)
+
+### assertUniqueKeysThrow tableName 'fieldName1,fieldName2...'
+判断组合字段是否全局唯一,不满足条件则会抛出异常
+
+![img.png](image/img6.png)
+
+## 通用表达式校验
 
 Byzer 支持断言，断言的语法如下：
 
