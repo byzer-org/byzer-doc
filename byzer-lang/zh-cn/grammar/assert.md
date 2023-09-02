@@ -25,31 +25,51 @@ load jsonStr.`abc` as table1;
 ## 常用单表或视图Data Quality验证算子
 ### assertNotNull tableName 'fieldName1,fieldName2...'
 判断表中的某些字段是否为空,默认会返回具体的非空数据集
+```sql
+!assertNotNull table1 'z';
+```
 
 ![img.png](image/img1.png)
 
 ### assertNotNullThrow tableName 'fieldName1,fieldName2...' 
 判断表中的某些字段是否为空,不满足条件则会抛出异常
+```sql
+!assertNotNullThrow table1 'z';
+```
 
 ![img.png](image/img2.png)
 
 ### assertUniqueKey tableName 'fieldName1,fieldName2...'
 判断表中的某些字段是否唯一,默认会非唯一的字段名
+```sql
+!assertUniqueKey table1 "z";
+```
 
 ![img.png](image/img3.png)
 
 ### assertUniqueKeyThrow tableName 'fieldName1,fieldName2...'
 判断表中的某些字段是否唯一,不满足条件则会抛出异常
+```sql
+!assertUniqueKeyThrow table1 "z";
+```
+
 
 ![img.png](image/img4.png)
 
 ### assertUniqueKeys tableName 'fieldName1,fieldName2...'
 判断组合字段是否全局唯一,默认会返回具体的非唯一数据集
+```sql
+!assertUniqueKeys table1 "dataType,y";
+```
+
 
 ![img.png](image/img5.png)
 
 ### assertUniqueKeysThrow tableName 'fieldName1,fieldName2...'
 判断组合字段是否全局唯一,不满足条件则会抛出异常
+```sql
+!assertUniqueKeysThrow table1 "z,y";
+```
 
 ![img.png](image/img6.png)
 
