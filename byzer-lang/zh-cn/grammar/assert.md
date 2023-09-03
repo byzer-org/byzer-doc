@@ -73,6 +73,24 @@ load jsonStr.`abc` as table1;
 
 ![img.png](image/img6.png)
 
+### assertCondition tableName 'expression'
+判断表中的某些字段是否满足设定的条件,默认会返回具体的不满足条件的数据集
+```sql
+!assertCondition table1 "x > 180";
+```
+
+![img.png](image/img7.png)
+
+### assertConditionThrow tableName 'expression'
+判断表中的某些字段是否满足设定的条件,不满足条件则会抛出异常 
+> 注意：当你使用spark3.3.0的时候这个功能会有bug，升级到更上面的版本不会有这个问题。
+> 详细原因请查看：https://issues.apache.org/jira/browse/SPARK-39612
+```sql
+!assertCondition table1 "x > 180";
+```
+
+![img.png](image/img8.png)
+
 ## 通用表达式校验
 
 Byzer 支持断言，断言的语法如下：
