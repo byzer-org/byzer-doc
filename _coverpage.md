@@ -3,11 +3,11 @@
 # Byzer™ Documentation
 
 
-> **Byzer-Lang**: a low-code open-source programming language for data pipeline, analytics and AI
+> **Byzer SQL**: a powerfull SQL for data pipeline, analytics and AI
 
-> **Byzer Notebook**: an IDE for Byzer-Lang but more than an IDE
+> **Byzer Notebook**: an IDE for Byzer SQL but more than an IDE, e.g. Admin Console for Byzer Database
 
 
 [Byzer Notebook Doc](/byzer-notebook/zh-cn/)
-[Byzer-Lang Doc](/byzer-lang/zh-cn/)
+[Byzer SQL Doc](/byzer-lang/zh-cn/)
 [Blog](/public/blog/zh-cn/)
