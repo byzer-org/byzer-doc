@@ -42,11 +42,4 @@ and modelTable="byzer_docs_vdb_model";
 | modelTable | 向量索引表 |
 
 
-| 参数名        | 说明                                                         |
-| ------------- | ------------------------------------------------------------ |
-| strategy | 向量召回策略。目前有 full_doc 和 norml。 norml 为直接召回 chunk 文本片段。 full_doc 则会在召回的chunk中，找到被最多chunk指向的那篇万丈文档 |
-| format | 拼接chunk的策略。目前有 list/json/normal。 normal 将不同chunk使用换行来拼接。 list 前面会加序号。json 则会将chunk按 json数组格拼接  |
-| hint | 控制问答生成参数。目前有 show_only_context/show_full_query/normal。 其中 show_only_context 只会执行召回，show_full_query 会显示最后给到大模型的新query, normal 则为正常的服务模式。  |    
-| max_length | 传递给大模型的参数，支持最大的文本长度,默认为 1024 |
-| temperature | 传递给大模型的参数，热度，默认为 0.9 |
 
