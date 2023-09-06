@@ -48,7 +48,7 @@ sudo dnf install gcc-c++
 Ubuntu  则可以这样安装：
 
 ```
-sudo apt-get install bu
+sudo apt-get install build-essential
 ```
 
 ## 一些性能说明
