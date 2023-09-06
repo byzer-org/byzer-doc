@@ -67,5 +67,4 @@ save overwrite byzer_docs_vdb_model as delta.`ai_model.byzer_docs_vdb_model`;
 | chatFunc      | 模型准备阶段启动的大语言模型对应的函数                   |
 | url           | 大模型服务地址                                               |
 | outputTable   | 输出表                                                       |
-
-
+| promptPrefix    | bge 向量模型特有的参数。对于QA类场景，中文模型可以将该值设置为： `为这个句子生成表示以用于检索相关文章：`,英文模式设置为： `Represent this sentence for searching relevant passages: ` |
