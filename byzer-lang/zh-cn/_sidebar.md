@@ -27,8 +27,10 @@
   * [Byzer-LLM 如何通过日志排查错误](/byzer-lang/zh-cn/byzer-llm/ray.md)
   * [Byzer-LLM 介绍](/byzer-lang/zh-cn/byzer-llm/README.md)
   * [Byzer-LLM 部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)
-  * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md)  
-  * [使用 vllm 作为 inferrence backend](/byzer-lang/zh-cn/byzer-llm/vllm_infer_backend.md)  
+  * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md) 
+  * 非默认推理后端
+    * [使用 vLLM 作为 inferrence backend](/byzer-lang/zh-cn/byzer-llm/vllm_infer_backend.md)  
+    * [使用 Deepspeed 作为 inferrence backend](/byzer-lang/zh-cn/byzer-llm/deepspeed_infer_backend.md)  
   * [Byzer-LLM 示例 Notebook](/byzer-lang/zh-cn/byzer-llm/example1.md)
   * [Byzer-LLM API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)
   * [Byzer-LLM 如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
