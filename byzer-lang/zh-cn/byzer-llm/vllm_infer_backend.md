@@ -33,6 +33,6 @@ and modelTable="command";
 注意：vllm 切分模型是根据模型里的 heads 数来确定的，比如 num_gpus=8, 那么 8 需要能够被 heads 整除。不同模型 heads 不相同，可以根据
 模型的 heads 数来调整 num_gpus 的值，或者根据报错修改该值。
 
-## 一些参考
+## 一些性能参考
 
 以 Falcon 40B 为例，在输入 2-4k tokens的情况下， latency 在5-15s 之间，八卡 3090 token 生成速度可以稳定在  20-25之间每秒，理论上 QPS 也会提升比较明显。

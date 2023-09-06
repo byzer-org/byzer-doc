@@ -31,7 +31,26 @@ and modelTable="command";
 2. `pretrainedModelType` 固定设置为 `custom/auto`, 也就是让 backend 自己自动设置模型类型。
 
 
-## 一些参考
+## 一些限制说明
 
-Deepspeed 加载模型对内存要求极高，这也导致加载很慢， `num_gpus`  设置的越高，需要的临时内存就越多，内存不足会导致模型加载失败。譬如加载 30B 的
-llama大模型，如果 num_gpus 设置为 8， 那么 1T 内存都不够。
+Deepspeed 加载模型对内存要求极高，这也导致加载很慢， `num_gpus`  设置的越高，需要的临时内存就越多，内存不足会导致模型加载失败。
+譬如加载 30B 的 llama 模型，如果 num_gpus 设置为 8， 那么 1T 内存都不够。 num_gpus设置为 4， 大概最高峰需要占用 600G 内存。
+加载时间大约需要 5-10分钟。
+
+此外 Deepspeed 需要有C++编译器：
+
+Centos 8 可以按如下方式安装：
+
+```
+sudo dnf install gcc-c++
+```
+
+Ubuntu  则可以这样安装：
+
+```
+sudo apt-get install bu
+```
+
+## 一些性能说明
+
+Deepspeed 的推理性能 latency, 大约可以达到 Transformers 的 1/3 左右，甚至更少。
