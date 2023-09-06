@@ -52,6 +52,7 @@
   * [构建向量索引库](/byzer-lang/zh-cn/byzer-retrievalqa/build_vector_db.md)
   * [部署向量索引库](/byzer-lang/zh-cn/byzer-retrievalqa/deploy_vector_db.md)
   * [查询知识库](/byzer-lang/zh-cn/byzer-retrievalqa/query_on_qa.md)
+  * [向量模型](/byzer-lang/zh-cn/byzer-retrievalqa/embedding_model.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
