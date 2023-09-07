@@ -1,4 +1,4 @@
-# 使用 vllm 作为 inferrence backend
+# 使用 vllm 作为 inference backend
 
 Byzer-LLM 其实支持 Transformers, vLLM, Deepspeed Inference， Aviary/TGI 等多种backend。 这篇文章我们介绍
 如何在 Byzer-LLM 中使用 vLLM 作为推理后端。
