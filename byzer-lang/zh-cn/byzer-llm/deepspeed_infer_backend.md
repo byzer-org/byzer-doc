@@ -14,7 +14,7 @@ Byzer-LLM 其实支持 Transformers, vLLM, Deepspeed Inference， Aviary/TGI 等
 !byzerllm setup "num_gpus=4";
 !byzerllm setup "infer_backend=ray/deepspeed";
 
-include http.`project.LLMs.clear_nodes`;
+-- include http.`project.LLMs.clear_nodes`;
 
 run command as LLM.`` where 
 action="infer"
