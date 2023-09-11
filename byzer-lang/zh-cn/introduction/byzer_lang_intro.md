@@ -1,4 +1,4 @@
-# Byzer-Lang
+# Byzer SQL 和 Byzer Data+AI 数据库
 
 ### 背景
 
@@ -21,29 +21,27 @@
 
 **那么 SQL 也不行的话，人们期望实现 Data + AI 能够统一编程的语言在哪里呢？**
 
-为了通过编程语言进行革新，从根本上提高数据平台落地和 AI 工程化的效率，Byzer 语言诞生了。
+为了通过编程语言进行革新，从根本上提高数据平台落地和 AI 工程化的效率，Byzer SQL语言诞生了。
 
 
+### Byzer SQL是什么
 
+**Byzer SQL是一门全新的编程语言，完全开源，低代码，使用 Byzer 可以实现数据处理、数据分析和 AI。**
 
-### Byzer 是什么
-
-**Byzer 是一门全新的编程语言，完全开源，低代码，使用 Byzer 可以实现数据处理、数据分析和 AI。**
-
-我们使用一种语言 Byzer，就可以在单一平台上实现过去要使用多语言、多平台、多组件才能实现的事情。
+我们使用一种语言 Byzer SQL，就可以在单一平台上实现过去要使用多语言、多平台、多组件才能实现的事情。
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/introduction/images/pipeline.png" alt="name"  width="800"/>
 </p>
 <center><i>传统的数据处理链路</i></center>
 
-Byzer 既保留了 SQL 的所有原有优势，简洁易懂，上手就可以干活；Byzer 还允许用户进阶操作，提供更多可编程能力。Byzer 有以下 **四大特性**：
+Byzer SQL 既保留了 SQL 的所有原有优势，简洁易懂，上手就可以干活；Byzer SQL  还允许用户进阶操作，提供更多可编程能力。Byzer SQL  有以下 **四大特性**：
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/introduction/images/characteristics.png" alt="name"  width="800"/>
 </p>
 
-### Byzer 使用场景 /人群
+### Byzer SQL 使用场景 /人群
 
 在 Byzer 中可以实现使用统一的交互语言，在一个统一的平台内即可完成 **数据处理 +数据分析+数据科学** 的任务。
 
@@ -53,10 +51,10 @@ Byzer 既保留了 SQL 的所有原有优势，简洁易懂，上手就可以干
     <img src="/byzer-lang/zh-cn/introduction/images/customer.png" alt="name"  width="800"/>
 </p>
 
-### Byzer 基础语法
+### Byzer SQL  基础语法
 
 
-Byzer 语法非常简单，比标准的 SQL 只多了一些关键字，整个学习过程可以在几个小时内完成。在学习 SQL 的基础上，大家再多努力一点点，就可以掌握用 声明式语法 进行机器学习。
+Byzer SQL  语法非常简单，比标准的 SQL 只多了一些关键字，整个学习过程可以在几个小时内完成。在学习 SQL 的基础上，大家再多努力一点点，就可以掌握用 声明式语法 进行机器学习。
 
 
 <p align="center">
@@ -65,34 +63,28 @@ Byzer 语法非常简单，比标准的 SQL 只多了一些关键字，整个学
 
 <center><i>声明式类 SQL 的语法非常简单易懂</i></center>
 
-### Byzer 对接分布式计算引擎
+### Byzer 分布式数据库
 
-Byzer基于云原生架构设计，用户可以使用桌面版软件，连接到云端引擎，轻松解锁算力和存储空间限制。
+Byzer SQL 和其执行引擎构成的分布式数据库，基于云原生架构设计，用户可以使用桌面版软件，连接到云端引擎，轻松解锁算力和存储空间限制。
 
 <p align="center">
     <img src="/byzer-lang/zh-cn/introduction/images/clouddesign.png" alt="name"  width="650"/>
 </p>
 
 
-Byzer 底座是 ***融合运行时（Spark + Ray）*** 其中 Ray 可插拔。 两者都是分布式的，衔接上也是分布式的。所以我们说 Byzer 天然就是一个分布式引擎。
-
-对于企业而言，如果只有语言和执行引擎，没有第三方开箱即用的库，什么东西都要自己开发，其实是没有什么价值的。为了帮助企业去更好地落地 Data+AI，Byzer 提供许多功能的支持：
-
-- 对数据湖的支持，在 Byzer-lang 里面，大家把引擎用起来，进行一个配置，指定一个目录，就可以向数据湖里面更新数据、写数据。
-- 对 CDC 的支持，大家比较熟悉的应该是 Flink。 Byzer 直接了 CDC 支持，用户通过两行代码就可以实时同步到数据湖里面去。
-- 此外还有各种开箱即用的功能，算法等。
+Byzer 数据库轻松涵盖大数据， AI 和大模型全生命周期工作。 用户使用 Byzer SQL 和 Byzer 数据库进行交互。此外, Byzer 数据库除了有 Byzer-LLM 这个大模型插件引擎以外，还有 Byzer-QARetriever 插件引擎用于基于大模型的问答检索。
 
 ### Byzer 支持 Python
 
 对于一些资深的机器学习用户，他们可能会担心，已经在其他产品例如 Jupyter Notebook 用 Python 的 scikit-learn 或者 tensorflow 进行了机器学习的模型开发，项目文件已经存在大量的代码，如何迁移到 Byzer 呢？
 
-在 Byzer 中我们通过 Byzer-python 来实现对 Python 代码的引用和适配，资深 Python 用户可以继续使用您习惯的机器学习的包进行模型开发。这部分的内容可以参考 [Python 扩展](/byzer-lang/zh-cn/python/README.md)  章节。
+在 Byzer 中我们通过 插件引擎 Byzer-python 来实现对 Python 代码的引用和适配，资深 Python 用户可以继续使用您习惯的机器学习的包进行模型开发。这部分的内容可以参考 [Python 扩展](/byzer-lang/zh-cn/python/README.md)  章节。
 
 更强大之处在于，Byzer-python 提供过了非常方便的 API 给用户让用户无需担心权限即可访问 Byzer 脚本中的一个或者多个视图数据，并且产生一个或者多个新的视图，不止步于此，
+
 Byzer-python 还提供了分布式编程能力以及硬件感知能力（如 GPU）， 用户可以轻易实现诸如 Parameter Server 结构的机器学习训练模式。
 
-
-接下来，就上手试试 Byzer 吧。
+接下来，就上手试试 Byzer 数据库吧。
 
 
 

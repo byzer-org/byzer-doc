@@ -1,26 +1,26 @@
-- Byzer-Lang Introduction
-  * [Byzer-Lang](/byzer-lang/zh-cn/introduction/byzer_lang_intro.md)
-  * [Byzer-Lang 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
+- Byzer SQL Introduction
+  * [Byzer SQL 和 Byzer Data+AI 数据库](/byzer-lang/zh-cn/introduction/byzer_lang_intro.md)
+  * [Byzer SQL 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
   * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
   * [常见问题 FAQ](/byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
 
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-lang 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)  
+  * [Byzer-SQL 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)  
   - 历史版本
-    * [Byzer-lang 2.3.7](/byzer-lang/zh-cn/release-notes/2.3.7.md)  
-    * [Byzer-lang 2.3.6](/byzer-lang/zh-cn/release-notes/2.3.6.md) 
-    * [Byzer-lang 2.3.5](/byzer-lang/zh-cn/release-notes/2.3.5.md)
-    * [Byzer-lang 2.3.4](/byzer-lang/zh-cn/release-notes/2.3.4.md)
-    * [Byzer-lang 2.3.3](/byzer-lang/zh-cn/release-notes/2.3.3.md)
-    * [Byzer-lang 2.3.2](/byzer-lang/zh-cn/release-notes/2.3.2.md)
-    * [Byzer-lang 2.3.1](/byzer-lang/zh-cn/release-notes/2.3.1.md)
-    * [Byzer-lang 2.3.0.1](/byzer-lang/zh-cn/release-notes/2.3.0.1.md)
-    * [Byzer-lang 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
-    * [Byzer-lang 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
-    * [Byzer-lang 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
-    * [Byzer-lang 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
+    * [Byzer-Database 2.3.7](/byzer-lang/zh-cn/release-notes/2.3.7.md)  
+    * [Byzer-Database 2.3.6](/byzer-lang/zh-cn/release-notes/2.3.6.md) 
+    * [Byzer-Database 2.3.5](/byzer-lang/zh-cn/release-notes/2.3.5.md)
+    * [Byzer-Database 2.3.4](/byzer-lang/zh-cn/release-notes/2.3.4.md)
+    * [Byzer-Database 2.3.3](/byzer-lang/zh-cn/release-notes/2.3.3.md)
+    * [Byzer-Database 2.3.2](/byzer-lang/zh-cn/release-notes/2.3.2.md)
+    * [Byzer-Database 2.3.1](/byzer-lang/zh-cn/release-notes/2.3.1.md)
+    * [Byzer-Database 2.3.0.1](/byzer-lang/zh-cn/release-notes/2.3.0.1.md)
+    * [Byzer-Database 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
+    * [Byzer-Database 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
+    * [Byzer-Database 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
+    * [Byzer-Database 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
 
 - Byzer-LLM:基于 SQL 的大模型全生命周期管理扩展
   * [Byzer-LLM 快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)

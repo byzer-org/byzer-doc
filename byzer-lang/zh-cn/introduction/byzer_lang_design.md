@@ -1,4 +1,4 @@
-# Byzer Language 设计原理
+# Byzer SQL 设计原理
 
 ### 设计理念
 
@@ -6,20 +6,20 @@
 
 
 
-因此，Byzer 作为一门面向 Data 和 AI 的新一代编程语言，在设计的时候存在了许多的考量：
+因此，Byzer SQL 作为一门面向 Data 和 AI 的新一代编程语言，在设计的时候存在了许多的考量：
 
 第一，Byzer 融合了声明式语言和命令式语言的能力与特点，Byzer 的基础语法非常简单，比标准的 SQL 只多了一些关键字，整个学习过程可以在几个小时内完成。
 
-第二，Byzer 目的是想要解决 Data Pipeline 处理和 AI 落地的效率问题，因此我们需要更为抽象更易用的语言去做到跨平台的 Data Connection，这也是我们采用了解释型语言设计的原因。
+第二，Byzer SQL 目的是想要解决 Data Pipeline 处理和 AI 落地的效率问题，因此我们需要更为抽象更易用的语言去做到跨平台的 Data Connection，这也是我们采用了解释型语言设计的原因。
 
-第三，我们想要尽可能复用业界现有的强大生态，可以让语言天然支持云原生或者分布式，所以我们采用了 Spark/Ray 作为了语言的混合执行引擎，以在引擎层面丰富 Byzer 的原生生态。
-
-
+第三，我们想要尽可能复用业界现有的强大生态，可以让语言天然支持云原生或者分布式，所以我们采用了 Spark/Ray 作为了语言的混合执行引擎，以在引擎层面丰富 Byzer SQL 的原生生态。
 
 
-### Byzer 语言架构
 
-Byzer 的架构如下图：
+
+### Byzer SQL 语言架构
+
+Byzer SQL 的架构如下图：
 
 ![byzer-lang-arch](images/byzer-arch.png)
 
@@ -31,13 +31,13 @@ Byzer 使用 **Github 作为包管理器（Package Manager）**，有内置 lib 
 
 
 
-### Byzer 的扩展设计
+### Byzer SQL 的扩展设计
 
-Byzer 作为一门语言，需要给开发者提供各种接口来进行实现来完成功能的开发，Byzer 给两类开发者提供了不同层面的扩展抽象：
-- 使用 Byzer 开发应用的工程师，主要是编写业务逻辑代码和扩展
-- 开发 Byzer 语言的工程师，主要是增强 Byzer 语言特性或者引擎的能力
+Byzer SQL 作为一门语言，需要给开发者提供各种接口来进行实现来完成功能的开发，Byzer 给两类开发者提供了不同层面的扩展抽象：
+- 使用 Byzer SQL 开发应用的工程师，主要是编写业务逻辑代码和扩展
+- 开发 Byzer SQL 语言的工程师，主要是增强 Byzer SQL 语言特性或者引擎的能力
 
-Byzer 在语言层面提供了**变量成员（Variable**），**函数成员（Macro Function）**，以及提供了**模块（Lib）**以及**包（Package）**的设计。开发者可以通过 Macro Function 来封装代码功能，或实现 Byzer 的语法糖来增强语法特性；也可以通过 Package 进行代码组织，开发可供第三方使用的功能库。
+Byzer SQL 在语言层面提供了**变量成员（Variable**），**函数成员（Macro Function）**，以及提供了**模块（Lib）**以及**包（Package）**的设计。开发者可以通过 Macro Function 来封装代码功能，或实现 Byzer 的语法糖来增强语法特性；也可以通过 Package 进行代码组织，开发可供第三方使用的功能库。
 
 接下来我们将从 Byzer 的**应用生态扩展点**、**语言层扩展点**以及**内核层扩展点**这三个方面展开分享下 Byzer 语言的扩展架构（如下图所示）：
 
@@ -45,9 +45,9 @@ Byzer 在语言层面提供了**变量成员（Variable**），**函数成员（
 
 
 
-#### 1) Byzer-lang 应用生态扩展
+#### 1) Byzer SQL 应用生态扩展
 
-这个层面主要是面向使用 Byzer-lang ，具备 Scala/Java 开发能力的工程师。通过他可以增加 Byzer-lang 处理业务需求的能力。大致分为下面几类：
+这个层面主要是面向使用 Byzer SQL ，具备 Scala/Java 开发能力的工程师。通过他可以增加 Byzer SQL 处理业务需求的能力。大致分为下面几类：
 
 - **数据源扩展**（数据源扩展从接入数据和消费数据两个角度来进行区分）
   - 接入数据，将数据源抽象成 Byzer 内的表
@@ -67,7 +67,7 @@ Byzer 在语言层面提供了**变量成员（Variable**），**函数成员（
 - **App 扩展**： 通过 Byzer 的接口来实现应用功能的扩展
   - 比如通过实现 LSP 协议，暴露 auto-suggest 接口来完成 Byzer 的代码提示
 
-#### 2) Byzer-lang 语言层扩展
+#### 2) Byzer SQL 语言层扩展
 
 该层扩展主要供 Byzer 编码者使用来扩展语言能力，比如编写 Byzer 的第三方功能库，常见的扩展点如下：
 
@@ -111,7 +111,7 @@ ray_context.foreach(resize_image)
 
 
 
-#### 3) Byzer-lang 内核层扩展：
+#### 3) Byzer SQL 内核层扩展：
 
 这个层面的扩展点主要面向 Byzer-lang 的核心开发者的。通过这些扩展点，可以增强引擎的能力。本质上其实是增强 Byzer-Lang 的解释器
 
@@ -121,7 +121,7 @@ ray_context.foreach(resize_image)
 
 
 
-### Byzer IDE 支持 - Byzer Notebook
+### Byzer SQL IDE/数据库控制台 支持 - Byzer Notebook
 
 作为一门语言，需要能够支持编辑器或者 IDE 来方便用户开发和使用， 完成诸如高亮，代码提示，运行等能力。目前比较流行的方式是实现 LSP （language server protocol），这样在编辑器层或者是 IDE 层，可以直接基于 LSP 完成相关功能。比如在代码提示功能的实现上，可以使用内置宏函数 `!show` 来实现参数自省，通过 **code suggestion API** 返回给调用方，完成代码的提示功能。
 
