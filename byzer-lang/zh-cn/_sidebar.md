@@ -105,6 +105,7 @@
     - [内置数据湖 Delta Lake](/byzer-lang/zh-cn/datasource/dw/delta_summary.md)
       * [加载](/byzer-lang/zh-cn/datasource/dw/delta_lake.md)
       * [写入](/byzer-lang/zh-cn/save_data/dw/delta.md)
+      * [宏插件](/byzer-lang/zh-cn/datasource/dw/delta_plugin.md)
 - 加载数据
     - [加载多种数据源](/byzer-lang/zh-cn/datasource/README.md)
     - [JDBC 数据源](/byzer-lang/zh-cn/datasource/jdbc/jdbc.md)
