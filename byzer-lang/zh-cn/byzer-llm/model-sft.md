@@ -254,3 +254,10 @@ DEFAULT_QLORA_CONFIG = {
 
 在上面的例子中，我们修改了 `max_seq_length` 为 512,这样可以让 7B 的百川模型在消费级的 24G 显卡中即可运行微调任务。
 
+## 停止微调
+
+```
+!byzerllm setup single;
+!byzerllm model remove "微调名称";
+```
+
