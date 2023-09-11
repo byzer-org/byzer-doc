@@ -256,7 +256,7 @@ DEFAULT_QLORA_CONFIG = {
 
 ## 停止微调
 
-```
+```sql
 !byzerllm setup single;
 !byzerllm model remove "微调名称";
 ```
