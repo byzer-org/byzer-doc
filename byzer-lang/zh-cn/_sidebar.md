@@ -7,7 +7,7 @@
 
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-SQL 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)  
+  * [Byzer-Database 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)  
   - 历史版本
     * [Byzer-Database 2.3.7](/byzer-lang/zh-cn/release-notes/2.3.7.md)  
     * [Byzer-Database 2.3.6](/byzer-lang/zh-cn/release-notes/2.3.6.md) 

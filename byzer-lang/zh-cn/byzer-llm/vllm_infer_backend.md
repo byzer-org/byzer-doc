@@ -6,7 +6,8 @@ Byzer-LLM 其实支持 Transformers, vLLM, Deepspeed Inference， Aviary/TGI 等
 已经通过实机测试模型(会持续更新)：
 
 1. falcon 系列
-2. llama/llama2 以及衍生系列 (不支持扩充词表的中文系列llama)
+2. llama/llama2 以及衍生系列 
+3. baichuan2
 
 ## 如何使用 vLLM 启动模型
 
