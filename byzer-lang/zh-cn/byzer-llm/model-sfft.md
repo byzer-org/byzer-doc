@@ -149,7 +149,7 @@ ray.init(address="auto",ignore_reinit_error=True)
 # 注意该目录需要有百川模型的 tokenizer.model 文件
 MODEL_DIR = "/home/byzerllm/models/baichuan"
 
-# 重头构建一个百川模型
+# 重头构建一个百川模型,你可以引入其他模型的包，或者自己实现一个模型
 def get_model():
     return BaiChuanForCausalLM(BaiChuanConfig())    
 
