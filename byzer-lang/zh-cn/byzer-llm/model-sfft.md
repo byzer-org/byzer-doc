@@ -146,8 +146,10 @@ from transformers import AutoTokenizer, AutoModelForCausalLM,BitsAndBytesConfig
 # ray.util.connect(conn_str="127.0.0.1:10001")
 ray.init(address="auto",ignore_reinit_error=True)
 
-MODEL_DIR = "/home/byzerllm/models/Llama-2-7b-chat-hf"
+# 注意该目录需要有百川模型的 tokenizer.model 文件
+MODEL_DIR = "/home/byzerllm/models/baichuan"
 
+# 重头构建一个百川模型
 def get_model():
     return BaiChuanForCausalLM(BaiChuanConfig())    
 
