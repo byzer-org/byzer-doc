@@ -41,6 +41,7 @@
   * [Byzer-LLM Byzer中使用Stable Diffusion](/byzer-lang/zh-cn/byzer-llm/stable_diffusion.md)
   * [如何给Byzer-LLM适配新模型](/byzer-lang/zh-cn/byzer-llm/new_model.md)
   * [多模态 VisualGLM-6B 使用示例](/byzer-lang/zh-cn/byzer-llm/visualglm-6b.md)
+  * [Prometheus 对接](/byzer-lang/zh-cn/byzer-llm/prometheus-metrics.md)
   * 如何使用 Byzer Notebook 作为聊天框
     * [Notebook 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_chatbox.md)
     * [SQL 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_sqlchat.md)
