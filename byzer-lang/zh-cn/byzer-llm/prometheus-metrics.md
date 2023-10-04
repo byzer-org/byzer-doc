@@ -1,5 +1,17 @@
 # Prometheus 对接
 
+## 扩展
+
+1.  Byzer-LLM Java extension >= 0.1.4  
+2.  Byzer-LLM Python extension >= 0.1.4 
+
+下载 https://download.byzer.org/byzer-extensions/nightly-build/byzer-llm-3.3_2.12-0.1.4.jar 放到 Byzer 引擎
+plugin 目录下。
+
+使用 pip 安装 byzerllm==0.1.4
+
+## 说明
+
 Byzer-LLM 需要搭配 pushgateway 使用，基本流程是 Byzer-LLM 将数据推送到 pushgateway 中，再由 Prometheus 采集。
 
 ## 配置
