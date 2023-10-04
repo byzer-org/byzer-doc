@@ -50,7 +50,7 @@ spark.mlsql.ray.config.service.enabled=true
 
 该参数开启后，Byzer 引擎启动后，会在 Ray 启动一个叫做 `__MLSQL_CONFIG__` 的服务，并且推送配置到该服务中。从而可以让 Ray 获得 Byzer 引擎 `conf/byzer.properties.override` 中的配置信息。
 
-这里存在几个问题：
+## 存在的几个问题
 
 1. Byzer 重启后，会杀死原有的`__MLSQL_CONFIG__` 服务，启动一个新的，并且重新推送配置，导致 Ray 中的老配置被覆盖。
 2. 如果多个 Byzer 引擎连接同一个 Ray 集群，最后一个启动的 Byzer 引擎的配置会生效。最好的解决办法是只在其中一个主 Byzer 引擎中开启该配置。
