@@ -30,6 +30,8 @@ Byzer-LLM 目前支持两类大模型：
 |custom/m3e|  embedding 模型，地址：https://huggingface.co/moka-ai/m3e-base |
 |custom/baichuan|  语言大模型 |
 
+另外 vLLM 支持模型的模型我们也都支持。
+
 
 ## SaaS 大模型
 
@@ -37,6 +39,8 @@ Byzer-LLM 目前支持两类大模型：
 |--|--|
 |saas/chatglm|  Chatglm130B |
 |saas/sparkdesk|  星火大模型 |
+|saas/baichuan|  百川大模型 |
+|saas/zhipu|  智谱大模型 |
 
 ## 能力说明
 
