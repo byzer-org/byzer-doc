@@ -7,7 +7,7 @@ The Byzer have serveral components including:
 1. Byzer-LLM: with this component, you can manage your large language model, including deploy, inference, fine-tune, etc.
 2. Byzer-Retrieval: this component is a distributed retrieval system which designed as a backend for LLM RAG (Retrieval Augmented Generation). The system supports both BM25 retrieval algorithm and vector retrieval algorithm, you can also use both of them at the same time and get a fusion score for each document.
 
- The Byzer also provides three interfaces to interact with Byzer-LLM and Byzer-retrieval:
+The Byzer also provides three interfaces to interact with Byzer-LLM and Byzer-retrieval:
 
 1. Python
 2. Byzer-SQL,  it's a SQL dialect which can be used to ETL, Data Analysis and AI.
