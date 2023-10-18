@@ -111,7 +111,7 @@ and `cluster_settings.location`="/tmp/cluster1"
 and `cluster_settings.numNodes`="1";
 ```
 
-The above statement will create a retrieval cluster named `cluster1` with one node. The data of tables we will create later will be stored in `/tmp/cluster1` directory, and the cluster only has one node.
+The above statement will create a retrieval cluster named `cluster1` with one node. The data of tables in this cluster will be stored in `/tmp/cluster1` directory.
 
 With the cluster created, we can create a table now, try to run the following statement:
 
@@ -124,13 +124,13 @@ and `table_settings.location`="/tmp/cluster1"
 and `table_settings.schema`="st(field(_id,long),field(name,string),field(content,string,analyze),field(vector,array(float)))";
 ```
 
-The above statement will create a table named `table2` in database `db1`, the data will be stored in `/tmp/cluster1` directory, and the table has four fields: `_id`, `name`, `content`, `vector`. The `_id` field is a long type, `name` and `content` are string type which should be analyzed, and `vector` is an array of float type.
+The above statement will create a table named `table2` in database `db1`, and the table has four fields: `_id`, `name`, `content`, `vector`. The `_id` field is a long type, `name` and `content` are string type  and the `content`  should be analyzed, and `vector` is an array of float type.
 
 Notice that we provide a new grammar to define the table schema, it's more readable and easy to use.  More details about this grammar can be found in [here](https://github.com/allwefantasy/byzer-retrieval#table-schema-description)
 
 ## Embedding/Analyzed Data
 
-Before we can write the data into the table, we need to preprocess the data first. The data we want to retrieve is a collection of documents, each document has a name and a content. We need to use a language model to embed the name field into a vector, and then store the vector into the table. We also need to analyzed the content so we can use some keywords to retrieve the document.
+Before we can write the data into the table, we need to preprocess the data first. The data we want to retrieve is a collection of documents, each document has a name and a content field. We need to use a large language model to embed the name field into a vector, and then store the vector into the table. We also need to analyze the content so we can use some keywords to retrieve the document.
 
 The following statement will register m3e model as an Byzer SQL function, and later we will use it to embed the name field into a vector:
 
@@ -149,7 +149,7 @@ and reconnect="false"
 and modelTable="command";
 ```
 
-The code above will register a function named `emb` which can be used to SQL. The `pretrainedModelType` parameter specifies the model type, and the `localModelDir` parameter specifies the model path. You should download the m3e model and put it in the location `/home/byzerllm/models/m3e-base`.
+The code above will register a function named `emb` which can be used to SQL. The `pretrainedModelType` parameter specifies the model type, and the `localModelDir` parameter specifies the model path. You should download the m3e model from huggingface and put it in the location `/home/byzerllm/models/m3e-base`.
 
 The num_gpus parameter specifies the number of GPUs one model worker will use, and the maxConcurrency parameter specifies how many workers will started. In this case, we will start two workers, and each worker will use 0.4 GPU.
 
@@ -183,8 +183,7 @@ from_json(llm_response_predict(emb(llm_param(map(
 from newdata as tableData;
 ```
 
-The above statement will convert the mock data to match the table schema, and then embed the name field and analyze the content field. The result will be stored in a variable named `tableData`.
-
+The above statement will convert the mock data to match the table schema, including embed the name field and analyze the content field. The result will be stored in a variable named `tableData`.
 
 
 Now we can write the tableData into the table:
@@ -205,7 +204,7 @@ The above statement will write the data in `tableData` into the table `table2` i
 
 ## Register the retrieval system as UDF
 
-We need to register the retrieval system as an UDF, and so we can use it in SQL.
+We need to register the retrieval system as an UDF, so we can use it in SQL later. Try to run the following statement:
 
 ```sql
 !byzerllm setup retrieval;
@@ -213,6 +212,7 @@ run command as Retrieval.`` where
 action="register"
 and udfName="search";
 ```
+the above statement will register a function named `search` which can be used to SQL.Notice that you can change the `udfName` parameter to any name you want.
 
 Now you can use the `search` function in SQL, try to run the following statement:
 
@@ -242,7 +242,7 @@ The above output indicates that the retrieval system can do full-text retrieval 
 
 Now we have a retrieval system, we can use it to retrieve the documents we want and  use the retrieved documents as a context to help the language model to answer the question better.
 
- try to run the following statement to register the language model as an UDF, just like what we did for embedding model:
+Try to run the following statement to register the language model as an UDF, just like what we did for embedding model:
 
 ```sql
 !byzerllm setup single;
@@ -264,7 +264,7 @@ The num_gpus parameter specifies the number of GPUs one model worker will use. I
 
 ## Answer the question
 
-Now we can use the language model to answer the question, try to run the following statement:
+Now we can use the large language model to answer the question, try to run the following statement:
 
 ```sql
 select 
@@ -287,7 +287,7 @@ llm_response_predict(baichuan2_13b_chat(llm_param(map(
 
 The above statement will use the retrieved documents as a context , replace the `{0}` in the prompt, and then use the language model to answer the question.
 
-## How to use the retrieval system and the language model in your application
+## How to use the retrieval system and the large language model in your application
 
 Here we will show you how to intergrate the retrieval system and the language model together in your application with Rest API.
 
