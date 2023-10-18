@@ -10,4 +10,4 @@
 
 [Byzer Notebook Doc](/byzer-notebook/zh-cn/)
 [Byzer SQL Doc](/byzer-lang/zh-cn/)
-[Blog](/public/blog/zh-cn/)
+[Blog](/public/blog/en-us/)
