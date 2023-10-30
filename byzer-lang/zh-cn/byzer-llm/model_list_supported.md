@@ -41,6 +41,8 @@ Byzer-LLM 目前支持两类大模型：
 |saas/sparkdesk|  星火大模型 |
 |saas/baichuan|  百川大模型 |
 |saas/zhipu|  智谱大模型 |
+| saas/minimax   | MiniMax 大模型 |
+| saas/qianfan   | 文心一言        |
 
 ## 能力说明
 
