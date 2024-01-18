@@ -9,6 +9,7 @@ Byzer 在 [byzer-org/byzer-extension](https://github.com/byzer-org/byzer-extensi
 * [模式识别/PatternDistribution](/byzer-lang/zh-cn/ml/eda/PatternDistribution.md)
 * [频数分布/DescriptiveMetrics](/byzer-lang/zh-cn/ml/eda/DescriptiveMetrics.md)
 * [唯一标识符/UniqueIdentifier](/byzer-lang/zh-cn/ml/eda/UniqueIdentifier.md)
+* [数据转置/DataTranspose](/byzer-lang/zh-cn/ml/eda/DataTranspose.md)
     
 
 > **注意**：
