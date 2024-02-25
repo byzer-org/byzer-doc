@@ -234,6 +234,9 @@
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)  
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
 
+- Byzer对接RSS(Remote Shuffle Service)和Gluten向量化引擎
+   * [byzer RSS和Velox实战](/byzer-lang/zh-cn/velox/celeborn.md)
+
 - 附录
   * [术语表](/byzer-lang/zh-cn/appendix/terms.md)
   * [Blog](/byzer-lang/zh-cn/appendix/blog.md) 
