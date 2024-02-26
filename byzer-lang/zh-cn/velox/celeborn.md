@@ -20,6 +20,7 @@
 这个是我们新的架构图，byzer-notebook对接多个byzer-engine,然后byzer-engine对接RSS服务，同时RSS配置有Velox Engine。
 
 下图是我的系统版本, JDK使用1.8:
+
 ![img.png](images/system.png)
 
 废话太多了，我们直接开始。首先，我们先看下Gluten的仓库，看下Gluten怎么结合Celeborn,这里是个天坑，目前Gluten只能支持指定版本的Celeborn，不然可能因为Api异常报出一些Warning。
@@ -153,14 +154,11 @@ mvn clean package -Passembly -Pdisable-java8-doclint -Plocal -Pshade -DskipTests
 
 ### 设置Gluten和Celeborn
 
-```
-```
-
-### 启动byzer-lang
-
 - 把gluten-velox-bundle-spark3.3_2.12-ubuntu_22.04-1.1.0-SNAPSHOT.jar从gluten/package/目录下拷贝到byzer-lang/spark/下
 
 - 把celeborn-client-spark-3-shaded_2.12-0.3.0-incubating.jar从celeborn/spark/目录下拷贝到byzer-lang/spark/下
+
+### 启动byzer-lang
 
 PS: 请自行更改byzer的目录
 ```shell
