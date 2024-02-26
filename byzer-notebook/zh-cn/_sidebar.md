@@ -54,6 +54,7 @@
   * [引擎设置](/byzer-notebook/zh-cn/operation/engine.md)
 
 - 开发者指南
+  - [开发环境搭建](/byzer-notebook/zh-cn/developer/dev_env/build_notebooke_dev_env.md)
   - REST API
     * [Liveness API](/byzer-notebook/zh-cn/developer/api/liveness_api.md)
 
