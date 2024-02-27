@@ -1,14 +1,14 @@
 - Byzer SQL Introduction
   * [Byzer SQL 和 Byzer Data+AI 数据库](/byzer-lang/zh-cn/introduction/byzer_lang_intro.md)
   * [Byzer SQL 设计原理](/byzer-lang/zh-cn/introduction/byzer_lang_design.md)
-  * [在线试用](/byzer-lang/zh-cn/introduction/online_trial.md)
   * [如何贡献](/byzer-lang/zh-cn/appendix/contribute.md)  
   * [常见问题 FAQ](/byzer-lang/zh-cn/faq/byzerlang_FAQ.md)
 
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-SQL 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)  
-  - 历史版本
+  * [Byzer-SQL 2.3.10](/byzer-lang/zh-cn/release-notes/2.3.10.md)  
+  - 历史版本    
+    * [Byzer-SQL 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)
     * [Byzer-SQL 2.3.7](/byzer-lang/zh-cn/release-notes/2.3.7.md)  
     * [Byzer-SQL 2.3.6](/byzer-lang/zh-cn/release-notes/2.3.6.md) 
     * [Byzer-SQL 2.3.5](/byzer-lang/zh-cn/release-notes/2.3.5.md)
@@ -22,7 +22,7 @@
     * [Byzer-SQL 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
     * [Byzer-SQL 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
 
-- Byzer-SQL LLM Extension:  使用 Byzer-SQL 部署，使用大模型
+- Byzer-SQL LLM Extension
   * [快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
   * [如何通过日志排查错误](/byzer-lang/zh-cn/byzer-llm/ray.md)
   * [介绍](/byzer-lang/zh-cn/byzer-llm/README.md)
@@ -48,14 +48,6 @@
   * [Byzer-SQL LLM Extension Examples](/byzer-lang/zh-cn/byzer-llm/examples/README.md)
     * [虚拟外教示例](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
     * [示例Notebook项目](/byzer-lang/zh-cn/byzer-llm/examples/notebookexamples.md)
-
-- Byzer-SQL Retrieval Extension: 使用 Byzer-SQL 写入和查询检索库
-  * [构建基于大模型问答知识库快速示例](/byzer-lang/zh-cn/byzer-retrievalqa/qa.md)
-  * [准备模型](/byzer-lang/zh-cn/byzer-retrievalqa/models.md)
-  * [构建向量索引库](/byzer-lang/zh-cn/byzer-retrievalqa/build_vector_db.md)
-  * [部署向量索引库](/byzer-lang/zh-cn/byzer-retrievalqa/deploy_vector_db.md)
-  * [查询知识库](/byzer-lang/zh-cn/byzer-retrievalqa/query_on_qa.md)
-  * [向量模型](/byzer-lang/zh-cn/byzer-retrievalqa/embedding_model.md)
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
@@ -217,7 +209,7 @@
     * [Byzer-python 并行度](/byzer-lang/zh-cn/python/py_parallel.md)
 
 - 开发者指南   
-    * 修改Byzer-lang
+    * 修改Byzer-SQL
       * [设置 Intellij IDE 开发环境](/byzer-lang/zh-cn/developer/core/ide.md)
       * [修改代码并打包示例](/byzer-lang/zh-cn/developer/core/package.md)
     * 插件开发
