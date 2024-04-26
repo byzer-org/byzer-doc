@@ -14,7 +14,7 @@
 
 在 Byzer 数据库所在服务器上，用如下指令启动一个SaaS大模型代理：
 
-```
+```bash
 byzerllm deploy --pretrained_model_type saas/qianwen \
 --cpus_per_worker 0.001 \
 --gpus_per_worker 0 \
@@ -25,7 +25,20 @@ byzerllm deploy --pretrained_model_type saas/qianwen \
 
 这里记得把你的 `${MODEL_QIANWEN_TOKEN}` 替换成你的实际 API_KEY.
 
-你可以用相同的方式部署一个私有模型，参考文档: https://github.com/allwefantasy/byzer-llm
+你可以用相同的方式部署一个私有模型：
+
+```bash
+byzerllm deploy --pretrained_model_type custom/auto \
+--infer_backend vllm \
+--model_path /home/winubuntu/models/openbuddy-zephyr-7b-v14.1 \
+--cpus_per_worker 0.001 \
+--gpus_per_worker 1 \
+--num_workers 1 \
+--infer_params backend.max_model_len=28000 \
+--model zephyr_7b_chat
+```
+
+更多信息参考文档: https://github.com/allwefantasy/byzer-llm
 
 ### 2. 连接模型
 
