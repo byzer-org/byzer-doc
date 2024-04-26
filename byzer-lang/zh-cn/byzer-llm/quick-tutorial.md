@@ -1,8 +1,8 @@
-# Byzer-LLM 快速使用指南
+# Byzer-SQL 大模型快速使用指南
 
-该文档将会带领你快速了解 Byzer-LLM 的安装和使用。
+该文档将会带领你快速了解 Byzerd-SQL 用。
 
-## 安装
+## 安装 Byzer 数据库
 
 参考文档：https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/deploy 
 
@@ -12,35 +12,35 @@
 
 ## 使用
 
-### 1. 下载模型
-
-这里推荐根据资源情况，你可以选择不同大小的模型。假设你下载了 OpenBuddy 社区的 llama7b : https://huggingface.co/OpenBuddy/openbuddy-llama-7b-v4-fp16 ，你可以将其放入:
+在 Byzer 数据库所在服务器上，用如下指令启动一个SaaS大模型代理：
 
 ```
-/home/byzerllm/models/openbuddy-llama-7b-v4-fp16
+byzerllm deploy --pretrained_model_type saas/qianwen \
+--cpus_per_worker 0.001 \
+--gpus_per_worker 0 \
+--num_workers 2 \
+--infer_params saas.api_key=${MODEL_QIANWEN_TOKEN}  saas.model=qwen-max \
+--model qianwen_chat
 ```
 
-### 2. 启动模型
+这里记得把你的 `${MODEL_QIANWEN_TOKEN}` 替换成你的实际 API_KEY.
 
-新建一个 Notebook, 在第一个cell里填入如下代码：
+你可以用相同的方式部署一个私有模型，参考文档: https://github.com/allwefantasy/byzer-llm
+
+### 2. 连接模型
+
+在你的账户下，新建一个 Notebook, 在第一个cell里填入如下代码：
 
 ```sql
+-- 连接一个已经部署好的模型
 !byzerllm setup single;
-!byzerllm setup "num_gpus=1";
-!byzerllm setup "maxConcurrency=1";
 
 run command as LLM.`` where 
 action="infer"
-and pretrainedModelType="llama"
-and localModelDir="/home/byzerllm/models/openbuddy-llama-7b-v4-fp16"
-and reconnect="false"
-and udfName="llama_7b_chat"
-and modelTable="command";
+and reconnect="true"
+and pretrainedModelType="saas/qianwen"
+and udfName="qianwen_chat";
 ```
-
-你可以参考这篇文章访问 Ray Dashboard, 从而在 Web 界面上查看日志等。
-
-https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/ray
 
 ### 和大模型对话
 
@@ -48,10 +48,7 @@ https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/ray
 
 ```sql
 --%chat
---%model=llama_7b_chat
---%system_msg=You are a helpful assistant. Think it over and answer the user question correctly.
---%user_role=User
---%assistant_role=Assistant
+--%model=qianwen_chat
 --%output=q1
 
 你好，请记住我的名字，我叫祝威廉。如果记住了，请说记住。
@@ -61,13 +58,17 @@ https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/ray
 
 ```sql
 --%chat
---%model=llama_7b_chat
---%user_role=User
---%assistant_role=Assistant
+--%model=qianwen_chat
 --%input=q1
 --%output=q2
 
 请问我叫什么名字？
+```
+
+输出：
+
+```
+您好，您叫祝威廉。
 ```
 
 ### 3. 通过SQL调用大模型
@@ -76,35 +77,33 @@ https://docs.byzer.org/#/byzer-lang/zh-cn/byzer-llm/ray
 
 ```sql
 select 
-llama_7b_chat(llm_param(map(
-              "user_role","User",
-              "assistant_role","Assistant",
-              "system_msg",'You are a helpful assistant. Think it over and answer the user question correctly.',
-              "instruction",llm_prompt('
-你好，请记住我的名字：{0}              
-',array("祝威廉"))
-
+kimi_chat(llm_param(map(
+              "instruction",'我是威廉，请记住我是谁。'
 )))
 
- as q as q1;
+as response as table1;
 
+select llm_result(response) as result from table1 as output;
 ```
 
 继续追问：
 
 ```sql
 select 
-llama_7b_chat(llm_stack(q,llm_param(map(
-              "user_role","User",
-              "assistant_role","Assistant",
+kimi_chat(llm_stack(response,llm_param(map(
               "instruction",'请问我是谁？'
 ))))
 
-as q from q1
-as q2;
+as response from table1
+as table2;
+
+select llm_result(response) as result from table2 as output;
 ```
 
+
 ### 4. 通过Python调用大模型
+
+打开一个新的Cell,复制黏贴下面的代码到Cell中：
 
 ```python
 #%python
@@ -124,7 +123,7 @@ import json
 ray_context = RayContext.connect(globals(),None)
 
 def request(sql:str,json_data:str)->str:
-    url = "http://127.0.0.1:9003/model/predict"
+    url = "http://localhost:7003/model/predict"
     data = {
         "sessionPerUser": "true",
         "sessionPerRequest": "true",
@@ -139,21 +138,24 @@ def request(sql:str,json_data:str)->str:
     return response.text
 
 def chat(s:str,history:List[Tuple[str,str]])->str:
-    newhis = [{"query":item[0],"response":item[1]} for item in history]
     json_data = json.dumps([
-        {"instruction":s,"history":newhis}
-    ])
+        {"instruction":s}
+    ],ensure_ascii=False)
     
-    response = request("select llama_7b_chat(array(feature)) as value",json_data)   
+    response = request("select qianwen_chat(array(feature)) as value",json_data)   
 
 
     t = json.loads(response)
     t2 = json.loads(t[0]["value"][0])
-    return t2[0]["predict"] 
+    return t2["output"] 
+    # return response
     
-ray_context.build_result([{"content":chat("You are a helpful assistant. Think it over and answer the user question correctly. User:你好\nAssistant:",[])}])
+ray_context.build_result([{"content":chat("你好",[])}])
+
 
 ```
+
+
 
 ### 5. 对大模型做微调
 

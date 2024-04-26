@@ -72,7 +72,7 @@ Byzer SQL 和其执行引擎构成的分布式数据库，基于云原生架构�
 </p>
 
 
-Byzer 数据库轻松涵盖大数据， AI 和大模型全生命周期工作。 用户使用 Byzer SQL 和 Byzer 数据库进行交互。此外, Byzer 数据库除了有 Byzer-LLM 这个大模型插件引擎以外，还有 Byzer-QARetriever 插件引擎用于基于大模型的问答检索。
+Byzer 数据库轻松涵盖大数据， AI 和大模型全生命周期工作。 用户使用 Byzer SQL 和 Byzer 数据库进行交互。此外, Byzer 数据库也支持各种大模型，允许你在 Byzer-SQL 中部署和使用各种大模型，包括开源私有大模型或者SaaS模型。
 
 ### Byzer 支持 Python
 

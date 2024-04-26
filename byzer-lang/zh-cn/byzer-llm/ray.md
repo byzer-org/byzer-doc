@@ -1,7 +1,7 @@
 ## 如何通过日志排查错误
 
-Byzer-LLM 目前会使用 Ray 部署模型。 一个模型分成两个部分，一个是 UDFMaster，一个是 UDFWorker。
-通常一个模型部署实例，对应一个UDFMaster ，一个或者多个UDFWorker。
+当你在 Byzer 数据库所在服务器部署模型后，目前他daemon进程会启动相应的服务。 
+一个模型分成两个部分，一个是 UDFMaster，一个是 UDFWorker。通常一个模型部署实例，对应一个UDFMaster ，一个或者多个UDFWorker。
 
 当我使用如下代码进行部署时：
 

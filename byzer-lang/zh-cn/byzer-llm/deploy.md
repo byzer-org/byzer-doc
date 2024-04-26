@@ -118,7 +118,7 @@ conda install -y cuda -c nvidia/label/cuda-11.8.0
 ```
 
 
-### Ray 部署
+### 启动 Deamon 进程
 
 
 1. 确定切换到环境 `byzerllm-dev`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
@@ -202,8 +202,6 @@ notebook.user.home=/mlsql
 
 
 此时就可以访问 9002 端口了，进入 Notebook 界面开始工作了。
-
-
 
 
 

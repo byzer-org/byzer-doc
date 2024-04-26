@@ -22,32 +22,17 @@
     * [Byzer-SQL 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
     * [Byzer-SQL 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
 
-- Byzer-SQL LLM Extension
-  * [快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
-  * [如何通过日志排查错误](/byzer-lang/zh-cn/byzer-llm/ray.md)
-  * [介绍](/byzer-lang/zh-cn/byzer-llm/README.md)
-  * [部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)
-  * [模块LLM使用介绍](/byzer-lang/zh-cn/byzer-llm/module.md) 
-  * 非默认推理后端
-    * [使用 vLLM 作为 inference backend](/byzer-lang/zh-cn/byzer-llm/vllm_infer_backend.md)  
-    * [使用 Deepspeed 作为 inference backend](/byzer-lang/zh-cn/byzer-llm/deepspeed_infer_backend.md)  
-  * [示例 Notebook](/byzer-lang/zh-cn/byzer-llm/example1.md)
-  * [API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)
-  * [如何处理PDF/Word等](/byzer-lang/zh-cn/byzer-llm/pdf.md)
+- Byzer-SQL 中使用 LLM
+  * [大模型快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
+  * [如何通过日志排查错误](/byzer-lang/zh-cn/byzer-llm/ray.md)  
+  * [部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)    
+  * [API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)  
   * [升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
-  * [内置大模型支持列表](/byzer-lang/zh-cn/byzer-llm/model_list_supported.md)
   * [模型微调](/byzer-lang/zh-cn/byzer-llm/model-sft.md)
   * [模型预训练](/byzer-lang/zh-cn/byzer-llm/model-sfft.md)
   * [Byzer-SQL中使用Stable Diffusion](/byzer-lang/zh-cn/byzer-llm/stable_diffusion.md)
-  * [如何给Byzer-SQL LLM Extension适配新模型](/byzer-lang/zh-cn/byzer-llm/new_model.md)
-  * [多模态 VisualGLM-6B 使用示例](/byzer-lang/zh-cn/byzer-llm/visualglm-6b.md)
-  * [Prometheus 对接](/byzer-lang/zh-cn/byzer-llm/prometheus-metrics.md)
-  * 如何使用 Byzer Notebook 作为聊天框
-    * [Notebook 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_chatbox.md)
-    * [SQL 多轮聊天](/byzer-lang/zh-cn/byzer-llm/notebook_sqlchat.md)
-  * [Byzer-SQL LLM Extension Examples](/byzer-lang/zh-cn/byzer-llm/examples/README.md)
-    * [虚拟外教示例](/byzer-lang/zh-cn/byzer-llm/examples/digital_teacher.md)
-    * [示例Notebook项目](/byzer-lang/zh-cn/byzer-llm/examples/notebookexamples.md)
+  * [Prometheus 对接](/byzer-lang/zh-cn/byzer-llm/prometheus-metrics.md)  
+  
 
 - 安装与配置
   * [Byzer 引擎部署指引](/byzer-lang/zh-cn/installation/README.md)
