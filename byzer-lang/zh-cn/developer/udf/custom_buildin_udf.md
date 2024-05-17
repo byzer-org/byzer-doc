@@ -13,6 +13,78 @@
 
 下面是一个具体的流程：
 
+## 创建一个scala项目
+
+用 maven创建一个scala项目。 scala版本和 byzer-lang保持一致。 2.12.15。
+
+## 通过mvn install 安装 byzer-lang 依赖
+
+在你的开发环境中，git clone byzer-lang 主项目，然后进行一次install:
+
+```bash
+mvn clean install -DskipTests -Ponline  -pl streamingpro-mlsql -am
+```
+
+这样你就可以在上面的项目中引入 byzer-lang 相关的依赖了。
+
+```xml
+<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <scala.version>2.12.15</scala.version>
+        <scala.binary.version>2.12</scala.binary.version>
+        <spark.version>3.3.0</spark.version>
+        <spark.bigversion>3.3</spark.bigversion>
+        <spark.binary.version>3.3</spark.binary.version>
+        <scalatest.version>3.2.13</scalatest.version>
+        <mlsql.version>2.4.0-SNAPSHOT</mlsql.version>
+        <delta-plus.version>0.4.0</delta-plus.version>
+        <guava.version>16.0</guava.version>
+        <httpclient.version>4.5.3</httpclient.version>
+        <common-utils-version>0.3.9.5</common-utils-version>
+        <serviceframework.version>2.0.9</serviceframework.version>
+        <scope>provided</scope>
+        <hadoop-client-version>2.6.5</hadoop-client-version>
+        <bigdl.version>0.8.0</bigdl.version>
+    </properties>
+<dependencies>
+<dependency>
+    <groupId>tech.mlsql</groupId>
+    <artifactId>common-utils_${scala.binary.version}</artifactId>
+    <version>${common-utils-version}</version>
+    <scope>${scope}</scope>
+    </dependency>
+
+    <dependency>
+    <groupId>tech.mlsql</groupId>
+    <artifactId>streamingpro-mlsql-spark_${spark.bigversion}_${scala.binary.version}</artifactId>
+    <version>${mlsql.version}</version>
+    <scope>${scope}</scope>
+    </dependency>
+
+    <dependency>
+    <groupId>tech.mlsql</groupId>
+    <artifactId>streamingpro-core-${spark.bigversion}_${scala.binary.version}</artifactId>
+    <version>${mlsql.version}</version>
+    <scope>${scope}</scope>
+    </dependency>
+
+    <dependency>
+    <groupId>tech.mlsql</groupId>
+    <artifactId>streamingpro-common-${spark.bigversion}_${scala.binary.version}</artifactId>
+    <version>${mlsql.version}</version>
+    <scope>${scope}</scope>
+    </dependency>
+
+    <dependency>
+    <groupId>tech.mlsql</groupId>
+    <artifactId>streamingpro-spark-${spark.version}-adaptor_${scala.binary.version}</artifactId>
+    <version>${mlsql.version}</version>
+    <scope>${scope}</scope>
+    </dependency>
+</dependencies>    
+```
+
 ## 开发UDF函数
 
 ```scala
@@ -144,15 +216,7 @@ register("crawler_request", 中的 `crawler_request` 是在 Byzer-SQL 中调用�
 
 ## 如何打包
 
-在你的开发环境中，git clone byzer-lang 主项目，然后进行一次install:
-
-```bash
-mvn clean install -DskipTests -Ponline  -pl streamingpro-mlsql -am
-```
-
-这样你就可以引入 byzer-lang 相关的依赖了。有了依赖，你就可以加到你的项目里去，从而开发上面的类。
-
-打包后，将jar包放到 BYZER_HOME/plugin 目录下。
+将你的项目打包，然后把将jar包放到 BYZER_HOME/plugin 目录下。
 
 ## 注册
 
