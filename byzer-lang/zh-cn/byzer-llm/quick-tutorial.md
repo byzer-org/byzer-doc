@@ -51,9 +51,11 @@ byzerllm deploy --pretrained_model_type custom/auto \
 run command as LLM.`` where 
 action="infer"
 and reconnect="true"
-and pretrainedModelType="saas/qianwen"
+and pretrainedModelType="saas/*"
 and udfName="qianwen_chat";
 ```
+
+这里我们连接了在命令行中启动的 qianwen_chat 实例。
 
 ### 和大模型对话
 

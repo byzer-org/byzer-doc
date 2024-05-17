@@ -121,16 +121,24 @@ conda install -y cuda -c nvidia/label/cuda-11.8.0
 ### 启动 Deamon 进程
 
 
-1. 确定切换到环境 `byzerllm-dev`，安装 pip 依赖：https://github.com/allwefantasy/byzer-llm/blob/master/demo-requirements.txt
+1. 确定切换到环境 `byzerllm-dev`，通过如下方式安装依赖：
 
+```bash
+pip install -U auto-coder
+```
 
 继续保持在环境 `byzerllm-dev`， 然后使用如下命令启动 Ray:
 
+```bash
+ray start --head
 ```
+
+如果你需要使用GPU，那么可以使用如下命令启动 Ray:
+
+```bash
 CUDA_VISIBLE_DEVICES=0,1 ray start --head \
---dashboard-host 192.168.3.224 \
+--dashboard-host 0.0.0.0 \
 --num-gpus=2 \
---object-store-memory 40949672960 \
 --storage /my8t/byzerllm/ray_stroage  \
 --temp-dir /my8t/byzerllm/ray_temp 
 ```
@@ -147,14 +155,14 @@ CUDA_VISIBLE_DEVICES=0,1 ray start --head \
 
 下载：
 
-1. Byzer-lang: https://download.byzer.org/byzer-lang/2.3.8/byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.8.tar.gz
-2. Byzer-notebook: https://download.byzer.org/byzer-notebook/1.2.5/Byzer-Notebook-1.2.5.tar.gz
+1. Byzer-lang: https://download.byzer.org/byzer-lang/2.3.9/byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.9.tar.gz
+2. Byzer-notebook: https://download.byzer.org/byzer-notebook/1.2.6/Byzer-Notebook-1.2.6.tar.gz
 
 然后解压。
 
 首先是启动 Byzer-lang 引擎，
 
-进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.8 目录，执行如下命令即可启动 Byzer 引擎：
+进入 byzer-lang-all-in-one-linux-amd64-3.3.0-2.3.9 目录，执行如下命令即可启动 Byzer 引擎：
 
 ```shell
 ./bin/byzer.sh start
@@ -170,7 +178,7 @@ CUDA_VISIBLE_DEVICES=0,1 ray start --head \
 
 启动 Byzer Notebook 则需要提前准备一个 MySQL 数据库，建议 5.7 版本的，然后创建一个名称叫做 notebook 的数据库。
 
-现在可以进入 Byzer-Notebook-1.2.5， 修改 conf/notebook.properties 文件，
+现在可以进入 Byzer-Notebook-1.2.6， 修改 conf/notebook.properties 文件，
 
 根据数据库实际地址修改数据库配置部分：
 

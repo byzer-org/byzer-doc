@@ -210,6 +210,7 @@
       * [Readiness API](/byzer-lang/zh-cn/developer/api/readiness.md)
     * [自动化测试用例开发](/byzer-lang/zh-cn/developer/it/integration_test.md)  
     * [性能调优](/byzer-lang/zh-cn/developer/tunning/dynamic_resource.md)
+    * [开发内置UDF](/byzer-lang/zh-cn/developer/udf/custom_buildin_udf.md)
 
 - Byzer对接RSS(Remote Shuffle Service)和Gluten向量化引擎
    * [byzer RSS和Velox实战](/byzer-lang/zh-cn/velox/celeborn.md)
