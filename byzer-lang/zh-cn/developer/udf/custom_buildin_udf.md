@@ -2,7 +2,16 @@
 
 我们可以在 Byzer-SQL 脚本中直接通过 register UDF 来注册自定义的 UDF 函数，但这个功能还不够强大，如果用户希望开发非常复杂的UDF，那么可以用 Scala 来开发内置UDF。
 
-比如，我想开发一系列的爬虫相关的UDF函数，可以这样：
+总体而言，要开发一个内置的UDF,需要做如下步骤：
+
+1. 创建一个scala项目
+2. 通过mvn install 安装 byzer-lang 依赖
+3. 开发UDF函数
+4. 打出一个jar包
+5. 将jar包放到 BYZER_HOME/plugin 目录下
+6. 在配置文件（conf/byzer.properties.override）中添加一个配置： `streaming.udf.clzznames`
+
+下面是一个具体的流程：
 
 ## 开发UDF函数
 
