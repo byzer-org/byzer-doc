@@ -22,10 +22,9 @@
     * [Byzer-SQL 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
     * [Byzer-SQL 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
 
-- Byzer-SQL 中使用 LLM
-  * [大模型快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)
-  * [如何通过日志排查错误](/byzer-lang/zh-cn/byzer-llm/ray.md)  
+- Byzer-SQL 中使用 LLM  
   * [部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)    
+  * [快速使用指南](/byzer-lang/zh-cn/byzer-llm/quick-tutorial.md)  
   * [API 调用](/byzer-lang/zh-cn/byzer-llm/api.md)  
   * [升级指南](/byzer-lang/zh-cn/byzer-llm/upgrade.md)
   * [模型微调](/byzer-lang/zh-cn/byzer-llm/model-sft.md)
