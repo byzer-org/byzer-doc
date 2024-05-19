@@ -6,21 +6,7 @@
 
 - 发行声明
   * [Byzer 版本管理策略](/byzer-lang/zh-cn/release-notes/README.md)
-  * [Byzer-SQL 2.3.10](/byzer-lang/zh-cn/release-notes/2.3.10.md)  
-  - 历史版本    
-    * [Byzer-SQL 2.3.8](/byzer-lang/zh-cn/release-notes/2.3.8.md)
-    * [Byzer-SQL 2.3.7](/byzer-lang/zh-cn/release-notes/2.3.7.md)  
-    * [Byzer-SQL 2.3.6](/byzer-lang/zh-cn/release-notes/2.3.6.md) 
-    * [Byzer-SQL 2.3.5](/byzer-lang/zh-cn/release-notes/2.3.5.md)
-    * [Byzer-SQL 2.3.4](/byzer-lang/zh-cn/release-notes/2.3.4.md)
-    * [Byzer-SQL 2.3.3](/byzer-lang/zh-cn/release-notes/2.3.3.md)
-    * [Byzer-SQL 2.3.2](/byzer-lang/zh-cn/release-notes/2.3.2.md)
-    * [Byzer-SQL 2.3.1](/byzer-lang/zh-cn/release-notes/2.3.1.md)
-    * [Byzer-SQL 2.3.0.1](/byzer-lang/zh-cn/release-notes/2.3.0.1.md)
-    * [Byzer-SQL 2.3.0](/byzer-lang/zh-cn/release-notes/2.3.0.md)
-    * [Byzer-SQL 2.2.2](/byzer-lang/zh-cn/release-notes/2.2.2.md)
-    * [Byzer-SQL 2.2.1](/byzer-lang/zh-cn/release-notes/2.2.1.md)
-    * [Byzer-SQL 2.2.0](/byzer-lang/zh-cn/release-notes/2.2.0.md)
+  * [Byzer-SQL 2.3.10](/byzer-lang/zh-cn/release-notes/2.3.10.md)    
 
 - Byzer-SQL 中使用 LLM  
   * [部署](/byzer-lang/zh-cn/byzer-llm/deploy.md)    
