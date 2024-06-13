@@ -1,4 +1,4 @@
-# How to use Byzer-SQL to build RAG(Retrieval Augmented Generation) based application from scrach
+# How to use Byzer-SQL to build RAG(Retrieval Augmented Generation) based application from scratch
 
 Byzer is an collection of applications based on Ray which works together to serve as LLM infrastructure.
 
