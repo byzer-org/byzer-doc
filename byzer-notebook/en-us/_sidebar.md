@@ -46,6 +46,7 @@
   * [Engine Setting](/byzer-notebook/en-us/operation/engine.md)
 
 - Develop Guide
+  - [Development environment setup](/byzer-notebook/en-us/developer/dev_env/build_notebooke_dev_env.md)
   - REST API
     * [Liveness API](/byzer-notebook/en-us/developer/api/liveness_api.md)
 
